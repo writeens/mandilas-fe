@@ -22,7 +22,7 @@ const cartShipping = document.querySelector('#cart-shipping');
 // Handle Product Click
 const handleProductClick = (elem) => {
     const id = elem.getAttribute(`data-id`)
-    window.location.href = `/Airconditioners/index.html?id=${id}`;
+    window.location.href = `Airconditioners/index.html?id=${id}`;
 }
 
 //Function to return a number of random items from an array
@@ -232,7 +232,7 @@ const showItemsInCart = () => {
     let cart = JSON.parse(localStorage.getItem('mandilasCart'));
     //If Cart is Empty
     if(cart.length <= 0){
-        window.location.href = `/Airconditioners/main.html`
+        window.location.href = `Airconditioners/main.html`
     } else if(cart.length > 0){
         // Cart is not empty
         createCartItem(cart)

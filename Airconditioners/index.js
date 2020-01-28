@@ -20,9 +20,9 @@ let CURRENT_PRODUCT = '';
 
 // Check Current Page
 const checkPage = () => {
-    if(window.location.pathname === '/Airconditioners/main.html'){
+    if(window.location.pathname === 'Airconditioners/main.html'){
         return 'allProductsPage';
-    } else if(window.location.pathname === ('/Airconditioners/index.html') || window.location.pathname === ('/AirConditioners/index.html')){
+    } else if(window.location.pathname === ('Airconditioners/index.html') || window.location.pathname === ('AirConditioners/index.html')){
         return 'singleProductPage';
     }else{
         return 'checkName'
@@ -32,7 +32,7 @@ const checkPage = () => {
 // Handle Clicking Of Products
 const handleProductClick = (elem) => {
     const id = elem.getAttribute(`data-id`)
-    window.location.href = `/Airconditioners/index.html?id=${id}`;
+    window.location.href = `Airconditioners/index.html?id=${id}`;
 }
 
 //Get Data on single product
@@ -233,7 +233,7 @@ const handleMainAirConPageLoad = async() => {
         let id = params.get('id');
         // No query provided
         if(id === null){
-            window.location.href = '/Airconditioners/main.html'
+            window.location.href = 'Airconditioners/main.html'
         }else{
             console.log(id)
             createProductPage(id);
