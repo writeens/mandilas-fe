@@ -1,0 +1,435 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../Assets/main.jpg);
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+/* Motors After Sale/ Owner Registration*/
+.motors-as-header{
+    height: 600px;
+    background-image: url(../Assets/motors-as-header.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.motors-as-header > p {
+    font-size: 6.5rem;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+.motors-as-form{
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 15rem 4rem 15rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.motors-as-form-header-text{
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-self: center;
+    margin-bottom: 1.5rem;
+}
+.motors-as-row{
+    display:flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+}
+.motors-as-row > input{
+    width: 40%;
+    padding: 1rem;
+}
+.motors-as-form input{
+    border: 1px solid #818181;
+    background: transparent;
+    border-radius: 0.2rem;
+}
+.motors-as-form input::placeholder{
+    padding: 0.2rem 0.3rem;
+    font-weight: 500;
+}
+.motors-as-form-green-text{
+    color: #129347;
+    margin-bottom: 0.5rem;
+}
+.motors-as-input-date{
+    margin-bottom: 2rem;
+    width: 40%;
+    padding: 1rem;
+}
+.motors-as-row.vd > input{
+    width: 30%;
+}
+.motors-as-form > button{
+    width: fit-content;
+    padding: 1rem 4rem;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #129347;
+    cursor: pointer;
+}
+@media screen and (max-width:1350px){
+    .motors-as-header{
+        height: 500px;
+    }
+    .motors-as-header > p {
+        font-size: 3.5rem;
+        padding: 2rem 3rem;
+    }
+    .motors-as-form{
+        margin: 0 2rem 4rem 2rem;
+        padding: 2rem;
+    }
+}
+@media screen and (max-width:800px){
+    .motors-as-header > p {
+        font-size: 2.5rem;
+        padding: 2rem 0;
+    }
+    .motors-as-form{
+        margin: 0 0 3rem 0;
+        padding: 2rem 0.5rem;
+        border-radius: 0;
+        box-shadow: none;
+    }
+    .motors-as-row{
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .motors-as-input-date{
+        width: 100%;
+        padding: 1rem 0;
+    }
+    .motors-as-row > input{
+        width: 100%;
+        margin: 0; 
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+    }
+    .motors-as-row.vd > input{
+        width: 100%;
+    }
+}
+/* Motors After Sale/ Owner Registration*/
+
+/* Spare Parts */
+.spare-parts-header{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    background-image: url(../Assets/spare-parts.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    padding: 10rem 6rem ;
+}
+.spare-parts-header > p:first-of-type{
+    font-size: 8rem;
+    font-weight: 600;
+    margin-bottom: 4rem;
+}
+.spare-parts-header > p:last-of-type{
+    font-size: 2.5rem;
+    font-weight: 400;
+    width: 900px;
+    margin-bottom: 4rem;
+}
+.spare-parts-header > button{
+    display: flex;
+    color: white;
+    background-color: #129347;
+    width: fit-content;
+    padding: 1rem 4rem;
+    border-radius: 0.2rem;
+    font-size: 1.2rem;
+    border: none;
+}
+.spare-parts-content{
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0rem 2rem 0rem;
+    margin-bottom: 4rem;
+}
+.spare-parts-content > p:first-of-type{
+    font-size: 2rem;
+    align-self: center;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.spare-parts-card-row{
+    width: fit-content;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+.spare-parts-card{
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.3rem;
+    width: 300px;
+    height: 300px;
+    padding: 1rem;
+    margin: 1rem 0.5rem;
+    border: 1px solid #129347;
+}
+.spare-parts-item-row{
+    align-self: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: fit-content;
+    justify-content: center;
+}
+.spare-parts-item{
+    width: 270px;
+    margin: 1rem 0.5rem;
+}
+.spare-parts-item > img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+} 
+.spare-parts-item > p{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+@media screen and (max-width:1350px){
+    .spare-parts-header{
+        height: fit-content;
+        padding: 5rem 1rem ;
+        text-align: center;
+    }
+    .spare-parts-header > p:first-of-type{
+        font-size: 6rem;
+        font-weight: 600;
+    }
+    .spare-parts-header > p:last-of-type{
+        font-size: 3rem;
+        width: fit-content;
+    }
+    .spare-parts-header > button{
+        align-self: center;
+    }
+}
+@media screen and (max-width:800px){
+    .spare-parts-header{
+        padding: 2rem 0.5rem;
+    }
+    .spare-parts-header > p:first-of-type{
+        font-size: 3rem;
+        font-weight: 600;
+    }
+    .spare-parts-header > p:last-of-type{
+        font-size: 1.5rem;
+        width: fit-content;
+    }
+}
+/* Spare Parts */
+
+/* Accident Recovery */
+.ar-header{
+    padding: 9rem 5rem;
+    height: 450px;
+    color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url(../Assets/ar-header.jpg);
+}
+.ar-header > p:first-of-type{
+    font-size: 6rem;
+    font-weight: 600;
+    margin-bottom: 5rem;
+}
+.ar-header > p:last-of-type{
+    font-size: 2rem;
+    font-weight: 400;
+    width: 900px;
+}
+.ar-layer-1{
+    padding: 4rem 9rem;
+    height: fit-content;
+    font-size: 1.3rem;
+}
+.ar-layer-1 > p{
+    width: 50%;
+    margin-bottom: 1.5rem;
+}
+.ar-layer-2{
+    display: flex;
+    height: fit-content;
+    margin: 0rem 5rem 2rem 5rem;
+    padding: 2rem 4rem;
+    background-color: #405047;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: white;
+    justify-content: space-between;
+}
+.ar-layer-2-left{
+    width: 45%;
+    display: flex;
+    align-self: center;
+}
+.ar-layer-2-left > p{
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.ar-layer-2-right{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+.ar-layer-2-right > p:nth-child(1){
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 2rem;
+}
+.ar-layer-2-right > p:nth-child(2), .ar-layer-2-right > p:nth-child(3){
+    font-size: 5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.ar-layer-3{
+    display: flex;flex-direction: column;
+    margin: 0rem 9rem 3rem 9rem;
+    justify-content: space-between;
+}
+.ar-layer-3-container{
+    display: flex;
+    justify-content: space-between;
+}
+.ar-layer-3-left{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+}
+.ar-layer-3-bold-text{
+    display: flex;
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.ar-layer-3-medium-text{
+    font-weight: 500;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+.ar-layer-3-left-info{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.ar-layer-3-left-info > p{
+    margin-bottom: 0.5rem;
+}
+.ar-layer-3-right{
+    width: 45%;
+}
+.ar-layer-4{
+    display: flex;
+    height: 500px;
+    margin: 0rem 5rem 3rem 5rem;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media screen and (max-width:1350px){
+    .ar-header{
+        height: fit-content;
+        padding: 5rem 1rem ;
+        text-align: center;
+    }
+    .ar-header > p:last-of-type {
+        width: 100%;
+    }
+    .ar-layer-1{
+        padding: 2rem 0.5rem;
+    }
+    .ar-layer-1 > p {
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+    }
+    .ar-layer-2 {
+        margin: 0 0 2rem 0;
+        padding: 2rem 1rem;
+    }
+    .ar-layer-2-left, .ar-layer-2-right{
+        width: auto;
+    }
+    .ar-layer-3 {
+        margin: 0 0 3rem 0;
+        padding: 2rem 1rem;
+    }
+    .ar-layer-3-bold-text{
+        justify-content: center;
+        text-align: center;
+    }
+    .ar-layer-3-container{
+        flex-direction: column;
+    }
+    .ar-layer-3-left{
+        width: 100%;
+    }
+    .ar-layer-3-right{
+        width: 100%;
+    }
+    .ar-layer-4{
+        margin: 0 0 2rem 0;
+        box-shadow: none;
+    }
+}
+@media screen and (max-width:800px){
+    .ar-header > p:first-of-type {
+        font-size: 3rem;
+    }
+    .ar-header > p:last-of-type {
+        font-size: 1.5rem;
+    }
+    .ar-layer-1 > p {
+        font-size: 1.3rem;
+    }
+    .ar-layer-2{
+        flex-direction: column;
+        /* text-align: center; */
+    }
+    .ar-layer-2-left, .ar-layer-2-right{
+        text-align: center;
+        width: 100%;
+    }
+    .ar-layer-2-right > p:nth-child(2), 
+    .ar-layer-2-right > p:nth-child(3) {
+        font-size: 3rem;
+    }
+}
+
+/* Accident Recovery */
+
+/* *{
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid#f00 1px !important;
+} */
+
+

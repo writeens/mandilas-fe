@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Products</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        main{
+            display: flex;
+            flex-direction: column;
+        }
+        main > p{
+            align-self: center;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+        .inputHolder{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.8rem;
+        }
+        .inputHolder > div{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .inputHolder > div > input{
+            width: 45%;
+            padding: 0.8rem;
+            border: none;
+            background: transparent;
+            border-bottom: 1px solid #129347;
+            outline: none;
+            margin-bottom: 0.8rem;
+        }
+        .inputHolder > input{
+            padding: 0.8rem;
+            border: none;
+            background: transparent;
+            border-bottom: 1px solid #129347;
+            outline: none;
+        }
+        .inputHolder > label{
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        .inputHolder > textarea{
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #129347;
+            padding: 0.8rem;
+        }
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-image: url(../Assets/main.jpg);
+        }
+        .submitButton{
+            align-self: center;
+        }
+        .submitButton > button{
+            padding: 0.8rem 3rem;
+            background-color: #129347;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <p>Products Page</p>
+        <div class="inputHolder">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Enter product name">
+        </div>
+        <div class="inputHolder">
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image" placeholder="Enter product name">
+        </div>
+        <div class="inputHolder">
+            <label for="capacity">Description</label>
+            <div>
+                <input type="number" id="capacity" min="0" placeholder="Enter product capacity">
+                <input type="number" id="wattage" min="0" placeholder="Enter product wattage">
+                <input type="number" id="size" min="0" placeholder="Enter product size (in kg)">
+            </div>
+            <textarea name="" id="description" cols="30" rows="10" placeholder="Enter product description"></textarea>
+        </div>
+        <div class="inputHolder">
+            <label for="name">Pricing</label>
+            <div>
+                <input type="number" id="actualPrice" min="0" placeholder="Enter product's actual price">
+                <input type="number" id="discountPrice" min="0" placeholder="Enter product's discounted price">
+            </div>
+        </div>
+        <div class="inputHolder">
+            <label for="name">Delivery</label>
+            <div>
+                <input type="number" id="deliveryMinimum" min="0" placeholder="At least, how many days would it take to deliver">
+                <input type="number" id="deliveryMaximum" min="0" placeholder="At most, how many days would it take to deliver">
+            </div>
+        </div>
+        <div class="inputHolder">
+            <label for="noOfItemsAvailable">No of Items Available</label>
+            <input type="number" id="noOfItemsAvailable" placeholder="Enter number of products available for sale">
+        </div>
+        <div class="submitButton">
+            <button id="submit">Submit</button>
+        </div>
+    </main>
+</body>
+<script>
+    const submit = document.querySelector('#submit');
+    const name = document.querySelector('#name')
+    const image = document.querySelector('#image')
+    const capacity = document.querySelector('#capacity')
+    const wattage = document.querySelector('#wattage')
+    const size = document.querySelector('#size')
+    const desc = document.querySelector('#description')
+    const actualPrice = document.querySelector('#actualPrice')
+    const discountPrice = document.querySelector('#discountPrice')
+    const deliveryMinimum = document.querySelector('#deliveryMinimum')
+    const deliveryMaximum = document.querySelector('#deliveryMaximum')
+    const noOfItemsAvailable = document.querySelector('#noOfItemsAvailable')
+
+    let body = {};
+    const handleSubmit = () => {
+        const productEndpoint = 'http://localhost:3000/api/v1/mandilas/product'
+        body = {
+            name:name.value,
+            actualPrice:actualPrice.value,
+            discountPrice:discountPrice.value,
+            deliveryMinimum:deliveryMinimum.value,
+            deliveryMaximum:deliveryMaximum.value,
+            description:{
+                capacity:capacity.value,
+                wattage:wattage.value,
+                size:size.value,
+                text:desc.value
+            },
+            noOfItemsAvailable:noOfItemsAvailable.value
+        }
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(body)
+        }
+        fetch(productEndpoint, options)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+    }
+    submit.addEventListener('click', handleSubmit)
+</script>
+</html>

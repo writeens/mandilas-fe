@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Motors</title>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Normalize.css -->
+    <link rel="stylesheet" href="../Utility/normalize.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Navbar/navbar.css">
+    <link rel="stylesheet" href="../Footer/footer.css">
+    <link rel="stylesheet" href="./index.css">
+    <!-- UIkit JS -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js"></script> -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="../Navbar/navbar.js" defer></script>
+    <script src="../Footer/footer.js" defer></script>
+    <script src="./index.js" defer></script>
+</head>
+<body>
+    <div class="hometwo">
+        <div class="hometwo-logo">
+            <img src="../Assets/logo.svg" alt="logo">
+        </div>
+        <div class="hometwo-menu">
+            <div class="hometwo-menu-item">
+                <div class="hometwo-menu-text">
+                    <p>Home</p>
+                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
+                </div>
+            </div>
+            <div class="hometwo-menu-item drop">
+                <div class="hometwo-menu-text">
+                    <p>About Us</p>
+                    <img src="../Assets/arrow-down.svg" alt="">
+                </div>
+                <div class="menu-about hometwo-submenu hometwo-submenu-hide">
+                    <a href="">What we do</a>
+                    <a href="">The Executive Team</a>
+                    <a href="">Company History</a>
+                    <a href="">CSR Activities</a>
+                </div>
+            </div>
+            <div class="hometwo-menu-item drop">
+                <div class="hometwo-menu-text">
+                    <p>Air Conditioning</p>
+                    <img src="../Assets/arrow-down.svg" alt="">
+                </div>
+                <div class="menu-ac hometwo-submenu hometwo-submenu-hide">
+                    <a href="">Carrier A/C</a>
+                    <a href="">After Sales Services</a>
+                    <a href="">Spare Parts</a>
+                    <a href="">Special Contract</a>
+                </div>
+            </div>
+            <div class="hometwo-menu-item drop">
+                <div class="hometwo-menu-text">
+                    <p>Motors</p>
+                    <img src="../Assets/arrow-down.svg" alt="">
+                </div>
+                <div class="menu-motors hometwo-submenu hometwo-submenu-hide">
+                    <a href="">Vehicle Sales</a>
+                    <a href="">Owner Registration</a>
+                    <a href="">Service Booking</a>
+                    <a href="">Spare Parts</a>
+                    <a href="">Warranty</a>
+                    <a href="">Accident Recovery</a>
+                    <a href="">Body Work</a>
+                    <a href="">Lease Fleet Management</a>
+                </div>
+            </div>
+            <div class="hometwo-menu-item">
+                <div class="hometwo-menu-text">
+                    <p>Properties</p>
+                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
+                </div>
+            </div>
+            <div class="hometwo-menu-item drop">
+                <div class="hometwo-menu-text">
+                    <p>Contact Us</p>
+                    <img src="../Assets/arrow-down.svg" alt="">
+                </div>
+                <div class="menu-contact hometwo-submenu hometwo-submenu-hide">
+                    <a href="">Contact Mandilas</a>
+                    <a href="">Locations</a>
+                </div>
+            </div>
+            <div class="hometwo-menu-item">
+                <div class="hometwo-menu-text">
+                    <p>Careers</p>
+                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="hometwo-buttons">
+            <button data-toggle="modal" data-target="#login">Login</button>
+            <button data-toggle="modal" data-target="#signIn">Register</button>
+        </div>
+        <div class="hometwo-toggle">
+            <i class="fa fa-close fa-3x"></i>
+        </div>
+        <div id="login" class="modal fade bd-example-modal-xl login homepage-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="sl-modal">
+                        <div class="sl-content">
+                             <div class="sl-content-left">
+                                <p>Log In To Continue</p>
+                                <img src="../Assets/logo.svg" alt="">
+                             </div>
+                             <div class="sl-content-right">
+                                <p>Log In To Continue</p>
+                                 <div class="sl-content-item">
+                                     <label for="username">Username</label>
+                                     <input type="text" placeholder="John">
+                                 </div>
+                                 <div class="sl-content-item">
+                                     <label for="password">Password</label>
+                                     <input type="text" placeholder="Enter password">
+                                 </div>
+                                 <div class="sl-buttons">
+                                     <button>Login</button>
+                                     <button>or Sign Up</button>
+                                 </div>
+                             </div>
+                             <div class="sl-login-close">&times;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="signIn" class="modal fade bd-example-modal-xl signup homepage-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="sl-modal">
+                        <div class="sl-content">
+                             <div class="sl-content-left">
+                                <p>Sign Up To Continue</p>
+                                <img src="../Assets/logo.svg" alt="">
+                             </div>
+                             <div class="sl-content-right">
+                                 <p>Sign Up To Continue</p>
+                                 <div class="sl-content-item">
+                                     <label for="username">First Name</label>
+                                     <input type="text" placeholder="John">
+                                 </div>
+                                 <div class="sl-content-item">
+                                     <label for="password">Last Name</label>
+                                     <input type="text" placeholder="Doe">
+                                 </div>
+                                 <div class="sl-content-item">
+                                     <label for="password">Email</label>
+                                     <input type="email" placeholder="Enter email">
+                                 </div>
+                                 <div class="sl-content-item">
+                                     <label for="password">Last Name</label>
+                                     <input type="password" placeholder="Enter password">
+                                 </div>
+                                 <div class="signup-agreement">
+                                     <input type="checkbox">
+                                     <p>By signing up, I agree and accept the terms of use</p>
+                                 </div>
+                                 <div class="sl-buttons">
+                                     <button>Login</button>
+                                     <p>Or</p>
+                                     <button>Sign Up</button>
+                                 </div>
+                             </div>
+                             <div class="sl-signin-close">&times;</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="motors-header">
+        <p>MOTORS</p>
+        <p>At Mandilas we are commited to getting you the best vehicle at the right price</p>
+    </div>
+    <div class="motors-content">
+        <div class="motors-buttons">
+            <button class="motors-button-active">New Vehicles</button>
+            <button>Used Vehicles</button>
+        </div>
+        <div class="new-vehicles">
+            <p  class="motors-content-red-text">Explore all vehicles in our collection</p>
+            <div  class="motors-content-nv">
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+                <div class="motors-nv-item">
+                    <img src="../Assets/car-1.jpg" alt="">
+                    <p>Yaris</p>
+                </div>
+            </div>
+        </div>
+        <div class="old-vehicles">
+            <p class="motors-content-red-text">Explore all our refurbished and approved second hand vehicles</p>
+            <div class="motors-content-uv">
+                <div class="motors-content-uv-left">
+                    <div class="filter-by">
+                        <p>Filter Cars by:</p>
+                        <select name="" id="">
+                            <option value="">Make</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">Model</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">Year</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">Body Style</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">Transmission</option>
+                        </select>
+                        <select name="" id="">
+                            <option value="">Price</option>
+                        </select>
+                        <button>Search</button>
+                    </div>
+                </div>
+                <div class="motors-content-uv-right">
+                    <div class="motors-content-uv-cars">
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                        <div class="motors-uv-item">
+                            <img src="../Assets/car-2.jpg" alt="">
+                            <p>Honda Civic 2015 Imported</p>
+                            <p>Available</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="motors-bottom-container">
+                <div class="motors-content-uv-bottom-layer-1">
+                    <div class="motors-content-uv-b-left">
+                        <p>How It Works</p>
+                        <img src="../Assets/car-3.jpg" alt="">
+                        <p>&bull; Schedule an inspection</p>
+                        <p>&bull; Get your car evaluated</p>
+                        <p>&bull; Sell your car</p>
+                        <button>Get Started</button>
+                    </div>
+                    <div class="motors-content-uv-b-right">
+                        <img src="../Assets/car-3.jpg" alt="">
+                    </div>
+                </div>
+                <div class="motors-content-uv-bottom-layer-2">
+                    <div class="motors-content-uv-b-left-layer-2">
+                        <p>Mandilas Used Car Unit procures, assesses, valuates and sells only Approved Used Cars</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                           Ipsum dignissimos officiis natus placeat magni officia nulla 
+                           sed quod autem animi eius, in expedita eligendi incidunt repudiandae voluptatem non similique cum?
+                        </p>
+                        <p>Do you want us to help you sell your car? We can do that under a fixed commission.</p>
+                        <p>Interested in trading in your vehicels? You've come to the right place!</p>
+                    </div>
+                    <div class="motors-content-uv-b-right-layer-2">
+                        <p>Our Specialty</p>
+                        <p>&bull; Toyota: Yaris, Corolla, Camry, Hilux, Prado, Venza, Hiace Bus, Highlander etc.</p>
+                        <p>&bull; Honda: Accord, CRV, City, Civic, Pilot etc.</p>
+                        <p>&bull; Mitsubishi: L200, Pajero etc</p>
+                        <p>&bull; Hyundai: Accent, Elantra, Sonata etc.</p>
+                        <p>&bull; Kia: Rio, Cerato etc.</p>
+                    </div>
+                </div>
+                <p class="motors-content-uv-b-b-layer-2">
+                    We sell brands of used vehicles (models not earlier than year 2000)
+                </p>
+                <div class="motors-content-uv-b-card">
+                    <p>Call Our Agents</p>
+                    <div class="motors-content-uv-b-card-row">
+                        <div class="motors-content-uv-b-card-left">
+                            <div class="motors-content-uv-b-card-item">
+                                <img src="../Assets/user.svg" alt="">
+                                <p><span>Name:</span> Adebisi Adenuga</p>
+                            </div>
+                            <div class="motors-content-uv-b-card-item">
+                                <img src="../Assets/call.svg" alt="">
+                                <p><span>Phone Number:</span> Adebisi Adenuga</p>
+                            </div>
+                            <div class="motors-content-uv-b-card-item">
+                                <img src="../Assets/envelope.svg" alt="">
+                                <p><span>Email:</span> Adebisi Adenuga</p>
+                            </div>
+                        </div>
+                        <div class="motors-content-uv-b-card-right">
+                            <div class="motors-content-uv-b-card-item">
+                                <img src="../Assets/user.svg" alt="">
+                                <p><span>Name:</span> Adebisi Adenuga</p>
+                            </div>
+                            <div class="motors-content-uv-b-card-item">
+                                <img src="../Assets/call.svg" alt="">
+                                <p><span>Phone Number:</span> Adebisi Adenuga</p>
+                            </div>
+                            <div class="motors-content-uv-b-card-item">
+                                <img src="../Assets/envelope.svg" alt="">
+                                <p><span>Email:</span> Adebisi Adenuga</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="footer-logos">
+            <img src="../Assets/logo-white.svg" alt="">
+            <div class="footer-logo">
+                <img src="../Assets/facebook.svg" alt="">
+                <img src="../Assets/twitter.svg" alt="">
+                <img src="../Assets/instagram.svg" alt="">
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-topic">
+                <p>OUR SERVICES</p>
+                <img src="../Assets/chevron-down.svg" alt="">
+            </div>
+            <div class="footer-links hide-footer-links">
+                <a href="">AIR CONDITIONING</a>
+                <a href="">MOTORS</a>
+                <a href="">PROPERTIES</a>
+                <a href="">VEHICLE REGISTRATION</a>
+                <a href="">SPARE PARTS</a>
+                <a href="">WARRANTY</a>
+                <a href="">FLEET MANAGEMENT</a>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-topic">
+                <p>COMPANY</p>
+                <img src="../Assets/chevron-down.svg" alt="">
+            </div>
+            <div class="footer-links hide-footer-links">
+                <a href="">WHAT WE DO</a>
+                <a href="">THE EXECUTIVE TEAM</a>
+                <a href="">COMPANY HISTORY</a>
+                <a href="">CSR ACTIVITIES</a>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-topic">
+                <p>PROPERTIES</p>
+                <img src="../Assets/chevron-down.svg" alt="">
+            </div>
+            <div class="footer-links hide-footer-links">
+                <a href="">LEASE ADMINISTRATION</a>
+                <a href="">LETTING & SALES</a>
+                <a href="">MANAGEMENT</a>
+                <a href="">VALUATION</a>
+                <a href="">LIASING</a>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-topic">
+                <p>CUSTOMERS</p>
+                <img src="../Assets/chevron-down.svg" alt="">
+            </div>
+            <div class="footer-links hide-footer-links">
+                <a href="">CONTACT US</a>
+                <a href="">LOCATIONS</a>
+                <a href="">TRACK SERVICE</a>
+                <a href="">AFTER SALES SERVICE</a>
+                <a href="">AIR CONDITIONING SALES</a>
+            </div>
+        </div>
+        <div class="footer-logo mobile">
+            <img src="../Assets/facebook.svg" alt="">
+            <img src="../Assets/twitter.svg" alt="">
+            <img src="../Assets/instagram.svg" alt="">
+        </div>
+    </div>
+    <div class="copyright">
+        <p>2019 Mandilas. All Rights Reserved</p>
+    </div>
+</body>
+</html>

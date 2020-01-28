@@ -1,0 +1,800 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../Assets/main.jpg);
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+
+/* Motors Page */
+.old-vehicles{
+    display: none;
+    flex-direction: column;
+}
+.new-vehicles{
+    display: flex;
+    flex-direction: column;
+}
+.motors-header{
+    display: flex;
+    height: 600px;
+    background-color: #129347;
+    flex-direction: column;
+    padding: 7rem 8rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+.motors-header > p:first-of-type{
+    font-size: 9rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+    position: relative;
+    top: -3rem;
+}
+.motors-header > p:last-of-type{
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: white;
+    width: 800px;
+}
+.motors-buttons{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+.motors-buttons > button{
+    padding: 1rem 4rem;
+    border: none;
+    border: 1px solid #313131;
+    background-color: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+    outline: none;
+}
+.motors-button-active{
+    background-color: #129347 !important;
+    color: white !important;
+}
+.motors-content{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.motors-content > p:first-of-type{
+    display: flex;
+    align-self: center;
+}
+.motors-content-red-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: red;
+    margin-bottom: 2rem;
+    align-self: center;
+    text-align: center;
+}
+.motors-content-nv {
+    display: flex;
+    flex-wrap: wrap;
+    align-self: center;
+    justify-content: center;
+}
+.motors-nv-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 350px;
+    height: 300px;
+    margin: 0rem 2rem 2rem 0rem;
+}
+.motors-nv-item > img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.motors-nv-item > p {
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.motors-content-uv{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5rem;
+    margin-bottom: 2rem;
+}
+.motors-content-uv-left{
+    width: 100%;
+    position: relative;
+    top: -0.5rem;
+}
+.filter-by{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    background-color: #eee;
+    border-radius: 0.3rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 2rem 3rem 3rem 3rem;
+}
+.filter-by > p{
+    font-size: 3rem;
+    font-weight: 600;
+    color: #129347;
+    margin-bottom: 2rem;
+}
+.filter-by > select{
+    padding: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+.filter-by > button{
+    width: fit-content;
+    padding: 1rem 4rem;
+    display: flex;
+    align-self: center;
+    font-size: 1.4rem;
+    color: white;
+    border: none;
+    border-radius: 0.8rem;
+    background-color: #129347;
+    cursor: pointer;
+}
+.motors-content-uv-right{
+    /* width: 70%; */
+}
+.motors-content-uv-cars{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.motors-uv-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    margin: 0rem 1rem 1rem 1rem;
+}
+.motors-uv-item > img{
+    width: 100%;
+    height: fit-content;
+    object-fit: contain;
+    margin-bottom: 0.5rem;
+}
+.motors-uv-item > p:first-of-type{
+    font-size: 1.2rem;
+    width: 60%;
+    text-align: center;
+    font-weight: 600;
+}
+.motors-uv-item > p:last-of-type{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    display: flex;
+    font-size: 1.1rem;
+    background-color: #129347;
+    color: white;
+    align-self: flex-start;
+    justify-content: center;
+    align-items: center;
+}
+.motors-bottom-container{
+    background-image: url(../Assets/main.jpg);
+}
+.motors-content-uv-bottom-layer-1{
+    display: flex;
+    padding: 2rem 8rem;
+    justify-content: space-between;
+    height: fit-content;
+    background-color: rgba(128, 128, 128, 0.521);
+    margin: 0rem 4rem 2rem 4rem;
+}
+.motors-content-uv-b-left{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+.motors-content-uv-b-left > p:first-of-type{
+    font-size: 5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+.motors-content-uv-b-left > p{
+    font-size: 3rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+.motors-content-uv-b-left > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+}
+.motors-content-uv-b-left > button{
+    width: fit-content;
+    padding: 1rem 4rem;
+    display: flex;
+    align-self: center;
+    font-size: 1.4rem;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    margin-top: 3rem;
+    background-color: #313131;
+    cursor: pointer;
+}
+.motors-content-uv-b-right{
+    display: flex;
+    width: 45%;
+}
+.motors-content-uv-b-right > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.motors-content-uv-bottom-layer-2{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 8rem;
+    height: 500px;
+}
+.motors-content-uv-b-left-layer-2{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+.motors-content-uv-b-left-layer-2 > p{
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+.motors-content-uv-b-right-layer-2{
+    width: 45%;
+}
+.motors-content-uv-b-right-layer-2 > p:first-of-type{
+    font-size: 3rem;
+    color: #129347;
+    font-weight: 600;
+}
+.motors-content-uv-b-right-layer-2 > p{
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+.motors-content-uv-b-b-layer-2{
+    width: 700px;
+    display: flex;
+    color: #129347;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.motors-content-uv-b-card{
+    padding: 5rem 8rem 5rem 8rem;
+    margin: 0rem 5rem 4rem 5rem;
+    border-radius: 0.3rem;
+    background-color: #eee;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.motors-content-uv-b-card > p:first-of-type{
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+.motors-content-uv-b-card-row{
+    display: flex;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+.motors-content-uv-b-card-item {
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+.motors-content-uv-b-card-item > img{
+    width: 30px;
+    height: 30px;
+    margin-right: 2rem;
+    object-fit: contain;
+}
+.motors-content-uv-b-card-item > p {
+    font-size: 1.5rem;
+}
+.motors-content-uv-b-card-item > p > span{
+    font-weight: 600;
+}
+.motors-content-uv-b-card-left{
+    width: 45%;
+}
+.motors-content-uv-b-card-right{
+    width: 45%;
+}
+
+@media screen and (max-width:1350px){
+    .motors-header {
+        height: 500px;
+        padding: 0rem 3rem;
+        align-items: center;
+    }
+    .motors-header > p:first-of-type {
+        font-size: 5rem;
+    }
+    .motors-header > p:last-of-type {
+        font-size: 2.5rem;
+        width: 100%;
+        text-align: center;
+    }
+    .filter-by {
+        border-radius: 0.3rem;
+        box-shadow: none;
+        padding: 2rem;
+    }
+    .motors-content-uv {
+        margin-left: 0rem;
+        flex-direction: column;
+        padding: 1rem 2rem;
+    }
+    .motors-content-uv-left {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .motors-content-uv-right {
+        width: 100%;
+    }
+    .motors-content-uv-cars {
+        justify-content: center;
+    }
+    .motors-uv-item {
+        width: 350px;
+    }
+    .motors-content-uv-bottom-layer-1 {
+        flex-direction: column;
+        padding: 2rem 2rem 3rem 2rem;
+        margin: 0 0 2rem 0;
+    }
+    .motors-content-uv-bottom-layer-2 {
+        padding: 2rem 2rem;
+        height: fit-content
+    }
+    .motors-content-uv-b-left {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+    .motors-content-uv-b-left > p:first-of-type {
+        align-self: center;
+    }
+    .motors-content-uv-b-left > img{
+        width: 100%;
+        height: 500px;
+    }
+    .motors-content-uv-b-right {
+        display: none;
+    }
+    .motors-content-uv-b-left-layer-2 > p, 
+    .motors-content-uv-b-right-layer-2 > p{
+        font-size: 1.5rem;
+    }
+    .motors-content-uv-b-card-row {
+        display: flex;
+        margin-bottom: 3rem;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    .motors-content-uv-b-card {
+        padding: 2rem;
+        margin: 0 0 3rem 0;
+        box-shadow: none;
+    }
+    .motors-content-uv-b-card-left, 
+    .motors-content-uv-b-card-right {
+        width: 100%;
+    }
+    .motors-content-uv-b-b-layer-2 {
+        width: 100%;
+    }
+    
+}
+@media screen and (max-width:800px){
+    .motors-header {
+        padding: 0rem 0rem;
+    }
+    .motors-header > p:first-of-type {
+        font-size: 3rem;
+    }
+    .motors-header > p:last-of-type {
+        font-size: 2rem;
+    }
+    .motors-buttons > button{
+        font-size: 1.2rem;
+        padding: 1rem 1.5rem;
+    }
+    .filter-by{
+        padding: 1rem;
+    }
+    .motors-nv-item {
+        margin: 0;
+    }
+    .motors-uv-item {
+        width: 90%;
+        height: fit-content;
+        margin: 0 0 2rem 0;
+    }
+    .motors-content-uv {
+        margin-left: 0rem;
+        flex-direction: column;
+        padding: 0;
+    }
+    .motors-content-uv-bottom-layer-2 {
+        padding: 2rem;
+        height: fit-content;
+        flex-direction: column;
+    }
+    .motors-content-uv-b-left-layer-2 {
+        width: 100%;
+    }
+    .motors-content-uv-b-right-layer-2 {
+        width: 100%;
+    }
+    .motors-content-uv-b-card-left, 
+    .motors-content-uv-b-card-right {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    .motors-content-uv-b-card > p:first-of-type {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+    .motors-content-uv-b-left > p:first-of-type {
+        font-size: 2.5rem;
+    }
+    .motors-content-uv-b-left-layer-2 > p, 
+    .motors-content-uv-b-right-layer-2 > p {
+        font-size: 1.2rem;
+    }
+    .motors-content-uv-b-b-layer-2 {
+        font-size: 1.2rem;
+        padding: 0rem 0rem;
+    }
+    .motors-content-uv-b-left > p{
+        font-size: 1.5rem;
+    }
+    .motors-content-uv-b-card-row{
+        margin-bottom: 0.5rem;
+    }
+    .motors-content-uv-b-card {
+        padding: 1rem;
+        margin: 0 0 1rem 0;
+    }
+    .motors-content-uv-b-card-item > p {
+        font-size: 1.2rem;
+    }
+    
+}
+/* Motors Page */
+
+/* Motors Detail */
+.motors-detail-header{
+    background-image: url(../Assets/motors-detail-header.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 800px;
+}
+.motors-detail-content{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0rem 2rem 7rem;
+    font-size: 1.2rem;
+}
+.motors-detail-content > p:first-of-type{
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.motors-detail-content > p:first-of-type > span{
+    font-size: 2rem;
+    font-weight: 300;
+}
+.motors-content-bold-text{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.6rem;
+}
+.m-d-logos{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.m-d-logo > img{
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+.m-d-logo{
+    display: flex;
+    align-items: center;
+    width: 120px;
+    justify-content: space-between;
+    margin-right: 2rem;
+}
+.m-d-logo > p{
+    font-size: 1.2rem;
+}
+.m-d-summary{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5rem;
+}
+.m-d-summary-left{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    align-self: center;
+}
+.m-d-summary-image{
+    width: 45%;
+    display: flex;
+}
+.m-d-summary-image > img {
+    width: 450px;
+    height: 250px;
+    object-fit: contain;
+    transform: scale(1.6);
+    position: relative;
+}
+.m-d-description{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+.m-d-description-left{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+.m-d-description-left p{
+    line-height: 1.9rem;
+}
+.m-d-description-right{
+    width: 45%;
+    display: flex;
+}
+.pdf-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #129347;
+    padding: 4rem;
+    border-radius: 0.4rem;
+    width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.pdf-card > img{
+    width: fit-content;
+    height: fit-content;
+    object-fit: contain;
+    margin-bottom: 3rem;
+}
+.pdf-card > p {
+    color: #129347;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+.m-d-desc-buttons{
+    display: flex;
+    width: 500px;
+    justify-content: space-between;
+}
+.m-d-desc-buttons > button{
+    padding: 1rem 4rem;
+    border: none;
+    width: fit-content;
+    border: 1px solid #129347;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+.m-d-desc-buttons > button:first-of-type{
+    background-color: #129347;
+    color: white;
+}
+.m-d-desc-buttons > button:last-of-type{
+    background-color: white;
+    color: #129347;
+}
+.motors-detail-layer-1{
+    display: flex;
+    height: 400px;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 3rem;
+    font-weight: 600;
+}
+.m-d-layer-1-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-image: url(../Assets/m-d-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.m-d-layer-1-right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    background-image: url(../Assets/m-d-2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+.motors-detail-table{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 3rem;
+}
+.m-d-table{
+    border-collapse: collapse;
+    background-color: white;
+}
+.m-d-thead{
+    background-color: #313131;
+    /* border: 1px solid red; */
+    color: white;
+    padding: 0.5rem;
+}
+.m-d-thead > tr > th{
+    padding: 1rem;
+    text-align: center;
+    width: 180px;
+    background-color: #313131;
+}
+.m-d-tbody > tr:nth-child(1){
+    font-weight: 600;
+}
+.m-d-tbody > tr > td{
+    padding: 1rem;
+    text-align: center;
+    width: 180px;
+}
+.m-d-tbody > tr > td:nth-child(1), .m-d-tbody > tr > td:nth-child(2),
+.m-d-tbody > tr > td:nth-child(3), .m-d-tbody > tr > td:nth-child(4){
+    border-right: 1px solid #129347;
+}
+.m-d-tbody > tr > td:first-of-type{
+    width: 240px;
+    font-weight: 600;
+}
+.m-d-tbody > tr:nth-child(even){
+    background-color: rgb(220,220,220);
+}
+@media screen and (max-width:1350px){
+    .motors-detail-content {
+        padding: 3rem 2rem 2rem 2rem;
+    }
+    .m-d-logo{
+        width: fit-content;
+    }
+    .m-d-logo > p {
+        font-size: 2rem;
+    }
+    .m-d-logo > img {
+        margin-right: 1rem;
+    }
+    .m-d-summary {
+        flex-direction: column;
+    }
+    .m-d-summary-left {
+        width: 100%;
+        margin-bottom: 2rem;
+        /* align-self: center; */
+    }
+    .m-d-summary-left > p {
+        font-size: 2rem;
+    }
+    .m-d-summary-image{
+        width: 100%;
+    }
+    .m-d-summary-image > img{
+        width: 100%;
+        object-fit: cover;
+        transform: scale(1.0);
+    }
+    .m-d-description{
+        flex-direction: column;
+    }
+    .m-d-description-left, 
+    .m-d-description-right{
+        width: 100%;
+    }
+    .m-d-description-left > p{
+        font-size: 2rem;
+        line-height: normal;
+        margin-bottom: 2rem;
+    }
+    .pdf-card{
+        width: 100%;
+        height: 300px;
+    }
+    .motors-detail-content > p:first-of-type {
+        font-size: 6rem;
+    }
+    .motors-content-bold-text {
+        font-size: 3rem;
+        margin-bottom: 1.6rem;
+    }
+    .m-d-desc-buttons{
+        align-self: center;
+    }
+}
+@media screen and (max-width:800px){
+    .motors-detail-layer-1 {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+    }
+    .m-d-layer-1-left, .m-d-layer-1-right{
+        width: 100%;
+        height: 200px;
+        background-size: unset;
+    }
+    .motors-detail-header{
+        height: 400px;
+    }
+    .m-d-layer-1-left, .m-d-layer-1-right{
+        font-size: 1.6rem;
+    }
+    .motors-detail-content{
+        padding: 1rem 0.5rem;
+        text-align: center;
+    }
+    .motors-detail-content > p:first-of-type {
+        font-size: 2.5rem;
+    }
+    .m-d-logo > p, 
+    .motors-content-bold-text, 
+    .m-d-description-left > p {
+        font-size: 1.5rem;
+    }
+    .m-d-summary-left > p {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    .motors-detail-table {
+        overflow-x: scroll;
+        display: flex;
+        flex-direction: column;
+    }
+    .m-d-logos{
+        flex-direction: column;
+    }
+    .m-d-desc-buttons{
+        width: 100%;
+    }
+    .m-d-desc-buttons > button{
+        padding: 1rem 2rem
+    }
+}
+
+/* Motors Detail */
+
+/* *{
+    background: #000 !important;
+    color: #0f0 !important;
+    outline: solid#f00 1px !important;
+} */
+

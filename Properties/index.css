@@ -1,0 +1,176 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../Assets/main.jpg);
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+/* Properties Content */
+.properties-header-1{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    background-repeat: no-repeat;
+    background-position: left;
+    height: fit-content;
+    background-size: cover;
+    background-image: url(../Assets/properties-header.jpg);
+    padding: 12rem 0rem 3rem 9rem;
+    margin-bottom: 2.5rem;
+}
+.properties-header-1 > div{
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+}
+.properties-header-1 > div > p:first-of-type{
+    font-size: 5rem;
+    font-weight: 600;
+    margin-bottom: 3.5rem;
+}
+.properties-header-1 > div > p:nth-child(2){
+    font-weight: 500;
+    font-size: 2rem;
+    margin-bottom: 3.5rem;
+}
+.properties-header-1 > div > button{
+    width: fit-content;
+    cursor: pointer;
+    padding: 1rem 3rem;
+    border: none;
+    border-radius: 0.4rem;
+    color: white;
+    background-color: #129347;
+    font-size: 1.3rem;
+}
+.properties-content{
+    color: #313131;
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 6rem 3.5rem 6rem;
+    padding: 3rem 4rem 3rem 4rem;
+    background-color: #FFF1D8;
+    height: fit-content;
+}
+.property-header{
+    font-size: 3.2rem;
+    font-weight: 600;
+    color: #129347;
+    display: flex;
+    align-self: center;
+    margin-bottom: 3.5rem;
+    text-align: center;
+}
+.property-content-row{
+    display: flex;
+    justify-content: space-between;
+}
+.property-content-row.one{
+    margin-bottom: 2rem;
+}
+.property-content-row.two > p{
+    display: none;
+}
+.property-content-row > p{
+    width: 48%;
+    font-size: 2rem;
+}
+.property-content-row > img{
+    width: 48%;
+    height: 600px;
+    object-fit: cover;
+}
+/* .property-content-row.two{
+    height: 370px;
+} */
+.property-content-row.two > img {
+    position: relative;
+    top: -8rem;
+    height: 400px;
+}
+.properties-content > button{
+    width: fit-content;
+    padding: 1rem 4rem;
+    display: flex;
+    align-self: center;
+    font-size: 1.4rem;
+    color: white;
+    border: none;
+    border-radius: 0.8rem;
+    background-color: #129347;
+    cursor: pointer;
+}
+.property-header.services{
+    margin-bottom: 3.5rem;
+}
+.property-header-content{
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    width: 85%;
+    align-self: center;
+    text-align: center;
+}
+@media screen and (max-width:1350px){
+    .properties-header-1{
+        padding: 4rem 2rem;
+    }
+    .properties-header-1 > div{
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+    .properties-header-1 > div > button{
+        align-self: center;
+    }
+    .properties-content{
+        margin: 0 0 3rem 0;
+        padding: 3rem 2rem;
+    }
+    .property-content-row{
+        flex-direction: column;
+    }
+    .property-content-row.one, .property-content-row.two {
+        margin-bottom: 3rem;
+    }
+    .property-content-row > p, .property-content-row > img{
+        width: 100%;
+        text-align: center;
+    }
+    .property-content-row.one > p > span{
+        display: none;
+    }
+    .property-content-row.two > img, .property-content-row.one > img{
+        height: 400px;
+    }
+    .property-content-row.two > img{
+        order: 2;
+        top: 0;
+    }
+    .property-content-row.two > p{
+        display: flex;
+        order: 1;
+        margin-bottom: 3rem;
+    }
+    .property-header-content{
+        width: 100%;
+    }
+}
+@media screen and (max-width:800px){
+    .properties-header-1 {
+        padding: 1rem;
+    }
+    .properties-header-1 > div > p:first-of-type {
+        font-size: 3rem;
+    }
+    .properties-header-1 > div > p:last-of-type {
+        font-size: 1.5rem;
+    }
+    .property-header{
+        font-size: 2.5rem;
+    }
+    .property-content-row > p, .property-header-content{
+        font-size: 1.5rem;
+    }
+}
+/* Properties Content */

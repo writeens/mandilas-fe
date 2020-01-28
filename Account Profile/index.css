@@ -1,0 +1,970 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../Assets/main.jpg);
+    background-repeat: repeat;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+/* Account Profile Content */
+.account-profile-content{
+    display: flex;
+    flex-direction: row;
+    padding-top: 4rem;
+    padding-bottom: 7rem;
+}
+/* Account Profile Sidebar */
+.account-profile-sidebar{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    width: 22%;
+    height: 640px;
+    /* max-width: 2%; */
+    margin-left: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    background-color: #f2f2f2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.account-profile-image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    /* border: 1px solid red; */
+}
+.account-profile-image > img{
+    width: 25%;
+    height: 100%;
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+}
+.account-profile-image > p {
+    color: #313131;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+.account-profile-option{
+    padding: 1rem 0rem 1rem 3rem;
+    /* border: 1px solid red; */
+    font-size: 1.2rem;
+    /* background-color: #129347; */
+}
+.account-profile-logout-option{
+    position: absolute;
+    bottom: 40px;
+    font-size: 1.2rem;
+    padding-left: 2rem;
+}
+/* Account Profile Sidebar */
+
+/* Account Profile Main */
+.account-profile-main{
+    display: flex;
+    width: 73%;
+    justify-content: space-around;
+}
+.account-profile-main-left{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+}
+.account-profile-main-left > p {
+    margin-bottom: 2rem;
+}
+.account-profile-main-left > p:nth-child(5) {
+    top: 10px;
+    position: relative;
+}
+.account-profile-main-header{
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #313131;
+}
+.account-profile-input{
+    background-color: transparent;
+    width: 80%;
+    padding: 1rem;
+    border-radius: 0.2rem;
+    border: 1px solid #70707057;
+    margin: 0rem 0rem 1.5rem 0rem;
+}
+.account-profile-input::placeholder{
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+.account-profile-main-sub-header{
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #313131;
+}
+.account-profile-main-left > button{
+    width: fit-content;
+    padding: 0.8rem 2rem;
+    color: white;
+    background-color: #4b4b4b;
+    border-radius: 0.4rem;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+.account-profile-main-right{
+    position: relative;
+    top: 100px;
+    left: -80px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 350px;
+}
+.account-profile-main-right > a:nth-child(8){
+    color: red;
+}
+.account-profile-main-right > * {
+    margin-bottom: 0.5rem;
+}
+.account-profile-main-right a {
+    text-decoration: none;
+}
+/* Account Profile Main */
+
+/* Account Profile Notifications */
+.account-profile-main-notif{
+    width: 73%;
+    display: flex;
+    flex-direction: column;
+}
+.account-profile-main-notif > p:first-child{
+    padding-left: 4rem;
+    margin-bottom: 4rem;
+}
+.notifications{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-left: 5.8rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.account-profile-notification-card{
+    background-color: white;
+    padding: 2.5rem 0rem 2.5rem 0rem;
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+.notif-line{
+    display: flex;
+    width: 90%;
+    align-self: center;
+    border-bottom: 1px solid #70707057;
+}
+.notif-close{
+    display: flex;
+    flex-basis: 80px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 3rem;
+    margin-left: 1rem;
+
+}
+.notif-close > i{
+    font-size: 2.5rem;
+    color: #313131;
+}
+.notif-type{
+    display: flex;
+    color: black;
+    width: fit-content;
+    border-radius: 0.2rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+    padding: 0.6rem 1.5rem;
+    font-weight: 400;
+    margin-right: 3rem;
+}
+.service > .notif-type{
+    background-color: #D3D304;
+}
+.motors > .notif-type{
+    background-color: #00652A;
+    color: white;
+}
+.ac > .notif-type{
+    background-color: #2E4087;
+    color: white;
+}
+.notif-text{
+    font-weight: 600;
+    align-self: center;
+}
+.ac > .notif-text > a {
+    color: #2E4087;
+}
+.service > .notif-text > span {
+    color: red;
+}
+/* Account Profile Notifications */
+
+/* Account Profile Service History */
+.account-profile-main-sh{
+    display: flex;
+    flex-direction: column;
+    padding: 1.3rem;
+    margin-left: 2rem;
+    background-color: white;
+    width: 70%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.account-profile-main-sh > p:first-child {
+    color: #129347;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.account-profile-main-sh > p:nth-child(2){
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+.sh-table{
+    width: 100%;
+    border: 1px solid #129347;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.sh-table-row.row-one{
+    display: flex;
+    border-bottom: 1px solid #129347;
+    padding: 1.5rem 1rem;
+    justify-content: space-between;
+}
+.sh-table-row.row-one > input{
+    padding: 1rem;
+    border-radius: 0.2rem;
+    border: 1px solid #129347;
+    width: 400px;
+}
+.sh-table-row.row-one > input::placeholder{
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #7070707c;
+}
+.sh-show-results{
+    display: flex;
+    align-items: center;
+    width: 180px;
+    justify-content: space-between;
+}
+.sh-show-results > select {
+    padding: 0.5rem;
+}
+.sh-table-row-head{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 0.7rem;
+    border-bottom: 1px solid #129347;
+}
+.sh-table-row-head > div:nth-child(1), .sh-table-row-head > div:nth-child(2), 
+.sh-table-row-head > div:nth-child(3), .sh-table-row-head > div:nth-child(4),
+.sh-table-row-head > div:nth-child(6), .sh-table-row-head > div:nth-child(7)
+{
+    font-weight: 600;
+    width: 12%;
+}
+.sh-table-row-head > div:nth-child(5){
+    width: 27%;
+    font-weight: 600;
+}
+.sh-table-row-body > div:nth-child(1), .sh-table-row-body > div:nth-child(2), 
+.sh-table-row-body > div:nth-child(3), .sh-table-row-body > div:nth-child(4),
+.sh-table-row-body > div:nth-child(6), .sh-table-row-body > div:nth-child(7)
+{
+    font-weight: 300;
+    width: 12%;
+    font-size: 0.85rem;
+}
+.sh-table-row-body > div:nth-child(5){
+    width: 27%;
+    font-weight: 300;
+    font-size: 0.85rem;
+}
+.sh-table-footer{
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.sh-table-footer > div {
+    position: relative;
+    left: -20px;
+    display: flex;
+    width: 180px;
+    justify-content: space-between;
+}
+.sh-table-footer > div > *{
+    cursor: pointer;
+}
+/* Account Profile Service History */
+
+/* Account Profile Service Tracking */
+.account-profile-main-st{
+    width: 73%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 4rem;
+}
+.account-profile-main-st > p:first-child{
+    margin-bottom: 1rem;
+}
+.account-profile-main-st-card{
+    padding: 4rem;
+    width: 85%;
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.st-track{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.st-track > input {
+    margin-right: 2rem;
+    width: 350px;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    border: 1px solid #70707057;
+}
+.st-track > button {
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 1.1rem;
+    color: white;
+    background-color: #129347;
+}
+.st-info{
+    padding: 0rem 6rem 0.9rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    border-bottom: 1px solid #129347;
+    margin-bottom: 2rem;
+}
+.st-info > div {
+    display: flex;
+    width: 180px;
+    justify-content: space-between;
+}
+.st-info > div > p:first-child{
+    font-weight: 600;
+}
+.st-info > div > p:last-child{
+    font-weight: 300;
+    color: #707070cc;
+}
+.st-progress{
+    align-items: center;
+    display: flex;
+    margin-bottom: 3rem;
+}
+.uk-progress{
+    margin-bottom: 0rem;
+}
+.uk-progress::-webkit-progress-bar {
+    background-color: #E2E6E5;
+}
+.uk-progress::-webkit-progress-value {
+    background-color: #129347;
+}
+.st-progress > p {
+    display: flex;
+    justify-content: center;
+    width: 10%;
+    color: #129347;
+}
+.st-details{
+    display: flex;
+    /* border: 1px solid red; */
+    padding-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #129347;
+}
+.st-details > div {
+    /* border: 1px solid red; */
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.st-details > div, .st-details > p {
+    font-weight: 600;
+    width: 33%;
+}
+.st-details > p {
+    font-size: 1.3rem;
+}
+.st-details-function{
+    display: flex;
+    align-items: center;
+}
+.st-details-function > img{
+    width: 20px;
+    height: 20px;
+    margin-right: 1rem;
+}
+.st-details-function > p{
+    color: #129347;
+    font-weight: 600;
+}
+.st-estimated{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #129347;
+}
+.st-estimated > p:first-child{
+    font-weight: 600;
+    font-size: 1.2rem;
+    width: 33%;
+}
+.st-estimated > p:last-child{
+    display: flex;
+    font-weight: 400;
+    font-size: 1rem;
+    width: 33%;
+    position: relative;
+    right: 2rem;
+    padding-left: 2rem;
+}
+.undone{
+    color: #D5A626
+}
+.st-contact-us{
+    display: flex;
+}
+.st-contact-us > p{
+    font-weight: 600;
+    font-size: 1.2rem;
+    width: 33%;
+}
+.st-contact-us > div {
+    display: flex;
+    flex-direction: column;
+}
+.st-contact-us > div > p:first-child {
+    font-weight: 600;
+}
+/**Service Booking*/
+.account-profile-main-sb{
+    width: 73%;
+    display: flex;
+    flex-direction: column;
+    /* padding-left: 4rem; */
+    padding: 0rem 2rem;
+}
+.account-profile-main-sb-card {
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+.account-booking-nav {
+    display: flex;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    margin-left: 6rem;
+}
+.account-booking-nav > p{
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    font-weight: 600;
+}
+.account-booking-nav > i {
+    align-self: center;
+}
+.account-booking-service-row-one{
+    display: flex;
+    width: auto;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.account-booking-service-row-two{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.account-booking-service-row-two > select{
+    width: 60%;
+    padding: 1rem;
+    border: 1px solid #129347;
+    border-radius: 0.2rem;
+}
+.account-booking-service-row-one > select{
+    width: 45%;
+    padding: 1rem;
+    border: 1px solid #129347;
+    border-radius: 0.2rem;
+}
+.account-booking-service-row-two > label{
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.ab-service{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    position: relative;
+}
+.ab-service > p:first-of-type{
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.ab-service > button {
+    position: absolute;
+    bottom: 2rem;
+    align-self: center;
+    cursor: pointer;
+    padding: 1rem 5rem;
+    width: fit-content;
+    background-color: #129347;
+    color: white;
+    border-radius: 0.1rem;
+    border: none;
+    margin-top: 2rem;
+}
+.ab-time{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    position: relative;
+}
+.ab-time-buttons {
+    position: absolute;
+    bottom: 2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 2rem;
+}
+.ab-time-buttons > button{
+    padding: 1rem 5rem;
+    width: fit-content;
+    background-color: #129347;
+    color: white;
+    border-radius: 0.1rem;
+    border: none;
+    cursor: pointer;
+}
+.ab-details{
+    display: flex;
+    flex-direction: column;
+}
+.ab-details > p{
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.account-booking-service-row-three{
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+}
+.account-booking-service-row-three > input{
+    width: 45%;
+    padding: 1rem;
+    border: 1px solid #129347;
+    border-radius: 0.2rem;
+}
+.account-booking-service-row-three > textarea{
+    width: 100%;
+    border-radius: 0.1rem;
+    border: 1px solid #129347;
+    padding: 1rem;
+}
+.ab-details-buttons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding: 0rem 1rem;
+}
+.ab-details-buttons > button{
+    padding: 1rem 5rem;
+    width: fit-content;
+    background-color: #129347;
+    color: white;
+    border-radius: 0.1rem;
+    border: none;
+    cursor: pointer;
+}
+.ab-done{
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    position: relative;
+}
+.account-booking-service-row-four{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 9rem;
+}
+.account-booking-service-row-four > p {
+    margin-bottom: 1rem;
+}
+.ab-done > button{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    padding: 1rem 5rem;
+    width: fit-content;
+    background-color: #129347;
+    border: none;
+    color: white;
+    border-radius: 0.1rem;
+    cursor: pointer;
+}
+/**Service Booking*/
+/* Account Profile Service Tracking */
+@media screen and (max-width: 1350px){
+    .account-profile-content{
+        flex-direction: column;
+        padding: 0rem 0rem 2rem 0rem;
+    }
+    .account-profile-sidebar{
+        display: block;
+        padding: 0;
+        margin: 0;
+        width: auto;
+        height: fit-content;
+        margin-bottom: 2rem;
+        overflow-x: scroll;
+        overflow-y: hidden;
+        white-space: nowrap;
+        box-shadow: none;
+    }
+    .account-profile-image{
+        display: none;
+    }
+    .account-profile-option{
+        display: inline-block;
+        padding: 1rem 0rem;
+        text-align: center;
+        width: 200px;
+    }
+    .account-profile-logout-option{
+        position: relative;
+        bottom: unset;
+        padding: 1rem 0rem;
+        align-items: center;
+    }
+    .account-profile-main {
+        display: flex;
+        width: auto;
+    }
+    .account-profile-main-left {
+        width: 50%;
+    }
+    .account-profile-main-right{
+        width: 35%;
+        left: 0px;
+    }
+    .account-profile-main-notif {
+        width: auto;
+        padding: 0rem 0.5rem;
+    }
+    .account-profile-main-notif > p:first-child {
+        padding-left: 0rem;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .account-profile-notification-card {
+        justify-content: space-between;
+    }
+    .notifications {
+        width: auto;
+        margin-left: 0;
+    }
+    .notif-close{
+        order: 1;
+    }
+    .notif-type{
+        order: 3;
+    }
+    .notif-text{
+        order: 2;
+        margin-right: 5rem;
+    }
+    .account-profile-main-sh {
+        padding: 1.3rem;
+        margin: 0rem 0.5rem;
+        width: auto;
+    }
+    .account-profile-main-sh > p{
+        text-align: center;
+    }
+    .sh-table{
+        width: auto;
+    }
+    .sh-table > div.sh-table-row-head:nth-child(2),
+    .sh-table-row.row-one {
+        display: none;
+    }
+    .sh-table > div.sh-table-row-body{
+        flex-direction: column;
+        padding: 0rem;
+        border-bottom: 2px solid #129347;
+    }
+    .sh-table-row-body >div::before{
+        font-size: 1.3rem;
+        font-weight: 600;
+        width: 50%;
+        text-align: center;
+        padding: 1rem 0rem;
+    }
+    .sh-table-row-body > div:nth-child(1):before{
+        content: "Date: ";
+    }
+    .sh-table-row-body > div:nth-child(2):before{
+        content: "Service ID: ";
+    }
+    .sh-table-row-body > div:nth-child(3):before{
+        content: "Start Date: ";
+    }
+    .sh-table-row-body > div:nth-child(4):before{
+        content: "End Date: ";
+    }
+    .sh-table-row-body > div:nth-child(5):before{
+        content: "Service Details: ";
+    }
+    .sh-table-row-body > div:nth-child(6):before{
+        content: "Vehicle ID: ";
+    }
+    .sh-table-row-body > div:nth-child(7):before{
+        content: "Engineer Name: ";
+    }
+    .sh-table-row-body > div > p{
+        width: 50%;
+    }
+    .sh-table-row-body > div:nth-child(1),
+    .sh-table-row-body > div:nth-child(2),
+    .sh-table-row-body > div:nth-child(3),
+    .sh-table-row-body > div:nth-child(4),
+    .sh-table-row-body > div:nth-child(5),
+    .sh-table-row-body > div:nth-child(6),
+    .sh-table-row-body > div:nth-child(7){
+        width: auto;
+        display: flex;
+        font-size: 1.3rem;
+        align-items: center;
+        justify-content: space-around;
+        text-align: center;
+        padding: 0.5rem 0rem;
+        border-bottom: 1px solid #129347;
+    }
+    .account-profile-main-st {
+        width: auto;
+        margin: 0rem 1rem;
+        padding-left: 0rem;
+    }
+    .account-profile-main-sb {
+        width: auto;
+        flex-direction: column;
+        padding: 0rem 2rem;
+    }
+    .account-booking-nav {
+        justify-content: space-around;
+    }
+    .account-profile-main-st-card {
+        /* padding: 4rem; */
+        width: auto;
+        /* height: 100%; */
+    }
+}
+@media screen and (max-width: 850px){
+    .account-profile-main-sb {
+        padding: 0rem;
+    }
+    .account-booking-nav {
+        margin: 0 0 1rem 0;
+    }
+    .account-booking-nav > p {
+        padding: 0.5rem 0rem 0.5rem 0rem;
+        font-weight: 600;
+    }    
+    .account-profile-main-sb-card {
+        padding: 0rem 0.5rem;
+    }
+    .account-profile-main {
+        flex-direction: column;
+    }
+    .account-profile-main-left, .account-profile-main-right {
+        width: auto;
+        align-items: center;
+    }
+    .account-profile-main-left{
+        margin-bottom: 2rem;
+    }
+    .account-profile-main-right{
+        top: 0rem;
+        height: fit-content;
+    }
+    .account-profile-main-left > p {
+        text-align: center;
+    }
+    .account-profile-notification-card {
+        padding: 5rem 0rem 2rem 0rem;
+        justify-content: unset;
+    }
+    .account-profile-main-right a {
+        text-align: center;
+    }
+    .notif-close{
+        width: fit-content;
+        margin-right: 0px;
+    }
+    .notif-type{
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        margin-right: 0rem;
+    }
+    .notif-text{
+        margin-right: 0px;
+        text-align: center;
+        padding: 0rem 1rem;
+    }
+    .account-profile-main-sh {
+       padding: 0rem;
+       margin: 0;
+    }
+    .account-profile-main-st {
+        width: auto;
+        margin: 0rem;
+        padding-left: 0rem;
+    }
+    .account-profile-main-st-card {
+        padding: 2rem;
+        width: auto
+    }
+    .st-track {
+        flex-direction: column;
+    }
+    .st-track > input{
+        width: auto;
+        margin-bottom: 1rem;
+        margin-right: 0rem;
+    }
+    .st-info{
+        flex-direction: column;
+        padding: 0rem;
+    }
+    .st-info > div {
+        width: auto;
+        justify-content: flex-start;
+    }
+    .st-info > div > p:first-child {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        width: 50%;
+        /* padding-left: 5rem; */
+    }
+    .st-info > div > p:last-child {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+    .st-progress{
+        margin-bottom: 1rem;
+    }
+    .st-details{
+        flex-direction: column;
+    }
+    .st-details > p{
+        width: auto;
+        margin-bottom: 0.5rem;
+    }
+    .st-details > div{
+        width: 100%;
+    }
+    .st-estimated {
+        width: auto;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+    }    
+    .account-profile-main-st > p:first-child {
+        text-align: center;
+    }
+    .st-estimated > p:first-child {
+        font-weight: 600;
+        font-size: 1.2rem;
+        width: 50%;
+    }
+    .st-estimated > p:last-child {
+        width: auto;
+    }
+    .st-contact-us > p {
+        width: 50%;
+    }
+    .ab-service {
+        height: fit-content;
+    }
+    .account-booking-service-row-one {
+        flex-direction: column;
+        margin-bottom: 0rem;
+    }
+    .account-booking-service-row-one > select {
+        width: auto;
+        margin-bottom: 2rem;
+    }
+    .ab-service > button {
+        position: relative;
+        bottom: 0rem;
+        margin-top: 0rem;
+    }
+    .account-booking-service-row-two {
+        margin-bottom: 2rem;
+    }
+    .account-booking-service-row-two > select {
+        width: auto;
+        padding: 1rem;
+    }
+    .ab-time {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        position: relative;
+    }
+    .ab-time-buttons {
+        position: relative;
+        bottom: 0rem;
+        display: flex;
+        justify-content: space-between;
+        width: auto;
+        margin-top: 2rem;
+    }
+    .account-booking-service-row-three {
+        flex-direction: column;
+        margin-bottom: 0rem;
+    }
+    .account-booking-service-row-three > input {
+        width: auto;
+        margin-bottom: 2rem;
+    }
+    .account-booking-service-row-three > textarea {
+        width: auto;
+    }
+}
+
+/* Account Profile Content */

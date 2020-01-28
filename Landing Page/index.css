@@ -1,0 +1,126 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background-image: url(../Assets/main.jpg); */
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+/* Landing Page */
+.landing-page{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    color: white;
+}
+.landing-side{
+    width: calc(100%/3);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    transition: transform 0.5s ease-in-out;
+}
+.landing-side:hover{
+    transform: scale(1.1);
+}
+.landing-side.ac{
+    background-image: url(../Assets/landing-ac.jpg);
+}
+.landing-side.motors{
+    background-image: url(../Assets/landing-motors.jpg);
+}
+.landing-side.properties{
+    background-image: url(../Assets/landing-properties.jpg);
+}
+.landing-side > p{
+    font-size: 3rem;
+    font-weight: 600;
+    position: relative;
+    bottom: 5rem;
+}
+.landing-page > img{
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    top: 2rem;
+    left: 3rem;
+}
+.landing-sm-row{
+    position: absolute;
+    bottom: 0rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.landing-social-media{
+    display: flex;
+    position: relative;
+    background-color: #129347;
+    width: 150px;
+    justify-content: space-between;
+    padding: 0.3rem;
+}
+.landing-social-media > img{
+    transform: rotate(-90deg);
+    width: 30px;
+    height: 30px;
+}
+@media screen and (max-width: 1350px){
+    .landing-page{
+        flex-direction: column;
+    }
+    .landing-side{
+        width: 100%;
+        height:calc(100%/3);
+        justify-content: center;
+        align-items: center;
+    }
+    .landing-side > p{
+        font-size: 3rem;
+        font-weight: 600;
+        position: relative;
+        bottom: 0rem;
+        text-align: center;
+    }
+    .landing-page > img {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        top: 1rem;
+        left: 2rem;
+    }
+    .landing-social-media{
+        height: 40px;
+    }
+    .landing-sm-row{
+        top: 50%;
+        margin-top: -20px;
+        left: -4rem;
+        bottom: unset;
+        width: fit-content;
+        transform: rotate(90deg);
+    }
+    .landing-social-media > img{
+        transform: rotate(180deg);
+    }
+}
+@media screen and (max-width: 1350px){
+    .landing-page > img {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        top: 0rem;
+        left: 1rem;
+    }
+    .landing-side > p{
+        font-size: 2rem;
+    }
+}
+
+/* Landing Page */
