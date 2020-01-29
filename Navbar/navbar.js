@@ -54,8 +54,8 @@ const loader = document.querySelector('#loader')
 //Message Toast
 const toast = document.querySelector('#messageToast');
 //Client Side Validation
-const signUpEndpoint = 'http://localhost:3000/api/v1/mandilas/auth/sign-up'
-const logInEndpoint = 'http://localhost:3000/api/v1/mandilas/auth/sign-in'
+const signUpEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-up'
+const logInEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-in'
 
 //Hamburger Menu
 toggle.addEventListener('click', () => {
