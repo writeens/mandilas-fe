@@ -213,6 +213,7 @@ const getRecommendedItems = () => {
 
 // Handle On Page Load
 const handleMainAirConPageLoad = async() => {
+    console.log("loading")
     // Handle Page Load for All Products Page
     if(checkPage() === 'allProductsPage'){
         // Empty List Before Load
