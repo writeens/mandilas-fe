@@ -32,85 +32,101 @@
 </head>
 <body>
     <div class="hometwo">
+        <div id="loader">
+            <div class="lds-dual-ring"></div>
+        </div>
+        <div id="messageToast">
+            <p></p>
+        </div>
         <div class="hometwo-logo">
-            <img src="./assets/logo.svg" alt="logo">
+            <img src="../Assets/logo.svg" alt="logo">
         </div>
         <div class="hometwo-menu">
             <div class="hometwo-menu-item">
                 <div class="hometwo-menu-text">
-                    <p>Home</p>
-                    <img style="visibility:hidden;" src="./assets/arrow-down.svg" alt="">
+                    <a href="../Homepage/index.html"><p>Home</p></a>
+                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
                 </div>
             </div>
             <div class="hometwo-menu-item drop">
                 <div class="hometwo-menu-text">
                     <p>About Us</p>
-                    <img src="./assets/arrow-down.svg" alt="">
+                    <img src="../Assets/arrow-down.svg" alt="">
                 </div>
                 <div class="menu-about hometwo-submenu hometwo-submenu-hide">
-                    <a href="">What we do</a>
-                    <a href="">The Executive Team</a>
-                    <a href="">Company History</a>
+                    <a href="../About Us/index.html">What we do</a>
+                    <a href="../About Us/meet.html">The Executive Team</a>
+                    <a href="../About Us/history.html">Company History</a>
                     <a href="">CSR Activities</a>
                 </div>
             </div>
             <div class="hometwo-menu-item drop">
                 <div class="hometwo-menu-text">
                     <p>Air Conditioning</p>
-                    <img src="./assets/arrow-down.svg" alt="">
+                    <img src="../Assets/arrow-down.svg" alt="">
                 </div>
                 <div class="menu-ac hometwo-submenu hometwo-submenu-hide">
-                    <a href="">Carrier A/C</a>
-                    <a href="">After Sales Services</a>
-                    <a href="">Spare Parts</a>
-                    <a href="">Special Contract</a>
+                    <a href="../Airconditioners/main.html">Carrier A/C</a>
+                    <a href="../Airconditioners After Sales/index.html">After Sales Services</a>
+                    <a href="../Motors After Sales/spare-parts.html">Spare Parts</a>
                 </div>
             </div>
             <div class="hometwo-menu-item drop">
                 <div class="hometwo-menu-text">
                     <p>Motors</p>
-                    <img src="./assets/arrow-down.svg" alt="">
+                    <img src="../Assets/arrow-down.svg" alt="">
                 </div>
                 <div class="menu-motors hometwo-submenu hometwo-submenu-hide">
-                    <a href="">Vehicle Sales</a>
-                    <a href="">Owner Registration</a>
-                    <a href="">Service Booking</a>
-                    <a href="">Spare Parts</a>
-                    <a href="">Warranty</a>
-                    <a href="">Accident Recovery</a>
-                    <a href="">Body Work</a>
+                    <a href="../Motors/index.html">Vehicle Sales</a>
+                    <a href="../Motors After Sales/index.html">Owner Registration</a>
+                    <a href="../Motors After Sales/spare-parts.html">Spare Parts</a>
+                    <a href="../Motors After Sales/accident.html">Accident Recovery</a>
                     <a href="">Lease Fleet Management</a>
                 </div>
             </div>
             <div class="hometwo-menu-item">
                 <div class="hometwo-menu-text">
-                    <p>Properties</p>
-                    <img style="visibility:hidden;" src="./assets/arrow-down.svg" alt="">
+                    <a href="../Properties/index.html"><p>Properties</p></a>
+                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
                 </div>
             </div>
             <div class="hometwo-menu-item drop">
                 <div class="hometwo-menu-text">
                     <p>Contact Us</p>
-                    <img src="./assets/arrow-down.svg" alt="">
+                    <img src="../Assets/arrow-down.svg" alt="">
                 </div>
                 <div class="menu-contact hometwo-submenu hometwo-submenu-hide">
-                    <a href="">Contact Mandilas</a>
-                    <a href="">Locations</a>
+                    <a href="../Contact Us/index.html">Contact Mandilas</a>
+                    <a href="../Location/index.html">Locations</a>
                 </div>
             </div>
             <div class="hometwo-menu-item">
                 <div class="hometwo-menu-text">
-                    <p>Careers</p>
-                    <img style="visibility:hidden;" src="./assets/arrow-down.svg" alt="">
+                    <a href="../Career/index.html"><p>Careers</p></a>
+                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
                 </div>
             </div>
         </div>
-        <div class="hometwo-buttons">
-            <button data-toggle="modal" data-target="#login">Login</button>
-            <button data-toggle="modal" data-target="#signIn">Register</button>
+        <div id="hometwo-navbar-buttons">
+            <div class="hometwo-signedin-buttons">
+                <p></p>
+                <div class="navbar-cart-container">
+                    <img src="../Assets/cart.svg" alt="">
+                    <p class="no-of-items">0</p>
+                </div>
+                <button id="navLogOut">Log Out</button>
+            </div>
+            <div class="hometwo-buttons">
+                <div class="navbar-cart-container">
+                    <img src="../Assets/cart.svg" alt="">
+                    <p class="no-of-items">0</p>
+                </div>
+                <button data-toggle="modal" data-target="#login">Login</button>
+                <button data-toggle="modal" data-target="#signUp">Register</button>
+            </div>
         </div>
         <div class="hometwo-toggle">
-            <i class="fa fa-close fa-3x"></i>
+            <i class="fa fa-bars fa-3x"></i>
         </div>
         <div id="login" class="modal fade bd-example-modal-xl login homepage-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
@@ -119,20 +135,20 @@
                         <div class="sl-content">
                              <div class="sl-content-left">
                                 <p>Log In To Continue</p>
-                                <img src="./assets/logo.svg" alt="">
+                                <img src="../Assets/logo.svg" alt="">
                              </div>
                              <div class="sl-content-right">
                                 <p>Log In To Continue</p>
                                  <div class="sl-content-item">
-                                     <label for="username">Username</label>
-                                     <input type="text" placeholder="John">
+                                     <label for="username">Email</label>
+                                     <input type="email" class="animated" id="navLogInEmail" placeholder="John">
                                  </div>
                                  <div class="sl-content-item">
                                      <label for="password">Password</label>
-                                     <input type="text" placeholder="Enter password">
+                                     <input type="password" class="animated" id="navLogInPassword" placeholder="Enter password (at least 6 characters)">
                                  </div>
                                  <div class="sl-buttons">
-                                     <button>Login</button>
+                                     <button id="navbarLogIn">Login</button>
                                      <button>or Sign Up</button>
                                  </div>
                              </div>
@@ -142,44 +158,47 @@
                 </div>
             </div>
         </div>
-        <div id="signIn" class="modal fade bd-example-modal-xl signup homepage-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+        <div id="signUp" class="modal fade bd-example-modal-xl signup homepage-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="sl-modal">
                         <div class="sl-content">
                              <div class="sl-content-left">
                                 <p>Sign Up To Continue</p>
-                                <img src="./assets/logo.svg" alt="">
+                                <img src="../Assets/logo.svg" alt="">
                              </div>
                              <div class="sl-content-right">
                                  <p>Sign Up To Continue</p>
                                  <div class="sl-content-item">
                                      <label for="username">First Name</label>
-                                     <input type="text" placeholder="John">
+                                     <input class="animated" type="text" id="navbarFirstName" autocomplete placeholder="John" value="">
                                  </div>
                                  <div class="sl-content-item">
                                      <label for="password">Last Name</label>
-                                     <input type="text" placeholder="Doe">
+                                     <input  class="animated" type="text" id="navbarLastName" placeholder="Doe" value="">
                                  </div>
+                                 <div class="sl-content-item">
+                                    <label for="text">Phone Number</label>
+                                    <input  class="animated" type="text" id="navbarPhoneNumber" placeholder="+2348123456789" value="" maxlength="14" minlength="11">
+                                </div>
                                  <div class="sl-content-item">
                                      <label for="password">Email</label>
-                                     <input type="email" placeholder="Enter email">
+                                     <input class="animated" type="email" id="navbarEmail" placeholder="Enter email" value="">
                                  </div>
                                  <div class="sl-content-item">
-                                     <label for="password">Last Name</label>
-                                     <input type="password" placeholder="Enter password">
+                                     <label for="password">Password</label>
+                                     <input class="animated" type="password" id="navbarPassword" placeholder="Enter password (at least 6 characters long)" minlength="6" value="">
                                  </div>
-                                 <div class="signup-agreement">
-                                     <input type="checkbox">
+                                 <div class="animated signup-agreement">
                                      <p>By signing up, I agree and accept the terms of use</p>
                                  </div>
                                  <div class="sl-buttons">
-                                     <button>Login</button>
+                                     <button id="navbarRegister">Register</button>
                                      <p>Or</p>
                                      <button>Sign Up</button>
                                  </div>
                              </div>
-                             <div class="sl-signin-close">&times;</div>
+                             <div class="sl-signup-close">&times;</div>
                         </div>
                     </div>
                 </div>

@@ -31,7 +31,11 @@
     flex-direction: column;
     align-items: center;
 }
-.hometwo-menu-text > p{
+.hometwo-menu-text > a{
+    color: inherit;
+    text-decoration: none;
+}
+.hometwo-menu-text p{
     margin-bottom: 0.5rem;
     text-align: center;
 }
@@ -425,13 +429,11 @@ button[data-target="#signUp"]{
 
 
 /**Signed In buttons*/
-.hometwo-signedin-buttons{
-    /* display: flex; */
+.hometwo-signedin-buttons {
     align-items: center;
-    width: 25%;
-    min-width: 400px;
-    justify-content: space-between;
-    display: none
+    width: 100%;
+    justify-content: space-around;
+    display: none;
 }
 .navbar-cart-container{
     display: flex;
@@ -567,7 +569,7 @@ button[data-target="#signUp"]{
     }
   }
 /**Loader**/  
-@media screen and (max-width: 1350px){
+@media screen and (max-width: 950px){
     .hometwo-signedin-buttons{
         font-size: 1.3rem;
         right: 1rem;

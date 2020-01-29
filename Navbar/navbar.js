@@ -41,7 +41,7 @@ initializeLocalStorage();
 const menuItems = document.querySelectorAll('.hometwo-menu-item.drop')
 menuItems.forEach((menuItem, outerIndex, arr) => {
     menuItem.addEventListener('click', () => {
-        if(window.innerWidth >= 1350){
+        if(window.innerWidth >= 940){
             arr.forEach((item, innerIndex) => {
                 if(innerIndex !== outerIndex){
                     item.children[1].classList.add('hometwo-submenu-hide')
