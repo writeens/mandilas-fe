@@ -8,6 +8,23 @@ const removeClass = (elem, customClass) => {
     elem.parentNode.classList.remove('removePadding')
     elem.classList.remove(customClass)
 }
+
+const initializeLocalStorage = () => {
+    console.log(localStorage.getItem('mandilasCart'))
+    console.log(localStorage.getItem('mandilasToken'))
+    const cart = localStorage.getItem('mandilasCart');
+    const token = localStorage.getItem('mandilasToken');
+    if(cart === null){
+        localStorage.setItem("mandilasCart", JSON.stringify([]))
+    }
+    if(token === null){
+        localStorage.setItem("mandilasToken", JSON.stringify(""))
+    }
+    console.log(localStorage.getItem('mandilasCart'))
+    console.log(localStorage.getItem('mandilasToken'))
+}
+initializeLocalStorage();
+
 /**Desktop Menu */
 const menuItems = document.querySelectorAll('.hometwo-menu-item.drop')
 menuItems.forEach((menuItem, outerIndex, arr) => {
