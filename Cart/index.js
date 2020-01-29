@@ -27,7 +27,7 @@ const handleProductClick = (elem) => {
         window.location.href = `Airconditioners/index.html?id=${id}`;
     }else{
         // Github
-        window.location.href = `index.html?id=${id}`;
+        window.location.href = `../Airconditioners/index.html?id=${id}`;
     }
 }
 
