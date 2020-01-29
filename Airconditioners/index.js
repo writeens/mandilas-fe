@@ -20,6 +20,7 @@ let CURRENT_PRODUCT = '';
 
 // Check Current Page
 const checkPage = () => {
+    console.log(window.location.pathname)
     if(window.location.pathname === 'Airconditioners/main.html'){
         return 'allProductsPage';
     } else if(window.location.pathname === ('Airconditioners/index.html') || window.location.pathname === ('AirConditioners/index.html')){
