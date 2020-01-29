@@ -1,3 +1,15 @@
+//Check Environment
+let ENV = ''
+const checkEnvironment = () => {
+    let origin = window.location.origin;
+    if(origin === 'http://127.0.0.1:5500'){
+        ENV = `development`
+    }else{
+        ENV = `production`
+    }
+    console.log(ENV);
+}
+checkEnvironment();
 // Handle Showing Loader
 const addClass = (elem, customClass) => {
     elem.parentNode.classList.add('removePadding')
@@ -374,7 +386,11 @@ const handleCartIcon = () => {
                     toast.classList.remove('showMessageToast')
                 }, 2000);
     } else if(cart.length > 0){
-        window.location.href = `/Cart/index.html`
+        if(ENV === 'development'){
+            window.location.href = `/Cart/index.html`
+        }else{
+            window.location.href = `/Cart/index.html`
+        }
     }
 }
 cart.forEach(item => {

@@ -20,32 +20,35 @@ let CURRENT_PRODUCT = '';
 
 // Check Current Page
 const checkPage = () => {
-    console.log(window.location.pathname)
-    //Local
-    // if(window.location.pathname === 'Airconditioners/main.html'){
-    //     return 'allProductsPage';
-    // } else if(window.location.pathname === ('Airconditioners/index.html') || window.location.pathname === ('AirConditioners/index.html')){
-    //     return 'singleProductPage';
-    // }else{
-    //     return 'checkName'
-    // }
-    //On Github Pages
-    if(window.location.pathname === '/mandilas-fe/Airconditioners/main.html'){
-        return 'allProductsPage';
-    } else if(window.location.pathname === ('/mandilas-fe/Airconditioners/main.html')){
-        return 'singleProductPage';
+    if(ENV === 'development'){
+        if(window.location.pathname === 'Airconditioners/main.html'){
+            return 'allProductsPage';
+        } else if(window.location.pathname === ('Airconditioners/index.html') || window.location.pathname === ('AirConditioners/index.html')){
+            return 'singleProductPage';
+        }else{
+            return 'checkName'
+        }
     }else{
-        return 'checkName'
+        //On Github Pages
+        if(window.location.pathname === '/mandilas-fe/Airconditioners/main.html'){
+            return 'allProductsPage';
+        } else if(window.location.pathname === ('/mandilas-fe/Airconditioners/main.html')){
+            return 'singleProductPage';
+        }else{
+            return 'checkName'
+        }
     }
 }
 
 // Handle Clicking Of Products
 const handleProductClick = (elem) => {
     const id = elem.getAttribute(`data-id`)
-    //Local
-    // window.location.href = `Airconditioners/index.html?id=${id}`;
-    //On Github Pages
-    window.location.href = `index.html?id=${id}`;
+    if(ENV === 'development'){
+        window.location.href = `Airconditioners/index.html?id=${id}`;
+    }else{
+        //On Github Pages
+        window.location.href = `index.html?id=${id}`;
+    }
 }
 
 //Get Data on single product
@@ -249,7 +252,13 @@ const handleMainAirConPageLoad = async() => {
         let id = params.get('id');
         // No query provided
         if(id === null){
-            window.location.href = 'Airconditioners/main.html'
+            if(ENV === 'development'){
+                window.location.href = 'Airconditioners/main.html'
+            }else{
+                //Github
+                window.location.href = 'main.html'
+            }
+
         }else{
             console.log(id)
             createProductPage(id);
