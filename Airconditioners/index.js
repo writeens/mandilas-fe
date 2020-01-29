@@ -222,6 +222,7 @@ const handleMainAirConPageLoad = async() => {
         addClass(allACLoader, `showLoader`);
         const newURL = `${productsEndpoint}?startAt=${START}&endAt=${END}`
         let data = await getData(newURL);
+        console.log(data)
         data.map((item, index, arr) => {
             // PRODUCTS.push(item)
             createAC(item)
