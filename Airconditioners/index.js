@@ -30,6 +30,7 @@ const checkPage = () => {
         }
     }else{
         //On Github Pages
+        console.log(window.location.pathname)
         if(window.location.pathname === '/mandilas-fe/Airconditioners/main.html'){
             return 'allProductsPage';
         } else if(window.location.pathname === ('/mandilas-fe/Airconditioners/index.html')){
