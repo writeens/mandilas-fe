@@ -8,8 +8,8 @@
     color: #313131;
     position: relative;
     justify-content: space-between;
-    /* overflow:hidden; */
-    overflow-x: hidden;
+    /* overflow:hidden;
+    overflow-x: hidden; */
 }
 .hometwo-logo{
     width: 10%
