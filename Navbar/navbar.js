@@ -10,8 +10,8 @@ const removeClass = (elem, customClass) => {
 }
 
 const initializeLocalStorage = () => {
-    console.log(localStorage.getItem('mandilasCart'))
-    console.log(localStorage.getItem('mandilasToken'))
+    // console.log(localStorage.getItem('mandilasCart'))
+    // console.log(localStorage.getItem('mandilasToken'))
     const cart = localStorage.getItem('mandilasCart');
     const token = localStorage.getItem('mandilasToken');
     if(cart === null){
