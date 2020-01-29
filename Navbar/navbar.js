@@ -389,7 +389,7 @@ const handleCartIcon = () => {
         if(ENV === 'development'){
             window.location.href = `/Cart/index.html`
         }else{
-            window.location.href = `/Cart/index.html`
+            window.location.href = `../Cart/index.html`
         }
     }
 }
