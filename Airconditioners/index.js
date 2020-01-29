@@ -21,9 +21,18 @@ let CURRENT_PRODUCT = '';
 // Check Current Page
 const checkPage = () => {
     console.log(window.location.pathname)
-    if(window.location.pathname === 'Airconditioners/main.html'){
+    //Local
+    // if(window.location.pathname === 'Airconditioners/main.html'){
+    //     return 'allProductsPage';
+    // } else if(window.location.pathname === ('Airconditioners/index.html') || window.location.pathname === ('AirConditioners/index.html')){
+    //     return 'singleProductPage';
+    // }else{
+    //     return 'checkName'
+    // }
+    //On Github Pages
+    if(window.location.pathname === '/mandilas-fe/Airconditioners/main.html'){
         return 'allProductsPage';
-    } else if(window.location.pathname === ('Airconditioners/index.html') || window.location.pathname === ('AirConditioners/index.html')){
+    } else if(window.location.pathname === ('/mandilas-fe/Airconditioners/main.html')){
         return 'singleProductPage';
     }else{
         return 'checkName'
