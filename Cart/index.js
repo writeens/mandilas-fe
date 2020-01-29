@@ -243,7 +243,7 @@ const showItemsInCart = () => {
             window.location.href = `Airconditioners/main.html`
         }else{
             // On Github
-            window.location.href = `main.html`
+            window.location.href = `../Airconditioners/main.html`
         }
     } else if(cart.length > 0){
         // Cart is not empty
