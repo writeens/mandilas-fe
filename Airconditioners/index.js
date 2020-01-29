@@ -32,7 +32,7 @@ const checkPage = () => {
         //On Github Pages
         if(window.location.pathname === '/mandilas-fe/Airconditioners/main.html'){
             return 'allProductsPage';
-        } else if(window.location.pathname === ('/mandilas-fe/Airconditioners/main.html')){
+        } else if(window.location.pathname === ('/mandilas-fe/Airconditioners/index.html')){
             return 'singleProductPage';
         }else{
             return 'checkName'
