@@ -42,7 +42,10 @@ const checkPage = () => {
 // Handle Clicking Of Products
 const handleProductClick = (elem) => {
     const id = elem.getAttribute(`data-id`)
-    window.location.href = `Airconditioners/index.html?id=${id}`;
+    //Local
+    // window.location.href = `Airconditioners/index.html?id=${id}`;
+    //On Github Pages
+    window.location.href = `index.html?id=${id}`;
 }
 
 //Get Data on single product

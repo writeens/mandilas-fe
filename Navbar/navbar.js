@@ -374,7 +374,6 @@ const handleCartIcon = () => {
                     toast.classList.remove('showMessageToast')
                 }, 2000);
     } else if(cart.length > 0){
-        console.log("object")
         window.location.href = `/Cart/index.html`
     }
 }
