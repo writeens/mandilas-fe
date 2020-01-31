@@ -333,15 +333,15 @@ const handlePageLoad = () => {
                 // Handle Buttons
 
                 loader.classList.remove('showLoader')
-                toast.children[0].innerHTML = `You have been signed out`
-                toast.classList.add('showMessageToast');
-                setTimeout(() => {
-                    toast.classList.remove('showMessageToast')
-                }, 3000);
+                // toast.children[0].innerHTML = `You have been signed out`
+                // toast.classList.add('showMessageToast');
+                // setTimeout(() => {
+                //     toast.classList.remove('showMessageToast')
+                // }, 3000);
             }
             if(errorCode === "auth/network-request-failed"){
                 loader.classList.remove('showLoader')
-                toast.children[0].innerHTML = `Check your network and try again`
+                toast.children[0].innerHTML = `Check your network`
                 toast.classList.add('showMessageToast');
                 setTimeout(() => {
                     toast.classList.remove('showMessageToast')
