@@ -97,7 +97,8 @@ p{
     display: flex;
     width: 30%;
     justify-content: center;
-    height: 500px;
+    max-height: 500px;
+    min-height: 350px;
     border-radius: 0.8rem;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -124,11 +125,12 @@ p{
     align-self: center;
     width: 100%;
     justify-content: space-around;
-    bottom: 3rem;
+    bottom: 10%;
 }
 .mini-card {
     width: 40%;
-    height: 180px;
+    min-height: 120px;
+    max-height: 180px;
     border: 1px solid #129347;
     border-radius: 0.5rem;
     background-color: white;
@@ -157,11 +159,9 @@ p{
         height: 650px;
         margin-bottom: 3rem;
     }
-}
-@media screen and (max-width: 1350px){
-    .mini-card-row {
-        bottom: 6rem;
-    }
+    /* .mini-card-row {
+        bottom: 1rem;
+    } */
     .mini-card.two{
         width: 40%;
     }
@@ -393,6 +393,7 @@ p{
         font-weight: 400;
         margin-bottom: 3rem;
         margin-top: 0rem;
+        text-align: justify;
     }
     .homepage-layer-2{
         height: fit-content;

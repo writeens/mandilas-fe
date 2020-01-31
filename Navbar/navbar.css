@@ -9,9 +9,10 @@
     position: relative;
     justify-content: space-around;
 }
-.hometwo-logo{
-    width: 10%;
-    min-width: 5%;
+.hometwo-logo {
+    padding: 0rem 0rem 0rem 1rem;
+    width: 150px;
+    height: 70px;
 }
 .hometwo-logo > img {
     width: 100%;
@@ -219,7 +220,7 @@ button[data-target="#signUp"]{
         right: 0.5rem;
     }
     .hometwo-logo {
-        width: 150px;
+        width: 100px;
     }
 }
 /*Navbar Update*/
