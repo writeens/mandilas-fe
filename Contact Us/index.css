@@ -1,6 +1,7 @@
 body{
     font-family: 'Poppins', sans-serif;
     background-image: url(../Assets/main.jpg);
+    overflow-x: hidden;
 }
 p{
     margin: 0;
@@ -55,6 +56,14 @@ p{
     display: flex;
     /* height: 800px; */
     justify-content: space-between;
+}
+.contact-us-for-motors{
+    display:none;
+    flex-direction: column;
+}
+.contact-us-for-ac{
+    display: flex;
+    flex-direction: column;
 }
 .contact-us-section-left{
     width: 45%;
@@ -205,13 +214,22 @@ p{
     .contact-us-section-top{
         flex-direction: column;
     }
-    .contact-us-section-left, .contact-us-section-right{
+    .contact-us-section-left{
         width: 100%;
         text-align: center;
     }
+    .contact-us-section-right {
+        width: auto;
+        display: flex;
+        justify-content: center;
+    }
+    .contact-us-form{
+        margin-bottom: 2rem;
+    }
+}
+@media screen and (max-width:800px){
     .contact-us-form{
         width: auto;
-        margin-bottom: 2rem;
     }
 }
 /* Contact Us Body */

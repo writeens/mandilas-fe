@@ -6,4 +6,10 @@ footerSelectors.forEach((item, index, arr) => {
         footerLinks[index].classList.toggle('hide-footer-links')
     })
 })
+
+const copyrightText = document.querySelector('.copyright > p');
+window.addEventListener('load', () => {
+    const currentYear = new Date().getFullYear();
+    copyrightText.innerHTML = `${currentYear} Mandilas. All Rights Reserved`
+})
 /**Footer */

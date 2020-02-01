@@ -23,7 +23,6 @@ p{
     flex-direction: column;
     padding: 7rem 8rem;
     justify-content: center;
-    margin-bottom: 3rem;
 }
 .motors-header > p:first-of-type{
     font-size: 9rem;
@@ -61,6 +60,7 @@ p{
     display: flex;
     flex-direction: column;
     background-color: white;
+    padding-top: 2rem;
 }
 .motors-content > p:first-of-type{
     display: flex;
@@ -235,11 +235,11 @@ p{
     height: 100%;
     object-fit: cover;
 }
-.motors-content-uv-bottom-layer-2{
+.motors-content-uv-bottom-layer-2 {
     display: flex;
     justify-content: space-between;
     padding: 2rem 8rem;
-    height: 500px;
+    height: fit-content;
 }
 .motors-content-uv-b-left-layer-2{
     width: 45%;
@@ -398,6 +398,7 @@ p{
     }
     .motors-content-uv-b-b-layer-2 {
         width: 100%;
+        justify-content: center;
     }
     
 }

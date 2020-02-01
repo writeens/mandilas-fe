@@ -1,6 +1,7 @@
 body{
     font-family: 'Poppins', sans-serif;
     background-image: url(../Assets/main.jpg);
+    overflow-x: hidden;
 }
 p{
     margin: 0;
@@ -75,6 +76,7 @@ p{
 .property-content-row > p{
     width: 48%;
     font-size: 2rem;
+    text-align: justify;
 }
 .property-content-row > img{
     width: 48%;
@@ -109,16 +111,19 @@ p{
     margin-bottom: 4rem;
     width: 85%;
     align-self: center;
-    text-align: center;
+    text-align: justify;
 }
 @media screen and (max-width:1350px){
     .properties-header-1{
         padding: 4rem 2rem;
     }
+    .properties-header-1 > div > p:first-of-type {
+        text-align: center;
+    }
     .properties-header-1 > div{
         width: 100%;
         max-width: 100%;
-        text-align: center;
+        text-align:justify;
     }
     .properties-header-1 > div > button{
         align-self: center;
@@ -134,8 +139,8 @@ p{
         margin-bottom: 3rem;
     }
     .property-content-row > p, .property-content-row > img{
-        width: 100%;
-        text-align: center;
+        width: auto;
+        text-align: justify;
     }
     .property-content-row.one > p > span{
         display: none;
@@ -153,7 +158,8 @@ p{
         margin-bottom: 3rem;
     }
     .property-header-content{
-        width: 100%;
+        width: auto;
+        text-align: justify;
     }
 }
 @media screen and (max-width:800px){

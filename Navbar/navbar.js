@@ -396,3 +396,32 @@ const handleCartIcon = () => {
 cart.forEach(item => {
     item.addEventListener('click', handleCartIcon)
 })
+
+// User clicks on homepage logo
+const navbarLogo = document.querySelector('.hometwo-logo > img')
+navbarLogo.addEventListener('click', () => {
+    let newPath = window.location.pathname.split("/");
+    if(newPath.includes('Homepage')){
+        window.location.href = "index.html"
+    }else{
+        window.location.href = "../Homepage/index.html"
+    }
+})
+
+//User clicks Register button in Modal
+const navbarRegisterInModal = document.querySelector('#navbarRegisterInModal')
+navbarRegisterInModal.addEventListener('click', () => {
+    console.log("yes")
+    $('#login').modal('hide')
+    setTimeout(() => {
+        $('#signUp').modal('show')
+    }, 200);
+})
+//User clicks LogIn button in Modal
+const navbarLoginInModal = document.querySelector('#navbarLoginInModal');
+navbarLoginInModal.addEventListener('click', () => {
+    $('#signUp').modal('hide')
+    setTimeout(() => {
+        $('#login').modal('show')
+    }, 200);
+})

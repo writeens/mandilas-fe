@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Homepage</title>
+    <title>Checkout</title>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Animate.css -->
@@ -58,7 +58,7 @@
         <div class="hometwo-menu">
             <div class="hometwo-menu-item">
                 <div class="hometwo-menu-text">
-                    <a href="index.html"><p>Home</p></a>
+                    <a href="../Homepage/index.html"><p>Home</p></a>
                     <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
                 </div>
             </div>
@@ -162,8 +162,7 @@
                                  </div>
                                  <div class="sl-buttons">
                                      <button id="navbarLogIn">Login</button>
-                                     <p>or</p>
-                                     <button id="navbarRegisterInModal">Register</button>
+                                     <button>or Sign Up</button>
                                  </div>
                              </div>
                              <div class="sl-login-close">&times;</div>
@@ -178,11 +177,11 @@
                     <div class="sl-modal">
                         <div class="sl-content">
                              <div class="sl-content-left">
-                                <p>Register To Continue</p>
+                                <p>Sign Up To Continue</p>
                                 <img src="../Assets/logo.svg" alt="">
                              </div>
                              <div class="sl-content-right">
-                                 <p>Register To Continue</p>
+                                 <p>Sign Up To Continue</p>
                                  <div class="sl-content-item">
                                      <label for="username">First Name</label>
                                      <input class="animated" type="text" id="navbarFirstName" autocomplete placeholder="John" value="">
@@ -209,7 +208,7 @@
                                  <div class="sl-buttons">
                                      <button id="navbarRegister">Register</button>
                                      <p>Or</p>
-                                     <button id="navbarLoginInModal">Log In</button>
+                                     <button>Sign Up</button>
                                  </div>
                              </div>
                              <div class="sl-signup-close">&times;</div>
@@ -219,131 +218,96 @@
             </div>
         </div>
     </div>
-    <div class="homepage-layer-1">
-        <p>Innovative Lifestyle Solutions.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eligendi vitae soluta ducimus molestiae blanditiis illo similique nemo vel quod asperiores dicta quibusdam</p>
-        <button class="homepage-button">Explore</button>
-    </div>
-    <div class="homepage-layer-2">
-        <div class="homepage-layer-2-content">
-            <p>Award winning dealer and distributor</p>
-            <p>The trusted provider of innovative lifestyle solutions</p>
-            <a href="#">Learn  More</a>
-        </div>
-    </div>
-    <div class="homepage-layer-3">
-        <div class="home-card">
-            <img src="../Assets/layer-3.jpg" alt="">
-            <p>Motors</p>
-            <div class="mini-card-row">
-                <p class="mini-card one">
-                    Vehicle Sales
-                </p>
-                <p class="mini-card">
-                    After Sales Services
-                </p>
+    <div class="checkout-main">
+        <div class="checkout-main-left">
+            <p>Checkout</p>
+            <div class="checkout-billing">
+                <p>Billing Address</p>
+                <div class="billing-row">
+                    <div class="billing-input">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="billingFirstName" placeholder="First Name" required>
+                    </div>
+                    <div class="billing-input">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="billingLastName" placeholder="Last Name" required>
+                    </div>
+                </div>
+                <div class="billing-row">
+                    <div class="billing-input">
+                        <label for="phoneNumber">Mobile Phone Number</label>
+                        <input type="text" id="billingPhoneNumber" placeholder="Phone Number" required>
+                    </div>
+                    <div class="billing-input">
+                        <label for="emailAddress">Email Address</label>
+                        <input type="email" id="billingEmail" placeholder="Email Address" required>
+                    </div>
+                </div>
+                <div class="billing-textarea">
+                    <label for="address">Address</label>
+                    <textarea name="" id="billingAddress" cols="30" rows="10"></textarea>
+                </div>
+                <div class="billing-row">
+                    <div class="billing-input">
+                        <label for="billingCity">Mobile Phone Number</label>
+                        <input type="text" id="billingCity" placeholder="City">
+                    </div>
+                    <div class="billing-input">
+                        <label for="billingState">State</label>
+                        <input type="email" id="billingState" placeholder="State">
+                    </div>
+                </div>
+                <div class="billingSubmit">
+                    <button id="billingSubmit" type="submit" name="">Save and Continue</button>
+                </div>
+            </div>
+            <div class="checkout-delivery">
+                <p>Delivery Method</p>
+                <p>How do you want your order delivered?</p>
+                <div class="checkout-delivery-radio">
+                    <input type="radio">
+                    <p>Door Delivery</p>
+                </div>
+                <p>Delivery fee NGN <span>NGN5,000</span></p>
+                <div class="dd-delivery-item-list">
+                    <p>Shipment Details</p>
+                    <div class="billing-shipment">
+                        <div class="billing-shipment-row">
+                            <p>3x</p>
+                            <p>Item Name</p>
+                            <p>Capacity: 1.5HP</p>
+                            <p>Wattage: 200 watts</p>
+                        </div>
+                        <div class="billing-shipment-row">
+                            <p>3x</p>
+                            <p>Item Name</p>
+                            <p>Capacity: 1.5HP</p>
+                            <p>Wattage: 200 watts</p>
+                        </div>
+                        <div class="billing-shipment-row">
+                            <p>3x</p>
+                            <p>Item Name</p>
+                            <p>Capacity: 1.5HP</p>
+                            <p>Wattage: 200 watts</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="home-card">
-            <img class="image-two" src="../Assets/layer-3h.jpg" alt="">
-            <p>Air Conditioners</p>
-            <div class="mini-card-row">
-                <p class="mini-card one">
-                    Carrier A/C
-                </p>
-                <p class="mini-card ">
-                    Special Contract
-                </p>
+        <div class="checkout-main-right">
+            <p>Order Summary</p>
+            <div class="checkout-main-text">
+                <p>Subtotal</p>
+                <p>NGN100,000</p>
             </div>
-        </div>
-        <div class="home-card motors">
-            <img src="../Assets/layer-5.jpg" alt="">
-            <p>Properties</p>
-            <div class="mini-card-row">
-                <p class="mini-card two">
-                    Contact Us
-                </p>
+            <div class="checkout-main-text">
+                <p>Subtotal</p>
+                <p>NGN100,000</p>
             </div>
-        </div>
-    </div>
-    <div class="homepage-layer-4">
-        <div class="homepage-layer-4-left">
-            <p>M.E.P</p>
-            <p>Mechanical, Electrical & Plumbing</p>
-            <p>Coming Soon</p>
-            <button>Contact Us</button>
-        </div>
-        <div class="homepage-layer-4-right">
-            <p>M.E.P</p>
-            <img src="../Assets/tap.jpg" alt="">
-        </div>
-    </div>
-    <div class="homepage-layer-logos">
-        <div class="home-logos">
-            <div>
-                <img class="logo" src="../Assets/support-1.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-2.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-3.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-4.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-5.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-6.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-7.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-1.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-2.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-3.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-4.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-5.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-6.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-7.jpg" alt="">
-            </div>
-        </div>
-    </div>
-    <div class="homepage-layer-8">
-        <p>UPDATES & EVENTS</p>
-        <div class="homepage-layer-8-cards">
-            <div class="homepage-layer-8-card">
-                <img src="../Assets/event.jpg" alt="">
-                <p>Carrier Hvac Training For Consultants and Contractors</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, sequi eum! Molestias quibusdam atque rem, quo animi quam ex labore porro voluptate iusto debitis reprehenderit, sequi id perspiciatis minus quas!</p>
-                <p>December 21, 2018</p>
-            </div>
-            <div class="homepage-layer-8-card">
-                <img src="../Assets/event.jpg" alt="">
-                <p>Carrier Hvac Training For Consultants and Contractors</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, sequi eum! Molestias quibusdam atque rem, quo animi quam ex labore porro voluptate iusto debitis reprehenderit, sequi id perspiciatis minus quas!</p>
-                <p>December 21, 2018</p>
-            </div>
-            <div class="homepage-layer-8-card">
-                <img src="../Assets/event.jpg" alt="">
-                <p>Carrier Hvac Training For Consultants and Contractors</p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, sequi eum! Molestias quibusdam atque rem, quo animi quam ex labore porro voluptate iusto debitis reprehenderit, sequi id perspiciatis minus quas!</p>
-                <p>December 21, 2018</p>
+            <div class="checkout-order-line"></div>
+            <div class="checkout-order-total">
+                <p>Total</p>
+                <p>NGN200,000.00</p>
             </div>
         </div>
     </div>

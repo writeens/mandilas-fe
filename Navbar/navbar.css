@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 /*Navbar Update*/
 .hometwo{
     display: flex;
@@ -286,13 +289,13 @@ button[data-target="#signUp"]{
     width: 180px;
     object-fit: contain;
 }
-.sl-content-right{
+.sl-content-right {
     width: 50%;
     background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 4rem;
+    padding: 3rem;
 }
 .sl-content-item{
     display: flex;

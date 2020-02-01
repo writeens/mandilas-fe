@@ -10,7 +10,7 @@ p{
 /* Main AC Page */
 .main-ac{
     background: url(../Assets/main-ac-header.jpg);
-    height: 580px;
+    height: 400px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -105,10 +105,8 @@ p{
     flex-direction: column;
     width: 300px;
     height: 400px;
-    /* padding: 0.5rem 0rem 1rem 0rem; */
     color: black;
-    margin: 0.8rem 1.5rem;
-    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    margin: 0.8rem 1rem;
 }
 .main-ac-right-content-card > img {
     width: 300px;
@@ -144,16 +142,14 @@ p{
     background-color: #129347;
     color: white;
     align-self: center;
-    /* position: absolute; */
-    /* bottom: 10px; */
 }
-.ac-content-bottom-layer-2{
-    width: 85%;
+.ac-content-bottom-layer-2 {
+    width: auto;
     height: fit-content;
     display: flex;
     flex-direction: row;
     padding: 2.5rem 5rem;
-    margin: 0rem 4rem 2rem 3rem;
+    margin-bottom: 2rem;
     justify-content: space-between;
     background-color: rgba(219, 202, 172, 0.5);
 }
@@ -230,9 +226,9 @@ p{
         bottom: 30px;
     }
     .ac-content-bottom-layer-2 {
-        width: 100%;
+        width: auto;
         flex-direction: column;
-        padding: 2.5rem 0;
+        padding: 2rem;
         margin: 0 0 2rem 0;
     }
     .ac-content-bottom-2-left {
@@ -247,7 +243,7 @@ p{
         width: 100%;
     }
     .ac-content-bottom-2-left > p:last-of-type {
-        text-align: center;
+        text-align: justify;
     }
 }
 @media screen and (max-width:800px){

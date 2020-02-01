@@ -1,0 +1,164 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image: url(../Assets/main.jpg);
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+.checkout-main{
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+.checkout-main-right{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid red;
+    max-width: 30%;
+    min-width: 25%;
+    min-height: 300px;
+    max-height: 350px;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0px 7px 11px 10px #dedede;
+}
+.checkout-main-left{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    /* box-shadow: -3px 11px 11px 3px #d0c2c2; */
+}
+.checkout-main-left > p {
+    padding: 1rem;
+    background-color: white;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-radius: 0.3rem;
+    box-shadow: 0px 7px 11px 10px #dedede;
+}
+.checkout-billing{
+    padding: 2rem 2rem 2rem 2rem;
+    display: flex;
+    border-radius: 0.3rem;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    background-color: white;
+    box-shadow: 0px 7px 11px 10px #dedede;
+}
+.checkout-billing > p{
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-bottom: 1px solid #313131;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+.billing-row{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.5rem;
+}
+.billing-input{
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+    /* border: 1px solid red; */
+}
+.billing-input > label{
+    margin-bottom: 1.5rem;
+}
+.billing-input > input{
+    padding: 1rem;
+    border: 1px solid gray;
+}
+.billing-textarea{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+.billing-textarea > label{
+    margin-bottom: 1.5rem;
+}
+.billingSubmit{
+    display: flex;
+    justify-content: center;
+}
+#billingSubmit{
+    align-self: center;
+    background-color: green;
+    width: 100%;
+    padding: 1rem 0rem;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+}
+.checkout-delivery{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 1rem 2rem 2rem 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 7px 11px 10px #dedede;
+}
+.checkout-delivery > p:nth-child(1){
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid gray;
+    margin-bottom: 1rem;
+}
+.checkout-delivery > p:nth-child(2){
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+.checkout-delivery-radio{
+    display: flex;
+    margin-bottom: 1.5rem;
+}
+.checkout-delivery-radio > input{
+    margin-right: 2rem;
+    align-self: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #129347;
+}
+.checkout-delivery-radio > p{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.checkout-delivery > p:nth-child(4){
+    margin-left: 1.5rem;
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+}
+.dd-delivery-item-list {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1.5rem;
+    font-size: 1.3rem;
+    box-shadow: 0px 7px 11px 10px #dedede;
+    border-radius: 0.3rem;
+    padding: 1.5rem 3rem;
+}
+.dd-delivery-item-list > p{
+    margin-bottom: 1rem;
+}
+.billing-shipment{
+    display: flex;
+    flex-direction: column;
+    min-height: 250px;
+}
+.billing-shipment-row{
+    display: flex;
+    border-bottom: 1px solid gray;
+    justify-content: space-around;
+    padding: 2rem 0rem;
+}
