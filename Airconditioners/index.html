@@ -128,87 +128,72 @@
                     <img src="../Assets/cart.svg" alt="">
                     <p class="no-of-items">0</p>
                 </div>
-                <button data-toggle="modal" data-target="#login">Login</button>
-                <button data-toggle="modal" data-target="#signUp">Register</button>
+                <button id="login">Login</button>
+                <button id="register">Register</button>
             </div>
         </div>
         <div class="hometwo-toggle">
             <i class="fa fa-bars fa-3x"></i>
         </div>
-        <div id="login" class="modal fade bd-example-modal-xl login homepage-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="sl-modal">
-                        <div class="sl-content">
-                             <div class="sl-content-left">
-                                <p>Log In To Continue</p>
-                                <img src="../Assets/logo.svg" alt="">
-                             </div>
-                             <div class="sl-content-right">
-                                <p>Log In To Continue</p>
-                                 <div class="sl-content-item">
-                                     <label for="username">Email</label>
-                                     <input type="email" class="animated" id="navLogInEmail" placeholder="John">
-                                 </div>
-                                 <div class="sl-content-item">
-                                     <label for="password">Password</label>
-                                     <input type="password" class="animated" id="navLogInPassword" placeholder="Enter password (at least 6 characters)">
-                                 </div>
-                                 <div class="sl-buttons">
-                                     <button id="navbarLogIn">Login</button>
-                                     <button>or Sign Up</button>
-                                 </div>
-                             </div>
-                             <div class="sl-login-close">&times;</div>
-                        </div>
+        <div class="modal" id="loginModal">
+            <div class="modal-content">
+                <div class="modal-content-left">
+                    <p>Log In To Continue</p>
+                    <img src="../Assets/logo.svg" alt="mandilas_logo">
+                </div>
+                <div class="modal-content-right login">
+                    <div class="modal-row">
+                        <label for="email">Email</label>
+                        <input type="email" class="animated" id="navLogInEmail" placeholder="Enter email address">
+                    </div>
+                    <div class="modal-row">
+                        <label for="password">Password</label>
+                        <input type="password" class="animated" id="navLogInPassword" placeholder="Enter password (at least 6 characters)">
+                    </div>
+                    <div class="action-buttons">
+                        <button id="loginFromLoginModal">Login</button>
+                        <p>or</p>
+                        <button id="registerFromLoginModal">Register</button>
                     </div>
                 </div>
+                <p id="closeLogin" class="closeModal">&times;</p>
             </div>
         </div>
-        <div id="signUp" class="modal fade bd-example-modal-xl signup homepage-modal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="sl-modal">
-                        <div class="sl-content">
-                             <div class="sl-content-left">
-                                <p>Sign Up To Continue</p>
-                                <img src="../Assets/logo.svg" alt="">
-                             </div>
-                             <div class="sl-content-right">
-                                 <p>Sign Up To Continue</p>
-                                 <div class="sl-content-item">
-                                     <label for="username">First Name</label>
-                                     <input class="animated" type="text" id="navbarFirstName" autocomplete placeholder="John" value="">
-                                 </div>
-                                 <div class="sl-content-item">
-                                     <label for="password">Last Name</label>
-                                     <input  class="animated" type="text" id="navbarLastName" placeholder="Doe" value="">
-                                 </div>
-                                 <div class="sl-content-item">
-                                    <label for="text">Phone Number</label>
-                                    <input  class="animated" type="text" id="navbarPhoneNumber" placeholder="+2348123456789" value="" maxlength="14" minlength="11">
-                                </div>
-                                 <div class="sl-content-item">
-                                     <label for="password">Email</label>
-                                     <input class="animated" type="email" id="navbarEmail" placeholder="Enter email" value="">
-                                 </div>
-                                 <div class="sl-content-item">
-                                     <label for="password">Password</label>
-                                     <input class="animated" type="password" id="navbarPassword" placeholder="Enter password (at least 6 characters long)" minlength="6" value="">
-                                 </div>
-                                 <div class="animated signup-agreement">
-                                     <p>By signing up, I agree and accept the terms of use</p>
-                                 </div>
-                                 <div class="sl-buttons">
-                                     <button id="navbarRegister">Register</button>
-                                     <p>Or</p>
-                                     <button>Sign Up</button>
-                                 </div>
-                             </div>
-                             <div class="sl-signup-close">&times;</div>
-                        </div>
+        <div class="modal" id="registerModal">
+            <div class="modal-content">
+                <div class="modal-content-left">
+                    <p>Register To Continue</p>
+                    <img src="../Assets/logo.svg" alt="mandilas_logo">
+                </div>
+                <div class="modal-content-right register">
+                    <div class="modal-row">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="animated" id="navbarFirstName" placeholder="John">
+                    </div>
+                    <div class="modal-row">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="animated" id="navbarLastName" placeholder="John">
+                    </div>
+                    <div class="modal-row">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="text" class="animated" id="navbarPhoneNumber" placeholder="+23481752456">
+                    </div>
+                    <div class="modal-row">
+                        <label for="email">Email</label>
+                        <input type="email" class="animated" id="navbarEmail" placeholder="Enter your email address">
+                    </div>
+                    <div class="modal-row">
+                        <label for="password">Password</label>
+                        <input type="password" class="animated" id="navbarPassword" placeholder="Enter password (at least 6 characters long)" minlength="6" value="">
+                    </div>
+                    <p class="register-agreement">By signing up, I agree and accept the terms of use</p>
+                    <div class="action-buttons">
+                        <button id="registerFromRegisterModal">Register</button>
+                        <p>or</p>
+                        <button id="loginFromRegisterModal">Login</button>
                     </div>
                 </div>
+                <p id="closeRegister" class="closeModal">&times;</p>
             </div>
         </div>
     </div>

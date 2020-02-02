@@ -229,212 +229,189 @@ button[data-target="#signUp"]{
 /*Navbar Update*/
 
 
-/* Login */
-.homepage-modal{
-    display: none;
-    background-color: black;
-}
-.homepage-modal > div:first-of-type{
-    max-width: 100vw;
-}
-.homepage-modal > .modal-dialog > .modal-content{
-    width: 80vw;
-    margin: 0 auto;
-}
-.sl-modal{
-    display: flex;
-    /* padding: 1rem; */
-    justify-content: center;
-    height: auto;
-}
-#login .sl-modal{
-    height: 80vh;
-}
-.sl-content{
-    display: flex;
+/**Login Update**/
+.modal{
+    position: fixed;
+    z-index: 1;
     width: 100%;
-    /* height: 90%; */
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
 }
-.sl-content-left{
+.modal-content{
+    position: relative;
+    width: 85%;
+    height: 85%;
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 0.4rem;
+    animation-name: slideInFromTop;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    justify-content: space-between;
+}
+.modal-content-left{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 50%;
+    height: 100%;
     background-image: url(../Assets/login-image.jpg);
-    background-repeat: no-repeat;
     background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
+    justify-content: center;
     position: relative;
 }
-.sl-content-left::before{
-    content: "";
+.modal-content-left::after{
+    content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: #1293489a;
 }
-.sl-content-left > p {
-    display: flex;
+.modal-content-left > p:nth-child(1){
     font-size: 3.6rem;
     font-weight: 600;
     color: white;
-    position: relative;
+    margin-left: 3.5rem;
     z-index: 2;
-    padding-left: 3rem;
 }
-.sl-content-left > img{
+.modal-content-left > img{
+    z-index: 2;
+    width: 250px;
+    height: 150px;
+    margin-left: 3.5rem;
     position: absolute;
-    bottom: 3rem;
-    left: 3rem;
-    width: 180px;
-    object-fit: contain;
+    bottom: 7rem;
 }
-.sl-content-right {
+.modal-content-right.register{
+    display: flex;
+    flex-direction: column;
     width: 50%;
-    background-color: white;
+    height: auto;
+    padding: 2rem;
+    overflow-y: auto;
+}
+.modal-content-right.login {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 3rem;
+    width: 50%;
+    height: auto;
+    align-self: center;
+    padding: 2rem;
 }
-.sl-content-item{
+.modal-row{
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
 }
-.sl-content-item > label{
+.modal-row > label{
     font-size: 1.5rem;
-    margin-bottom: 0.2rem;
 }
-.sl-content-item > input{
+.modal-row > input{
     border: none;
     border-bottom: 1px solid #313131;
     padding: 1.5rem 0rem 1.5rem 0rem;
-    width: 80%;
     transition: border 0.3s ease-in-out;
+    width: auto;
 }
-/* .sl-content-item > input:hover{
-    border: 2px solid red;
-    animation-name: shake;
-    animation-duration: 0.5s;
-    animation-iteration-count: 1;
-} */
+.action-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    max-width: fit-content;
+}
+.action-buttons > button:nth-child(1){
+    padding: 1rem 3rem;
+    border-radius: 0.4rem;
+    border: none;
+    background-color: #129348;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.action-buttons > p:nth-child(2){
+    align-self: center;
+    font-size: 1.5rem;
+    padding: 0rem 2rem;
+}
+.action-buttons > button:nth-child(3){
+    padding: 1rem 3rem;
+    border-radius: 0.4rem;
+    border: none;
+    background-color: transparent;
+    color: black;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.register-agreement{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.closeModal{
+    position: absolute;
+    right: 1.5rem;
+    top: -0.5rem;
+    font-size: 3.5rem;
+}
+@media screen and (max-width: 970px){
+    .modal-content{
+        width: 95%;
+        padding:3rem 0rem
+    }
+    .modal-content-left{
+        display: none;
+    }
+    .modal-content-right.login{
+        padding: 1.5rem;
+        width: 100%;
+    }
+    .modal-content-right.register{
+        padding: 1.5rem;
+        width: 100%;
+    }
+    .action-buttons{
+        align-self: center;
+    }
+    #loginModal > .modal-content{
+        height: fit-content;
+    }
+}
+@media screen and (max-width: 800px) {
+    .modal-content-right.login, 
+    .modal-content-right.register{
+        padding: 1rem;
+    }
+    .action-buttons{
+        width: 100%;
+    }
+    .action-buttons > button:nth-child(1),
+    .action-buttons > button:nth-child(3) {
+        padding: 0.7rem 1rem;
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
+    .action-buttons > p:nth-child(2) {
+        align-self: center;
+        font-size: 1.5rem;
+        padding: 0rem 1rem;
+    }
+}
 .invalid-input{
     border: 1px solid red !important;
 }
-.sl-content-item > input:focus{
-    outline: none;
+@keyframes slideInFromTop{
+    0%{ top: -100vh; opacity: 0;}
+    100%{top: 0vh; opacity: 1;}
 }
-.sl-buttons{
-    display: flex;
-    align-items: center;
-    margin-top: 4rem;
-}
-.sl-buttons > button {
-    font-size: 1.3rem;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-}
-.sl-buttons > button:first-of-type{
-    padding: 1rem 3rem;
-    background-color: #129347;
-    color: white;
-}
-.sl-buttons > button:last-of-type{
-    width: fit-content;
-    color: #313131;
-    background: transparent;
-}
-.sl-buttons > p {
-    margin-left: 1rem;
-    margin-right: 1rem;
-    font-size: 1.3rem;
-}
-.sl-login-close{
-    position: absolute;
-    right: 4rem;
-    font-size: 4rem;
-    cursor: pointer;
-    width: fit-content;
-}
-.sl-signup-close{
-    position: absolute;
-    right: 1rem;
-    top: -1rem;
-    font-size: 4rem;
-    cursor: pointer;
-    width: fit-content;
-}
-.sl-content-right > p{
-    display: none;
-}
-@media screen and (max-width: 1000px){
-    .sl-login-close, .sl-signup-close {
-        position: absolute;
-        right: 0.1rem;
-        top: -5.5rem;
-        cursor: pointer;
-        width: fit-content;
-    }
-    .sl-modal {
-        padding: 5rem 1rem;
-        height: fit-content !important;
-    }
-    .sl-content{
-        position: relative;
-        top: 3rem;
-    }
-    .sl-content-left{
-        display: none;
-    }
-    .sl-content-right > p{
-        display: block;
-        font-size: 2rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        width: 40%;
-        position: relative;
-    }
-    .sl-content-right {
-        width: 100%;
-        padding: 0;
-        /* padding-left: 0rem; */
-    }
-    .sl-content-item > input {
-        padding: 1rem 0rem 1rem 0rem;
-        width: auto;
-    }
-    .sl-content-item {
-        margin-bottom: 0.5rem;
-    }
-    .sl-buttons{
-        flex-direction: column;
-        margin-top: 2rem;
-    }
-    .sl-buttons > button:first-of-type{
-        margin-bottom: 2rem;
-        width: 100%;
-    }
-    .homepage-modal > .modal-dialog > .modal-content {
-        width: 100%;
-        margin: 0 auto;
-    }
-}
-/* Login */
-
-/* Sign Up */
-.signup-agreement{
-    display: flex;
-}
-.signup-agreement > input{
-    margin-right: 2rem;
-    padding: 0.5rem;
-    border: 1px solid red;
-    transition: transform 0.3s ease-in-out;
-}
-/* Sign Up */
-
+/**Login Update**
 
 /**Signed In buttons*/
 .hometwo-signedin-buttons {
@@ -502,13 +479,15 @@ button[data-target="#signUp"]{
 .showLoader{
     display: flex !important;
 }
-#loader{
+#loader {
     display: none;
     justify-content: center;
     align-items: center;
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: #1293486c;
     z-index: 9999;
 }

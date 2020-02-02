@@ -22,8 +22,6 @@ const removeClass = (elem, customClass) => {
 }
 
 const initializeLocalStorage = () => {
-    // console.log(localStorage.getItem('mandilasCart'))
-    // console.log(localStorage.getItem('mandilasToken'))
     const cart = localStorage.getItem('mandilasCart');
     const token = localStorage.getItem('mandilasToken');
     if(cart === null){
@@ -32,8 +30,6 @@ const initializeLocalStorage = () => {
     if(token === null){
         localStorage.setItem("mandilasToken", JSON.stringify(""))
     }
-    console.log(localStorage.getItem('mandilasCart'))
-    console.log(localStorage.getItem('mandilasToken'))
 }
 initializeLocalStorage();
 
@@ -68,10 +64,18 @@ const navLastName = document.querySelector('#navbarLastName')
 const navEmail = document.querySelector('#navbarEmail')
 const navPassword = document.querySelector('#navbarPassword')
 const navPhoneNumber = document.querySelector('#navbarPhoneNumber')
-const navRegister = document.querySelector('#navbarRegister')
-const navLogIn = document.querySelector('#navbarLogIn');
+const navRegister = document.querySelector('#registerFromRegisterModal')
+const navLogIn = document.querySelector('#loginFromLoginModal');
 const navLogInEmail = document.querySelector('#navLogInEmail')
 const navLogInPassword = document.querySelector('#navLogInPassword')
+const loginButton = document.querySelector('#login')
+const registerButton = document.querySelector('#register')
+const loginModal = document.querySelector('#loginModal')
+const registerModal = document.querySelector('#registerModal')
+const registerFromLoginModal = document.querySelector('#registerFromLoginModal');
+const loginFromRegisterModal = document.querySelector('#loginFromRegisterModal'); 
+const closeLogin = document.querySelector('#closeLogin');
+const closeRegister = document.querySelector('#closeRegister') 
 // Log Out Buttons
 const navLogOut = document.querySelector('#navLogOut')
 //Pre Sign In Buttons
@@ -86,36 +90,81 @@ const toast = document.querySelector('#messageToast');
 const signUpEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-up'
 const logInEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-in'
 
+//Clear Login
+const clearLogin = () => {
+    navLogInEmail.value = "",
+    navLogInPassword.value = ""
+}
+const clearRegister = () => {
+    navFirstName.value = "",
+    navLastName.value = "",
+    navEmail.value = "",
+    navPhoneNumber.value = "",
+    navPassword.value = ""
+}
+
 //Hamburger Menu
-toggle.addEventListener('click', () => {
-    const hamburgerPresent = toggle.children[0].classList.contains('fa-bars')
-    const closeIconPresent = toggle.children[0].classList.contains('fa-close')
+const hamburgerPresent = toggle.children[0].classList.contains('fa-bars')
+const closeIconPresent = toggle.children[0].classList.contains('fa-close')
+const handleHamburger = () => {
     if(hamburgerPresent){
         console.log("showing Menu")
-        toggle.children[0].classList.remove('fa-bars');
-        toggle.children[0].classList.add('fa-close');
+        toggle.children[0].classList.toggle('fa-bars');
+        toggle.children[0].classList.toggle('fa-close');
         
     }
     if(closeIconPresent){
         console.log("hiding Menu")
-        toggle.children[0].classList.remove('fa-close');
-        toggle.children[0].classList.add('fa-bars');
+        toggle.children[0].classList.toggle('fa-close');
+        toggle.children[0].classList.toggle('fa-bars');
     }
     navbarButtons.classList.toggle('show-item');
     menu.classList.toggle('show-item');
-})
+}
+toggle.addEventListener('click', handleHamburger)
 /**Desktop Menu */
 
-/**Homepage Modal Close*/
-const closeLoginModal = document.querySelector('.sl-login-close')
-const closeSignUpModal = document.querySelector('.sl-signup-close')
-closeLoginModal.addEventListener('click', () => {
-    $('#login').modal('hide')
+/**Modal Management */
+
+//Show Login Modal upon click
+loginButton.addEventListener('click', () => {
+    //Hide Menu
+    handleHamburger()
+    // Show Modal
+    loginModal.style.display = "flex"
 })
-closeSignUpModal.addEventListener('click', () => {
-    $('#signUp').modal('hide')
+//Show Regsiter Modal upon click
+registerButton.addEventListener('click', () => {
+    //Hide Menu
+    handleHamburger()
+    // Show Modal
+    registerModal.style.display = "flex"
 })
-/**Homepage Modal Close*/
+//Handle Register button click in Login Modal
+registerFromLoginModal.addEventListener('click', () => {
+    clearLogin()
+    loginModal.style.display = "none";
+    registerModal.style.display = "flex"
+    
+})
+//Handle Login button click in Register Modal
+loginFromRegisterModal.addEventListener('click', () => {
+    clearRegister()
+    registerModal.style.display = "none"
+    loginModal.style.display = "flex";
+})
+//Close Login Modal
+closeLogin.addEventListener('click', () => {
+    clearLogin()
+    loginModal.style.display = 'none'
+})
+//Close Register Modal
+closeRegister.addEventListener('click', () => {
+    clearRegister();
+    registerModal.style.display = 'none'
+})
+
+/**Modal Management */
 
 
 /**GLOBAL VARIABLES */
@@ -170,7 +219,8 @@ const handleRegister = () => {
     if(validateData(navFirstName) &&
     validateData(navLastName) &&
     validateData(navEmail) &&
-    validateData(navPassword)){
+    validateData(navPassword) &&
+    validateData(navPhoneNumber)){
         // Add Loader
         loader.classList.add('showLoader')
         //Create Request Body
@@ -205,7 +255,8 @@ const handleRegister = () => {
                     toast.children[0].innerHTML = `Hi ${body["firstName"]}, You have successfully registered`
                     postSignedInButtonContainer.children[0].innerHTML = `Hello, ${body["firstName"]}`;
                     //Remove Modal
-                    $('#signUp').modal('hide')
+                    // $('#signUp').modal('hide')
+                    registerModal.style.display = "none"
                     // Show Pre Login View
                     postSignedInButtonContainer.style.display = 'flex';
                     preSignedInButtonContainer.style.display = 'none';
@@ -262,8 +313,8 @@ const handleLogIn = () => {
                     postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
                     localStorage.setItem('mandilasToken', `${customToken}`);
                     //Remove Modal
-                    $('#login').modal('hide')
-                    
+                    // $('#login').modal('hide')
+                    loginModal.style.display = "none"
                     //Clear Defaults
                     navLogInEmail.value = "",
                     navLogInPassword.value = "",
@@ -406,22 +457,4 @@ navbarLogo.addEventListener('click', () => {
     }else{
         window.location.href = "../Homepage/index.html"
     }
-})
-
-//User clicks Register button in Modal
-const navbarRegisterInModal = document.querySelector('#navbarRegisterInModal')
-navbarRegisterInModal.addEventListener('click', () => {
-    console.log("yes")
-    $('#login').modal('hide')
-    setTimeout(() => {
-        $('#signUp').modal('show')
-    }, 200);
-})
-//User clicks LogIn button in Modal
-const navbarLoginInModal = document.querySelector('#navbarLoginInModal');
-navbarLoginInModal.addEventListener('click', () => {
-    $('#signUp').modal('hide')
-    setTimeout(() => {
-        $('#login').modal('show')
-    }, 200);
 })

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Modal</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <style>
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            display: flex;
+            font-family: Poppins, sans-serif;
+            max-width: 500px;
+            justify-content: space-around;
+        }
+        main > button{
+            padding:1rem 2rem;
+            color: white;
+            font-size: 1.5rem;
+            background-color: #124568; 
+            border-radius: 0.3rem;
+            border: none;
+            cursor: pointer;
+        }
+        .modal{
+            position: fixed;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content{
+            position: relative;
+            width: 85%;
+            height: 85%;
+            background-color: #fefefe;
+            display: flex;
+            justify-content: center;
+            border-radius: 0.4rem;
+            animation-name: slideInFromTop;
+            animation-duration: 0.3s;
+            animation-timing-function: ease-out;
+            justify-content: space-between;
+        }
+        .modal-content-left{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: 100%;
+            background-image: url(../Assets/login-image.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            justify-content: center;
+            position: relative;
+        }
+        .modal-content-left::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #1293489a;
+        }
+        .modal-content-left > p:nth-child(1){
+            font-size: 3.6rem;
+            font-weight: 600;
+            color: white;
+            margin-left: 3.5rem;
+            z-index: 2;
+        }
+        .modal-content-left > img{
+            z-index: 2;
+            width: 250px;
+            height: 150px;
+            margin-left: 3.5rem;
+            position: absolute;
+            bottom: 7rem;
+        }
+        .modal-content-right.register{
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: auto;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .modal-content-right.login {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            height: auto;
+            align-self: center;
+            padding: 2rem;
+        }
+        .modal-row{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 3rem;
+        }
+        .modal-row > label{
+            font-size: 1.5rem;
+        }
+        .modal-row > input{
+            border: none;
+            border-bottom: 1px solid #313131;
+            padding: 1.5rem 0rem 1.5rem 0rem;
+            transition: border 0.3s ease-in-out;
+            width: auto;
+        }
+        .action-buttons{
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            max-width: fit-content;
+        }
+        .action-buttons > button:nth-child(1){
+            padding: 1rem 3rem;
+            border-radius: 0.4rem;
+            border: none;
+            background-color: #129348;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .action-buttons > p:nth-child(2){
+            align-self: center;
+            font-size: 1.5rem;
+            padding: 0rem 2rem;
+        }
+        .action-buttons > button:nth-child(3){
+            padding: 1rem 3rem;
+            border-radius: 0.4rem;
+            border: none;
+            background-color: transparent;
+            color: black;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .register-agreement{
+            display: flex;
+            margin-bottom: 2rem;
+        }
+        @media screen and (max-width: 970px){
+            .modal-content{
+                width: 95%;
+                padding:3rem 0rem
+            }
+            .modal-content-left{
+                display: none;
+            }
+            .modal-content-right.login{
+                padding: 1.5rem;
+                width: 100%;
+            }
+            .modal-content-right.register{
+                padding: 1.5rem;
+                width: 100%;
+            }
+            .action-buttons{
+                align-self: center;
+            }
+            #loginModal > .modal-content{
+                height: fit-content;
+            }
+        }
+        @media screen and (max-width: 800px) {
+            .modal-content-right.login, 
+            .modal-content-right.register{
+                padding: 1rem;
+            }
+            .action-buttons{
+                width: 100%;
+            }
+            .action-buttons > button:nth-child(1),
+            .action-buttons > button:nth-child(3) {
+                padding: 0.7rem 1rem;
+                font-size: 1.3rem;
+                cursor: pointer;
+            }
+            .action-buttons > p:nth-child(2) {
+                align-self: center;
+                font-size: 1.5rem;
+                padding: 0rem 1rem;
+            }
+        }
+        @keyframes slideInFromTop{
+            0%{ top: -100vh; opacity: 0;}
+            100%{top: 0vh; opacity: 1;}
+        }
+        .closeLoginModal{
+            position: absolute;
+            right: 1.5rem;
+            top: 0rem;
+            font-size: 3.5rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <button id="login">Login</button>
+        <button id="register">Register</button>
+
+        <!-- <div class="modal" id="loginModal">
+            <div class="modal-content">
+                <div class="modal-content-left">
+                    <p>Log In To Continue</p>
+                    <img src="../Assets/logo.svg" alt="mandilas_logo">
+                </div>
+                <div class="modal-content-right login">
+                    <div class="modal-row">
+                        <label for="email">Email</label>
+                        <input type="email" placeholder="John">
+                    </div>
+                    <div class="modal-row">
+                        <label for="password">Password</label>
+                        <input type="password" placeholder="Enter password (at least 6 characters)">
+                    </div>
+                    <div class="action-buttons">
+                        <button id="loginFromLoginModal">Login</button>
+                        <p>or</p>
+                        <button id="registerFromLoginModal">Register</button>
+                    </div>
+                </div>
+                <p id="closeLogin" class="closeLoginModal">&times;</p>
+            </div>
+        </div> -->
+        <div class="modal" id="registerModal">
+            <div class="modal-content">
+                <div class="modal-content-left">
+                    <p>Register To Continue</p>
+                    <img src="../Assets/logo.svg" alt="mandilas_logo">
+                </div>
+                <div class="modal-content-right register">
+                    <div class="modal-row">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="navbarFirstname" placeholder="John">
+                    </div>
+                    <div class="modal-row">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="navbarLastname" placeholder="John">
+                    </div>
+                    <div class="modal-row">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="text" id="navbarPhonenumber" placeholder="+23481752456">
+                    </div>
+                    <div class="modal-row">
+                        <label for="email">Email</label>
+                        <input type="email" id="navbarEmail" placeholder="Enter your email address">
+                    </div>
+                    <div class="modal-row">
+                        <label for="password">Password</label>
+                        <input type="password" id="navbarPassword" placeholder="Enter password (at least 6 characters long)" minlength="6" value="">
+                    </div>
+                    <p class="register-agreement">By signing up, I agree and accept the terms of use</p>
+                    <div class="action-buttons">
+                        <button id="loginFromLoginModal">Login</button>
+                        <p>or</p>
+                        <button id="registerFromLoginModal">Register</button>
+                    </div>
+                </div>
+                <p id="closeLogin" class="closeLoginModal">&times;</p>
+            </div>
+        </div>
+    </main>
+</body>
+<script>
+    const loginButton = document.querySelector('#login')
+    const registerButton = document.querySelector('#register')
+    const logiModal = document.querySelector('#loginModal')
+    const registerModal = document.querySelector('#registerModal')
+    loginButton.addEventListener('click', () => {
+        console.log('In Button')
+        loginModal.style.display = "flex"
+    })
+    registerButton.addEventListener('click', () => {
+        console.log('In Register')
+        registerModal.style.display = "flex"
+    })
+    window.addEventListener('click', (e) => {
+        if(e.target === loginModal){
+            loginModal.style.display = "none"
+        }
+        if(e.target === registerModal){
+            registerModal.style.display = "none"
+        }
+    })
+</script>
+</html>
