@@ -32,7 +32,10 @@
 .footer-logo.mobile{
     display: none;
 }
-.footer-logo > img {
+.footer-logo > a{
+    
+}
+.footer-logo > a > img {
     width: 40px;
     height: 40px;
 }
