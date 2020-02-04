@@ -2,6 +2,8 @@
 const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product';
 // Endpoint Info for all products
 const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
+const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
+const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 //Formatter
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -17,14 +19,13 @@ let INITIAL_QUANTITY = 0;
 //GLOBAL DOM 
 const subTotal = document.querySelector('#cart-subtotal');
 const cartTotal = document.querySelector('#cart-total');
-const cartShipping = document.querySelector('#cart-shipping');
 
 // Handle Product Click
 const handleProductClick = (elem) => {
     const id = elem.getAttribute(`data-id`)
     if(ENV === 'development'){
         // Local
-        window.location.href = `Airconditioners/index.html?id=${id}`;
+        window.location.href = `../Airconditioners/index.html?id=${id}`;
     }else{
         // Github
         window.location.href = `../Airconditioners/index.html?id=${id}`;
@@ -57,100 +58,106 @@ const getData = async (url) => {
     return data.data
 }
 
-const handleDeleteItemFromCart = (id, price, quantityInput) => {
-    let cart = JSON.parse(localStorage.getItem('mandilasCart'));
-    // Check Cart and make sure item exists
-    itemIsInCart = cart.includes(id);
-    if(itemIsInCart){
-        let itemIndex = cart.indexOf(id);
-        cart = cart.filter((item, index) => {
-            if(index !== itemIndex){
-                return item;
-            }
-        })
-        const itemToRemove = document.querySelector(`.cart-info-column > [data-id="${id}"]`);
-        // Remove Node From View
+const handleDeleteItemFromCart = (user, productID, price, quantity) => {
+    fetch(`${deleteCartItemEndpoint}/${user}/${productID}`, {
+        method:'DELETE',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+        const itemToRemove = document.querySelector(`.cart-info-column > [data-id="${productID}"]`);
         itemToRemove.remove();
-        // Update Cart Info
-        localStorage.setItem('mandilasCart', JSON.stringify(cart));
-        // Update UI
-        cartNumber.forEach(item => {
-            item.innerHTML = cart.length;
-        })
-        // Update Price
-        let currentValue = parseInt(quantityInput.value);
-        valueToDeduct = currentValue * price
+        let valueToDeduct = price * quantity;
         INITIAL_PRICE -= valueToDeduct;
         subTotal.innerHTML = formatter.format(INITIAL_PRICE);
-        //Update Quantity
-        INITIAL_QUANTITY -= currentValue;
-        let shippingCost = getShipping(INITIAL_QUANTITY);
-        cartShipping.innerHTML = formatter.format(shippingCost);
         // Update Total
-        cartTotal.innerHTML = formatter.format(INITIAL_PRICE + shippingCost);
-    }
+        cartTotal.innerHTML = formatter.format(INITIAL_PRICE);
+    })
 }
 
 // Handle Shipping Cost
-const getShipping = (quantity) => {
-    switch (quantity) {
-        case 1:
-            return 3000
-        case 2:
-            return 3500
-        case 3:
-            return 4000
-        case 4:
-            return 4500
-        default:
-            return 0
-    }
-}
+// const getShipping = (quantity) => {
+//     switch (quantity) {
+//         case 1:
+//             return 3000
+//         case 2:
+//             return 3500
+//         case 3:
+//             return 4000
+//         case 4:
+//             return 4500
+//         default:
+//             return 0
+//     }
+// }
 
 //Handle Pricing Card
 const getPricingTotal = (amount, change) => {
     if(change === '+'){
         INITIAL_PRICE += amount;
         subTotal.innerHTML = formatter.format(INITIAL_PRICE);
-        INITIAL_QUANTITY++
     }
     if(change === '-'){
         INITIAL_PRICE -= amount;
         subTotal.innerHTML = formatter.format(INITIAL_PRICE);
-        INITIAL_QUANTITY--
     }
-    let shippingCost = getShipping(INITIAL_QUANTITY);
-    cartShipping.innerHTML = formatter.format(shippingCost);
-    cartTotal.innerHTML = formatter.format(INITIAL_PRICE + shippingCost);
+    cartTotal.innerHTML = formatter.format(INITIAL_PRICE);
 }
 
 //Handle Quantity Change
-const handleQuantityChange = (amount, quantity, change) => {
+const handleQuantityChange = (amount, quantity, change, user, productID) => {
     if(change === '+'){
         //Update Quantity Input
         let value = parseInt(quantity.value);
         value++;
-        quantity.value = value;
-        
-        // Update Total
-        getPricingTotal(amount, '+');
-
+        const body = {
+            'item':productID,
+            'quantity':value
+        }
+        fetch(`${updateCartEndpoint}/${user}`, {
+            method:'PUT',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(result => {
+            quantity.value = value;
+            // Update Total
+            getPricingTotal(amount, '+');
+        })
     }
 
-    //Update Quantity Input
+    // //Update Quantity Input
     if(change === '-' && quantity.value > 1){
         let value = parseInt(quantity.value);
         value--;
-        quantity.value = value;
-
-        // Update Total
-        getPricingTotal(amount, '-');
+        const body = {
+            'item':productID,
+            'quantity':value
+        }
+        fetch(`${updateCartEndpoint}/${user}`, {
+            method:'PUT',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(result => {
+            quantity.value = value;
+            // Update Total
+            getPricingTotal(amount, '-');
+        })
     }
 }
-
 //Populate Cart Item
 const cartItemsContainer = document.querySelector('.cart-info-column');
-const populateCartItem = (data) => {
+const populateCartItem = (data, itemQuantity, user) => {
     const {name, description, usage, imageUrl, actualPrice, discountedPrice, deliveryMaximum, deliveryMinimum, productID} = data;
     const {capacity, wattage, text, size} = data.description;
     const itemCard = document.createElement('div');
@@ -187,20 +194,20 @@ const populateCartItem = (data) => {
     minus.innerHTML = '&#45;'
     const quantityInput = document.createElement('input');
     quantityInput.type = 'text';
-    quantityInput.value = 1;
+    quantityInput.value = itemQuantity;
     quantityInput.disabled = true;
     const plus = document.createElement('p');
     plus.innerHTML = '&#43;'
 
 
     //Add Delete Listener to Trash Icon
-    rightImage.addEventListener('click', () => handleDeleteItemFromCart(productID, discountedPrice, quantityInput))
+    rightImage.addEventListener('click', () => handleDeleteItemFromCart(user, productID, discountedPrice, itemQuantity))
 
     //Handle Plus Icon
-    plus.addEventListener('click', () => handleQuantityChange(discountedPrice, quantityInput, '+'));
+    plus.addEventListener('click', () => handleQuantityChange(discountedPrice, quantityInput, '+', user, productID));
 
     //Handle Minus Icon
-    minus.addEventListener('click', () => handleQuantityChange(discountedPrice, quantityInput, '-'));
+    minus.addEventListener('click', () => handleQuantityChange(discountedPrice, quantityInput, '-', user, productID));
 
     itemCard.setAttribute('data-id', productID)
     // Append Items on the right
@@ -218,37 +225,42 @@ const populateCartItem = (data) => {
 }
 
 //Create Cart Item
-const createCartItem = (arr) => {
+const createCartItem = (arr, user) => {
     arr.map(item => {
-        // createCartItem(item)
-        addClass(cartContentLoader, 'showLoader')
         cartItemsContainer.innerHTML = ""
-        getData(`${singleProductEndpoint}/${item}`)
+        getData(`${singleProductEndpoint}/${item.item}`)
         .then(data => {
-            populateCartItem(data)
+            populateCartItem(data, item.quantity, user)
             removeClass(cartContentLoader, 'showLoader')
-            getPricingTotal(data.discountedPrice, '+')
+            let amount = data.discountedPrice * item.quantity;
+            getPricingTotal(amount, '+')
         })
     })
 }
 
 //Show Items In Cart
 const cartContentLoader = document.querySelector('.cartContentLoader')
-const showItemsInCart = () => {
-    let cart = JSON.parse(localStorage.getItem('mandilasCart'));
-    //If Cart is Empty
-    if(cart.length <= 0){
-        if(ENV === 'development'){
-            // Local
-            window.location.href = `Airconditioners/main.html`
-        }else{
-            // On Github
-            window.location.href = `../Airconditioners/main.html`
+const showItemsInCart = (id) => {
+    addClass(cartContentLoader, 'showLoader')
+    fetch(`${getItemsInCartEndpoint}/${id}`, {
+        method:"GET",
+        headers:{
+            'Content-Type':'application/json'
         }
-    } else if(cart.length > 0){
-        // Cart is not empty
-        createCartItem(cart)
-    }
+    })
+        .then(response => response.json())
+        .then(result => {
+            const {status, data} = result
+            if(data.length <= 0){
+                //Handle No Item In Cart
+            }else{
+                createCartItem(data, id)
+                loader.classList.remove('showLoader')
+            }
+        }).catch(error => {
+            //Handle Error Here
+            console.log(error)
+        })
 }
 
 // Populate People Also Viewed
@@ -291,9 +303,29 @@ const getPeopleAlsoViewedItems = () => {
 
 // On Page Load
 const handleCartPageLoad = () => {
-    showItemsInCart();
-
-    //People Also Viewed
-    getPeopleAlsoViewedItems();
+    loader.classList.add('showLoader')
+    handleNavbarLoad
+        .then(user => {
+            if(user){
+                showItemsInCart(user);
+                //People Also Viewed
+                getPeopleAlsoViewedItems();
+            }else{
+                //User has code missing from address bar
+                //Redirect to 404 Page
+                window.history.go(-1)
+            }
+        }).catch(error => {
+            console.log(error)
+            const orderSummary = document.querySelector('.cart-content-right');
+            const itemsList = document.querySelector('.cart-info-column');
+            const noItemInCart = document.createElement('p');
+            noItemInCart.innerHTML = 'There are no items in your cart'
+            noItemInCart.setAttribute('id', 'noItemInCart')
+            itemsList.innerHTML = ""
+            itemsList.append(noItemInCart)
+            orderSummary.style.display = 'none';
+            loader.classList.remove('showLoader')
+        })
 }
 window.addEventListener('DOMContentLoaded', handleCartPageLoad)

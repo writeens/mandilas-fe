@@ -8,14 +8,14 @@ p{
 }
 
 /* Main AC Page */
-.main-ac{
+.main-ac {
     background: url(../Assets/main-ac-header.jpg);
-    height: 400px;
+    height: fit-content;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-    padding: 8rem 5rem;
+    padding: 9rem 5rem;
 }
 .main-ac-content{
     padding: 3rem;

@@ -21,17 +21,35 @@ const removeClass = (elem, customClass) => {
     elem.classList.remove(customClass)
 }
 
+//Initialize Local Storage
 const initializeLocalStorage = () => {
-    const cart = localStorage.getItem('mandilasCart');
     const token = localStorage.getItem('mandilasToken');
-    if(cart === null){
-        localStorage.setItem("mandilasCart", JSON.stringify([]))
-    }
     if(token === null){
         localStorage.setItem("mandilasToken", JSON.stringify(""))
     }
 }
 initializeLocalStorage();
+
+//Update Cart Number
+const updateCartIcon = (id) => {
+    const cartNumber = document.querySelectorAll('.navbar-cart-container > .no-of-items')
+    if(id !== null){
+        fetch(`${getItemsInCartEndpoint}/${id}`, {
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json'
+            }
+        }).then(response => response.json())
+            .then(result => {
+                let {data} = result
+                cartNumber.forEach(item => item.innerHTML = data.length)
+            }).catch(error => {
+                console.log(error)
+            })
+    }else{
+        cartNumber.forEach(item => item.innerHTML = 0)
+    }
+}
 
 /**Desktop Menu */
 const menuItems = document.querySelectorAll('.hometwo-menu-item.drop')
@@ -55,7 +73,10 @@ menuItems.forEach((menuItem, outerIndex, arr) => {
     })
 })
 
-let isUserLoggedIn = null;
+let isUserLoggedIn = false;
+let USER_ID = ''
+const navbarCart = document.querySelectorAll('.navbar-cart-container');
+const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 const toggle = document.querySelector('.hometwo-toggle');
 const menu = document.querySelector('.hometwo-menu');
 const navbarButtons = document.querySelector('#hometwo-navbar-buttons');
@@ -210,6 +231,7 @@ const validateData = (elem) => {
     }
 }
 
+// Handle the Register Modal
 const handleRegister = () => {
     validateData(navFirstName)
     validateData(navLastName)
@@ -249,25 +271,24 @@ const handleRegister = () => {
             .then(data => {
                 loader.classList.remove('showLoader')
                 if(data.status === "success"){
-                    const {name, email, token} = data.data
+                    const {name, email, token, userId} = data.data
                     //Store variables on client side
                     localStorage.setItem('mandilasToken', `${token}`)
                     toast.children[0].innerHTML = `Hi ${body["firstName"]}, You have successfully registered`
                     postSignedInButtonContainer.children[0].innerHTML = `Hello, ${body["firstName"]}`;
                     //Remove Modal
-                    // $('#signUp').modal('hide')
                     registerModal.style.display = "none"
-                    // Show Pre Login View
+                    // Show Post Register View
                     postSignedInButtonContainer.style.display = 'flex';
                     preSignedInButtonContainer.style.display = 'none';
                     //Clear Defaults
-                    navFirstName.value = "",
-                    navLastName.value = "",
-                    navEmail.value = "",
-                    navPhoneNumber.value = "",
-                    navPassword.value = "",
+                    clearRegister();
                     // Set User State to logged in
                     isUserLoggedIn = true;
+                    // Set User ID
+                    USER_ID = userId
+                    //Update Cart Icon
+                    updateCartIcon(USER_ID)
                 }
                 if(data.status === "error" && data.code === "MAIL_EXISTS"){
                     toast.children[0].innerHTML = `Hi ${body["firstName"]}, this email already exists`;
@@ -276,11 +297,14 @@ const handleRegister = () => {
                     setTimeout(() => {
                         toast.classList.remove('showMessageToast')
                     }, 2000);
+            }).catch(error => {
+                console.log(error)
             })
     }
 }
 navRegister.addEventListener('click', handleRegister)
 
+// Handle the Login Modal
 const handleLogIn = () => {
     validateData(navLogInEmail);
     validateData(navLogInPassword);
@@ -300,6 +324,7 @@ const handleLogIn = () => {
             },
             body: JSON.stringify(body)
         }
+
         fetch(logInEndpoint, options)
             .then(response => {
                 return response.json()
@@ -307,21 +332,26 @@ const handleLogIn = () => {
             .then(data => {
                 loader.classList.remove('showLoader')
                 if(data.status === 'success'){
-                    const {displayName, email, customToken} = data.data;
+                    const {displayName, email, customToken, userId} = data.data;
                     let firstName = `${displayName}`.split(' ')[1]
                     toast.children[0].innerHTML = `Hi ${firstName}, You have successfully signed in.`
                     postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
                     localStorage.setItem('mandilasToken', `${customToken}`);
                     //Remove Modal
-                    // $('#login').modal('hide')
                     loginModal.style.display = "none"
                     //Clear Defaults
                     navLogInEmail.value = "",
                     navLogInPassword.value = "",
                     // Set User State to logged in
                     isUserLoggedIn = true;
+                    //Set User ID
+                    USER_ID = userId
                     postSignedInButtonContainer.style.display = 'flex';
                     preSignedInButtonContainer.style.display = 'none';
+
+                    //Update Cart Icon
+                    updateCartIcon(USER_ID)
+                    window.location.reload()
                 }
                 if(data.status === 'error' && data.code === 'INVALID PASSWORD'){
                     toast.children[0].innerHTML = `The password you entered is incorrect.`
@@ -343,17 +373,10 @@ const handleLogIn = () => {
 navLogIn.addEventListener('click', handleLogIn)
 
 /**Communication With Server */
-
-const cartNumber = document.querySelectorAll('.navbar-cart-container > .no-of-items')
-// On Page Load, Check If Token exists client-side.
-const handlePageLoad = () => {
+const handleNavbarLoad = new Promise((resolve, reject) => {
     //Initialize UI
     postSignedInButtonContainer.style.display = 'none';
     preSignedInButtonContainer.style.display = 'flex';
-    
-    // Handle Cart Icon
-    let numOfItems = JSON.parse(localStorage.getItem('mandilasCart'));
-    cartNumber.forEach(item => item.innerHTML = numOfItems.length)
 
     let clientToken = localStorage.getItem('mandilasToken');
     // If theres a token stored on the client side
@@ -361,23 +384,26 @@ const handlePageLoad = () => {
         // Sign In with that token
         firebase.auth().signInWithCustomToken(clientToken)
         .then((record) => {
+            //Login Successful
+
+            USER_ID = record.user.uid
             let firstName = `${record.user.displayName}`.split(' ')[0];
             postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
-            toast.children[0].innerHTML = `Welcome back, ${firstName}`
+            // toast.children[0].innerHTML = `Welcome back, ${firstName}`
             isUserLoggedIn = true;
             // Show Post Login View
             postSignedInButtonContainer.style.display = 'flex';
             preSignedInButtonContainer.style.display = 'none';
 
-            // Display Message
-            toast.classList.add('showMessageToast');
-                setTimeout(() => {
-                    toast.classList.remove('showMessageToast')
-                }, 3000);
-        })
-        .catch(error => {
-            console.log(error)
+            // Update Cart Icon
+            updateCartIcon(USER_ID);
+            resolve(USER_ID)
+
+        }).catch(error => {
             // Handle Errors here.
+            updateCartIcon(null);
+            //Login Not Successful
+
             var errorCode = error.code;
             var errorMessage = error.message;
             if(errorCode === "auth/invalid-custom-token"){
@@ -398,12 +424,11 @@ const handlePageLoad = () => {
                     toast.classList.remove('showMessageToast')
                 }, 3000);
             }
-            });
-    } else{
-        
+            reject(error)
+        });
     }
-}
-window.addEventListener('DOMContentLoaded', handlePageLoad)
+})
+window.addEventListener('DOMContentLoaded', handleNavbarLoad)
 
 // On User LogOut
 const handleLogOut = () => {
@@ -418,35 +443,17 @@ const handleLogOut = () => {
             postSignedInButtonContainer.style.display = 'none';
             preSignedInButtonContainer.style.display = 'flex';
             loader.classList.remove('showLoader')
+            // Update User Status
+            isUserLoggedIn = false;
+            USER_ID = ''
+            //Reload Page
+            window.location.reload()
         })
         .catch(error => {
             //Handle Errors here
         })
 }
 navLogOut.addEventListener('click', handleLogOut)
-
-//Handle Cart Icon
-const cart = document.querySelectorAll('.navbar-cart-container');
-const handleCartIcon = () => {
-    let cart = JSON.parse(localStorage.getItem('mandilasCart'));
-    //If Cart is Empty
-    if(cart.length <= 0){
-        toast.children[0].innerHTML = `There are no items in your cart, try adding some.`;
-            toast.classList.add('showMessageToast');
-                setTimeout(() => {
-                    toast.classList.remove('showMessageToast')
-                }, 2000);
-    } else if(cart.length > 0){
-        if(ENV === 'development'){
-            window.location.href = `/Cart/index.html`
-        }else{
-            window.location.href = `../Cart/index.html`
-        }
-    }
-}
-cart.forEach(item => {
-    item.addEventListener('click', handleCartIcon)
-})
 
 // User clicks on homepage logo
 const navbarLogo = document.querySelector('.hometwo-logo > img')
@@ -457,4 +464,13 @@ navbarLogo.addEventListener('click', () => {
     }else{
         window.location.href = "../Homepage/index.html"
     }
+})
+
+// User clicks on Cart
+navbarCart.forEach(item => {
+    const redirectToCart = () => {
+        console.log(USER_ID)
+        window.location.href = `../Cart/index.html`;
+    }
+    item.addEventListener('click', redirectToCart)
 })

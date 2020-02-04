@@ -2,8 +2,10 @@
 const productList = document.querySelector('.main-ac-right-content');
 // Endpoint Info for all products
 const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
-// Endpoint Infor for a single product
-const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product'
+// Endpoint Info for a single product
+const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product';
+// Endpoint to add item to cart
+const addToCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart/add';
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'NGN',
@@ -20,10 +22,11 @@ let CURRENT_PRODUCT = '';
 
 // Check Current Page
 const checkPage = () => {
+    console.log(window.location.pathname)
     if(ENV === 'development'){
-        if(window.location.pathname === 'Airconditioners/main.html'){
+        if(window.location.pathname === '/Airconditioners/main.html'){
             return 'allProductsPage';
-        } else if(window.location.pathname === ('Airconditioners/index.html') || window.location.pathname === ('AirConditioners/index.html')){
+        } else if((window.location.pathname === '/Airconditioners/index.html') || (window.location.pathname === '/AirConditioners/index.html')){
             return 'singleProductPage';
         }else{
             return 'checkName'
@@ -45,7 +48,7 @@ const checkPage = () => {
 const handleProductClick = (elem) => {
     const id = elem.getAttribute(`data-id`)
     if(ENV === 'development'){
-        window.location.href = `Airconditioners/index.html?id=${id}`;
+        window.location.href = `../Airconditioners/index.html?id=${id}`;
     }else{
         //On Github Pages
         window.location.href = `index.html?id=${id}`;
@@ -230,7 +233,7 @@ const getRecommendedItems = () => {
 
 // Handle On Page Load
 const handleMainAirConPageLoad = async() => {
-    console.log("loading")
+    console.log("Yes")
     console.log(checkPage())
     // Handle Page Load for All Products Page
     if(checkPage() === 'allProductsPage'){
@@ -240,7 +243,6 @@ const handleMainAirConPageLoad = async() => {
         addClass(allACLoader, `showLoader`);
         const newURL = `${productsEndpoint}?startAt=${START}&endAt=${END}`
         let data = await getData(newURL);
-        console.log(data)
         data.map((item, index, arr) => {
             // PRODUCTS.push(item)
             createAC(item)
@@ -254,14 +256,13 @@ const handleMainAirConPageLoad = async() => {
         // No query provided
         if(id === null){
             if(ENV === 'development'){
-                window.location.href = 'Airconditioners/main.html'
+                window.location.href = '../Airconditioners/main.html'
             }else{
                 //Github
                 window.location.href = 'main.html'
             }
 
         }else{
-            console.log(id)
             createProductPage(id);
             getPeopleAlsoViewedItems()
             getRecommendedItems()
@@ -300,38 +301,69 @@ const handleMainACLoadMore = async() => {
 if(checkPage() === "allProductsPage"){
     mainACLoadMoreButton.addEventListener('click', handleMainACLoadMore)
 }
+const addToCartWithSignIn = (productID, userID) => {
+    const body = {
+        uid:userID,
+        cart:{
+            [productID]:{
+                item:productID,
+                quantity:1
+            }
+        }
+    }
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(body)
+    }
+    fetch(addToCartEndpoint, options)
+        .then(response => {
+            return response.json()
+        })
+        .then(data => {
+            const {status, code} = data
+            //Successfully added to cart
+            if(status === 'success'){
+                updateCartIcon(USER_ID)
+                toast.children[0].innerHTML = `Item added to cart successfully`;
+                toast.classList.add('showMessageToast');
+                setTimeout(() => {
+                    toast.classList.remove('showMessageToast')
+                }, 2000);
+            }
+            // If item exists
+            if(status === 'error' && code === 'ITEM_ALREADY_EXISTS'){
+                toast.children[0].innerHTML = `Item has already been added to cart.`;
+                toast.classList.add('showMessageToast');
+                    setTimeout(() => {
+                        toast.classList.remove('showMessageToast')
+                    }, 2000);
+            }
+        }).catch(error => {
+            console.log(error)
+            toast.children[0].innerHTML = `Check your network and try again`;
+                toast.classList.add('showMessageToast');
+                    setTimeout(() => {
+                        toast.classList.remove('showMessageToast')
+                    }, 2000);
+        })
+}
 
 // Add to Cart Feature on the single product page
 const singleProductAddToCart = document.querySelector('#singleProductAddToCart');
-// const cartNumber = document.querySelectorAll('.navbar-cart-container > .no-of-items')
 const handleAddToCart = () => {
     let params = new URLSearchParams(window.location.search.substring(1))
     let id = params.get('id');
-    if(id !== null){
-        let cart = JSON.parse(localStorage.getItem('mandilasCart'));
-        // If Item is not in array
-        if(cart.includes(id) !== true){
-            cart.push(id);
-            localStorageCart = JSON.stringify(cart)
-            localStorage.setItem('mandilasCart', localStorageCart);
-            cartNumber.forEach(item => {
-                item.innerHTML = cart.length
-            })
-            // Notify User
-            toast.children[0].innerHTML = `Item added to cart successfully`;
-            toast.classList.add('showMessageToast');
-                setTimeout(() => {
-                    toast.classList.remove('showMessageToast')
-                }, 2000);
-        } else{
-            toast.children[0].innerHTML = `Item has already been added to cart.`;
-            toast.classList.add('showMessageToast');
-                setTimeout(() => {
-                    toast.classList.remove('showMessageToast')
-                }, 2000);
-        }
+    if(isUserLoggedIn === false){
+        // Show Modal
+        loginModal.style.display = "flex"
+    }else{
+        addToCartWithSignIn(id, USER_ID)
     }
 }
+
 if(singleProductAddToCart){
     singleProductAddToCart.addEventListener('click', handleAddToCart) 
 }

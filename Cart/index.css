@@ -297,6 +297,13 @@ p{
     background-color: #129347;
     cursor: pointer;
 }
+#cart-shipping-info{
+    font-size: 0.8rem;
+}
+#noItemInCart{
+    font-size: 1.5rem;
+    align-self: center;
+}
 @media screen and (max-width:1350px){
     .cart-content {
         margin: 0 0rem 2rem 0rem;

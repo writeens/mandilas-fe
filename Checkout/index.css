@@ -15,15 +15,42 @@ p{
     display: flex;
     flex-direction: column;
     position: relative;
-    border: 1px solid red;
     max-width: 30%;
     min-width: 25%;
-    min-height: 300px;
-    max-height: 350px;
-    padding: 1rem;
+    min-height: fit-content;
+    height: fit-content;
+    max-height: fit-content;
+    padding: 3rem 2rem 2rem 2rem;
     background-color: white;
     border-radius: 0.5rem;
     box-shadow: 0px 7px 11px 10px #dedede;
+}
+.checkout-main-right > p:nth-child(1){
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+.checkout-main-text{
+    display: flex;
+    font-size: 1.3rem;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.checkout-order-line{
+    margin: 3rem 0rem;
+    border: 1px solid #c3c4c5;
+}
+.checkout-order-total{
+    display: flex;
+    justify-content: space-between;
+}
+.checkout-order-total > p:nth-child(1){
+    font-size: 1.3rem;
+}
+.checkout-order-total > p:nth-child(2){
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #129347;
 }
 .checkout-main-left{
     display: flex;
@@ -99,12 +126,14 @@ p{
     color: white;
     font-size: 1.2rem;
     border-radius: 0.5rem;
+    cursor: pointer;
 }
 .checkout-delivery{
     display: flex;
     flex-direction: column;
     background-color: white;
     padding: 1rem 2rem 2rem 2rem;
+    margin-bottom: 3rem;
     border-radius: 0.5rem;
     box-shadow: 0px 7px 11px 10px #dedede;
 }
@@ -117,7 +146,14 @@ p{
 }
 .checkout-delivery > p:nth-child(2){
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
+}
+.door-delivery{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 4rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid #313131;
 }
 .checkout-delivery-radio{
     display: flex;
@@ -131,25 +167,33 @@ p{
     color: #129347;
 }
 .checkout-delivery-radio > p{
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 600;
 }
-.checkout-delivery > p:nth-child(4){
+.door-delivery > p:nth-child(2){
     margin-left: 1.5rem;
-    font-size: 1.3rem;
-    margin-bottom: 3rem;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+.door-delivery > p:nth-child(2) > span{
+    color: #129347;
+    font-weight: 600;
 }
 .dd-delivery-item-list {
     display: flex;
     flex-direction: column;
     margin-left: 1.5rem;
-    font-size: 1.3rem;
+    font-size: 1rem;
     box-shadow: 0px 7px 11px 10px #dedede;
     border-radius: 0.3rem;
     padding: 1.5rem 3rem;
 }
-.dd-delivery-item-list > p{
-    margin-bottom: 1rem;
+.dd-delivery-item-list > p {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #313131;
 }
 .billing-shipment{
     display: flex;
@@ -160,5 +204,78 @@ p{
     display: flex;
     border-bottom: 1px solid gray;
     justify-content: space-around;
-    padding: 2rem 0rem;
+    padding: 1.5rem 0rem;
+}
+.billing-shipment-row > p:nth-child(1){
+    min-width: 50px;
+    text-align: center;
+}
+.pickup{
+    display: flex;
+    flex-direction: column;
+}
+.pickup > p:nth-child(2){
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    width: fit-content;
+}
+.pickup-info{
+    display: flex;
+    justify-content: space-around;
+}
+.pickup-info-left{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.dd-delivery-item-list.pickup > p:nth-child(1){
+    margin-bottom: 2rem;
+}
+.pickup-container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+.pickup-container > p:nth-child(1){
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.pickup-container > p:nth-child(2){
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+}
+.pickup-info-right{
+    width: 40%;
+    /* border: 1px solid red; */
+}
+.pickup-container > #opening{
+    margin-bottom: 1.5rem;
+}
+.pickup-opening{
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    max-width: 250px;
+}
+.pickup-opening > p:nth-child(1){
+    font-size: 1rem;
+    font-weight: 600;
+}
+.pickup-opening > p:nth-child(2){
+    font-size: 1rem;
+}
+.checkout-main-left > button{
+    align-self: center;
+    background-color: green;
+    width: 100%;
+    padding: 1rem 0rem;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
 }
