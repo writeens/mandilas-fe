@@ -49,8 +49,10 @@
         <div id="loader">
             <div class="lds-dual-ring"></div>
         </div>
-        <div id="messageToast">
-            <p></p>
+        <div id="infoToast">
+            <div>
+                <p id="infoText">Hello World</p>
+            </div>
         </div>
         <div class="hometwo-logo">
             <img src="../Assets/logo.svg" alt="logo">
@@ -211,35 +213,35 @@
                 <div class="billing-row">
                     <div class="billing-input">
                         <label for="firstName">First Name</label>
-                        <input type="text" id="billingFirstName" placeholder="First Name" required>
+                        <input type="text" class="animated" id="billingFirstName" placeholder="First Name" required>
                     </div>
                     <div class="billing-input">
                         <label for="lastName">Last Name</label>
-                        <input type="text" id="billingLastName" placeholder="Last Name" required>
+                        <input type="text" class="animated" id="billingLastName" placeholder="Last Name" required>
                     </div>
                 </div>
                 <div class="billing-row">
                     <div class="billing-input">
                         <label for="phoneNumber">Mobile Phone Number</label>
-                        <input type="text" id="billingPhoneNumber" placeholder="Phone Number" required>
+                        <input type="text" class="animated" id="billingPhoneNumber" placeholder="Phone Number" required>
                     </div>
                     <div class="billing-input">
                         <label for="emailAddress">Email Address</label>
-                        <input type="email" id="billingEmail" placeholder="Email Address" required>
+                        <input type="email" class="animated" id="billingEmail" placeholder="Email Address" required disabled>
                     </div>
                 </div>
                 <div class="billing-textarea">
                     <label for="address">Address</label>
-                    <textarea name="" id="billingAddress" cols="30" rows="10"></textarea>
+                    <textarea name="" class="animated" id="billingAddress" cols="30" rows="10" placeholder="Enter Address"></textarea>
                 </div>
                 <div class="billing-row">
                     <div class="billing-input">
-                        <label for="billingCity">Mobile Phone Number</label>
-                        <input type="text" id="billingCity" placeholder="City">
+                        <label for="billingCity">City</label>
+                        <input type="text" class="animated" id="billingCity" placeholder="City">
                     </div>
                     <div class="billing-input">
                         <label for="billingState">State</label>
-                        <input type="email" id="billingState" placeholder="State">
+                        <input type="text" class="animated" id="billingState" placeholder="State">
                     </div>
                 </div>
                 <div class="billingSubmit">
@@ -254,7 +256,7 @@
                         <input type="radio">
                         <p>Door Delivery</p>
                     </div>
-                    <p>Delivery fee NGN <span>NGN5,000</span></p>
+                    <p>Delivery fee NGN <span id="shippingFee">NGN5,000</span></p>
                     <div class="dd-delivery-item-list">
                         <p>Shipment Details</p>
                         <div class="billing-shipment">
@@ -341,16 +343,16 @@
             <p>ORDER SUMMARY</p>
             <div class="checkout-main-text">
                 <p>SUBTOTAL</p>
-                <p>NGN100,000</p>
+                <p id="orderSummarySubTotal">NGN100,000</p>
             </div>
             <div class="checkout-main-text">
                 <p>SHIPPING</p>
-                <p>NGN60,000</p>
+                <p id="orderSummaryShipping">NGN60,000</p>
             </div>
             <div class="checkout-order-line"></div>
             <div class="checkout-order-total">
                 <p>TOTAL</p>
-                <p>NGN200,000.00</p>
+                <p id="orderSummaryTotal">NGN200,000.00</p>
             </div>
         </div>
     </div>

@@ -4,13 +4,6 @@ const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1
 const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
 const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
-//Formatter
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'NGN',
-    maximumFractionDigits : 6,
-    minimumFractionDigits : 0
-})
 
 // GLOBAL VARIABLE
 let INITIAL_PRICE = 0;
@@ -77,22 +70,6 @@ const handleDeleteItemFromCart = (user, productID, price, quantity) => {
         cartTotal.innerHTML = formatter.format(INITIAL_PRICE);
     })
 }
-
-// Handle Shipping Cost
-// const getShipping = (quantity) => {
-//     switch (quantity) {
-//         case 1:
-//             return 3000
-//         case 2:
-//             return 3500
-//         case 3:
-//             return 4000
-//         case 4:
-//             return 4500
-//         default:
-//             return 0
-//     }
-// }
 
 //Handle Pricing Card
 const getPricingTotal = (amount, change) => {
@@ -329,3 +306,24 @@ const handleCartPageLoad = () => {
         })
 }
 window.addEventListener('DOMContentLoaded', handleCartPageLoad)
+
+//Handle Checkout
+const cartCheckout = document.querySelector('#cartCheckout');
+const handleCartCheckOut = () => {
+    handleNavbarLoad
+        .then(user => {
+            // Check for presence of user 
+            if(user){
+                window.location.href = '../Checkout/checkout.html'
+            }
+        }).catch(error => {
+            infoToast.innerHTML = `Kindly make sure you are logged in`;
+            infoToast.classList.add('showInfoToast');
+                setTimeout(() => {
+                    infoToast.classList.remove('showInfoToast')
+                }, 2000);
+        })
+}
+if(cartCheckout){
+    cartCheckout.addEventListener('click', handleCartCheckOut)
+}

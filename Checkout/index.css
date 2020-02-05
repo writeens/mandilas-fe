@@ -104,6 +104,10 @@ p{
     padding: 1rem;
     border: 1px solid gray;
 }
+.billing-input > input[type=email]{
+    background-color: transparent;
+    border: none;
+}
 .billing-textarea{
     display: flex;
     flex-direction: column;

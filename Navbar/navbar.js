@@ -1,3 +1,11 @@
+// Endpoint Info for all products
+const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
+// Endpoint Info for a single product
+const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product';
+// Endpoint to add item to cart
+const addToCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart/add';
+// 
+const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 //Check Environment
 let ENV = ''
 const checkEnvironment = () => {
@@ -10,6 +18,15 @@ const checkEnvironment = () => {
     console.log(ENV);
 }
 checkEnvironment();
+
+//Formatter
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'NGN',
+    maximumFractionDigits : 6,
+    minimumFractionDigits : 0
+})
+
 // Handle Showing Loader
 const addClass = (elem, customClass) => {
     elem.parentNode.classList.add('removePadding')
@@ -39,13 +56,21 @@ const updateCartIcon = (id) => {
             headers:{
                 'Content-Type':'application/json'
             }
-        }).then(response => response.json())
-            .then(result => {
-                let {data} = result
-                cartNumber.forEach(item => item.innerHTML = data.length)
-            }).catch(error => {
-                console.log(error)
-            })
+        })
+        .then(response => response.json())
+        .then(result => {
+            let {status, data, message, code} = result
+            //Successful Request
+            if(status === 'success'){
+                cartNumber.forEach(item => item.innerHTML = data.length)   
+            }
+            if(status === 'error'){
+                cartNumber.forEach(item => item.innerHTML = 0)
+                console.log(message)
+            }
+        }).catch(error => {
+            console.log(error)
+        })
     }else{
         cartNumber.forEach(item => item.innerHTML = 0)
     }
@@ -76,7 +101,7 @@ menuItems.forEach((menuItem, outerIndex, arr) => {
 let isUserLoggedIn = false;
 let USER_ID = ''
 const navbarCart = document.querySelectorAll('.navbar-cart-container');
-const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
+const productList = document.querySelector('.main-ac-right-content');
 const toggle = document.querySelector('.hometwo-toggle');
 const menu = document.querySelector('.hometwo-menu');
 const navbarButtons = document.querySelector('#hometwo-navbar-buttons');
@@ -106,7 +131,8 @@ const postSignedInButtonContainer = document.querySelector('.hometwo-signedin-bu
 //Loader
 const loader = document.querySelector('#loader')
 //Message Toast
-const toast = document.querySelector('#messageToast');
+const infoToast = document.querySelector('#infoToast');
+const infoText = document.querySelector('#infoText');
 //Client Side Validation
 const signUpEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-up'
 const logInEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-in'
@@ -199,6 +225,10 @@ const shakeInput = (elem) => {
     }, 500);
 }
 
+const inputIsNotEmpty = (str) => {
+    return (str !== "" && str !== null) ? true : false
+}
+
 const isValidText = (str) => {
     let trimStr = str.trim();
     const textRegex = RegExp("^[a-z|A-Z]*$");
@@ -274,10 +304,11 @@ const handleRegister = () => {
                     const {name, email, token, userId} = data.data
                     //Store variables on client side
                     localStorage.setItem('mandilasToken', `${token}`)
-                    toast.children[0].innerHTML = `Hi ${body["firstName"]}, You have successfully registered`
+                    infoText.innerHTML = `Hi ${body["firstName"]}, You have successfully registered`
                     postSignedInButtonContainer.children[0].innerHTML = `Hello, ${body["firstName"]}`;
                     //Remove Modal
                     registerModal.style.display = "none"
+                    loginModal.style.display = "none"
                     // Show Post Register View
                     postSignedInButtonContainer.style.display = 'flex';
                     preSignedInButtonContainer.style.display = 'none';
@@ -291,11 +322,11 @@ const handleRegister = () => {
                     updateCartIcon(USER_ID)
                 }
                 if(data.status === "error" && data.code === "MAIL_EXISTS"){
-                    toast.children[0].innerHTML = `Hi ${body["firstName"]}, this email already exists`;
+                    infoText.innerHTML = `Hi ${body["firstName"]}, this email already exists`;
                 }
-                toast.classList.add('showMessageToast');
+                infoToast.classList.add('showInfoToast');
                     setTimeout(() => {
-                        toast.classList.remove('showMessageToast')
+                        infoToast.classList.remove('showInfoToast')
                     }, 2000);
             }).catch(error => {
                 console.log(error)
@@ -334,7 +365,7 @@ const handleLogIn = () => {
                 if(data.status === 'success'){
                     const {displayName, email, customToken, userId} = data.data;
                     let firstName = `${displayName}`.split(' ')[1]
-                    toast.children[0].innerHTML = `Hi ${firstName}, You have successfully signed in.`
+                    infoText.innerHTML = `Hi ${firstName}, You have successfully signed in.`
                     postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
                     localStorage.setItem('mandilasToken', `${customToken}`);
                     //Remove Modal
@@ -354,15 +385,16 @@ const handleLogIn = () => {
                     window.location.reload()
                 }
                 if(data.status === 'error' && data.code === 'INVALID PASSWORD'){
-                    toast.children[0].innerHTML = `The password you entered is incorrect.`
+                    infoText.innerHTML = `The password you entered is incorrect.`
                 }
                 if(data.status === 'error' && data.code === 'INVALID EMAIL'){
-                    toast.children[0].innerHTML = `The email you entered does not exist. Try signing up.`
+                    infoText.innerHTML = `The email you entered does not exist. Try signing up.`
+                    registerModal.style.display = "flex"
                 }
                 // Show the Toast
-                toast.classList.add('showMessageToast');
+                infoToast.classList.add('showInfoToast');
                 setTimeout(() => {
-                    toast.classList.remove('showMessageToast')
+                    infoToast.classList.remove('showInfoToast')
                 }, 3000);
             })
             .catch(error => {
@@ -389,11 +421,19 @@ const handleNavbarLoad = new Promise((resolve, reject) => {
             USER_ID = record.user.uid
             let firstName = `${record.user.displayName}`.split(' ')[0];
             postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
-            // toast.children[0].innerHTML = `Welcome back, ${firstName}`
             isUserLoggedIn = true;
             // Show Post Login View
             postSignedInButtonContainer.style.display = 'flex';
             preSignedInButtonContainer.style.display = 'none';
+
+            // Notify user of logged in status
+            if(window.location.pathname === '/Homepage/index.html'){
+                infoText.innerHTML = `Hi, ${firstName}, you are logged in`
+                infoToast.classList.add('showInfoToast');
+                setTimeout(() => {
+                    infoToast.classList.remove('showInfoToast')
+                }, 2000);
+            }
 
             // Update Cart Icon
             updateCartIcon(USER_ID);
@@ -407,26 +447,22 @@ const handleNavbarLoad = new Promise((resolve, reject) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             if(errorCode === "auth/invalid-custom-token"){
-                // Handle Buttons
-
+                
                 loader.classList.remove('showLoader')
-                // toast.children[0].innerHTML = `You have been signed out`
-                // toast.classList.add('showMessageToast');
-                // setTimeout(() => {
-                //     toast.classList.remove('showMessageToast')
-                // }, 3000);
             }
             if(errorCode === "auth/network-request-failed"){
                 loader.classList.remove('showLoader')
-                toast.children[0].innerHTML = `Check your network`
-                toast.classList.add('showMessageToast');
+                infoText.innerHTML = `Check your network`
+                infoToast.classList.add('showInfoToast');
                 setTimeout(() => {
-                    toast.classList.remove('showMessageToast')
+                    infoToast.classList.remove('showInfoToast')
                 }, 3000);
             }
-            reject(error)
+            reject()
         });
     }
+}).catch(error => {
+    return error;
 })
 window.addEventListener('DOMContentLoaded', handleNavbarLoad)
 

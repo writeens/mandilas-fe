@@ -453,7 +453,7 @@ button[data-target="#signUp"]{
     cursor: pointer;
 }
 /**Message Toast*/
-.showMessageToast{
+/* .showMessageToast{
     top: 0vh !important;
 }
 #messageToast{
@@ -472,6 +472,32 @@ button[data-target="#signUp"]{
 }
 #messageToast > p{
     font-size: 1.5rem;
+} */
+#infoToast{
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #129348;
+    z-index: 9999;
+    transition: top 0.5s ease-in-out;
+    /* animation-name: slideInAnimate; */
+    /* animation-duration: 5s;
+    animation-timing-function: ease-in-out; */
+}
+.showInfoToast{
+    top: 0vh !important;
+}
+#infoToast > div {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    font-size: 1.3rem;
 }
 /**Message Toast*/
 

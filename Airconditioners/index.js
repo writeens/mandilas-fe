@@ -1,11 +1,4 @@
 // Document
-const productList = document.querySelector('.main-ac-right-content');
-// Endpoint Info for all products
-const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
-// Endpoint Info for a single product
-const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product';
-// Endpoint to add item to cart
-const addToCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart/add';
 const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'NGN',
@@ -327,26 +320,26 @@ const addToCartWithSignIn = (productID, userID) => {
             //Successfully added to cart
             if(status === 'success'){
                 updateCartIcon(USER_ID)
-                toast.children[0].innerHTML = `Item added to cart successfully`;
-                toast.classList.add('showMessageToast');
+                infoToast.children[0].innerHTML = `Item added to cart successfully`;
+                infoToast.classList.add('showInfoToast');
                 setTimeout(() => {
-                    toast.classList.remove('showMessageToast')
+                    infoToast.classList.remove('showInfoToast')
                 }, 2000);
             }
             // If item exists
             if(status === 'error' && code === 'ITEM_ALREADY_EXISTS'){
-                toast.children[0].innerHTML = `Item has already been added to cart.`;
-                toast.classList.add('showMessageToast');
+                infoText.innerHTML = `Item has already been added to cart.`;
+                infoToast.classList.add('showMessageToast');
                     setTimeout(() => {
-                        toast.classList.remove('showMessageToast')
+                        infoToast.classList.remove('showInfoToast')
                     }, 2000);
             }
         }).catch(error => {
             console.log(error)
-            toast.children[0].innerHTML = `Check your network and try again`;
-                toast.classList.add('showMessageToast');
+            infoText.innerHTML = `Check your network and try again`;
+            infoToast.classList.add('showInfoToast');
                     setTimeout(() => {
-                        toast.classList.remove('showMessageToast')
+                        infoToast.classList.remove('showInfoToast')
                     }, 2000);
         })
 }
