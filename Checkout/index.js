@@ -24,6 +24,7 @@ let SUB_TOTAL = 0
 let CART_DETAILS = [];
 let CART_QUANTITY = [];
 let CART_USER = {};
+let SHIPPING_COST = 0
 // Handle Shipping Cost
 const getShipping = (quantity) => {
     switch (quantity) {
@@ -132,6 +133,7 @@ const handleCheckOutPageLoad = () => {
                             // If Status
                             if(status === 'success'){
                                 let shippingCost = getShipping(data.length)
+                                SHIPPING_COST = shippingCost;
                                 shippingFee.innerHTML = formatter.format(shippingCost)
                                 orderSummaryShipping.innerHTML = formatter.format(shippingCost);
                                 CART_TOTAL += shippingCost
@@ -159,6 +161,7 @@ const handleCheckOutPageLoad = () => {
                     })
             } else{
                 console.log("Logged Out")
+                window.location.href = "../Homepage/index.html"
             }
         })
         .catch(error => {
@@ -243,7 +246,11 @@ const handlePickupArea = (elem) => {
     if(elem.checked === true){
         pickUpBox.classList.add('show-pick-up')
         deliveryBox.classList.add('hide-delivery')
+        CART_TOTAL -= SHIPPING_COST
+        orderSummaryShipping.innerHTML = "NGN 0"
+        orderSummaryTotal.innerHTML = formatter.format(CART_TOTAL)
     }
+
 }
 pickUpRadio.addEventListener('click', (e) => handlePickupArea(e.target))
 
@@ -252,6 +259,9 @@ const handleDeliveryArea = (elem) => {
     if(elem.checked === true){
         pickUpBox.classList.remove('show-pick-up')
         deliveryBox.classList.remove('hide-delivery')
+        CART_TOTAL += SHIPPING_COST
+        orderSummaryShipping.innerHTML = formatter.format(SHIPPING_COST)
+        orderSummaryTotal.innerHTML = formatter.format(CART_TOTAL)
     }
 }
 deliveryRadio.addEventListener('click', (e) => handleDeliveryArea(e.target))
@@ -283,27 +293,46 @@ const createCustomField = () => {
 
 //Handle Pay Now
 const handlePayment = () => {
-    let customField = createCustomField();
-    let AMOUNT_IN_KOBO = CART_TOTAL * 100; 
-    const body = {
-        "email":CART_USER.email,
-        "amount":AMOUNT_IN_KOBO,
-        "metadata": customField
-    }
-    fetch(initiatePaymentEndpoint, {
-        method:'POST',
-        headers:{
-            'Content-Type':'application/json'
-        },
-        body:JSON.stringify(body)
-    })
-    .then(response => response.json())
-    .then(result => {
-        console.log(result)
-        const {status, data} = result
-        if(status === 'success'){
-            window.location.href = data.redirect_url
+    validateBilling(billingFirstName)
+    validateBilling(billingLastName)
+    validateBilling(billingAddress)
+    validateBilling(billingCity)
+    validateBilling(billingState)
+    validateBilling(billingPhoneNumber)
+    if(validateBilling(billingFirstName) &&
+    validateBilling(billingLastName) &&
+    validateBilling(billingAddress) &&
+    validateBilling(billingCity) &&
+    validateBilling(billingState) &&
+    validateBilling(billingPhoneNumber)){
+        let customField = createCustomField();
+        let AMOUNT_IN_KOBO = CART_TOTAL * 100; 
+        const body = {
+            "email":CART_USER.email,
+            "amount":AMOUNT_IN_KOBO,
+            "metadata": customField
         }
-    })
+        fetch(initiatePaymentEndpoint, {
+            method:'POST',
+            headers:{
+                'Content-Type':'application/json'
+            },
+            body:JSON.stringify(body)
+        })
+        .then(response => response.json())
+        .then(result => {
+            console.log(result)
+            const {status, data} = result
+            if(status === 'success'){
+                window.location.href = data.redirect_url
+            }
+        })
+    }else{
+        infoText.innerHTML = 'Kindly check your billing information'
+        infoToast.classList.add('showInfoToast');
+        setTimeout(() => {
+            infoToast.classList.remove('showInfoToast')
+        }, 2000);
+    }
 }
 payNow.addEventListener('click', handlePayment)

@@ -44,7 +44,7 @@ const getData = async (url) => {
     return data.data
 }
 
-const handleDeleteItemFromCart = (user, productID, price, quantity) => {
+const handleDeleteItemFromCart = (user, productID, price, quantityInput) => {
     fetch(`${deleteCartItemEndpoint}/${user}/${productID}`, {
         method:'DELETE',
         headers:{
@@ -53,10 +53,9 @@ const handleDeleteItemFromCart = (user, productID, price, quantity) => {
     })
     .then(response => response.json())
     .then(result => {
-        console.log(result)
         const itemToRemove = document.querySelector(`.cart-info-column > [data-id="${productID}"]`);
         itemToRemove.remove();
-        let valueToDeduct = price * quantity;
+        let valueToDeduct = price * parseInt(quantityInput.value);
         INITIAL_PRICE -= valueToDeduct;
         subTotal.innerHTML = formatter.format(INITIAL_PRICE);
         // Update Total
@@ -171,7 +170,7 @@ const populateCartItem = (data, itemQuantity, user) => {
 
 
     //Add Delete Listener to Trash Icon
-    rightImage.addEventListener('click', () => handleDeleteItemFromCart(user, productID, discountedPrice, itemQuantity))
+    rightImage.addEventListener('click', () => handleDeleteItemFromCart(user, productID, discountedPrice, quantityInput))
 
     //Handle Plus Icon
     plus.addEventListener('click', () => handleQuantityChange(discountedPrice, quantityInput, '+', user, productID));
