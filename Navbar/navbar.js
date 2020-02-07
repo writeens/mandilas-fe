@@ -9,7 +9,6 @@ const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v
 // Endpoint to make payment
 const initiatePaymentEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/payment';
 // Endpoint Info for all products
-const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
 const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 //Check Environment
