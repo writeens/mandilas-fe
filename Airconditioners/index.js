@@ -323,7 +323,7 @@ const addToCartWithSignIn = (productID, userID) => {
             // If item exists
             if(status === 'error' && code === 'ITEM_ALREADY_EXISTS'){
                 infoText.innerHTML = `Item has already been added to cart.`;
-                infoToast.classList.add('showMessageToast');
+                infoToast.classList.add('showInfoToast');
                     setTimeout(() => {
                         infoToast.classList.remove('showInfoToast')
                     }, 2000);

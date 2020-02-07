@@ -1,10 +1,3 @@
-// Single Product Endpoint
-const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product';
-// Endpoint Info for all products
-const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
-const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
-const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
-
 // GLOBAL VARIABLE
 let INITIAL_PRICE = 0;
 let INITIAL_QUANTITY = 0;

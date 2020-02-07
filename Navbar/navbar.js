@@ -8,6 +8,10 @@ const addToCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/man
 const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart';
 // Endpoint to make payment
 const initiatePaymentEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/payment';
+// Endpoint Info for all products
+const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
+const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
+const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 //Check Environment
 let ENV = ''
 const checkEnvironment = () => {
@@ -49,6 +53,8 @@ const initializeLocalStorage = () => {
 }
 initializeLocalStorage();
 
+// let CART_ITEMS = [];
+
 //Update Cart Number
 const updateCartIcon = (id) => {
     const cartNumber = document.querySelectorAll('.navbar-cart-container > .no-of-items')
@@ -64,6 +70,8 @@ const updateCartIcon = (id) => {
             let {status, data, message, code} = result
             //Successful Request
             if(status === 'success'){
+                // console.log(data)
+                // CART_ITEMS = data.map(item => item.id)
                 cartNumber.forEach(item => item.innerHTML = data.length)   
             }
             if(status === 'error'){
