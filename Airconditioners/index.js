@@ -1,5 +1,5 @@
 // Document
-
+const singleLoaders = document.querySelectorAll('.singleACLoader');
 //GLOBAL VARIABLES
 let COUNT = 0
 let START = 1;
@@ -44,7 +44,7 @@ const handleProductClick = (elem) => {
 
 //Get Data on single product
 const getSingleProduct = async (id) => {
-    const singleLoaders = document.querySelectorAll('.singleACLoader');
+    
     // Show Loader
     singleLoaders.forEach(item => addClass(item, 'showLoader'))
     let url = `${singleProductEndpoint}/${id}`;
@@ -239,10 +239,14 @@ const handleMainAirConPageLoad = async() => {
     // Handle Page Load for Single Product Page
     if(checkPage() === 'singleProductPage'){
         loader.classList.add('showLoader')
+        //Add Loader before data arrives
+        singleLoaders.forEach(item => addClass(item, 'showLoader'))
         let params = new URLSearchParams(window.location.search.substring(1))
                 let id = params.get('id');
         handleNavbarLoad
             .then(user => {
+                //Add Loader before data arrives
+                singleLoaders.forEach(item => removeClass(item, 'showLoader'))
                 loader.classList.remove('showLoader')
                 
                 // No query provided
