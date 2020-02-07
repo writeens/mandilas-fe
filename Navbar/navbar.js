@@ -4,8 +4,10 @@ const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mand
 const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product';
 // Endpoint to add item to cart
 const addToCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart/add';
-// 
-const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
+// Endpoint to get items in cart
+const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart';
+// Endpoint to make payment
+const initiatePaymentEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/payment';
 //Check Environment
 let ENV = ''
 const checkEnvironment = () => {

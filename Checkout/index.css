@@ -152,16 +152,19 @@ p{
     margin-bottom: 1rem;
     font-size: 1rem;
 }
-.door-delivery{
+.door-delivery {
     display: flex;
     flex-direction: column;
     padding-bottom: 4rem;
     margin-bottom: 3rem;
     border-bottom: 1px solid #313131;
+    max-height: 400px;
+    overflow-y: hidden;
+    transition: all 0.5s ease-in;
 }
 .checkout-delivery-radio{
     display: flex;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
 }
 .checkout-delivery-radio > input{
     margin-right: 2rem;
@@ -191,6 +194,7 @@ p{
     box-shadow: 0px 7px 11px 10px #dedede;
     border-radius: 0.3rem;
     padding: 1.5rem 3rem;
+    overflow-y: auto;
 }
 .dd-delivery-item-list > p {
     margin-bottom: 0.5rem;
@@ -202,7 +206,7 @@ p{
 .billing-shipment{
     display: flex;
     flex-direction: column;
-    min-height: 250px;
+    /* min-height: 250px; */
 }
 .billing-shipment-row{
     display: flex;
@@ -214,9 +218,22 @@ p{
     min-width: 50px;
     text-align: center;
 }
-.pickup{
+.dd-delivery-item-list.pickup{
     display: flex;
     flex-direction: column;
+    max-height: 0px;
+    transition: all 0.5s ease-in;
+    overflow: hidden;
+    padding: 0;
+    box-shadow: none;
+}
+.hide-delivery{
+    max-height: 0;
+}
+.show-pick-up{
+    max-height: 500px !important;
+    box-shadow: 0px 7px 11px 10px #dedede !important;
+    padding: 1.5rem 2rem !important;
 }
 .pickup > p:nth-child(2){
     margin-left: 1.5rem;
