@@ -238,22 +238,33 @@ const handleMainAirConPageLoad = async() => {
     }
     // Handle Page Load for Single Product Page
     if(checkPage() === 'singleProductPage'){
+        loader.classList.add('showLoader')
         let params = new URLSearchParams(window.location.search.substring(1))
-        let id = params.get('id');
-        // No query provided
-        if(id === null){
-            if(ENV === 'development'){
-                window.location.href = '../Airconditioners/main.html'
-            }else{
-                //Github
-                window.location.href = 'main.html'
-            }
+                let id = params.get('id');
+        handleNavbarLoad
+            .then(user => {
+                loader.classList.remove('showLoader')
+                
+                // No query provided
+                if(id === null){
+                    if(ENV === 'development'){
+                        window.location.href = '../Airconditioners/main.html'
+                    }else{
+                        //Github
+                        window.location.href = 'main.html'
+                    }
 
-        }else{
-            createProductPage(id);
-            getPeopleAlsoViewedItems()
-            getRecommendedItems()
-        }
+                }else{
+                    createProductPage(id);
+                    getPeopleAlsoViewedItems()
+                    getRecommendedItems()
+                }
+            })
+            .catch(error => {
+                createProductPage(id);
+                getPeopleAlsoViewedItems()
+                getRecommendedItems()
+            })
     }
 }
 window.addEventListener('DOMContentLoaded', handleMainAirConPageLoad)
@@ -311,10 +322,11 @@ const addToCartWithSignIn = (productID, userID) => {
         })
         .then(data => {
             const {status, code} = data
+            console.log(status)
             //Successfully added to cart
             if(status === 'success'){
                 updateCartIcon(USER_ID)
-                infoToast.children[0].innerHTML = `Item added to cart successfully`;
+                infoText.innerHTML = `Item added to cart successfully`;
                 infoToast.classList.add('showInfoToast');
                 setTimeout(() => {
                     infoToast.classList.remove('showInfoToast')

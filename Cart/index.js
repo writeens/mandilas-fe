@@ -220,18 +220,37 @@ const showItemsInCart = (id) => {
         .then(response => response.json())
         .then(result => {
             const {status, data} = result
-            if(data.length <= 0){
-                //Handle No Item In Cart
-            }else{
+            console.log(status)
+            if(status === 'success'){
                 createCartItem(data, id)
                 loader.classList.remove('showLoader')
+            }else if(status === 'error'){
+                //Handle No Item In Cart
+                const orderSummary = document.querySelector('.cart-content-right');
+                const itemsList = document.querySelector('.cart-info-column');
+                const noItemInCart = document.createElement('p');
+                noItemInCart.innerHTML = 'There are no items in your cart'
+                noItemInCart.setAttribute('id', 'noItemInCart')
+                itemsList.innerHTML = ""
+                itemsList.append(noItemInCart)
+                orderSummary.style.display = 'none';
+                loader.classList.remove('showLoader')
+                removeClass(cartContentLoader, 'showLoader')
             }
         }).catch(error => {
             //Handle Error Here
             console.log(error)
+            const orderSummary = document.querySelector('.cart-content-right');
+            const itemsList = document.querySelector('.cart-info-column');
+            const noItemInCart = document.createElement('p');
+            noItemInCart.innerHTML = 'There are no items in your cart'
+            noItemInCart.setAttribute('id', 'noItemInCart')
+            itemsList.innerHTML = ""
+            itemsList.append(noItemInCart)
+            orderSummary.style.display = 'none';
+            loader.classList.remove('showLoader')
         })
 }
-
 // Populate People Also Viewed
 const peopleAlsoViewedCart = document.querySelector('.cart-content-bottom-more')
 const populatePeopleAlsoViewed = (data) => {
