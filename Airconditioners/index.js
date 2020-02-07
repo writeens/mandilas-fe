@@ -1,10 +1,4 @@
 // Document
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'NGN',
-    maximumFractionDigits : 6,
-    minimumFractionDigits : 0
-})
 
 //GLOBAL VARIABLES
 let COUNT = 0
