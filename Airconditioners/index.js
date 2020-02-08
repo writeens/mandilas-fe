@@ -242,9 +242,10 @@ const handleMainAirConPageLoad = async() => {
         //Add Loader before data arrives
         singleLoaders.forEach(item => addClass(item, 'showLoader'))
         let params = new URLSearchParams(window.location.search.substring(1))
-                let id = params.get('id');
+        let id = params.get('id');
         handleNavbarLoad
             .then(user => {
+                console.log(user)
                 //Add Loader before data arrives
                 singleLoaders.forEach(item => removeClass(item, 'showLoader'))
                 loader.classList.remove('showLoader')
@@ -265,6 +266,7 @@ const handleMainAirConPageLoad = async() => {
                 }
             })
             .catch(error => {
+                console.log(error)
                 createProductPage(id);
                 getPeopleAlsoViewedItems()
                 getRecommendedItems()
@@ -369,4 +371,12 @@ const handleAddToCart = () => {
 
 if(singleProductAddToCart){
     singleProductAddToCart.addEventListener('click', handleAddToCart) 
+}
+
+// Contact Us Feature on the single product page
+const singleProductContactUs = document.querySelector('#singleProductContactUs');
+if(singleProductContactUs){
+    singleProductContactUs.addEventListener('click', () => {
+        window.location.href = '../Contact Us/index.html'
+    })
 }

@@ -1,112 +1,4 @@
-// Endpoint Info for all products
-const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
-// Endpoint Info for a single product
-const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product';
-// Endpoint to add item to cart
-const addToCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart/add';
-// Endpoint to get items in cart
-const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart';
-// Endpoint to make payment
-const initiatePaymentEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/payment';
-// Endpoint Info for all products
-const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
-const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
-//Check Environment
-let ENV = ''
-const checkEnvironment = () => {
-    let origin = window.location.origin;
-    if(origin === 'http://127.0.0.1:5500'){
-        ENV = `development`
-    }else{
-        ENV = `production`
-    }
-    console.log(ENV);
-}
-checkEnvironment();
-
-//Formatter
-const formatter = new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'NGN',
-    maximumFractionDigits : 6,
-    minimumFractionDigits : 0
-})
-
-// Handle Showing Loader
-const addClass = (elem, customClass) => {
-    elem.parentNode.classList.add('removePadding')
-    elem.classList.add(customClass)
-}
-//Handle Removing Loader
-const removeClass = (elem, customClass) => {
-    elem.parentNode.classList.remove('removePadding')
-    elem.classList.remove(customClass)
-}
-
-//Initialize Local Storage
-const initializeLocalStorage = () => {
-    const token = localStorage.getItem('mandilasToken');
-    if(token === null){
-        localStorage.setItem("mandilasToken", JSON.stringify(""))
-    }
-}
-initializeLocalStorage();
-
-// let CART_ITEMS = [];
-
-//Update Cart Number
-const updateCartIcon = (id) => {
-    const cartNumber = document.querySelectorAll('.navbar-cart-container > .no-of-items')
-    if(id !== null){
-        fetch(`${getItemsInCartEndpoint}/${id}`, {
-            method:'GET',
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(result => {
-            let {status, data, message, code} = result
-            //Successful Request
-            if(status === 'success'){
-                // console.log(data)
-                // CART_ITEMS = data.map(item => item.id)
-                cartNumber.forEach(item => item.innerHTML = data.length)   
-            }
-            if(status === 'error'){
-                cartNumber.forEach(item => item.innerHTML = 0)
-                console.log(message)
-            }
-        }).catch(error => {
-            console.log(error)
-        })
-    }else{
-        cartNumber.forEach(item => item.innerHTML = 0)
-    }
-}
-
-/**Desktop Menu */
-const menuItems = document.querySelectorAll('.hometwo-menu-item.drop')
-menuItems.forEach((menuItem, outerIndex, arr) => {
-    menuItem.addEventListener('click', () => {
-        if(window.innerWidth >= 940){
-            arr.forEach((item, innerIndex) => {
-                if(innerIndex !== outerIndex){
-                    item.children[1].classList.add('hometwo-submenu-hide')
-                }
-            })
-            menuItem.children[1].classList.toggle('hometwo-submenu-hide')
-        }else{
-            arr.forEach((item, innerIndex) => {
-                if(innerIndex !== outerIndex){
-                    item.children[1].classList.add('hometwo-submenu-hide')
-                }
-            })
-            menuItem.children[1].classList.toggle('hometwo-submenu-hide')
-        }
-    })
-})
-
+/**DOM ELEMENTS & VARIABLES */
 let isUserLoggedIn = false;
 let USER_ID = ''
 const navbarCart = document.querySelectorAll('.navbar-cart-container');
@@ -142,22 +34,31 @@ const loader = document.querySelector('#loader')
 //Message Toast
 const infoToast = document.querySelector('#infoToast');
 const infoText = document.querySelector('#infoText');
-//Client Side Validation
-const signUpEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-up'
-const logInEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-in'
+/**DOM ELEMENTS & VARIABLES */
 
-//Clear Login
-const clearLogin = () => {
-    navLogInEmail.value = "",
-    navLogInPassword.value = ""
-}
-const clearRegister = () => {
-    navFirstName.value = "",
-    navLastName.value = "",
-    navEmail.value = "",
-    navPhoneNumber.value = "",
-    navPassword.value = ""
-}
+//Client Side Validation
+/**Client Side JS */
+/**Desktop Menu */
+const menuItems = document.querySelectorAll('.hometwo-menu-item.drop')
+menuItems.forEach((menuItem, outerIndex, arr) => {
+    menuItem.addEventListener('click', () => {
+        if(window.innerWidth >= 940){
+            arr.forEach((item, innerIndex) => {
+                if(innerIndex !== outerIndex){
+                    item.children[1].classList.add('hometwo-submenu-hide')
+                }
+            })
+            menuItem.children[1].classList.toggle('hometwo-submenu-hide')
+        }else{
+            arr.forEach((item, innerIndex) => {
+                if(innerIndex !== outerIndex){
+                    item.children[1].classList.add('hometwo-submenu-hide')
+                }
+            })
+            menuItem.children[1].classList.toggle('hometwo-submenu-hide')
+        }
+    })
+})
 
 //Hamburger Menu
 const hamburgerPresent = toggle.children[0].classList.contains('fa-bars')
@@ -221,6 +122,116 @@ closeRegister.addEventListener('click', () => {
 })
 
 /**Modal Management */
+
+/**Client Side JS */
+
+// Endpoint Info for all products
+const productsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products';
+// Endpoint Info for a single product
+const singleProductEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/product';
+// Endpoint to add item to cart
+const addToCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart/add';
+// Endpoint to get items in cart
+const getItemsInCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart';
+// Endpoint to make payment
+const initiatePaymentEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/payment';
+// Endpoint Info for all products
+const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
+const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
+const signUpEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-up'
+const logInEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-in'
+
+
+
+//Check Environment
+let ENV = ''
+const checkEnvironment = () => {
+    let origin = window.location.origin;
+    if(origin === 'http://127.0.0.1:5500'){
+        ENV = `development`
+    }else{
+        ENV = `production`
+    }
+    console.log(ENV);
+}
+checkEnvironment();
+
+//Formatter
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'NGN',
+    maximumFractionDigits : 6,
+    minimumFractionDigits : 0
+})
+
+// Handle Showing Loader
+const addClass = (elem, customClass) => {
+    elem.parentNode.classList.add('removePadding')
+    elem.classList.add(customClass)
+}
+//Handle Removing Loader
+const removeClass = (elem, customClass) => {
+    elem.parentNode.classList.remove('removePadding')
+    elem.classList.remove(customClass)
+}
+
+//Initialize Local Storage
+const initializeLocalStorage = () => {
+    const token = localStorage.getItem('mandilasToken');
+    if(token === null){
+        localStorage.setItem("mandilasToken", JSON.stringify(""))
+    }
+}
+initializeLocalStorage();
+
+//Update Cart Number
+const updateCartIcon = (id) => {
+    const cartNumber = document.querySelectorAll('.navbar-cart-container > .no-of-items')
+    if(id !== null){
+        fetch(`${getItemsInCartEndpoint}/${id}`, {
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(result => {
+            let {status, data, message, code} = result
+            //Successful Request
+            if(status === 'success'){
+                // console.log(data)
+                // CART_ITEMS = data.map(item => item.id)
+                cartNumber.forEach(item => item.innerHTML = data.length)   
+            }
+            //There are no items in cart
+            if(status === 'error'){
+                cartNumber.forEach(item => item.innerHTML = 0)
+                console.log(message)
+            }
+        }).catch(error => {
+            console.log(error)
+        })
+    }else{
+        cartNumber.forEach(item => item.innerHTML = 0)
+    }
+}
+
+//Clear Login
+const clearLogin = () => {
+    navLogInEmail.value = "",
+    navLogInPassword.value = ""
+}
+const clearRegister = () => {
+    navFirstName.value = "",
+    navLastName.value = "",
+    navEmail.value = "",
+    navPhoneNumber.value = "",
+    navPassword.value = ""
+}
+
+
+
+
 
 
 /**GLOBAL VARIABLES */
@@ -370,6 +381,7 @@ const handleLogIn = () => {
                 return response.json()
             })
             .then(data => {
+                console.log(data.status)
                 loader.classList.remove('showLoader')
                 if(data.status === 'success'){
                     const {displayName, email, customToken, userId} = data.data;
@@ -391,7 +403,7 @@ const handleLogIn = () => {
 
                     //Update Cart Icon
                     updateCartIcon(USER_ID)
-                    window.location.reload()
+                    // window.location.reload()
                 }
                 if(data.status === 'error' && data.code === 'INVALID PASSWORD'){
                     infoText.innerHTML = `The password you entered is incorrect.`
@@ -471,6 +483,7 @@ const handleNavbarLoad = new Promise((resolve, reject) => {
         });
     }
 }).catch(error => {
+    console.log(error)
     return error;
 })
 window.addEventListener('DOMContentLoaded', handleNavbarLoad)

@@ -299,9 +299,10 @@ const handleCartPageLoad = () => {
                 //People Also Viewed
                 getPeopleAlsoViewedItems();
             }else{
-                //User has code missing from address bar
-                //Redirect to 404 Page
-                window.history.go(-1)
+                console.log("object")
+                //People Also Viewed
+                getPeopleAlsoViewedItems()
+                loader.classList.remove('showLoader')
             }
         }).catch(error => {
             console.log(error)

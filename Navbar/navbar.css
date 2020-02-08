@@ -285,11 +285,10 @@ button[data-target="#signUp"]{
 }
 .modal-content-left > img{
     z-index: 2;
-    width: 250px;
+    width: 150px;
     height: 150px;
     margin-left: 3.5rem;
-    position: absolute;
-    bottom: 7rem;
+    position: relative;
 }
 .modal-content-right.register{
     display: flex;
@@ -452,27 +451,7 @@ button[data-target="#signUp"]{
     color: white;
     cursor: pointer;
 }
-/**Message Toast*/
-/* .showMessageToast{
-    top: 0vh !important;
-}
-#messageToast{
-    top: -100vh;
-    display: flex;
-    position: absolute;
-    height: fit-content;
-    padding: 2rem 0.5rem;
-    width: 100vw;
-    justify-content: center;
-    align-items: center;
-    background-color: #129347;
-    color: white;
-    z-index: 9999;
-    transition: top 0.5s ease-in-out;
-}
-#messageToast > p{
-    font-size: 1.5rem;
-} */
+
 #infoToast{
     position: fixed;
     top: -100vh;
@@ -481,10 +460,7 @@ button[data-target="#signUp"]{
     height: 100px;
     background-color: #129348;
     z-index: 9999;
-    transition: top 0.5s ease-in-out;
-    /* animation-name: slideInAnimate; */
-    /* animation-duration: 5s;
-    animation-timing-function: ease-in-out; */
+    transition: top 0.5s ease-in-out;s
 }
 .showInfoToast{
     top: 0vh !important;
