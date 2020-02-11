@@ -13,22 +13,37 @@
     <link rel="stylesheet" href="../Utility/normalize.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Slick CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../Navbar/navbar.css">
     <link rel="stylesheet" href="../Footer/footer.css">
     <link rel="stylesheet" href="./index.css">
-    <!-- UIkit JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js"></script> -->
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!--Slick JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js" defer></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js" defer></script>
+    <script src="../Utility/init-firebase.js" defer></script>
+    
     <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
-    <script src="./index.js" defer></script>
+    <script src="../About Us/meetInfo.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     <div class="hometwo">
@@ -195,34 +210,65 @@
         <p>Meet The Team</p>
     </div>
     <div class="meet-team-row">
-        <div class="meet-team-item" data-toggle="modal" data-target="#exampleModalCenter">
+        <div class="meet-team-item" data-team-member-id="0">
             <img src="../Assets/Debayo-Doherty.jpg" alt="">
             <p class="meet-team-bold-text">OLA DEBAYO-DOHERTY</p>
             <p class="meet-team-normal-text">GROUP CHIEF EXECUTIVE OFFICER (C.E.O)</p>
         </div>
-        <div class="meet-team-item">
+        <div class="meet-team-item" data-team-member-id="1">
             <img src="../Assets/Daisi.jpg" alt="">
-            <p class="meet-team-bold-text">OLA DEBAYO-DOHERTY</p>
-            <p class="meet-team-normal-text">GROUP CHIEF EXECUTIVE OFFICER (C.E.O)</p>
+            <p class="meet-team-bold-text">OMIDIJI DAISI</p>
+            <p class="meet-team-normal-text">COMPANY SECRETARY / GROUP FINANCIAL CONTROLLER</p>
         </div>
-        <div class="meet-team-item">
+        <div class="meet-team-item" data-team-member-id="2">
             <img src="../Assets/Pal.jpg" alt="">
-            <p class="meet-team-bold-text">OLA DEBAYO-DOHERTY</p>
-            <p class="meet-team-normal-text">GROUP CHIEF EXECUTIVE OFFICER (C.E.O)</p>
+            <p class="meet-team-bold-text">PAL SINGH</p>
+            <p class="meet-team-normal-text">GENERAL MANAGER OF THE AIR-CONDITIONING DIVISION</p>
         </div>
-        <div class="meet-team-item">
+        <div class="meet-team-item" data-team-member-id="3">
             <img src="../Assets/Koyejo.jpg" alt="">
-            <p class="meet-team-bold-text">OLA DEBAYO-DOHERTY</p>
-            <p class="meet-team-normal-text">GROUP CHIEF EXECUTIVE OFFICER (C.E.O)</p>
+            <p class="meet-team-bold-text">PAL SINGH</p>
+            <p class="meet-team-normal-text">GENERAL MANAGER OF THE MOTORS/LEASING DIVISION</p>
         </div>
-        <div class="meet-team-item">
+        <div class="meet-team-item" data-team-member-id="4">
             <img src="../Assets/Ernest.jpg" alt="">
-            <p class="meet-team-bold-text">OLA DEBAYO-DOHERTY</p>
-            <p class="meet-team-normal-text">GROUP CHIEF EXECUTIVE OFFICER (C.E.O)</p>
+            <p class="meet-team-bold-text">ERNEST ONYENZE</p>
+            <p class="meet-team-normal-text">HEAD, GROUP PROPERTY</p>
+        </div>
+    </div>
+    <div id="meetModal" class="meet-modal">
+        <div class="meet-modal-content green-scroll">
+            <div class="meet-modal-content-left">
+                <img id="meet-modal-image" src="../Assets/Debayo-Doherty.jpg" alt="">
+            </div>
+            <div class="meet-modal-content-right green-scroll">
+                <p id="meet-modal-name">OMIDIJI DAISI</p>
+                <p id="meet-modal-title">COMPANY SECRETARY / GROUP FINANCIAL CONTROLLER</p>
+                <div class="meet-modal-desc">
+
+                </div>
+                <!-- <p>
+                    Daisi is a professional accountant with over 20 years’ experience across the
+                    broad spectrum of corporate finance. He was Company Treasurer and rose
+                    to Head of Corporate Planning and Strategy at Promasidor Nigeria and later
+                    joined Timeless Holdings Ltd as the Chief Operating Officer. Prior to this, he
+                    had worked with MBC International Bank
+                </p> -->
+                <!-- <p>
+                    He holds a B.Sc. degree from the Obafemi Awolowo University and an MBA
+                    from the University of Benin. He is a Fellow of the Institute of Chartered
+                    Accountants of Nigeria and the Chartered Institute of Taxation of Nigeria.
+                    He’s also a project manager – a PRINCE 2 Registered Practitioner and an
+                    Executive Master’s Certificate holder in Project Management from the
+                    Project Management College, UK. A member of many professional bodies
+                    both in Nigeria and UK
+                </p> -->
+            </div>
+            <p id="meetModalClose">&times;</p>
         </div>
     </div>
     <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl modal-delta" role="document">
           <div class="modal-content">
             <div class="meet-the-team-modal">
@@ -253,7 +299,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="footer">
         <div class="footer-logos">
             <img src="../Assets/logo-white.svg" alt="">
