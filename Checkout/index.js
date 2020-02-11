@@ -160,8 +160,8 @@ const handleCheckOutPageLoad = () => {
                         console.log(error)
                     })
             } else{
-                console.log("Logged Out")
-                // window.location.href = "../Homepage/index.html"
+                // console.log("Logged Out")
+                window.location.href = "../Homepage/index.html"
             }
         })
         .catch(error => {
