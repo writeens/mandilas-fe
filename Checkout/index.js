@@ -161,7 +161,7 @@ const handleCheckOutPageLoad = () => {
                     })
             } else{
                 console.log("Logged Out")
-                window.location.href = "../Homepage/index.html"
+                // window.location.href = "../Homepage/index.html"
             }
         })
         .catch(error => {
@@ -305,6 +305,7 @@ const handlePayment = () => {
     validateBilling(billingCity) &&
     validateBilling(billingState) &&
     validateBilling(billingPhoneNumber)){
+        payNow.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
         let customField = createCustomField();
         let AMOUNT_IN_KOBO = CART_TOTAL * 100; 
         const body = {
@@ -325,6 +326,14 @@ const handlePayment = () => {
             const {status, data} = result
             if(status === 'success'){
                 window.location.href = data.redirect_url
+            }
+            if(status === 'error'){
+                payNow.innerHTML = 'Pay Now';
+                infoText.innerHTML = 'An error occurred. Please try again'
+                infoToast.classList.add('showInfoToast');
+                setTimeout(() => {
+                    infoToast.classList.remove('showInfoToast')
+                }, 2000);
             }
         })
     }else{

@@ -8,7 +8,6 @@ const meetModalTitle = document.querySelector('#meet-modal-title');
 const meetModalImage = document.querySelector('#meet-modal-image');
 const handleTeamMemberClick = (elem) => {
     let id = elem.getAttribute('data-team-member-id')
-    console.log(id)
     let data = TEAM[id]
     const {imageLocation, name, title, paragraph} = data
     meetModalName.innerHTML = name;
