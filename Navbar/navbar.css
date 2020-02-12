@@ -24,8 +24,8 @@ body{
 }
 .hometwo-menu{
     display: flex;
-    width: 55%;
-    min-width: 70%;
+    width: 45%;
+    min-width: 50%;
     justify-content: space-around;
     align-items: center;
     padding-top: 1.3rem;
@@ -53,14 +53,23 @@ body{
     display: flex;
     position: relative;
     align-items: center;
-    width: 100%;
+    /* width: 100%; */
+    min-width: 300px;
     justify-content: space-around;
 }
+
 .hometwo-buttons > button{
-    padding: 0.8rem 0.3rem;
+    /* padding: 0.8rem 0.3rem; */
     border-radius: 0.4rem;
     border: none;
     cursor: pointer;
+}
+#login{
+    padding: 0.8rem 0.8rem;
+}
+#register{
+    border: 1px solid yellow;
+    padding: 1rem 1.5rem;
 }
 .hometwo-buttons > button:first-of-type{
     background: transparent;
@@ -102,12 +111,13 @@ body{
 #hometwo-navbar-buttons{
     display: flex;
     flex-direction: row;
-    width: 25%;
+    /* width: 25%; */
     justify-content: center;
 }
 button[data-target="#signUp"]{
     padding: 0.5rem 0.8rem;
 }
+
 @media screen and (max-width: 950px){
     .hometwo-menu-text > p, 
     .hometwo-buttons, 
@@ -206,9 +216,6 @@ button[data-target="#signUp"]{
     .show-item{
         display: flex !important;
     }
-    /* .hide-item{
-        display: none !important;
-    }    */
 }
 @media screen and (max-width: 800px){
     .hometwo-buttons > button{
@@ -415,7 +422,7 @@ button[data-target="#signUp"]{
 /**Signed In buttons*/
 .hometwo-signedin-buttons {
     align-items: center;
-    width: 100%;
+    min-width: 350px;
     justify-content: space-around;
     display: none;
 }
