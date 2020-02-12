@@ -22,12 +22,12 @@ p{
     transition: all 0.5s ease-in;
 }
 .about-us-header > p:nth-child(1){
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 600;
     margin-bottom: 3rem;
 }
 .about-us-header > p:nth-child(2){
-    font-size: 2.3rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-bottom: 2rem;
     width: 700px;

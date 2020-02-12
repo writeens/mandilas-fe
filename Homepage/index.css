@@ -8,22 +8,22 @@ p{
 }
 
 /* Layer 1 */
-.homepage-layer-1{
+.homepage-layer-1 {
     display: flex;
     flex-direction: column;
-    height: 800px;
+    max-height: fit-content;
     background-image: url(../Assets/layer-1.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     color: white;
-    padding-left: 8rem;
+    padding: 2rem 0rem 2rem 8rem;
 }
 .homepage-layer-1 > p:first-child{
-    font-size: 5rem;
+    font-size: 3rem;
     width: 880px;
     font-weight: 900;
-    margin-top: 5rem;
+    /* margin-top: 5rem; */
 }
 .homepage-layer-1 > p:nth-child(2){
     width: 800px;
@@ -31,8 +31,8 @@ p{
     line-height: 3rem;
     font-weight: 300;
     position: relative;
-    margin-bottom: 5rem;
-    margin-top: 5rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
 }
 .homepage-button{
     width: fit-content;
@@ -210,13 +210,13 @@ p{
     position: relative;
 }
 .homepage-layer-4-left > p:nth-child(1){
-    font-size: 8rem;
+    font-size: 4rem;
     font-weight: 600;
     color: #129347;
     margin-bottom: 3rem;
 }
 .homepage-layer-4-left > p:nth-child(2){
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 3rem;
 }
@@ -229,9 +229,9 @@ p{
 .homepage-layer-4-left > button{
     border-radius: 0.8rem;
     background-color: #129347;
-    padding: 2rem 6rem;
+    padding: 1.2rem 5rem;
     width: fit-content;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 600;
     color: white;
     border: none;
@@ -242,7 +242,7 @@ p{
 }
 .homepage-layer-4-right > img{
     width: 100%;
-    height: 800px;
+    height: 500px;
     object-fit: cover;
 }
 .homepage-layer-4-right > p{
@@ -263,7 +263,7 @@ p{
     }
     .homepage-layer-4-right > p{
         display: flex;
-        font-size: 8rem;
+        font-size: 5rem;
         font-weight: 600;
         color: #129347;
         margin-bottom: 3rem;
@@ -379,17 +379,17 @@ p{
         justify-content: center;
         align-items: center;
         text-align: center;
-        padding: 0rem 2rem 2rem 2rem;
+        padding: 1rem 2rem 2rem 2rem;
         height: fit-content;
     }
     .homepage-layer-1 > p:first-child {
-        font-size: 7rem;
+        font-size: 3rem;
         width: auto;
         margin-bottom: 3rem;
     }
     .homepage-layer-1 > p:nth-child(2) {
         width: auto;
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 400;
         margin-bottom: 3rem;
         margin-top: 0rem;
@@ -404,124 +404,12 @@ p{
         margin-bottom: 0.5rem;
     }
     .homepage-layer-2-content > p:nth-child(2) {
-        font-size: 4rem;
+        font-size: 3rem;
         width: auto;
     }
     .homepage-layer-2-content > a {
         font-size: 2.2rem;
     }
-    /* .homepage-layer-3 {
-        margin-left: 0rem;
-        margin-right: 0rem;
-        padding: 2rem; 
-        flex-direction: column;
-        height: fit-content;
-    }
-    .homepage-layer-3-left{
-        order: 2;
-        width: auto;
-        align-items: center;
-        text-align: center;
-        padding: 0rem;
-    }
-    .homepage-layer-3-left > p:nth-child(1) {
-        display: none;
-    }
-    .homepage-layer-3-left > div > a {
-        font-size: 4rem;
-        margin-bottom: 2rem;
-    }
-    .homepage-layer-3-left > div{
-        align-items: center;
-        height: fit-content;
-        margin-bottom: 2rem;
-    }
-    .homepage-layer-3-right{
-        order: 1;
-        width: auto;
-        margin-bottom: 1rem;
-        flex-direction: column;
-        text-align: center;
-    }
-    .homepage-layer-3-right > p{
-        display: flex;
-        width: auto;
-        justify-content: center;
-        font-size: 7rem;
-        margin-bottom: 2rem;
-        font-weight: 900;
-        color: #313131;
-    }
-    .homepage-layer-3-right > img{
-        height: 600px;
-        object-fit: cover;
-        margin-bottom: 2rem;
-    }
-    .homepage-layer-5 {
-        padding: 2rem;
-        height: fit-content;
-        flex-direction: column;
-        margin-left: 0rem;
-        margin-right: 0rem;
-    }
-    .homepage-layer-5-left{
-        width: auto;
-        order: 2;
-        align-items: center;
-        padding: 0;
-        text-align: center;
-    }
-    .homepage-layer-5-left > p:nth-child(1) {
-        display: none;
-    }
-    .homepage-layer-5-left > p:nth-child(2) {
-        font-size: 4rem;
-        font-weight: 400;
-        margin-bottom: 2rem;
-        line-height: 4.5rem;
-        width: auto;
-    }
-    .homepage-layer-5-right{
-        width: auto;
-        order: 1;
-        flex-direction: column;
-        text-align: center;
-    }
-    .homepage-layer-5-right > p{
-        display: flex;
-        justify-content: center;
-        font-size: 7rem;
-        font-weight: 600;
-        color: #ffffff;
-        margin-bottom: 2rem;
-    }
-    .homepage-layer-5-right > img {
-        height: 400px;
-        margin-bottom: 2rem;
-    }
-    .homepage-layer-6 {
-        height: fit-content;
-        padding: 2rem;
-        margin: 0 0 2rem 0;
-        flex-direction: column;
-    }
-    .homepage-layer-5.mep > div:first-of-type > .mep-top{
-        display: none;
-    }
-    .homepage-layer-5.mep > div:last-of-type > .mep-top{
-        display: flex;
-        justify-content: center;
-        color: #ffffff;
-    }
-    .homepage-layer-7 {
-        height: fit-content;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    .homepage-layer-7-image{
-        width: auto;
-        margin: 0.5rem;
-    } */
     .homepage-layer-8 {
         flex-wrap: wrap;
     }
