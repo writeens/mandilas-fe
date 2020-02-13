@@ -426,6 +426,9 @@ button[data-target="#signUp"]{
     justify-content: space-around;
     display: none;
 }
+#nameContainer{
+    cursor: pointer;
+}
 .navbar-cart-container{
     display: flex;
     align-items: center;
