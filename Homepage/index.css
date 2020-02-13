@@ -36,7 +36,6 @@ p{
 }
 .homepage-button{
     width: fit-content;
-    padding: 1rem 4.5rem;
     border-radius: 0.3rem;
     border: none;
     color: white;
@@ -46,6 +45,14 @@ p{
 }
 .homepage-layer-1 > button {
     background-color: #129347;
+}
+.homepage-layer-1 > button > a {
+    padding: 1rem 4.5rem;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    color: white;
+    cursor: pointer;
 }
 /* Layer 1 */
 
@@ -68,10 +75,10 @@ p{
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
 }
-.homepage-layer-2-content > p:nth-child(2){
+.homepage-layer-2-content > p:nth-child(2) {
     color: #129347;
-    font-size: 3rem;
-    width: 80%;
+    font-size: 1.5rem;
+    width: 300px;
     font-weight: 400;
     text-align: center;
     margin-bottom: 2rem;
@@ -114,7 +121,7 @@ p{
 .home-card > p {
     position: absolute;
     top: 2.5rem;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     color: white;
     text-align: center;
@@ -131,7 +138,8 @@ p{
     width: 40%;
     min-height: 120px;
     max-height: 180px;
-    border: 1px solid #129347;
+    color: #313131;
+    /* border: 1px solid #129347; */
     border-radius: 0.5rem;
     background-color: white;
     display: flex;
@@ -140,7 +148,12 @@ p{
     text-align: center;
     font-size: 1.5rem;
     font-weight: 400;
+    cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.mini-card:hover{
+    text-decoration: none;
+    color: #313131;
 }
 .mini-card.two{
     width: 60%;
@@ -229,12 +242,18 @@ p{
 .homepage-layer-4-left > button{
     border-radius: 0.8rem;
     background-color: #129347;
-    padding: 1.2rem 5rem;
     width: fit-content;
-    font-size: 1.5rem;
     font-weight: 600;
     color: white;
     border: none;
+}
+.homepage-layer-4-left > button > a{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    color: white;
+    padding: 1.2rem 5rem;
+    font-size: 1.5rem;
 }
 .homepage-layer-4-right{
     display: flex;
@@ -291,7 +310,7 @@ p{
         margin-bottom: 3rem;
     }
     .homepage-layer-4-left > button{
-        padding: 1.5rem 4rem;
+        /* padding: 1.5rem 4rem; */
         font-size: 1.5rem;
     }
     
@@ -389,7 +408,7 @@ p{
     }
     .homepage-layer-1 > p:nth-child(2) {
         width: auto;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 400;
         margin-bottom: 3rem;
         margin-top: 0rem;
@@ -404,11 +423,11 @@ p{
         margin-bottom: 0.5rem;
     }
     .homepage-layer-2-content > p:nth-child(2) {
-        font-size: 3rem;
-        width: auto;
+        font-size: 2rem;
+        width: 400px;
     }
     .homepage-layer-2-content > a {
-        font-size: 2.2rem;
+        font-size: 1.5rem;
     }
     .homepage-layer-8 {
         flex-wrap: wrap;
@@ -451,33 +470,6 @@ p{
     .homepage-layer-2-content > a {
         font-size: 1.5rem;
     }
-    /* .homepage-layer-3, 
-    .homepage-layer-4,
-    .homepage-layer-5{
-        padding: 1rem 0.5rem;
-    }
-    .homepage-layer-3-right > img {
-        height: 400px;
-    }
-    .homepage-layer-3-right > p {
-        font-size: 2.5rem;
-    }
-    .homepage-layer-3-left > div > a {
-        font-size: 1.5rem;
-    }
-    .homepage-layer-5-right > p {
-        font-size: 2.5rem;
-    }
-    .homepage-layer-5-left > p:nth-child(2) {
-        font-size: 2rem;
-        line-height: initial;
-    }
-    .mep-top > p:first-of-type {
-        font-size: 3.5rem;
-    }
-    .mep-top > p:last-of-type {
-        font-size: 1.5rem;
-    } */
     .homepage-layer-8 > p {
         font-size: 3rem;
         text-align: center;
