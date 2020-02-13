@@ -532,3 +532,21 @@ navbarCart.forEach(item => {
     }
     item.addEventListener('click', redirectToCart)
 })
+
+//User clicks on his/her name
+const nameContainer = document.querySelector('#nameContainer');
+nameContainer.addEventListener('click', () => {
+    // Show Items
+    handleNavbarLoad
+        .then(user => {
+            if(user !== '' && user !== null && user !== undefined){
+                window.location.href = "../Account Profile/index.html"
+            }
+        }).catch(error => {
+            infoText.innerHTML = `Kindly make sure you are logged in and try again`
+                infoToast.classList.add('showInfoToast');
+                setTimeout(() => {
+                    infoToast.classList.remove('showInfoToast')
+                }, 2000);
+        }) 
+})
