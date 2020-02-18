@@ -7,9 +7,25 @@ let END = 3;
 let PRODUCTS = [];
 let CURRENT_PRODUCT = '';
 
+// Fetch Data from Realtime Database
+const getData = async (url) => {
+    let options = {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    let response = await fetch(url, options)
+    let data = await response.json()
+    if(data.status === 'success'){
+        return data.data
+    }else if(data.status === 'error'){
+        return data
+    }
+}
+
 // Check Current Page
 const checkPage = () => {
-    console.log(window.location.pathname)
     if(ENV === 'development'){
         if(window.location.pathname === '/Airconditioners/main.html'){
             return 'allProductsPage';
@@ -46,7 +62,6 @@ const handleProductClick = (elem) => {
 const getSingleProduct = async (id) => {
     
     // Show Loader
-    singleLoaders.forEach(item => addClass(item, 'showLoader'))
     let url = `${singleProductEndpoint}/${id}`;
     let options = {
         method:'GET',
@@ -57,8 +72,74 @@ const getSingleProduct = async (id) => {
     let response = await fetch(url, options)
     let data = await response.json();
     //Remove Loader once data arrives
-    singleLoaders.forEach(item => removeClass(item, 'showLoader'))
+    // singleLoaders.forEach(item => removeClass(item, 'showLoader'))
     return data.data
+}
+
+{/* <div class="ac-content-customer-comment">
+                        <div>
+                            <p>Mandilas Customer</p>
+                            <p class="ac-layer-1-content-stars">
+                                <img src="../Assets/star.svg" alt="">
+                                <img src="../Assets/star.svg" alt="">
+                                <img src="../Assets/star.svg" alt="">
+                                <img src="../Assets/star.svg" alt="">
+                                <img src="../Assets/star.svg" alt="">
+                            </p>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, repellendus. Earum commodi enim nisi accusamus. Dolore atque adipisci officia, qui sunt exercitationem omnis voluptates recusandae ducimus assumenda quis odit reiciendis?</p>
+                    </div> */}
+
+//Handle Review Creation
+const createReview = (arr) => {
+    const commentList = document.querySelector('.ac-content-customer-comment-list')
+
+    if(arr === null){
+        const text = document.createElement('p');
+        commentList.style.justifyContent = 'center'
+        text.style.alignSelf = 'center'
+        text.style.fontSize = '1rem'
+        text.innerHTML = 'Be the first to review this product.'
+        commentList.append(text);
+        const reviewLoader = document.querySelector('.reviewLoader')
+        removeClass(reviewLoader, `showLoader`);
+    }else {
+        const {review, userID, productID} = arr
+        console.log(review)
+        getData(`${getUserInfoEndpoint}?id=${userID}`)
+            .then(data => {
+                const reviewContainer = document.createElement('div');
+                reviewContainer.classList.add('ac-content-customer-comment');
+                const emptyDiv = document.createElement('div');
+                const customerName = document.createElement('p');
+                customerName.innerHTML = `${data.firstName} ${data.lastName}`
+                const reviewText = document.createElement('p')
+                reviewText.innerHTML = review
+                
+                //Append Items
+                emptyDiv.append(customerName)
+                reviewContainer.append(emptyDiv, reviewText)
+                commentList.append(reviewContainer)
+
+                const reviewLoader = document.querySelector('.reviewLoader')
+                removeClass(reviewLoader, `showLoader`);
+            }) 
+    }
+}
+
+//Handle Reviews 
+const getReviews = (id) => {
+    getData(`${getProductReviewEndpoint}?id=${id}`)
+        .then(data => {
+            if(data.status === 'error'){
+                createReview(null)
+            }else{
+                let dataArray = Object.values(data)
+                dataArray.map(item => {
+                    createReview(item)
+                })
+            }
+        })
 }
 
 // Create Single Product Page
@@ -77,6 +158,8 @@ const createProductPage = async (id) => {
     discountContainer.innerHTML = discount;
     description.innerHTML = text;
     image.src = imageUrl;
+    const mainProductLoaders = document.querySelectorAll('.mainProductLoader')
+    mainProductLoaders.forEach(item => removeClass(item, `showLoader`))
 }
 
 // Create Product
@@ -113,19 +196,7 @@ const createAC = (obj) => {
     // Add to full list
     productList.append(contentCard)
 }
-
-// Fetch Data from Realtime Database
-const getData = async (url) => {
-    let options = {
-        method:'GET',
-        headers:{
-            'Content-Type':'application/json'
-        }
-    }
-    let response = await fetch(url, options)
-    let data = await response.json()
-    return data.data
-} 
+ 
 
 //Function to return a number of random items from an array
 const pickRandomItems = (itemArr, numOfItemsToPick) => {
@@ -205,6 +276,7 @@ const populateRecommendedItems = (item) => {
     recommendedItemsContainer.append(productCard);
 }
 
+
 //Handle Recommended Items
 const getRecommendedItems = () => {
     const recommendedItemsLoader = document.querySelector('.recommendedItemsLoader')
@@ -220,8 +292,6 @@ const getRecommendedItems = () => {
 
 // Handle On Page Load
 const handleMainAirConPageLoad = async() => {
-    console.log("Yes")
-    console.log(checkPage())
     // Handle Page Load for All Products Page
     if(checkPage() === 'allProductsPage'){
         // Empty List Before Load
@@ -244,10 +314,8 @@ const handleMainAirConPageLoad = async() => {
         let params = new URLSearchParams(window.location.search.substring(1))
         let id = params.get('id');
         handleNavbarLoad
-            .then(user => {
-                console.log(user)
+            .then((user) => {
                 //Add Loader before data arrives
-                singleLoaders.forEach(item => removeClass(item, 'showLoader'))
                 loader.classList.remove('showLoader')
                 
                 // No query provided
@@ -263,13 +331,10 @@ const handleMainAirConPageLoad = async() => {
                     createProductPage(id);
                     getPeopleAlsoViewedItems()
                     getRecommendedItems()
+                    getReviews(id);
                 }
-            })
-            .catch(error => {
+            }).catch(error => {
                 console.log(error)
-                createProductPage(id);
-                getPeopleAlsoViewedItems()
-                getRecommendedItems()
             })
     }
 }

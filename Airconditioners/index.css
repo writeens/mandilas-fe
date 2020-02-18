@@ -427,8 +427,21 @@ p{
     width: 220px;
     padding: 0.5rem 1rem;
 }
+.ac-content-customer-comment-list{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 400px;
+}
 .ac-content-customer-comment{
-    padding: 2rem 3rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 3rem;
+    /* border: 1px solid red; */
+    border-bottom: 1px solid #6d6a6a54;
+}
+.ac-content-customer-comment:last-of-type{
+    border-bottom: none
 }
 .ac-content-customer-comment > p:nth-child(2){
     font-size: 1.1rem;

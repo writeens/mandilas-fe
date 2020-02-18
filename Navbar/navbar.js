@@ -140,8 +140,8 @@ const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/ma
 const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 const signUpEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-up'
 const logInEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-in'
-
-
+const getProductReviewEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/review/'
+const getUserInfoEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/user';
 
 //Check Environment
 let ENV = ''
@@ -433,7 +433,7 @@ const handleNavbarLoad = new Promise((resolve, reject) => {
 
     let clientToken = localStorage.getItem('mandilasToken');
     // If theres a token stored on the client side
-    if((clientToken) && (clientToken !== 'undefined')){
+    if((clientToken !== 'undefined') && (clientToken !== "")){
         // Sign In with that token
         firebase.auth().signInWithCustomToken(clientToken)
         .then((record) => {
@@ -479,14 +479,11 @@ const handleNavbarLoad = new Promise((resolve, reject) => {
                     infoToast.classList.remove('showInfoToast')
                 }, 3000);
             }
-            reject()
+            resolve(null)
         });
     }
-}).catch(error => {
-    console.log(error)
-    return error;
 })
-window.addEventListener('DOMContentLoaded', handleNavbarLoad)
+window.addEventListener('load', handleNavbarLoad)
 
 // On User LogOut
 const handleLogOut = () => {
