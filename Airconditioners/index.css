@@ -329,11 +329,13 @@ p{
 .ac-layer-1-content-stars {
     display: flex;
     width: 160px;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 .ac-layer-1-content-stars > img {
     width: 25px;
     height: 25px;
+    margin-left: 0.3rem;
+    margin-right: 0.3rem;
     object-fit: contain;
 }
 .ac-layer-1-content > div:last-of-type{
@@ -451,7 +453,7 @@ p{
 .ac-content-customer-comment > div:nth-child(1){
     display: flex;
     align-items: center;
-    width: 380px;
+    width: 350px;
     justify-content: space-between;
     margin-bottom: 1.3rem;
 }

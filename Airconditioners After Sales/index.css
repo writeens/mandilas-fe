@@ -20,17 +20,17 @@ p{
     margin-bottom: 2rem;
 }
 .main-ac-as > p:first-of-type{
-    font-size: 7rem;
+    font-size: 3rem;
     font-weight: 600;
     margin-bottom: 2rem;
 }
 .main-ac-as > p:last-of-type{
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 500;
 }
 .main-ac-as-layer-1 {
-    font-size: 1.5rem;
-    line-height: 2.8rem;
+    font-size: 1rem;
+    line-height: 2rem;
     display: flex;
     justify-content: space-between;
     padding: 0 5rem 2rem 5rem;
@@ -84,13 +84,13 @@ p{
     flex-direction: column;
 }
 .main-ac-as-layer-3-left > p:first-of-type{
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 600;
     margin-bottom: 1rem;
 }
 .main-ac-as-layer-3-left > p:last-of-type {
-    font-size: 1.5rem;
-    line-height: 2.8rem;
+    font-size: 1rem;
+    line-height: 2rem;
     font-weight: 400;
     margin-bottom: 2rem;
 }
@@ -103,6 +103,7 @@ p{
 }
 .main-ac-as-layer-3-right{
     width: 45%;
+    height: 400px;
 }
 .main-ac-as-layer-3-right > img{
     width: 100%;
@@ -122,20 +123,20 @@ p{
     display: flex;
     flex-direction: column;
     width: 45%;
-    font-size: 1.5rem;
-    line-height: 2.8rem;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 .main-ac-as-layer-4-right{
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 5rem;
+    /* top: 5rem; */
 }
 .main-ac-as-layer-4-right > p:first-of-type{
     font-weight: 600;
 }
 .main-ac-as-layer-4-left > p:first-of-type{
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 600;
     margin-bottom: 3rem;
 }

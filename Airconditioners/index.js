@@ -104,8 +104,8 @@ const createReview = (arr) => {
         const reviewLoader = document.querySelector('.reviewLoader')
         removeClass(reviewLoader, `showLoader`);
     }else {
-        const {review, userID, productID} = arr
-        console.log(review)
+        console.log(arr)
+        const {review, userID, productID, rating} = arr
         getData(`${getUserInfoEndpoint}?id=${userID}`)
             .then(data => {
                 const reviewContainer = document.createElement('div');
@@ -116,8 +116,17 @@ const createReview = (arr) => {
                 const reviewText = document.createElement('p')
                 reviewText.innerHTML = review
                 
+                const starContainer = document.createElement('p');
+                starContainer.classList.add('ac-layer-1-content-stars')
+                for(let i = 0; i<rating; i++){
+                    const star = document.createElement('img');
+                    star.src = "../Assets/star.svg"
+                    starContainer.append(star)
+                }
+                
+
                 //Append Items
-                emptyDiv.append(customerName)
+                emptyDiv.append(customerName, starContainer)
                 reviewContainer.append(emptyDiv, reviewText)
                 commentList.append(reviewContainer)
 

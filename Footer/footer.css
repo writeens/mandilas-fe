@@ -5,6 +5,7 @@
     height: fit-content;
     background-color: #002F14;
     color: white;
+    justify-content: space-around;
 }
 .footer a {
     color: white;

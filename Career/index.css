@@ -28,7 +28,7 @@ p{
     background-color: rgba(0, 0, 0, 0.5);
 }
 .career-header-1 > p {
-    font-size: 5rem;
+    font-size: 3rem;
     color: white;
     font-weight: 800;
     z-index: 3;
@@ -51,8 +51,8 @@ p{
 .career-content-row-1 > p {
     width: 47%;
     display: flex;
-    font-size: 2.5rem;
-    line-height: 3.5rem;
+    font-size: 1rem;
+    line-height: 2rem;
     font-weight: 300;
     text-align: justify;
 }

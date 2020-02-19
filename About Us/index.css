@@ -9,7 +9,7 @@ p{
 }
 /* About Us */
 .about-us-header{
-    height: 600px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     color: white;
@@ -26,13 +26,13 @@ p{
     font-weight: 600;
     margin-bottom: 3rem;
 }
-.about-us-header > p:nth-child(2){
+.about-us-header > p:nth-child(2) {
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: 2rem;
-    width: 700px;
+    max-width: 900px;
     text-align: center;
-    line-height: 2.8rem;
+    line-height: 3rem;
 }
 .about-us-who{
     display: flex;
@@ -41,14 +41,14 @@ p{
 }
 .about-us-who-left{
     width: 45%;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 .about-us-who-left > p:first-of-type{
-    font-size: 3.5rem;
+    font-size: 2rem;
     color: #129347;
     font-weight: 600;
     margin-bottom: 2.5rem;
@@ -61,7 +61,7 @@ p{
     object-fit: cover; 
 }
 .about-us-m-v{
-    height: 300px;
+    height: 400px;
     background-color: #E4E6E6;
     display: flex;
     flex-direction: row;
@@ -94,7 +94,7 @@ p{
 .about-us-m-v-item > p:nth-child(3){
     text-align: center;
     font-size: 1.1rem;
-    line-height: 1.5rem;
+    line-height: 2rem;
 }
 .about-us-core{
     display: flex;
@@ -109,7 +109,7 @@ p{
     margin-bottom: 1.5rem;
 }
 .about-us-core > p:nth-child(2){
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
     text-align: center;
 }
@@ -140,7 +140,7 @@ p{
     margin-bottom: 0.8rem;
 }
 .about-us-core-item > p{
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
 }
@@ -149,8 +149,8 @@ p{
     flex-direction: column;
     margin: 0rem 5rem 2rem 5rem;
     padding: 5rem 4rem 2rem 4rem;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
+    font-size: 1rem;
+    line-height: 2rem;
     background-color: #E4E6E6;
 }
 .about-us-ac-top{
@@ -164,7 +164,7 @@ p{
     width: 50%;
 }
 .about-us-ac-left > p:first-of-type{
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #129347;
     margin-bottom: 3.5rem;
@@ -174,7 +174,7 @@ p{
 }
 .about-us-ac-right > img{
     width: 100%;
-    height: fit-content;
+    height: 400px;
     object-fit: cover;
 }
 .about-us-ac-bottom{
@@ -193,11 +193,11 @@ p{
     margin: 0rem 5rem 2rem 5rem;
     padding: 5rem 4rem 4rem 4rem;
     background-color: #FFF1D8;
-    font-size: 1.8rem;
-    line-height: 2.5rem;
+    font-size: 1rem;
+    line-height: 2rem;
 }
 .about-us-properties > p:first-of-type{
-    font-size: 3rem;
+    font-size: 2rem;
     color: #129347;
     font-weight: 600;
     margin-bottom: 3rem;
@@ -209,11 +209,11 @@ p{
 }
 .about-us-props-left{
     width: 45%;
-    height: 100%;
+    height: 500px;
 }
 .about-us-props-left > img{
     width: 100%;
-    height: 80%;
+    height: 100%;
     object-fit: cover;
 }
 .about-us-props-right{
@@ -225,8 +225,8 @@ p{
     flex-direction: column;
     margin: 0rem 5rem 2rem 5rem;
     padding: 5rem 4rem 2rem 4rem;
-    font-size: 1.8rem;
-    line-height: 2.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
     background-color: #a5cad8;
 }
 .about-us-motors-top{
@@ -240,14 +240,14 @@ p{
     width: 50%;
 }
 .about-us-motors-left > p:first-of-type{
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #129347;
     margin-bottom: 4rem;
 }
 .about-us-motors-right{
     width: 45%;
-    height: 450px;
+    height: 350px;
 }
 .about-us-motors-right > img{
     width: 100%;
@@ -371,7 +371,7 @@ p{
 
 /* History */
 .history-header{
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     color: white;
@@ -393,7 +393,7 @@ p{
     margin: 0rem 5rem 5rem 5rem;
     padding: 3rem 5rem 0rem 5rem;
     background-color: #E4E6E6;
-    font-size: 1.5rem;
+    font-size: 1rem;
     line-height: 2.3rem;
 }
 .history-content > img {
@@ -417,7 +417,7 @@ p{
     text-align: justify;
 }
 .history-top-left > p:nth-child(1){
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #129347;
     margin-bottom: 3rem;
@@ -436,11 +436,11 @@ p{
     margin: 2rem 5rem 5rem 5rem;
     padding: 3rem 5rem 0rem 5rem;
     background-color: #E4E6E6;
-    font-size: 1.3rem;
+    font-size: 1rem;
     line-height: 2.3rem;
 }
 .history-awards > p:first-of-type{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #129347;
     align-self: center;
@@ -539,7 +539,7 @@ p{
 }
 .meet-team-header > p{
     font-weight: 600;
-    font-size: 6rem;
+    font-size: 3rem;
     text-align: center;
 }
 .meet-team-row{
@@ -561,7 +561,7 @@ p{
 }
 .meet-team-bold-text{
     font-weight: 600;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 0.6rem;
 }
 .meet-team-normal-text{
