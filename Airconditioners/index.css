@@ -790,6 +790,9 @@ p{
     }
 }
 @media screen and (max-width:800px){
+    .ac-content-left-layer-1 > .container{
+        flex-direction: column;
+    }
     .ac-content{
         padding: 2rem 0rem;
     }
