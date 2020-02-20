@@ -15,31 +15,37 @@ p{
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
-    padding: 9rem 5rem;
-}
-.main-ac-content{
-    padding: 3rem;
+    justify-content: center;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    height: 500px;
+}
+.main-ac-content {
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: space-around;
 }
 .main-ac > p:first-of-type{
-    font-size: 6rem;
+    font-size: 3rem;
     font-weight: 600;
-    margin-bottom: 4rem;
 }
-.main-ac > p:last-of-type{
+.main-ac > p:last-of-type {
     font-size: 2rem;
-    font-weight: 500;
+    font-weight: 400;
     width: 900px;
+    text-align: center;
 }
-.main-ac-left{
-    background-color: #F2F2F2;
-    width: 300px;
+.main-ac-left {
+    background-color: #f2f2f2;
+    min-width: 250px;
+    width: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     height: fit-content;
     padding: 2rem;
+    /* margin-right: 5rem; */
     border-radius: 0.4rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -80,23 +86,23 @@ p{
 .main-ac-right {
     width: 70%;
     position: relative;
-    min-height: 600px;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
-    padding: 2rem 0rem 2rem 1rem;
-    background-color: #dbdbdbc2;
+    padding: 2rem 0rem;
+    background-color: #c7c6c9
 }
 .main-ac-right > p:first-of-type{
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1rem;
     padding-left: 2rem;
 }
 .main-ac-right-content {
     display: flex;
-    width: fit-content;
+    width: auto;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: space-around;
     margin-bottom: 2rem;
 }
 .main-ac-right-content-card {
@@ -105,8 +111,8 @@ p{
     flex-direction: column;
     width: 30%;
     height: 400px;
-    color: black;
-    margin: 0.8rem 1rem;
+    color: #313131;
+    /* margin: 0.8rem 1rem; */
 }
 .main-ac-right-content-card > img {
     width: 100%;
@@ -148,10 +154,11 @@ p{
     height: fit-content;
     display: flex;
     flex-direction: row;
-    padding: 2.5rem 5rem;
-    margin-bottom: 2rem;
+    padding: 2rem;
+    margin: 2rem;
     justify-content: space-between;
-    background-color: rgba(219, 202, 172, 0.5);
+    background-color: #e2e2e2;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .ac-content-bottom-2-left{
     display: flex;
@@ -160,7 +167,7 @@ p{
 }
 .ac-content-bottom-2-left > p:first-of-type{
     font-weight: 600;
-    font-size: 4.5rem;
+    font-size: 2rem;
     margin-bottom: 2rem;   
 }
 .ac-content-bottom-2-left > p:last-of-type{
@@ -169,10 +176,22 @@ p{
 }
 .ac-content-bottom-2-left > button{
     width: fit-content;
-    padding: 0.8rem 3rem;
     border: none;
-    border-radius: 0.2rem;
+    padding: 0;
     font-weight: 500;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.ac-content-bottom-2-left > button > a{
+    color: #313131;
+    display: flex;
+    padding: 1.5rem 4rem;
+    border-radius: inherit;
+    background-color: inherit;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
 }
 .ac-content-bottom-2-right{
     width: 45%;
@@ -182,77 +201,27 @@ p{
     height: 100%;
     object-fit: cover;
 }
+.ac-content-bottom-mobile-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    display: none;
+}
 #mainACLoadMoreButton{
     display: flex;
 }
 #mainACLoadMoreButton > i{
     display: none;
 }
-@media screen and (max-width:1350px){
-    .main-ac {
-        padding: 2rem 3rem;
-        display: flex;
-        flex-direction: column;
-    }
-    .main-ac > p{
-        position: relative;
-        top: 5rem;
-    }
-    .main-ac-content{
-        padding: 3rem 0rem;
-        flex-direction: column;
-    }
-    .main-ac-left {
-        width: inherit;
-        padding: 2rem;
-        margin-bottom: 2rem;
-        box-shadow: none;
-    }
-    .main-ac-right {
-        width: 100%;
-        padding: 3rem 0rem 7rem 0rem;
-    }
-    .main-ac-right-content {
-        justify-content: center;
-    }
-    .main-ac-right > p:first-of-type {
-        font-size: 1.5rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-        text-align: center;
-        padding-left: 2rem;
-    }
-    .main-ac-right > button {
-        bottom: 30px;
-    }
-    .ac-content-bottom-layer-2 {
-        width: auto;
-        flex-direction: column;
-        padding: 2rem;
-        margin: 0 0 2rem 0;
-    }
-    .ac-content-bottom-2-left {
-        width: 100%;
-        margin-bottom: 2rem;
-        align-items: center;
-    }
-    .ac-content-bottom-2-right {
-        width: 100%
-    }
-    .main-ac > p:last-of-type {
-        width: 100%;
-    }
-    .ac-content-bottom-2-left > p:last-of-type {
-        text-align: justify;
-    }
-}
-@media screen and (max-width:800px){
+@media screen and (max-width:900px){
     .main-ac > p:first-of-type {
         font-size: 2.5rem;
         margin-bottom: 2rem;
     }
     .main-ac > p:last-of-type {
         font-size: 1.5rem;
+        width: auto;
     }
     .main-ac {
         height: 500px;
@@ -263,11 +232,52 @@ p{
     .main-ac > p {
         top: 0rem;
     }
+    .main-ac-content{
+        flex-direction: column;
+    }
+    .main-ac-left {
+        width: inherit;
+        margin: 0rem 0.5rem 2rem 0.5rem;
+        box-shadow: none;
+    }
+    .main-ac-right {
+        width: auto;
+        padding: 3rem 0rem 7rem 0rem;
+        margin: 0rem 0.5rem 2rem 0.5rem;
+    }
+    .main-ac-right > p:first-of-type {
+        text-align: center;
+    }
+    .main-ac-right-content{
+        flex-direction: column;
+    }
+    .main-ac-right-content-card {
+        width: auto;
+    }
+    .ac-content-bottom-layer-2 {
+        width: auto;
+        flex-direction: column;
+        padding: 1rem;
+        margin: 0 0 2rem 0;
+        box-shadow: none;
+    }
+    .ac-content-bottom-2-left {
+        width: 100%;
+        margin-bottom: 2rem;
+        align-items: center;
+    }
+    .ac-content-bottom-2-right {
+        width: 100%;
+        display: none;
+    }
     .ac-content-bottom-2-left > p:first-of-type {
-        font-weight: 600;
-        font-size: 4.5rem;
+        /* font-weight: 600;
+        font-size: 4.5rem; */
         margin-bottom: 2rem;
         text-align: center;
+    }
+    .ac-content-bottom-mobile-image{
+        display: flex;
     }
     .main-ac-left > button {
         margin-top: 0rem;
@@ -429,11 +439,12 @@ p{
     width: 220px;
     padding: 0.5rem 1rem;
 }
-.ac-content-customer-comment-list{
+.ac-content-customer-comment-list {
     display: flex;
     flex-direction: column;
     position: relative;
-    min-height: 400px;
+    height: 400px;
+    overflow: scroll;
 }
 .ac-content-customer-comment{
     display: flex;
@@ -640,6 +651,9 @@ p{
     font-size: 4.5rem;
     margin-bottom: 2rem;
 }
+.ac-content-bottom-left > p:last-of-type {
+    margin-bottom: 2rem;
+}
 .ac-content-bottom-left > p:nth-child(2){
     margin-bottom: 2rem;
     line-height: 1.5rem;
@@ -662,6 +676,42 @@ p{
 .ac-content-bottom-right-mobile{
     display: none;
 }
+/*Complain Text**/
+.complain-text{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.complain-text > p:nth-child(1){
+    font-size: 2rem;
+    font-weight: 600;
+    color: #129347;
+    margin-bottom: 1rem;
+}
+.complain-text > p:nth-child(2){
+    width: 60%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.complain-text > button{
+    font-size: 1rem;
+    color: white;
+    background-color: #129347;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0;
+}
+.complain-text > button > a{
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: inherit;
+}
+/*Complain Text**/
 
 /*Loader*/
 .mainACProductLoader{
@@ -669,17 +719,17 @@ p{
     width: 50%;
     height: 100%;
 }
-.allACLoader{
+.allACLoader {
     position: absolute;
     top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #dbdbdbc2;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e2e2e2;
     z-index: 7000;
     display: none;
     align-items: center;
     justify-content: center;
-    filter: blur(5px);
 }
 
 @media screen and (max-width:1350px){

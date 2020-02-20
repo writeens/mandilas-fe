@@ -6,8 +6,8 @@ p{
     margin: 0;
     padding: 0;
 }
-/*Main AC After Sales*/
-.main-ac-as{
+/* Main AC After Sales*/
+/* .main-ac-as{
     display: flex;
     flex-direction: column;
     padding: 8rem 0 0 8rem ;
@@ -130,7 +130,6 @@ p{
     display: flex;
     flex-direction: column;
     position: relative;
-    /* top: 5rem; */
 }
 .main-ac-as-layer-4-right > p:first-of-type{
     font-weight: 600;
@@ -142,8 +141,8 @@ p{
 }
 .main-ac-as-layer-3.two{
     background-color: #9D9D9D;
-}
-@media screen and (max-width:1350px){
+} */
+/* @media screen and (max-width:1350px){
     .main-ac-as-layer-1 {
         flex-direction: column;
         text-align: center;
@@ -188,7 +187,6 @@ p{
         justify-content: center;
         align-items: center;
         padding: 2rem 0 0 0;
-        /* height: fit-content; */
     }
     .main-ac-as > p:first-of-type{
         font-size: 3rem;
@@ -224,5 +222,116 @@ p{
     .main-ac-as-layer-4 {
         padding: 0 1rem 2rem 1rem;
     }
+} */
+/*Main AC After Sales */
+
+/*Main AC After Sales */
+.as-header{
+    min-height: 500px;
+    background-image: url(../Assets/as-header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3rem;
 }
-/*Main AC After Sales*/
+.as-header > p{
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+}
+.as-options-container{
+    padding: 0rem 4rem;
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-around;
+}
+.as-option {
+    min-width: 300px;
+    width: 500px;
+    height: 350px;
+    margin-bottom: 2rem;
+    display: flex;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.as-option:nth-child(1){
+    background-image: url(../Assets/as-mobility.jpg);
+}
+.as-option:nth-child(2){
+    background-image: url(../Assets/as-cooling.jpg);
+}
+.as-option > a{
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+}
+/*Complain Text**/
+.complain-text{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.complain-text > p:nth-child(1){
+    font-size: 2rem;
+    font-weight: 600;
+    color: #129347;
+    margin-bottom: 1rem;
+}
+.complain-text > p:nth-child(2){
+    width: 60%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.complain-text > button{
+    font-size: 1rem;
+    color: white;
+    background-color: #129347;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    padding: 0;
+}
+.complain-text > button > a{
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: inherit;
+}
+@media screen and (max-width:900px){
+    .complain-text > p:nth-child(2) {
+        width: 90%;
+    }
+}
+/*Complain Text**/
+@media screen and (max-width:900px){
+    .as-header{
+        min-height: 300px;
+    }
+    .as-header > p{
+        text-align: center;
+    }
+    .as-options-container{
+        flex-direction: column;
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .as-option{
+        margin: 0 0 1rem 0;
+        width: auto;
+    }
+}
+/*Main AC After Sales */
