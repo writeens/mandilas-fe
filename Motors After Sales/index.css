@@ -128,7 +128,7 @@ p{
 
 /* Spare Parts */
 .spare-parts-header{
-    height: 400px;
+    height: 500px;
     display: flex;
     flex-direction: column;
     background-image: url(../Assets/spare-parts.jpg);
@@ -136,18 +136,20 @@ p{
     background-position: center;
     background-size: cover;
     color: white;
-    padding: 10rem 6rem ;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0rem 0rem 0rem 6rem;
 }
 .spare-parts-header > p:first-of-type{
-    font-size: 8rem;
+    font-size: 3rem;
     font-weight: 600;
-    margin-bottom: 4rem;
 }
 .spare-parts-header > p:last-of-type{
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
-    width: 900px;
-    margin-bottom: 4rem;
+    max-width: 900px;
+    margin-bottom: 2rem;
+    text-align: justify;
 }
 .spare-parts-header > button{
     display: flex;
@@ -216,7 +218,7 @@ p{
     font-size: 1.2rem;
     font-weight: 600;
 }
-@media screen and (max-width:1350px){
+/* @media screen and (max-width:1350px){
     .spare-parts-header{
         height: fit-content;
         padding: 5rem 1rem ;
@@ -233,9 +235,10 @@ p{
     .spare-parts-header > button{
         align-self: center;
     }
-}
+} */
 @media screen and (max-width:800px){
     .spare-parts-header{
+        align-items: center;
         padding: 2rem 0.5rem;
     }
     .spare-parts-header > p:first-of-type{
