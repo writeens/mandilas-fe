@@ -13,22 +13,36 @@
     <link rel="stylesheet" href="../Utility/normalize.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Slick CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../Navbar/navbar.css">
     <link rel="stylesheet" href="../Footer/footer.css">
     <link rel="stylesheet" href="./index.css">
-    <!-- UIkit JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js"></script> -->
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!--Slick JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js" defer></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js" defer></script>
+    <script src="../Utility/init-firebase.js" defer></script>
+    
     <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
-    <script src="./index.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     <div class="hometwo">
@@ -197,15 +211,15 @@
         <p class="motors-content-bold-text">Overview</p>
         <div class="m-d-logos">
             <div class="m-d-logo">
-                <img src="./assets/car.svg" alt="">
+                <img src="../Assets/car.svg" alt="">
                 <p>Sedan</p>
             </div>
             <div class="m-d-logo">
-                <img src="./assets/fuel-station.svg" alt="">
+                <img src="../Assets/fuel-station.svg" alt="">
                 <p>Petrol</p>
             </div>
             <div class="m-d-logo">
-                <img src="./assets/steering-wheel.svg" alt="">
+                <img src="../Assets/steering-wheel.svg" alt="">
                 <p>Automatic</p>
             </div>
         </div>
@@ -218,7 +232,14 @@
                 <p>&bull; 4-cylinder/turbocharged 4-cylinder/V6 engine</p>
             </div>
             <div class="m-d-summary-image">
-                <img src="./assets/red-car.jpg" alt="">
+                <img src="../Assets/red-car.jpg" alt="">
+                <div class="m-d-summary-palette">
+                    <p style="background-color:#a33638;" class="palette"></p>
+                    <p style="background-color:#9dbfcb;" class="palette"></p>
+                    <p style="background-color:#4dae74;" class="palette"></p>
+                    <p style="background-color: #242424;" class="palette"></p>
+                    <p style="background-color: #c9a267;" class="palette"></p>
+                </div>
             </div>
         </div>
         <div class="m-d-description">
@@ -242,8 +263,8 @@
             </div>
         </div>
         <div class="m-d-desc-buttons">
-            <button>Request Price</button>
-            <button>Contact Us</button>
+            <a href="">Request Price</a>
+            <a href="">Contact Us</a>
         </div>
     </div>
     <div class="motors-detail-layer-1">
@@ -457,6 +478,16 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+    <div class="motors-warranty">
+        <p>Warranty Information</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus, 
+            consequatur rem harum impedit facilis maiores aliquam quae iste tempora 
+            nisi magni error illum reprehenderit fugiat in expedita laudantium enim illo?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, consectetur incidunt. 
+            Aut porro tenetur facere error mollitia quia sed, consequuntur suscipit quas cupiditate, sequi sit excepturi explicabo officiis? 
+            Quod, nemo!
+        </p>
     </div>
     <div class="footer">
         <div class="footer-logos">

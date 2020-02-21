@@ -317,7 +317,7 @@ p{
     width: 45%;
 }
 
-@media screen and (max-width:1350px){
+/* @media screen and (max-width:1350px){
     .motors-header {
         height: 500px;
         padding: 0rem 3rem;
@@ -401,8 +401,8 @@ p{
         justify-content: center;
     }
     
-}
-@media screen and (max-width:800px){
+} */
+@media screen and (max-width:900px){
     .motors-header {
         padding: 0rem 0rem;
     }
@@ -485,17 +485,17 @@ p{
     background-image: url(../Assets/motors-detail-header.jpg);
     background-position: center;
     background-size: cover;
-    height: 800px;
+    height: 500px;
 }
 .motors-detail-content{
     background-color: white;
     display: flex;
     flex-direction: column;
-    padding: 3rem 0rem 2rem 7rem;
-    font-size: 1.2rem;
+    padding: 3rem 3rem 2rem 3rem;
+    font-size: 1rem;
 }
 .motors-detail-content > p:first-of-type{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 2rem;
 }
@@ -504,7 +504,7 @@ p{
     font-weight: 300;
 }
 .motors-content-bold-text{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1.6rem;
 }
@@ -525,7 +525,7 @@ p{
     margin-right: 2rem;
 }
 .m-d-logo > p{
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .m-d-summary{
     display: flex;
@@ -535,19 +535,35 @@ p{
 .m-d-summary-left{
     display: flex;
     flex-direction: column;
-    width: 45%;
-    align-self: center;
+    width: 40%;
+    max-width: 500px;
+    justify-content: center;
 }
 .m-d-summary-image{
-    width: 45%;
+    flex-direction: column;
+    width: 60%;
     display: flex;
+    align-items: center;
 }
 .m-d-summary-image > img {
-    width: 450px;
-    height: 250px;
-    object-fit: contain;
-    transform: scale(1.6);
+    max-width: 300px;
+    min-width: 100%;
+    margin-bottom: 1rem;
+    height: 370px;
+    object-fit: cover;
     position: relative;
+}
+.m-d-summary-palette {
+    display: flex;
+    min-width: 100%;
+    justify-content: center;
+}
+.m-d-summary-palette > .palette{
+    height: 100px;
+    max-width: 100px;
+    width: calc(100%/5);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 .m-d-description{
     display: flex;
@@ -555,16 +571,18 @@ p{
     margin-bottom: 4rem;
 }
 .m-d-description-left{
-    width: 45%;
+    width: 50%;
     display: flex;
     flex-direction: column;
 }
 .m-d-description-left p{
-    line-height: 1.9rem;
+    line-height: 2rem;
+    text-align: justify;
 }
-.m-d-description-right{
-    width: 45%;
+.m-d-description-right {
+    width: 50%;
     display: flex;
+    justify-content: center;
 }
 .pdf-card{
     display: flex;
@@ -594,14 +612,23 @@ p{
     width: 500px;
     justify-content: space-between;
 }
-.m-d-desc-buttons > button{
+.m-d-desc-buttons > a{
     padding: 1rem 4rem;
     border: none;
     width: fit-content;
-    border: 1px solid #129347;
+    text-decoration: none;
     border-radius: 0.3rem;
-    font-size: 1.1rem;
+    font-size: 1rem;
     cursor: pointer;
+}
+.m-d-desc-buttons > a:first-of-type{
+    background-color: #129347;
+    color: white;
+}
+.m-d-desc-buttons > a:last-of-type{
+    background-color: white;
+    color: #129347;
+    border: 1px solid #129347;
 }
 .m-d-desc-buttons > button:first-of-type{
     background-color: #129347;
@@ -618,7 +645,7 @@ p{
     width: 100%;
     margin-bottom: 2rem;
     color: white;
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 .m-d-layer-1-left{
@@ -683,66 +710,20 @@ p{
 .m-d-tbody > tr:nth-child(even){
     background-color: rgb(220,220,220);
 }
-@media screen and (max-width:1350px){
-    .motors-detail-content {
-        padding: 3rem 2rem 2rem 2rem;
-    }
-    .m-d-logo{
-        width: fit-content;
-    }
-    .m-d-logo > p {
-        font-size: 2rem;
-    }
-    .m-d-logo > img {
-        margin-right: 1rem;
-    }
-    .m-d-summary {
-        flex-direction: column;
-    }
-    .m-d-summary-left {
-        width: 100%;
-        margin-bottom: 2rem;
-        /* align-self: center; */
-    }
-    .m-d-summary-left > p {
-        font-size: 2rem;
-    }
-    .m-d-summary-image{
-        width: 100%;
-    }
-    .m-d-summary-image > img{
-        width: 100%;
-        object-fit: cover;
-        transform: scale(1.0);
-    }
-    .m-d-description{
-        flex-direction: column;
-    }
-    .m-d-description-left, 
-    .m-d-description-right{
-        width: 100%;
-    }
-    .m-d-description-left > p{
-        font-size: 2rem;
-        line-height: normal;
-        margin-bottom: 2rem;
-    }
-    .pdf-card{
-        width: 100%;
-        height: 300px;
-    }
-    .motors-detail-content > p:first-of-type {
-        font-size: 6rem;
-    }
-    .motors-content-bold-text {
-        font-size: 3rem;
-        margin-bottom: 1.6rem;
-    }
-    .m-d-desc-buttons{
-        align-self: center;
-    }
+.motors-warranty {
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 12rem 2rem 12rem;
 }
-@media screen and (max-width:800px){
+.motors-warranty > p:first-of-type{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+.motors-warranty > p:last-of-type{
+    text-align: justify;
+}
+@media screen and (max-width:900px){
     .motors-detail-layer-1 {
         display: flex;
         flex-direction: column;
@@ -756,38 +737,77 @@ p{
     .motors-detail-header{
         height: 400px;
     }
-    .m-d-layer-1-left, .m-d-layer-1-right{
-        font-size: 1.6rem;
-    }
     .motors-detail-content{
         padding: 1rem 0.5rem;
         text-align: center;
     }
-    .motors-detail-content > p:first-of-type {
-        font-size: 2.5rem;
+    .m-d-summary {
+        flex-direction: column;
+        width: auto;
     }
-    .m-d-logo > p, 
-    .motors-content-bold-text, 
-    .m-d-description-left > p {
-        font-size: 1.5rem;
+    .m-d-summary-left {
+        width: 100%;
+        margin-bottom: 2rem;
+        max-width: none;
     }
     .m-d-summary-left > p {
-        font-size: 1.5rem;
         margin-bottom: 1rem;
+    }
+    .m-d-summary-image{
+        width: auto;
+    }
+    .m-d-summary-image > img{
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        min-width: unset;
+    }
+    .m-d-summary-palette > .palette{
+        height: 50px;
+    }
+    .m-d-description{
+        flex-direction: column;
+    }
+    .m-d-description-left, 
+    .m-d-description-right{
+        width: 100%;
+    }
+    .m-d-description-left{
+        margin-bottom: 2rem;
+    }
+    .m-d-description-right{
+        justify-content: center;
     }
     .motors-detail-table {
         overflow-x: scroll;
         display: flex;
         flex-direction: column;
     }
-    .m-d-logos{
+    .m-d-logos {
         flex-direction: column;
+        align-items: center;
+    }
+    .m-d-logo {
+        margin-right: 0rem;
+        margin-bottom: 0.5rem;
+    }
+    .m-d-logo > img{
+        margin-right: 1.5rem;
     }
     .m-d-desc-buttons{
-        width: 100%;
+        width: auto;
+        justify-content: center;
     }
-    .m-d-desc-buttons > button{
-        padding: 1rem 2rem
+    .m-d-desc-buttons > a{
+        padding: 1rem 1.5rem;
+        margin: 0 0.5rem
+    }
+    .pdf-card{
+        width: auto;
+    }
+    .motors-warranty{
+        line-height: 2rem;
+        margin: 0 1rem 2rem 1rem;
     }
 }
 
