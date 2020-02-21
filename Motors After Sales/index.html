@@ -13,22 +13,36 @@
     <link rel="stylesheet" href="../Utility/normalize.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Slick CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../Navbar/navbar.css">
     <link rel="stylesheet" href="../Footer/footer.css">
     <link rel="stylesheet" href="./index.css">
-    <!-- UIkit JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js"></script> -->
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!--Slick JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js" defer></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js" defer></script>
+    <script src="../Utility/init-firebase.js" defer></script>
+    
     <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
-    <script src="./index.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     <div class="hometwo">
@@ -213,6 +227,15 @@
             <input type="text" placeholder="Vehicle Model">
         </div>
         <button>Send Details</button>
+    </div>
+    <div class="complain-text">
+        <p>Have a Complaint</p>
+        <p>Do you have any issue? Or complains about our after Sales
+            services? Just send us a message
+        </p>
+        <button class="complainContactButton">
+            <a href="#">Contact Us</a>
+        </button>
     </div>
     <div class="footer">
         <div class="footer-logos">
