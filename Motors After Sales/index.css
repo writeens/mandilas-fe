@@ -254,37 +254,42 @@ p{
 
 /* Accident Recovery */
 .ar-header{
-    padding: 9rem 5rem;
+    height: 500px;
     height: fit-content;
     color: white;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    justify-content: center;
+    align-items: flex-start;
+    padding:2rem 7rem 2rem 7rem;
     background-image: url(../Assets/ar-header.jpg);
 }
 .ar-header > p:first-of-type{
-    font-size: 6rem;
+    font-size: 3rem;
     font-weight: 600;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
 }
 .ar-header > p:last-of-type{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 400;
-    width: 900px;
+    max-width: 700px;
+    text-align: justify;
 }
-.ar-layer-1{
-    padding: 4rem 9rem;
+.ar-layer-1 {
+    padding: 4rem 6rem;
     height: fit-content;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 .ar-layer-1 > p{
-    width: 50%;
+    text-align: justify;
+    width: 60%;
     margin-bottom: 1.5rem;
 }
 .ar-layer-2{
     display: flex;
     height: fit-content;
-    margin: 0rem 5rem 2rem 5rem;
+    margin: 0rem 6rem 2rem 6rem;
     padding: 2rem 4rem;
     background-color: #405047;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -297,7 +302,7 @@ p{
     align-self: center;
 }
 .ar-layer-2-left > p{
-    font-size: 2.5rem;
+    font-size: 1rem;
     font-weight: 600;
 }
 .ar-layer-2-right{
@@ -306,18 +311,18 @@ p{
     flex-direction: column;
 }
 .ar-layer-2-right > p:nth-child(1){
-    font-size: 2rem;
+    font-size: 1rem;
     font-weight: 500;
     margin-bottom: 2rem;
 }
 .ar-layer-2-right > p:nth-child(2), .ar-layer-2-right > p:nth-child(3){
-    font-size: 5rem;
+    font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 0.5rem;
 }
 .ar-layer-3{
     display: flex;flex-direction: column;
-    margin: 0rem 9rem 3rem 9rem;
+    margin: 0rem 6rem 2rem 6rem;
     justify-content: space-between;
 }
 .ar-layer-3-container{
@@ -337,11 +342,11 @@ p{
 }
 .ar-layer-3-medium-text{
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-bottom: 2rem;
 }
 .ar-layer-3-left-info{
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 400;
 }
 .ar-layer-3-left-info > p{
@@ -353,88 +358,33 @@ p{
 .ar-layer-4{
     display: flex;
     height: 500px;
-    margin: 0rem 5rem 3rem 5rem;
+    margin: 0rem 6rem 2rem 6rem;
     background-color: white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-@media screen and (max-width:1350px){
-    .ar-header{
-        height: fit-content;
-        padding: 5rem 3rem ;
-        text-align: justify;
-    }
-    .ar-header > p:first-of-type{
-        text-align: center;
-    }
-    .ar-header > p:last-of-type {
-        width: 100%;
-    }
-    .ar-layer-1{
-        padding: 2rem;
-    }
-    .ar-layer-1 > p {
-        width: auto;
-        text-align: justify;
-        font-size: 2rem;
-    }
-    .ar-layer-2 {
-        margin: 0 0 2rem 0;
-        padding: 2rem 1rem;
-    }
-    .ar-layer-2-left, .ar-layer-2-right{
-        width: auto;
-    }
-    .ar-layer-3 {
-        margin: 0 0 3rem 0;
-        padding: 2rem 1rem;
-    }
-    .ar-layer-3-left-info {
-        font-size: 2rem;
-        font-weight: 400;
-        text-align: justify;
-    }
-    .ar-layer-3-medium-text {
-        font-weight: 500;
-        font-size: 2rem;
-        margin-bottom: 2rem;
-    }
-    .ar-layer-3-bold-text{
-        justify-content: center;
-        text-align: center;
-    }
-    .ar-layer-3-container {
-        flex-direction: column;
-        padding: 0rem 2rem;
-    }
-    .ar-layer-3-left{
-        width: 100%;
-    }
-    .ar-layer-3-right{
-        width: 100%;
-    }
-    .ar-layer-4{
-        margin: 0 0 2rem 0;
-        box-shadow: none;
-    }
-}
-@media screen and (max-width:800px){
+@media screen and (max-width:900px){
     .ar-header {
         height: fit-content;
-        padding: 3rem 3rem;
+        padding: 2rem 1rem;
         text-align: justify;
     }
     .ar-header > p:first-of-type {
-        font-size: 3rem;
+        text-align: center;
     }
     .ar-header > p:last-of-type {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
+    }
+    .ar-layer-1{
+        padding: 1rem 0.5rem;
     }
     .ar-layer-1 > p {
         font-size: 1.3rem;
+        width: auto;
     }
     .ar-layer-2{
         flex-direction: column;
-        /* text-align: center; */
+        margin: 0 0 2rem 0;
+        padding: 2rem 1rem;
     }
     .ar-layer-2-left, .ar-layer-2-right{
         text-align: center;
@@ -448,11 +398,24 @@ p{
         margin: 0 0 1rem 0;
         padding: 2rem 1rem 0rem 1rem;
     }
+    .ar-layer-3-container{
+        flex-direction: column;
+    }
+    .ar-layer-3-left,
+    .ar-layer-3-right{
+        width: auto;
+        text-align: justify;
+    }
     .ar-layer-3-left-info {
         font-size: 1.3rem;
     }
     .ar-layer-3-medium-text {
         font-size: 1.3rem;
+    }
+    .ar-layer-4{
+        margin: 0;
+        box-shadow: none;
+        margin-bottom: 1rem;
     }
 }
 
