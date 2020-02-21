@@ -470,7 +470,7 @@ button[data-target="#signUp"]{
     height: 100px;
     background-color: #129348;
     z-index: 9999;
-    transition: top 0.5s ease-in-out;s
+    transition: top 0.5s ease-in-out;
 }
 .showInfoToast{
     top: 0vh !important;
@@ -591,6 +591,48 @@ button[data-target="#signUp"]{
         width: 90px
     }
 }
+
+/*Complain Text**/
+.complain-text{
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.complain-text > p:nth-child(1){
+    font-size: 2rem;
+    font-weight: 600;
+    color: #129347;
+    margin-bottom: 1rem;
+}
+.complain-text > p:nth-child(2){
+    width: 60%;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.complain-text > button{
+    font-size: 1rem;
+    color: white;
+    background-color: #129347;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    padding: 0;
+}
+.complain-text > button > a{
+    display: flex;
+    color: inherit;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    border-radius: inherit;
+}
+@media screen and (max-width:900px){
+    .complain-text > p:nth-child(2) {
+        width: 90%;
+    }
+}
+/*Complain Text**/
 
 /* *{
     background: #000 !important;

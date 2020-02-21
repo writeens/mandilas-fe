@@ -276,47 +276,6 @@ p{
     font-weight: 600;
     color: white;
 }
-/*Complain Text**/
-.complain-text{
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-.complain-text > p:nth-child(1){
-    font-size: 2rem;
-    font-weight: 600;
-    color: #129347;
-    margin-bottom: 1rem;
-}
-.complain-text > p:nth-child(2){
-    width: 60%;
-    text-align: center;
-    margin-bottom: 2rem;
-}
-.complain-text > button{
-    font-size: 1rem;
-    color: white;
-    background-color: #129347;
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    padding: 0;
-}
-.complain-text > button > a{
-    display: flex;
-    color: inherit;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    border-radius: inherit;
-}
-@media screen and (max-width:900px){
-    .complain-text > p:nth-child(2) {
-        width: 90%;
-    }
-}
-/*Complain Text**/
 @media screen and (max-width:900px){
     .as-header{
         min-height: 300px;
