@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Job</title>
+    <title>Document</title>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Animate.css -->
@@ -13,22 +12,36 @@
     <link rel="stylesheet" href="../Utility/normalize.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Slick CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../Navbar/navbar.css">
     <link rel="stylesheet" href="../Footer/footer.css">
     <link rel="stylesheet" href="./index.css">
-    <!-- UIkit JS -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/js/uikit-icons.min.js"></script> -->
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!--Slick JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js" defer></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js" defer></script>
+    <script src="../Utility/init-firebase.js" defer></script>
+    
     <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
-    <script src="./index.js" defer></script>
+    <script src="index.js" defer></script>
 </head>
 <body>
     <div class="hometwo">
@@ -70,6 +83,7 @@
                 <div class="menu-ac hometwo-submenu hometwo-submenu-hide">
                     <a href="../Airconditioners/main.html">Carrier A/C</a>
                     <a href="../Airconditioners After Sales/index.html">After Sales Services</a>
+                    <a href="../Motors After Sales/spare-parts.html">Spare Parts</a>
                 </div>
             </div>
             <div class="hometwo-menu-item drop">
@@ -79,10 +93,10 @@
                 </div>
                 <div class="menu-motors hometwo-submenu hometwo-submenu-hide">
                     <a href="../Motors/index.html">Vehicle Sales</a>
-                    <a href="../Motors After Sales/index.html">Owner Registration</a>
-                    <a href="../Motors After Sales/spare-parts.html">Spare Parts</a>
-                    <a href="../Motors After Sales/accident.html">Accident Recovery</a>
-                    <a href="../Motors After Sales/fleet.html">Lease Fleet Management</a>
+                    <a href="index.html">Owner Registration</a>
+                    <a href="spare-parts.html">Spare Parts</a>
+                    <a href="accident.html">Accident Recovery</a>
+                    <a href="fleet.html">Lease Fleet Management</a>
                 </div>
             </div>
             <div class="hometwo-menu-item">
@@ -103,7 +117,7 @@
             </div>
             <div class="hometwo-menu-item">
                 <div class="hometwo-menu-text">
-                    <a href="index.html"><p>Careers</p></a>
+                    <a href="../Career/index.html"><p>Careers</p></a>
                     <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
                 </div>
             </div>
@@ -191,35 +205,42 @@
             </div>
         </div>
     </div>
-    <div class="career-content-description">
-        <p>LEASING OPERATIONS MANAGER</p>
-        <p class="career-content-desc-sub">Job Role:</p>
-        <div class="career-content-desc-item">
-            <p>&bull; Marketing activities, generating new Sales lead (Finance and Operating Leases) and managing same</p>
-            <p>&bull; Championing an effective business structure to grow the lease business of the Company</p>
-            <p>&bull; Performing cash flow analysis for new businesses to ascertain viability</p>
-            <p>&bull; Improving customer service experience by ensuring the delivery of top-notch services to customers</p>
-        </div>
-        <p class="career-content-desc-sub">Areas Of Expertise</p>
-        <div class="career-content-desc-item">
-            <p>&bull; Lease (Finance/Operating) and fleet Management</p>
-            <p>&bull; Business Analysis and Development</p>
-            <p>&bull; Sales and Marketing Leadership</p>
-            <p>&bull; Market Research and Competitor Analysis</p>
-            <p>&bull; Business Strategy and Planning</p>
-            <p>&bull; Customer Relationship Management</p>
-            <p>&bull; Fleet utilization and maintenance management</p>
-        </div>
-        <p class="career-content-desc-sub">Successful Applicants Must Have:</p>
-        <div class="career-content-desc-item">
-            <p>&bull; A minimum of first degree, with at least a second class lower from a reputable University</p>
-            <p>&bull; 10-12 years cognate experience in Lease Marketing and Operations</p>
-            <p>&bull; A relevant professional certificate will be an added advantage</p>
-        </div>
-        <p class="career-content-cta">If You Are Innovative, Can Work In A Diverse, Fast Paced Environment And Have What It Takes
-            Please Drop Your Curriculum Vitae At <span>hr@mandilasng.com</span>
+    <div class="fleet-header">
+        <p>Mandilas Fleet Management Services</p>
+    </div>
+    <div class="fleet-body">
+        <p class="fleet-body-bold">MANDILAS FLEET MANAGEMENT SERVICES INCLUDE:</p>
+        <p class="fleet-body-small">
+            <span class="fleet-number">1.</span> Basic Service Plan on new vehicles or vehicles up to one-year-old that have been serviced and maintained
+            by OEM recognised after sales repair centres.
         </p>
-        <p class="career-content-deadline">Application Closes On <span>Tuesday, 1st October 2019</span></p>
+        <p class="fleet-body-small">
+            <span class="fleet-number">2.</span> Full Maintenance Plan including tyres on new vehicles.
+        </p>
+        <p class="fleet-body-small">
+            <span class="fleet-number">3.</span> Managed maintenance on existing fleet older than 1 year.
+        </p>
+        <p class="fleet-body-small">
+            <span class="fleet-number">4.</span> Vehicles are managed per predetermined requirements and invoices issued to the fleet owner on a monthly
+            basis per vehicle for all cost incurred during the month including an agreed administration fee.
+        </p>
+        <div class="fleet-body-five">
+            <p class="fleet-body-small">
+                <span class="fleet-number">5.</span>Basic Service Plan on new vehicles or vehicles up to one-year-old that have been serviced and maintained
+                by OEM recognised after sales repair centres
+            </p>
+            <div>
+                <p><span class="fleet-number">1.</span> On-Site Workshop</p>
+                <p><span class="fleet-number">2.</span> Vehicle sourcing and pre-delivery management</p>
+                <p><span class="fleet-number">3.</span> Managing of license, registration, Road Worthiness and local state permits</p>
+                <p><span class="fleet-number">4.</span> Insurance and accident management</p>
+                <p><span class="fleet-number">5.</span> Tracking and Monitoring</p>
+                <p><span class="fleet-number">6.</span> On-Site fleet personnel</p>
+                <p><span class="fleet-number">7.</span> Roadside assistance</p>
+                <p><span class="fleet-number">8.</span> Service and Full Maintainance</p>
+                <p><span class="fleet-number">9.</span> Tyre repair, replacement, balancing wheel alignment</p>
+            </div>
+        </div>
     </div>
     <div class="footer">
         <div class="footer-logos">
@@ -245,9 +266,9 @@
                 <a href="../Airconditioners/main.html">AIR CONDITIONING</a>
                 <a href="../Motors/index.html">MOTORS</a>
                 <a href="../Properties/index.html">PROPERTIES</a>
-                <a href="../Motors After Sales/index.html">VEHICLE REGISTRATION</a>
-                <a href="../Motors After Sales/spare-parts.html">SPARE PARTS</a>
-                <a href="../Motors After Sales/fleet.html">FLEET MANAGEMENT</a>
+                <a href="index.html">VEHICLE REGISTRATION</a>
+                <a href="spare-parts.html">SPARE PARTS</a>
+                <a href="fleet.html">FLEET MANAGEMENT</a>
             </div>
         </div>
         <div class="footer-item">

@@ -218,24 +218,6 @@ p{
     font-size: 1.2rem;
     font-weight: 600;
 }
-/* @media screen and (max-width:1350px){
-    .spare-parts-header{
-        height: fit-content;
-        padding: 5rem 1rem ;
-        text-align: center;
-    }
-    .spare-parts-header > p:first-of-type{
-        font-size: 6rem;
-        font-weight: 600;
-    }
-    .spare-parts-header > p:last-of-type{
-        font-size: 3rem;
-        width: fit-content;
-    }
-    .spare-parts-header > button{
-        align-self: center;
-    }
-} */
 @media screen and (max-width:800px){
     .spare-parts-header{
         align-items: center;
@@ -420,6 +402,70 @@ p{
 }
 
 /* Accident Recovery */
+
+/*Fleet Management**/
+.fleet-header{
+    height: 500px;
+    background-image: url(../Assets/fleet-header.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.fleet-header > p{
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    text-align: center;
+    max-width: 900px;
+}
+.fleet-body{
+    display: flex;
+    flex-direction: column;
+    margin: 5rem 8rem 5rem 8rem;
+    text-align: left;
+}
+.fleet-body-bold{
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+.fleet-body-small{
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+}
+.fleet-body-five{
+    flex-direction: column;
+}
+.fleet-body-five > div {
+    margin-left: 3rem;
+}
+.fleet-body-five > div > p{
+    margin-bottom: 0.8rem;
+    line-height: 2rem;
+}
+.fleet-number{
+    margin-right: 0.8rem;
+}
+@media screen and (max-width:900px){
+    .fleet-header{
+        height: 300px;
+    }
+    .fleet-header > p{
+        font-size: 2rem;
+    }
+    .fleet-body{
+        margin: 0;
+        padding: 2rem 1rem;
+    }
+    .fleet-body-bold{
+        font-size: 1rem;
+    }
+}
+/*Fleet Management**/
 
 /* *{
     background: #000 !important;
