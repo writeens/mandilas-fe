@@ -424,7 +424,7 @@ p{
 .fleet-body{
     display: flex;
     flex-direction: column;
-    margin: 5rem 8rem 5rem 8rem;
+    margin: 5rem 8rem 2rem 8rem;
     text-align: left;
 }
 .fleet-body-bold{
@@ -466,6 +466,11 @@ p{
     }
 }
 /*Fleet Management**/
+
+/*Body Refurbishment*/
+
+/*Body Refurbishment*/
+
 
 /* *{
     background: #000 !important;

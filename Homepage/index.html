@@ -16,11 +16,7 @@
     <!--Slick CSS-->
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!--Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="../Navbar/navbar.css">
-    <link rel="stylesheet" href="../Footer/footer.css">
-    <link rel="stylesheet" href="./index.css">
-    
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -28,6 +24,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Navbar/navbar.css">
+    <link rel="stylesheet" href="../Footer/footer.css">
+    <link rel="stylesheet" href="./index.css">
+    
     <!--Slick JS-->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
     
@@ -205,132 +207,218 @@
             </div>
         </div>
     </div>
-    <div class="homepage-layer-1">
-        <p>Innovative Lifestyle Solutions.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore eligendi vitae soluta ducimus molestiae blanditiis illo similique nemo vel quod asperiores dicta quibusdam</p>
-        <button class="homepage-button">
-            <a href="../Motors/index.html">Explore</a>
-        </button>
+    <div class="homepage-header">
+        <div id="homepageCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-interval="1000">
+                  <div class="homepage-header one">
+                      <p>Innovative Lifestyle Solutions</p>
+                      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                          Itaque natus dolorum veritatis neque magni sapiente quos blanditiis 
+                          eveniet vel nam expedita ipsum optio debitis quasi nesciunt numquam delectus, quas commodi.
+                        </p>
+                        <a href="../About Us/index.html">Explore</a>
+                  </div>
+              </div>
+              <div class="carousel-item" data-interval="1000">
+                <div class="homepage-header one">
+                    <p>Innovative Lifestyle Solutions</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                        Itaque natus dolorum veritatis neque magni sapiente quos blanditiis 
+                        eveniet vel nam expedita ipsum optio debitis quasi nesciunt numquam delectus, quas commodi.
+                      </p>
+                      <a href="../About Us/index.html">Explore</a>
+                </div>
+            </div>
+            <div class="carousel-item" data-interval="1000">
+                <div class="homepage-header one">
+                    <p>Innovative Lifestyle Solutions</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+                        Itaque natus dolorum veritatis neque magni sapiente quos blanditiis 
+                        eveniet vel nam expedita ipsum optio debitis quasi nesciunt numquam delectus, quas commodi.
+                      </p>
+                      <a href="../About Us/index.html">Explore</a>
+                </div>
+            </div>
+            </div>
+          </div>
     </div>
-    <div class="homepage-layer-2">
-        <div class="homepage-layer-2-content">
-            <p>Award winning dealer and distributor</p>
-            <p>The trusted provider of innovative lifestyle solutions</p>
-            <a href="../About Us/index.html">Learn  More</a>
-        </div>
+    <div class="homepage-content-one">
+        <p>Award winning dealer and distributor</p>
+        <p>The trusted provider of innovative lifestyle solutions</p>
+        <a href="../About Us/index.html">Learn  More</a>
     </div>
-    <div class="homepage-layer-3">
-        <div class="home-card">
-            <img src="../Assets/layer-3.jpg" alt="">
+    <div class="homepage-content-two">
+        <div class="home-content-card">
+            <img src="../Assets/layer-3.jpg" alt="toyota_jeep">
+            <div class="home-content-card-links">
+                <a href="../Motors/index.html">Vehicle Sales</a>
+                <a href="../Airconditioners After Sales/index.html">After Sales Services</a>
+            </div>
             <p>Motors</p>
-            <div class="mini-card-row">
-                <a href="../Motors/index.html" class="mini-card one">
-                    Vehicle Sales
-                </a>
-                <a href="../Motors After Sales/index.html" class="mini-card">
-                    After Sales Services
-                </a>
-            </div>
         </div>
-        <div class="home-card">
-            <img class="image-two" src="../Assets/layer-3h.jpg" alt="">
-            <p>Air Conditioners</p>
-            <div class="mini-card-row">
-                <a href="../Airconditioners/main.html" class="mini-card one">
-                    Carrier A/C
-                </a>
-                <a href="" class="mini-card ">
-                    Special Contract
-                </a>
+        <div class="home-content-card">
+            <img src="../Assets/layer-3h.jpg" alt="carrier_ac">
+            <div class="home-content-card-links">
+                <a href="../Airconditioners/main.html">Carrier A/C</a>
+                <a href="#">Special Contract</a>
             </div>
+            <p style="color: #313131;">Air Conditioners</p>
         </div>
-        <div class="home-card motors">
-            <img src="../Assets/layer-5.jpg" alt="">
-            <p>Properties</p>
-            <div class="mini-card-row">
-                <a href="../Contact Us/index.html" class="mini-card two">
-                    Contact Us
-                </a>
-            </div>
-        </div>
-    </div>
-    <div class="homepage-layer-4">
-        <div class="homepage-layer-4-left">
-            <p>M.E.P</p>
-            <p>Mechanical, Electrical & Plumbing</p>
-            <p>Coming Soon</p>
-            <button>
+        <div class="home-content-card">
+            <img src="../Assets/layer-5.jpg" alt="office_space">
+            <div class="home-content-card-links">
                 <a href="../Contact Us/index.html">Contact Us</a>
-            </button>
-        </div>
-        <div class="homepage-layer-4-right">
-            <p>M.E.P</p>
-            <img src="../Assets/tap.jpg" alt="">
+            </div>
+            <p>After Sales Services</p>
         </div>
     </div>
-    <div class="homepage-layer-logos">
-        <div class="home-logos">
-            <div>
-                <img class="logo" src="../Assets/support-1.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-2.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-3.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-4.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-5.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-6.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-7.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-1.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-2.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-3.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-4.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-5.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-6.jpg" alt="">
-            </div>
-            <div>
-                <img class="logo" src="../Assets/support-7.jpg" alt="">
+    <div class="homepage-content-logos">
+        <div class="homepage-logos-container">
+            <img src="../Assets/support-1.jpg" alt="">
+            <img src="../Assets/support-2.jpg" alt="">
+            <img src="../Assets/support-3.jpg" alt="">
+            <img src="../Assets/support-4.jpg" alt="">
+            <img src="../Assets/support-5.jpg" alt="">
+            <img src="../Assets/support-6.jpg" alt="">
+            <img src="../Assets/support-7.jpg" alt="">
+            <img src="../Assets/support-1.jpg" alt="">
+            <img src="../Assets/support-2.jpg" alt="">
+            <img src="../Assets/support-3.jpg" alt="">
+            <img src="../Assets/support-4.jpg" alt="">
+            <img src="../Assets/support-5.jpg" alt="">
+            <img src="../Assets/support-6.jpg" alt="">
+            <img src="../Assets/support-7.jpg" alt="">
+            <img src="../Assets/support-1.jpg" alt="">
+            <img src="../Assets/support-2.jpg" alt="">
+            <img src="../Assets/support-3.jpg" alt="">
+            <img src="../Assets/support-4.jpg" alt="">
+            <img src="../Assets/support-5.jpg" alt="">
+            <img src="../Assets/support-6.jpg" alt="">
+            <img src="../Assets/support-7.jpg" alt="">
+        </div>
+    </div>
+    <div class="homepage-testimonials">
+        <p>Testimonials</p>
+        <p>Our clients over the last 70 years have been satisfied with our
+            world class services. her's what have to say.
+        </p>
+        <div id="testimonialCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-interval="1000">
+                    <div class="testimonials-container">
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-1.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-2.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-3.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-interval="1000">
+                    <div class="testimonials-container">
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-1.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-2.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-3.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item" data-interval="1000">
+                    <div class="testimonials-container">
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-1.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-2.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                        <div class="testimonial">
+                            <p>Adeola Karim, Access Bank</p>
+                            <img src="../Assets/testimonial-3.jpg" alt="">
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam in omnis modi,
+                                saepe earum libero dolor eos. Aliquid, reprehenderit. Sit dolores, aliquid officia atque eos 
+                                corporis quam itaque laborum quod.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="homepage-layer-8">
+    <div class="homepage-events">
         <p>UPDATES & EVENTS</p>
-        <div class="homepage-layer-8-cards">
-            <div class="homepage-layer-8-card">
-                <img src="../Assets/event.jpg" alt="">
+        <div class="homepage-events-container">
+            <div class="homepage-event-card">
+                <img src="../Assets/event.jpg" alt="event_banner">
                 <p>Carrier Hvac Training For Consultants and Contractors</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, sequi eum! Molestias quibusdam atque rem, quo animi quam ex labore porro voluptate iusto debitis reprehenderit, sequi id perspiciatis minus quas!</p>
                 <p>December 21, 2018</p>
             </div>
-            <div class="homepage-layer-8-card">
-                <img src="../Assets/event.jpg" alt="">
+            <div class="homepage-event-card">
+                <img src="../Assets/event.jpg" alt="event_banner">
                 <p>Carrier Hvac Training For Consultants and Contractors</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, sequi eum! Molestias quibusdam atque rem, quo animi quam ex labore porro voluptate iusto debitis reprehenderit, sequi id perspiciatis minus quas!</p>
                 <p>December 21, 2018</p>
             </div>
-            <div class="homepage-layer-8-card">
-                <img src="../Assets/event.jpg" alt="">
+            <div class="homepage-event-card">
+                <img src="../Assets/event.jpg" alt="event_banner">
                 <p>Carrier Hvac Training For Consultants and Contractors</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam, sequi eum! Molestias quibusdam atque rem, quo animi quam ex labore porro voluptate iusto debitis reprehenderit, sequi id perspiciatis minus quas!</p>
                 <p>December 21, 2018</p>

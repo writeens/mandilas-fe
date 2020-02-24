@@ -6,59 +6,116 @@
     <title>Document</title>
 </head>
 <style>
-    .container{
-  border:1px solid red;
-  display:flex;
-  width: calc(88px * 27)
+main{
+  width: 100%;
+  max-width: 1048px;
+  margin: auto;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 80px;
+  margin-top: 80px;
+}
+main::before{
+  background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%);
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+  top: 0;
+  left: 0;
+}
+main::after{
+  background: linear-gradient(to right, #fff 0%, rgba(255,255,255,0) 100%);
+  content: "";
+  height: 100px;
+  position: absolute;
+  width: 200px;
+  z-index: 2;
+  top: 0;
+  right: 0;
+  transform: rotateZ(180deg);
+}
+.container{
+  animation: scroll 15s linear infinite;
+    display: flex;
+    width: calc(88px * 27);
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .container > img{
-  width:56px;
-  height:56px;
-  margin-right:32px;
-  border:1px solid red;
-  animation-name: slide;
-  animation-iteration-count: infinite;
-  animation-duration: 1s;
-  animation-timing-function: linear;
+  width: 56px;
+  height: 56px;
+  margin-right: 32px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px 3px rgba(0,0,0,0.05);
 }
 
 @keyframes scroll {
-  0%{transform:translateX(0px)};
-  100%{transform: translateX(0px)};
+  0%{transform:translateX(0px)}
+  100%{transform: translateX(calc(-90px * 27))}
 }
 </style>
 <body>
-
-    <div class="container">
+    <main>
+      <div class="container" id="logoContainer">
         <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/TooGoodToGo@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/TooGoodToGo@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/trusk@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/trusk@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/ornikar@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/ornikar@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Tanker@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Tanker@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/heetch@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/heetch@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/alan@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/alan@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Urban%20Massage@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Urban%20Massage@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/wavy@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/wavy@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Forest@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Forest@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/livementor@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/livementor@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Stootie@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Stootie@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/appie@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/appie@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Brentome%20Consulting@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Brentome%20Consulting@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/bureaux%20%C3%A0%20partager@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/bureaux%20%C3%A0%20partager@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cleany@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cleany@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/comet@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/comet@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cubyn@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cubyn@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/epicery@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/epicery@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/feed@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/feed@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/happn@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/happn@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Kymono@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Kymono@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/lunchr@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/lunchr@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/maddyness@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/maddyness@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/mon-avocat@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/mon-avocat@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/OuiHelp@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/OuiHelp@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/proprio@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/proprio@2x.png" data-was-processed="true">
-            <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Zenchef@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Zenchef@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/trusk@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/trusk@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/ornikar@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/ornikar@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Tanker@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Tanker@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/heetch@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/heetch@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/alan@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/alan@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Urban%20Massage@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Urban%20Massage@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/wavy@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/wavy@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Forest@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Forest@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/livementor@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/livementor@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Stootie@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Stootie@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/appie@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/appie@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Brentome%20Consulting@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Brentome%20Consulting@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/bureaux%20%C3%A0%20partager@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/bureaux%20%C3%A0%20partager@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cleany@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cleany@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/comet@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/comet@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cubyn@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cubyn@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/epicery@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/epicery@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/feed@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/feed@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/happn@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/happn@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Kymono@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Kymono@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/lunchr@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/lunchr@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/maddyness@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/maddyness@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/mon-avocat@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/mon-avocat@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/OuiHelp@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/OuiHelp@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/proprio@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/proprio@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Zenchef@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Zenchef@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/TooGoodToGo@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/TooGoodToGo@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/trusk@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/trusk@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/ornikar@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/ornikar@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Tanker@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Tanker@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/heetch@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/heetch@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/alan@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/alan@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Urban%20Massage@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Urban%20Massage@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/wavy@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/wavy@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Forest@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Forest@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/livementor@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/livementor@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Stootie@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Stootie@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/appie@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/appie@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Brentome%20Consulting@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Brentome%20Consulting@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/bureaux%20%C3%A0%20partager@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/bureaux%20%C3%A0%20partager@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cleany@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cleany@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/comet@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/comet@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cubyn@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Cubyn@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/epicery@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/epicery@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/feed@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/feed@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/happn@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/happn@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Kymono@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Kymono@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/lunchr@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/lunchr@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/maddyness@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/maddyness@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/mon-avocat@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/mon-avocat@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/OuiHelp@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/OuiHelp@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/proprio@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/proprio@2x.png" data-was-processed="true">
+        <img class="lazy loaded" data-src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Zenchef@2x.png" src="https://qonto-assets.s3.amazonaws.com/homepage/home/clients/Zenchef@2x.png" data-was-processed="true">
       </div>
-      
-      
+    </main>
 </body>
 </html>
