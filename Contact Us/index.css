@@ -21,7 +21,7 @@ p{
     margin-bottom: 3rem;
 }
 .contact-us-header > p:first-of-type{
-    font-size: 5.5rem;
+    font-size: 3rem;
     color: white;
     font-weight: 600;
     text-align: center;
@@ -30,9 +30,9 @@ p{
     display: flex;
     flex-direction: column;
     height: fit-content;
-    margin: 0rem 3rem 2rem 3rem;
+    margin: 0rem 2rem 2rem 2rem;
     background-color: rgba(255, 241, 216, 0.7);
-    padding: 3rem;
+    padding: 1.5rem;
 }
 .contact-us-section-buttons{
     display: flex;
@@ -44,7 +44,7 @@ p{
     border: none;
     border: 1px solid #313131;
     background-color: transparent;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     outline: none;
 }
@@ -66,7 +66,7 @@ p{
     flex-direction: column;
 }
 .contact-us-section-left{
-    width: 45%;
+    width: 40%;
 }
 .contact-us-general{
     display: flex;
@@ -74,44 +74,44 @@ p{
     margin-bottom: 2rem;
 }
 .contact-us-big-text{
-    font-size: 5rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: black;
     margin-bottom: 2rem;
 }
 .contact-us-big-green{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #129347;
     margin-bottom: 1rem;
 }
 .contact-us-medium-text{
-    font-size: 1.8rem;
+    font-size: 1rem;
     font-weight: 600;
     color: #666;
     margin-bottom: 1rem;
     margin-top: 1rem;
 }
 .contact-us-small-text{
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: #666;
     margin-bottom: 1rem;
 }
 .contact-us-role-text{
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 400;
     color: #666;
     margin-bottom: 1.5rem;
 }
 .contact-us-section-right{
-    width: 45%;
+    width: 50%;
     height: fit-content;
 }
 .contact-us-form{
     display: flex;
     flex-direction: column;
-    padding: 3rem 3rem;
-    width: 70%;
+    padding: 2rem 1rem;
+    /* width: 70%; */
     height: 100%;
     background-color: white;
     border-radius: 0.3rem;
@@ -205,7 +205,10 @@ p{
         font-size: 1.3rem;
     }
 }
-@media screen and (max-width:1350px){
+@media screen and (max-width:900px){
+    .contact-us-form{
+        width: 100%;
+    }
     .contact-us-content{
         padding: 1rem;
         margin: 0 0 2rem 0;
@@ -225,11 +228,6 @@ p{
     }
     .contact-us-form{
         margin-bottom: 2rem;
-    }
-}
-@media screen and (max-width:800px){
-    .contact-us-form{
-        width: auto;
     }
 }
 /* Contact Us Body */
