@@ -297,12 +297,20 @@ const handleMainAirConPageLoad = async() => {
         productList.innerHTML = "";
         addClass(allACLoader, `showLoader`);
         const newURL = `${productsEndpoint}?startAt=${START}&endAt=${END}`
-        let data = await getData(newURL);
-        data.map((item, index, arr) => {
-            // PRODUCTS.push(item)
-            createAC(item)
-            removeClass(allACLoader, `showLoader`);
-        })
+        try{
+            let data = await getData(newURL);
+            data.map((item, index, arr) => {
+                // PRODUCTS.push(item)
+                createAC(item)
+                removeClass(allACLoader, `showLoader`);
+            })
+        } catch(e) {
+            infoText.innerHTML = `Check your network or try refreshing the page.`
+            infoToast.classList.add('showInfoToast');
+            setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 3000);
+        }
     }
     // Handle Page Load for Single Product Page
     if(checkPage() === 'singleProductPage'){
@@ -466,6 +474,7 @@ function isNumber(evt) {
 }
 const handleSearch = () => {
     addClass(allACLoader, `showLoader`);
+    mainACLoadMoreButton.style.display = "none";
     productList.innerHTML = "";
     let acType = queryType.value;
     let acMinimumPrice = minimumPrice.value || 0
@@ -486,21 +495,49 @@ const handleSearch = () => {
         })
         //Check length of search array
         if(SEARCH_PRODUCTS.length <= 0){
-            mainACLoadMoreButton.style.display = "none";
+            mainACLoadMoreButtonForQuery.style.display = "none";
             const newParagraph = document.createElement('p');
             newParagraph.innerHTML = "There are no products fitting your criteria. Please try searching again."
             productList.append(newParagraph);
             removeClass(allACLoader, `showLoader`);
         }else{
+            if(SEARCH_PRODUCTS.length > 3){
+                mainACLoadMoreButtonForQuery.style.display = "flex";
+            }else{
+                mainACLoadMoreButtonForQuery.style.display = "none";
+            }
             for(let i = QUERY_START; i<=QUERY_END; i++){
                 if(i < SEARCH_PRODUCTS.length){
                     createAC(SEARCH_PRODUCTS[i])
                 }
             }
+            console.log(SEARCH_PRODUCTS)
             removeClass(allACLoader, `showLoader`);
         }
+    }).catch(error => {
+        infoText.innerHTML = `Check your network or try refreshing the page.`
+        infoToast.classList.add('showInfoToast');
+        setTimeout(() => {
+            infoToast.classList.remove('showInfoToast')
+        }, 3000);
     })
 }
 if(queryPrice){
     queryPrice.addEventListener('click', handleSearch);
+}
+
+//Handle Load More Button for Query
+const mainACLoadMoreButtonForQuery = document.querySelector('#mainACLoadMoreButtonForQuery')
+if(mainACLoadMoreButtonForQuery){
+    mainACLoadMoreButtonForQuery.addEventListener('click', () => {
+        mainACLoadMoreButtonForQuery.children[1].style.display = "flex";
+        productList.innerHTML = "";
+        QUERY_END += 3
+        for(let i = QUERY_START; i<=QUERY_END; i++){
+            if(i < SEARCH_PRODUCTS.length){
+                createAC(SEARCH_PRODUCTS[i])
+            }
+        }
+        mainACLoadMoreButtonForQuery.children[1].style.display = "none";
+    })
 }
