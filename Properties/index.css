@@ -14,26 +14,28 @@ p{
     flex-direction: column;
     background-repeat: no-repeat;
     background-position: left;
-    height: fit-content;
+    height: 550px;
     background-size: cover;
     background-image: url(../Assets/properties-header.jpg);
-    padding: 12rem 0rem 3rem 9rem;
+    justify-content: center;
     margin-bottom: 2.5rem;
+}
+.properties-header-1 > div > * {
+    margin-bottom: 2rem;
 }
 .properties-header-1 > div{
     display: flex;
     flex-direction: column;
-    max-width: 60%;
+    max-width: 1200px;
+    margin-left: 8rem;
 }
 .properties-header-1 > div > p:first-of-type{
-    font-size: 5rem;
+    font-size: 3rem;
     font-weight: 600;
-    margin-bottom: 3.5rem;
 }
 .properties-header-1 > div > p:nth-child(2){
-    font-weight: 500;
+    font-weight: 400;
     font-size: 2rem;
-    margin-bottom: 3.5rem;
 }
 .properties-header-1 > div > button{
     width: fit-content;
@@ -43,24 +45,24 @@ p{
     border-radius: 0.4rem;
     color: white;
     background-color: #129347;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 .properties-content{
     color: #313131;
     display: flex;
     flex-direction: column;
-    margin: 0rem 6rem 3.5rem 6rem;
-    padding: 3rem 4rem 3rem 4rem;
-    background-color: #FFF1D8;
+    margin: 0rem 3rem 3rem 3rem;
+    padding: 2rem 3rem 2rem 3rem;
+    background-color: #E4E6E6;
     height: fit-content;
 }
 .property-header{
-    font-size: 3.2rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #129347;
     display: flex;
     align-self: center;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 .property-content-row{
@@ -70,33 +72,34 @@ p{
 .property-content-row.one{
     margin-bottom: 2rem;
 }
+.property-content-row.two{
+    margin-top: -5rem;
+    margin-bottom: 2rem;
+}
 .property-content-row.two > p{
     display: none;
 }
 .property-content-row > p{
     width: 48%;
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: justify;
 }
 .property-content-row > img{
     width: 48%;
-    height: 600px;
+    height: 350px;
     object-fit: cover;
 }
-/* .property-content-row.two{
-    height: 370px;
-} */
 .property-content-row.two > img {
     position: relative;
-    top: -8rem;
-    height: 400px;
+    top: 0rem;
+    height: 350px;
 }
 .properties-content > button{
     width: fit-content;
     padding: 1rem 4rem;
     display: flex;
     align-self: center;
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: white;
     border: none;
     border-radius: 0.8rem;
@@ -104,16 +107,74 @@ p{
     cursor: pointer;
 }
 .property-header.services{
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
 }
 .property-header-content{
-    font-size: 2rem;
-    margin-bottom: 4rem;
+    font-size: 1rem;
+    margin-bottom: 2.2rem;
     width: 85%;
     align-self: center;
     text-align: justify;
 }
-@media screen and (max-width:1350px){
+@media screen and (max-width:900px){
+    .properties-header-1 > div > p:first-of-type {
+        font-size: 2.5rem;
+    }
+    .properties-header-1{
+        padding: 1rem;
+        text-align: center;
+        height: fit-content;
+    }
+    .properties-header-1 > div {
+        max-width: 100%;
+        margin-left: 0rem;
+    }
+    .properties-header-1 > div > * {
+        margin-bottom: 1.5rem;
+        align-self: center;
+    }
+    .properties-header-1 > div > p:nth-child(2) {
+        font-size: 1.5rem;
+    }
+    .properties-content {
+        color: #313131;
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        padding: 1rem;
+        background-color: #E4E6E6;
+        height: fit-content;
+    }
+    .property-content-row {
+        flex-direction: column;
+    }
+    .property-content-row > p {
+        width: auto;
+        margin-bottom: 1rem;
+    }
+    .property-content-row > img {
+        width: 100%;
+    }
+    .property-content-row.two {
+        margin-top: 0rem;
+        margin-bottom: 2rem;
+    }
+    .property-content-row.two > p {
+        order: 1;
+        display: flex;
+    }
+    .property-content-row.two > img {
+        order: 2;
+    }
+    .property-header-content {
+        margin-bottom: 2rem;
+        width: auto;
+    }
+    .property-content-row.one > p > span{
+        display: none;
+    }
+}
+/* @media screen and (max-width:900px){
     .properties-header-1{
         padding: 4rem 2rem;
     }
@@ -161,22 +222,14 @@ p{
         width: auto;
         text-align: justify;
     }
-}
-@media screen and (max-width:800px){
     .properties-header-1 {
         padding: 1rem;
     }
     .properties-header-1 > div > p:first-of-type {
-        font-size: 3rem;
+        font-size: 2rem;
     }
     .properties-header-1 > div > p:last-of-type {
         font-size: 1.5rem;
     }
-    .property-header{
-        font-size: 2.5rem;
-    }
-    .property-content-row > p, .property-header-content{
-        font-size: 1.5rem;
-    }
-}
+} */
 /* Properties Content */
