@@ -4,7 +4,10 @@ const singleLoaders = document.querySelectorAll('.singleACLoader');
 let COUNT = 0
 let START = 1;
 let END = 3;
+let QUERY_START = 0;
+let QUERY_END = 2;
 let PRODUCTS = [];
+let SEARCH_PRODUCTS = [];
 let CURRENT_PRODUCT = '';
 
 // Fetch Data from Realtime Database
@@ -75,20 +78,6 @@ const getSingleProduct = async (id) => {
     // singleLoaders.forEach(item => removeClass(item, 'showLoader'))
     return data.data
 }
-
-{/* <div class="ac-content-customer-comment">
-                        <div>
-                            <p>Mandilas Customer</p>
-                            <p class="ac-layer-1-content-stars">
-                                <img src="../Assets/star.svg" alt="">
-                                <img src="../Assets/star.svg" alt="">
-                                <img src="../Assets/star.svg" alt="">
-                                <img src="../Assets/star.svg" alt="">
-                                <img src="../Assets/star.svg" alt="">
-                            </p>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, repellendus. Earum commodi enim nisi accusamus. Dolore atque adipisci officia, qui sunt exercitationem omnis voluptates recusandae ducimus assumenda quis odit reiciendis?</p>
-                    </div> */}
 
 //Handle Review Creation
 const createReview = (arr) => {
@@ -300,12 +289,12 @@ const getRecommendedItems = () => {
 }
 
 // Handle On Page Load
+const allACLoader = document.querySelector('.allACLoader');
 const handleMainAirConPageLoad = async() => {
     // Handle Page Load for All Products Page
     if(checkPage() === 'allProductsPage'){
         // Empty List Before Load
-        productList.innerHTML = ""
-        const allACLoader = document.querySelector('.allACLoader');
+        productList.innerHTML = "";
         addClass(allACLoader, `showLoader`);
         const newURL = `${productsEndpoint}?startAt=${START}&endAt=${END}`
         let data = await getData(newURL);
@@ -347,7 +336,7 @@ const handleMainAirConPageLoad = async() => {
             })
     }
 }
-window.addEventListener('DOMContentLoaded', handleMainAirConPageLoad)
+window.addEventListener('load', handleMainAirConPageLoad)
 
 // Handle Load More Button
 const mainACLoadMoreButton = document.querySelector('#mainACLoadMoreButton')
@@ -371,6 +360,7 @@ const handleMainACLoadMore = async() => {
             })
         }
     }).catch(error => {
+        mainACLoadMoreButton.style.display = "none";
         console.log(error)
     })
     
@@ -453,4 +443,64 @@ if(singleProductContactUs){
     singleProductContactUs.addEventListener('click', () => {
         window.location.href = '../Contact Us/index.html'
     })
+}
+
+const queryPrice = document.querySelector('#queryPrice');
+const queryType = document.querySelector('#queryType');
+const minimumPrice = document.querySelector('#minimumPrice');
+const maximumPrice = document.querySelector('#maximumPrice');
+
+if(minimumPrice && maximumPrice){
+    minimumPrice.addEventListener('keypress', () => isNumber(event))
+    maximumPrice.addEventListener('keypress', () => isNumber(event))
+}
+
+
+function isNumber(evt) {
+    evt = (evt) ? evt : window.event;
+    var charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+const handleSearch = () => {
+    addClass(allACLoader, `showLoader`);
+    productList.innerHTML = "";
+    let acType = queryType.value;
+    let acMinimumPrice = minimumPrice.value || 0
+    let acMaximumPrice = maximumPrice.value || 9999999
+    fetch(productsEndpoint, {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }).then(response => response.json())
+    .then(result => {
+        SEARCH_PRODUCTS = result.data.filter(item => {
+            if(item.usage === acType 
+                && item.discountedPrice >= acMinimumPrice
+                && item.discountedPrice <= acMaximumPrice){
+                    return true;
+                }
+        })
+        //Check length of search array
+        if(SEARCH_PRODUCTS.length <= 0){
+            mainACLoadMoreButton.style.display = "none";
+            const newParagraph = document.createElement('p');
+            newParagraph.innerHTML = "There are no products fitting your criteria. Please try searching again."
+            productList.append(newParagraph);
+            removeClass(allACLoader, `showLoader`);
+        }else{
+            for(let i = QUERY_START; i<=QUERY_END; i++){
+                if(i < SEARCH_PRODUCTS.length){
+                    createAC(SEARCH_PRODUCTS[i])
+                }
+            }
+            removeClass(allACLoader, `showLoader`);
+        }
+    })
+}
+if(queryPrice){
+    queryPrice.addEventListener('click', handleSearch);
 }

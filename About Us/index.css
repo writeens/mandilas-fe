@@ -125,7 +125,7 @@ p{
     flex-direction: column;
     width: 350px;
     height: 250px;
-    border: 1px solid #129347;
+    border: 1px solid #292929;
     background-color: white;
     border-radius: 0.4rem;
     justify-content: center;
@@ -151,7 +151,7 @@ p{
     padding: 5rem 4rem 2rem 4rem;
     font-size: 1rem;
     line-height: 2rem;
-    background-color: #E4E6E6;
+    background-color: #EBEBEB;
 }
 .about-us-ac-top{
     display: flex;
@@ -192,7 +192,7 @@ p{
     flex-direction: column;
     margin: 0rem 5rem 2rem 5rem;
     padding: 5rem 4rem 4rem 4rem;
-    background-color: #FFF1D8;
+    background-color: #FFFFFF;
     font-size: 1rem;
     line-height: 2rem;
 }
@@ -227,7 +227,7 @@ p{
     padding: 5rem 4rem 2rem 4rem;
     font-size: 1rem;
     line-height: 1.5rem;
-    background-color: #a5cad8;
+    background-color: #E2E2E2;
 }
 .about-us-motors-top{
     display: flex;

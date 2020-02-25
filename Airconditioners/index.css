@@ -10,8 +10,7 @@ p{
 /* Main AC Page */
 .main-ac {
     background: url(../Assets/main-ac-header.jpg);
-    height: fit-content;
-    background-position: center;
+    background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
