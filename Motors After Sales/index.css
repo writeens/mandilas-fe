@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
     margin: 0;
@@ -9,7 +9,7 @@ p{
 /* Motors After Sale/ Owner Registration*/
 .motors-as-header{
     height: 500px;
-    background-image: url(../Assets/motors-as-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705403/Assets/motors-as-header_xdiwoa.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -131,7 +131,7 @@ p{
     height: 500px;
     display: flex;
     flex-direction: column;
-    background-image: url(../Assets/spare-parts.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705410/Assets/spare-parts_wvegcp.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -245,7 +245,7 @@ p{
     justify-content: center;
     align-items: flex-start;
     padding:2rem 7rem 2rem 7rem;
-    background-image: url(../Assets/ar-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705386/Assets/ar-header_dftvar.png);
 }
 .ar-header > p:first-of-type{
     font-size: 3rem;
@@ -406,7 +406,7 @@ p{
 /*Fleet Management**/
 .fleet-header{
     height: 500px;
-    background-image: url(../Assets/fleet-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705387/Assets/fleet-header_igb1ks.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
