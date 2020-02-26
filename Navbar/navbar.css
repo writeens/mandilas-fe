@@ -269,7 +269,7 @@ button[data-target="#signUp"]{
     flex-direction: column;
     width: 50%;
     height: 100%;
-    background-image: url(../Assets/login-image.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705401/Assets/login-image_zzu7vi.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
