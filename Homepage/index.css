@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
     margin: 0;
@@ -23,7 +23,7 @@ p{
     color: white;
 }
 .homepage-header.one{
-    background-image: url(../Assets/carousel-one.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705377/Assets/carousel-one_l99ghb.png);
 }
 .homepage-header.one > *{
     margin: 0rem 3rem 3rem 7rem;
