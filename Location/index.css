@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
     margin: 0;
@@ -276,7 +276,7 @@ p{
 /* Location Content */
 .location-header{
     height: 500px;
-    background-image: url(../Assets/location-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705400/Assets/location-header_ncm7ge.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -336,7 +336,7 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../Assets/location-1.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705390/Assets/location-1_igpkdc.png);
     color: white;
     margin: 0rem 3rem 0rem 3rem;
 }
