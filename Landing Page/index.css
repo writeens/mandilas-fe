@@ -30,13 +30,13 @@ p{
     transform: scale(1.1);
 }
 .landing-side.cooling{
-    background-image: url(../Assets/landing-ac.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705392/Assets/landing-ac_ficpko.png);
 }
 .landing-side.mobility{
-    background-image: url(../Assets/landing-motors.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705389/Assets/landing-motors_xzhp9z.png);
 }
 .landing-side.aftersales{
-    background-image: url(../Assets/landing-aftersales.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705387/Assets/landing-aftersales_peru46.png);
 }
 .landing-side > a{
     text-decoration: none;
