@@ -18,14 +18,16 @@ p{
 }
 .motors-header{
     display: flex;
-    height: 600px;
+    height: 500px;
     background-color: #129347;
     flex-direction: column;
-    padding: 7rem 8rem;
     justify-content: center;
 }
+.motors-header > *{
+    margin-left: 8rem;
+}
 .motors-header > p:first-of-type{
-    font-size: 9rem;
+    font-size: 3rem;
     font-weight: 600;
     color: white;
     margin-bottom: 1rem;
@@ -33,10 +35,10 @@ p{
     top: -3rem;
 }
 .motors-header > p:last-of-type{
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
     color: white;
-    width: 800px;
+    max-width: 800px;
 }
 .motors-buttons{
     display: flex;
@@ -48,7 +50,7 @@ p{
     border: none;
     border: 1px solid #313131;
     background-color: transparent;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     outline: none;
 }
@@ -67,7 +69,7 @@ p{
     align-self: center;
 }
 .motors-content-red-text {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
     color: red;
     margin-bottom: 2rem;
@@ -95,18 +97,16 @@ p{
 }
 .motors-nv-item > p {
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 .motors-content-uv{
     display: flex;
-    justify-content: space-between;
-    margin-left: 5rem;
+    justify-content: space-around;
     margin-bottom: 2rem;
 }
 .motors-content-uv-left{
-    width: 100%;
+    width: 30%;
     position: relative;
-    top: -0.5rem;
 }
 .filter-by{
     display: flex;
@@ -118,7 +118,7 @@ p{
     padding: 2rem 3rem 3rem 3rem;
 }
 .filter-by > p{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #129347;
     margin-bottom: 2rem;
@@ -130,18 +130,18 @@ p{
 }
 .filter-by > button{
     width: fit-content;
-    padding: 1rem 4rem;
+    padding: 0.8rem 3.5rem;
     display: flex;
     align-self: center;
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: white;
     border: none;
-    border-radius: 0.8rem;
+    border-radius: 0.3rem;
     background-color: #129347;
     cursor: pointer;
 }
 .motors-content-uv-right{
-    /* width: 70%; */
+    width: 65%;
 }
 .motors-content-uv-cars{
     display: flex;
@@ -152,7 +152,7 @@ p{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 300px;
+    max-width: 27%;
     height: 200px;
     position: relative;
     margin: 0rem 1rem 1rem 1rem;
@@ -164,7 +164,7 @@ p{
     margin-bottom: 0.5rem;
 }
 .motors-uv-item > p:first-of-type{
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 60%;
     text-align: center;
     font-weight: 600;
@@ -186,11 +186,11 @@ p{
 }
 .motors-content-uv-bottom-layer-1{
     display: flex;
-    padding: 2rem 8rem;
+    padding: 2rem 5rem;
     justify-content: space-between;
     height: fit-content;
-    background-color: rgba(128, 128, 128, 0.521);
-    margin: 0rem 4rem 2rem 4rem;
+    background-color: #E2E2E2;
+    margin: 0rem 3rem 1rem 3rem;
 }
 .motors-content-uv-b-left{
     width: 45%;
@@ -198,12 +198,11 @@ p{
     flex-direction: column;
 }
 .motors-content-uv-b-left > p:first-of-type{
-    font-size: 5rem;
+    font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 3rem;
 }
 .motors-content-uv-b-left > p{
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: 500;
     margin-bottom: 1.5rem;
 }
@@ -212,23 +211,25 @@ p{
     height: 100%;
     object-fit: cover;
     margin-bottom: 2rem;
+    display: none;
 }
 .motors-content-uv-b-left > button{
     width: fit-content;
     padding: 1rem 4rem;
     display: flex;
     align-self: center;
-    font-size: 1.4rem;
+    font-size: 1rem;
     color: white;
     border: none;
     border-radius: 0.3rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
     background-color: #313131;
     cursor: pointer;
 }
 .motors-content-uv-b-right{
     display: flex;
     width: 45%;
+    height: 320px;
 }
 .motors-content-uv-b-right > img{
     width: 100%;
@@ -247,7 +248,7 @@ p{
     flex-direction: column;
 }
 .motors-content-uv-b-left-layer-2 > p{
-    font-size: 1.8rem;
+    font-size: 1rem;
     font-weight: 400;
     margin-bottom: 1.5rem;
 }
@@ -255,27 +256,27 @@ p{
     width: 45%;
 }
 .motors-content-uv-b-right-layer-2 > p:first-of-type{
-    font-size: 3rem;
+    font-size: 2rem;
     color: #129347;
     font-weight: 600;
 }
 .motors-content-uv-b-right-layer-2 > p{
     margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 1rem;
 }
 .motors-content-uv-b-b-layer-2{
-    width: 700px;
+    max-width: 700px;
     display: flex;
     color: #129347;
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 500;
     margin: 0 auto;
     text-align: center;
     margin-bottom: 3rem;
 }
-.motors-content-uv-b-card{
-    padding: 5rem 8rem 5rem 8rem;
-    margin: 0rem 5rem 4rem 5rem;
+.motors-content-uv-b-card {
+    padding: 2rem 0rem 2rem 0rem;
+    margin: 0rem 3rem 4rem 3rem;
     border-radius: 0.3rem;
     background-color: #eee;
     height: fit-content;
@@ -284,7 +285,7 @@ p{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .motors-content-uv-b-card > p:first-of-type{
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 600;
     margin-bottom: 5rem;
     text-align: center;
@@ -304,9 +305,6 @@ p{
     margin-right: 2rem;
     object-fit: contain;
 }
-.motors-content-uv-b-card-item > p {
-    font-size: 1.5rem;
-}
 .motors-content-uv-b-card-item > p > span{
     font-weight: 600;
 }
@@ -319,8 +317,13 @@ p{
 
 
 @media screen and (max-width:900px){
+    .motors-header > *{
+        margin-left: 0rem;
+    }
     .motors-header {
-        padding: 0rem 0rem;
+        align-items: center;
+        padding: 0rem;
+        text-align: center;
     }
     .motors-header > p:first-of-type {
         font-size: 3rem;
@@ -329,24 +332,38 @@ p{
         font-size: 2rem;
     }
     .motors-buttons > button{
-        font-size: 1.2rem;
         padding: 1rem 1.5rem;
     }
     .filter-by{
         padding: 1rem;
+        box-shadow: none;
+        border-radius: 0rem;
     }
     .motors-nv-item {
         margin: 0;
     }
+    .motors-content-uv-cars{
+        display: flex;
+        flex-direction: column;
+    }
     .motors-uv-item {
-        width: 90%;
+        max-width: 100%;
         height: fit-content;
-        margin: 0 0 2rem 0;
+        margin: 0.8rem 1.3rem;
     }
     .motors-content-uv {
         margin-left: 0rem;
         flex-direction: column;
         padding: 0;
+    }
+    .motors-content-uv-right{
+        width: auto;
+    }
+    .motors-content-uv-left {
+        width: 100%;
+        position: relative;
+        top: 0;
+        margin-bottom: 2rem;
     }
     .motors-content-uv-bottom-layer-2 {
         padding: 2rem;
@@ -362,35 +379,40 @@ p{
     .motors-content-uv-b-card-left, 
     .motors-content-uv-b-card-right {
         width: 100%;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
     .motors-content-uv-b-card > p:first-of-type {
         font-size: 2rem;
         margin-bottom: 3rem;
     }
-    .motors-content-uv-b-left > p:first-of-type {
-        font-size: 2.5rem;
-    }
-    .motors-content-uv-b-left-layer-2 > p, 
-    .motors-content-uv-b-right-layer-2 > p {
-        font-size: 1.2rem;
-    }
     .motors-content-uv-b-b-layer-2 {
-        font-size: 1.2rem;
-        padding: 0rem 0rem;
-    }
-    .motors-content-uv-b-left > p{
-        font-size: 1.5rem;
+        padding: 0rem;
     }
     .motors-content-uv-b-card-row{
         margin-bottom: 0.5rem;
+        flex-direction: column;
     }
     .motors-content-uv-b-card {
         padding: 1rem;
         margin: 0 0 1rem 0;
+        box-shadow: none;
     }
-    .motors-content-uv-b-card-item > p {
-        font-size: 1.2rem;
+    .motors-content-uv-bottom-layer-1 {
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        margin: 0rem;
+        align-items: center;
+    }
+    .motors-content-uv-b-left {
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1.5rem;
+    }
+    .motors-content-uv-b-right {
+        display: flex;
+        width: 100%;
+        height: 400px;
     }
     
 }

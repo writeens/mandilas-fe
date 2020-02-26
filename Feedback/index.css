@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
     margin: 0;
@@ -10,10 +10,9 @@ p{
 /* Feedback Content */
 .feedback-content{
     display: flex;
-    padding: 4rem 12rem 4rem 12rem;
-    margin: 0rem 4rem 3rem 4rem;
-    /* height: 900px; */
-    background-color: #FFF1D8;
+    padding: 4rem 3rem 4rem 3rem;
+    margin: 0rem 2rem 3rem 2rem;
+    background-color: #E2E2E2;
 }
 .feedback-form{
     display: flex;
@@ -29,19 +28,19 @@ p{
 .feedback-form-topic{
     display: flex;
     flex-direction: column;
-    width: 800px;
+    max-width: 800px;
     align-items: center;
 }
 .feedback-form-topic > p:first-of-type{
     color: #129347;
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 600;
     display: flex;
     margin-bottom: 2rem;
     text-align: center;
 }
 .feedback-form-topic > p:last-of-type{
-    font-size: 2rem;
+    font-size: 1rem;
     display: flex;
     text-align: center;
     margin-bottom: 2rem;
@@ -68,7 +67,7 @@ p{
     font-size: 0.9rem;
 }
 .feedback-sub-heading-text{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     color: #129347;
     display: flex;
@@ -84,35 +83,25 @@ p{
     background-color: #129347;
     width: fit-content;
 }
-@media screen and (max-width: 800px){
-    *{
-        font-size: 1.1rem;
+@media screen and (max-width: 900px){
+    .feedback-content{
+        margin: 0rem;
+        padding: 0rem;
+        background-color: white;
     }
-    .feedback-form-topic >p:nth-child(1){
-        font-size: 2rem;
-    }
-    .feedback-form-topic >p:nth-child(2){
-        font-size: 1.5rem;
+    .feedback-form{
+        box-shadow: none;
+        border-radius: 0rem;
+        padding: 1rem 1.5rem 2rem 1.5rem;
     }
     .feedback-row{
         flex-direction: column;
-    }
-    .feedback-row-left, .feedback-row-right{
-        width: 100%;
-        margin: 0 0 1.5rem 0;
-    }
-}
-@media screen and (max-width:1350px){
-    .feedback-content{
-        padding: 2rem 1rem;
-        margin: 0;
-        width: fit-content;
-    }
-    .feedback-form-topic{
         width: 100%;
     }
-    .feedback-form{
-        padding: 2rem;
+    .feedback-row-left,
+    .feedback-row-right{
+        width: auto;
+        margin-bottom: 1.5rem;
     }
 }
 /* Feedback Content */
@@ -207,7 +196,7 @@ p{
         font-size: 3rem;
     }
 }
-@media screen and (max-width:1350px){
+/* @media screen and (max-width:1350px){
     .feedback-form-extra{
         padding: 0;
         margin: 0;
@@ -216,7 +205,7 @@ p{
         margin: 1rem;
         padding: 1rem 0 2rem 0rem;
     }
-}
+} */
 /* Feedback Form Extra */
 
 /* *{

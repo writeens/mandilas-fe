@@ -89,7 +89,7 @@ p{
     display: flex;
     flex-direction: column;
     padding: 2rem 0rem;
-    background-color: #c7c6c9
+    background-color: #e2e2e2;
 }
 .main-ac-right > p:first-of-type{
     font-size: 2rem;
