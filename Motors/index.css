@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
     margin: 0;
@@ -182,7 +182,7 @@ p{
     align-items: center;
 }
 .motors-bottom-container{
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 .motors-content-uv-bottom-layer-1{
     display: flex;
@@ -317,91 +317,7 @@ p{
     width: 45%;
 }
 
-/* @media screen and (max-width:1350px){
-    .motors-header {
-        height: 500px;
-        padding: 0rem 3rem;
-        align-items: center;
-    }
-    .motors-header > p:first-of-type {
-        font-size: 5rem;
-    }
-    .motors-header > p:last-of-type {
-        font-size: 2.5rem;
-        width: 100%;
-        text-align: center;
-    }
-    .filter-by {
-        border-radius: 0.3rem;
-        box-shadow: none;
-        padding: 2rem;
-    }
-    .motors-content-uv {
-        margin-left: 0rem;
-        flex-direction: column;
-        padding: 1rem 2rem;
-    }
-    .motors-content-uv-left {
-        width: 100%;
-        margin-bottom: 2rem;
-    }
-    .motors-content-uv-right {
-        width: 100%;
-    }
-    .motors-content-uv-cars {
-        justify-content: center;
-    }
-    .motors-uv-item {
-        width: 350px;
-    }
-    .motors-content-uv-bottom-layer-1 {
-        flex-direction: column;
-        padding: 2rem 2rem 3rem 2rem;
-        margin: 0 0 2rem 0;
-    }
-    .motors-content-uv-bottom-layer-2 {
-        padding: 2rem 2rem;
-        height: fit-content
-    }
-    .motors-content-uv-b-left {
-        width: 100%;
-        margin-bottom: 2rem;
-    }
-    .motors-content-uv-b-left > p:first-of-type {
-        align-self: center;
-    }
-    .motors-content-uv-b-left > img{
-        width: 100%;
-        height: 500px;
-    }
-    .motors-content-uv-b-right {
-        display: none;
-    }
-    .motors-content-uv-b-left-layer-2 > p, 
-    .motors-content-uv-b-right-layer-2 > p{
-        font-size: 1.5rem;
-    }
-    .motors-content-uv-b-card-row {
-        display: flex;
-        margin-bottom: 3rem;
-        justify-content: space-around;
-        flex-direction: column;
-    }
-    .motors-content-uv-b-card {
-        padding: 2rem;
-        margin: 0 0 3rem 0;
-        box-shadow: none;
-    }
-    .motors-content-uv-b-card-left, 
-    .motors-content-uv-b-card-right {
-        width: 100%;
-    }
-    .motors-content-uv-b-b-layer-2 {
-        width: 100%;
-        justify-content: center;
-    }
-    
-} */
+
 @media screen and (max-width:900px){
     .motors-header {
         padding: 0rem 0rem;
@@ -482,7 +398,7 @@ p{
 
 /* Motors Detail */
 .motors-detail-header{
-    background-image: url(../Assets/motors-detail-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705408/Assets/motors-detail-header_ifvfvh.png);
     background-position: center;
     background-size: cover;
     height: 500px;
@@ -653,7 +569,7 @@ p{
     justify-content: center;
     align-items: center;
     width: 50%;
-    background-image: url(../Assets/m-d-1.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705405/Assets/m-d-1_qp4cyi.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -664,7 +580,7 @@ p{
     justify-content: center;
     align-items: center;
     width: 50%;
-    background-image: url(../Assets/m-d-2.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705403/Assets/m-d-2_kgx64k.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
