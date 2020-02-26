@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
     overflow-x: hidden;
 }
 p{
@@ -14,7 +14,7 @@ p{
     background-size: cover;
     height: 500px;
     background-repeat: no-repeat;
-    background-image: url(../Assets/contact-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/contact-header_ou7mcy.png);
     display: flex;
     justify-content: center;
     align-items: center;

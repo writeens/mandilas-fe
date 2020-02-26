@@ -19,6 +19,16 @@ p{
     align-items: center;
     flex-direction: column;
     height: 500px;
+    position: relative;
+}
+.main-ac::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #00000047;
 }
 .main-ac-content {
     padding: 2rem 1rem;
@@ -28,12 +38,14 @@ p{
 .main-ac > p:first-of-type{
     font-size: 3rem;
     font-weight: 600;
+    z-index: 9;
 }
 .main-ac > p:last-of-type {
     font-size: 2rem;
     font-weight: 400;
-    width: 900px;
+    max-width: 900px;
     text-align: center;
+    z-index: 9;
 }
 .main-ac-left {
     background-color: #f2f2f2;
