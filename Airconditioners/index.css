@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
     margin: 0;
@@ -9,7 +9,7 @@ p{
 
 /* Main AC Page */
 .main-ac {
-    background: url(../Assets/main-ac-header.jpg);
+    background: url(https://res.cloudinary.com/mandilas/image/upload/v1582705401/Assets/main-ac-header_qsxxij.png);
     background-position: bottom;
     background-size: cover;
     background-repeat: no-repeat;

@@ -1,6 +1,6 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
     margin: 0;
@@ -228,7 +228,7 @@ p{
 /*Main AC After Sales */
 .as-header{
     min-height: 500px;
-    background-image: url(../Assets/as-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705369/Assets/as-header_vskcjd.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -261,10 +261,10 @@ p{
     background-repeat: no-repeat;
 }
 .as-option:nth-child(1){
-    background-image: url(../Assets/as-mobility.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705369/Assets/as-mobility_zqxq9e.png);
 }
 .as-option:nth-child(2){
-    background-image: url(../Assets/as-cooling.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705369/Assets/as-cooling_rqdsxw.png);
 }
 .as-option > a{
     text-decoration: none;
