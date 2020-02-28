@@ -53,7 +53,7 @@ p{
     flex-direction: column;
     margin: 0rem 3rem 3rem 3rem;
     padding: 2rem 3rem 2rem 3rem;
-    background-color: #E4E6E6;
+    background-color: #E2E2E2;
     height: fit-content;
 }
 .property-header{
@@ -142,7 +142,7 @@ p{
         flex-direction: column;
         margin: 0;
         padding: 1rem;
-        background-color: #E4E6E6;
+        background-color: #E2E2E2;
         height: fit-content;
     }
     .property-content-row {
