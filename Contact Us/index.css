@@ -31,7 +31,7 @@ p{
     flex-direction: column;
     height: fit-content;
     margin: 0rem 2rem 2rem 2rem;
-    background-color: rgba(255, 241, 216, 0.7);
+    background-color: #E2E2E2;
     padding: 1.5rem;
 }
 .contact-us-section-buttons{

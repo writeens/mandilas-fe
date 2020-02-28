@@ -261,6 +261,46 @@ p{
 }
 /**Testimonial Layer**/
 
+/**Awards Layer**/
+.homepage-awards {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem 0rem 5rem 0rem;
+    padding: 3rem 5rem 0rem 5rem;
+    background-color: #E2E2E2;
+    font-size: 1rem;
+    line-height: 2.3rem;
+}
+.homepage-awards > p:first-of-type{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #129347;
+    align-self: center;
+    margin-bottom: 4rem;
+}
+.homepage-awards-columns{
+    display: flex;
+    justify-content: space-around;
+}
+.homepage-awards-columns-side {
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+}
+.homepage-awards-item{
+    display: flex;
+    margin-bottom: 2rem;
+}
+.homepage-awards-item > img{
+    margin-right: 3rem;
+}
+.homepage-awards-item > p{
+    font-weight: 600;
+}
+/**Awards Layer**/
+
 /**Homepage Events**/
 .homepage-events{
     display: flex;
@@ -360,6 +400,26 @@ p{
     .testimonial{
         max-width: 100%;
         margin-bottom: 2rem;
+    }
+    .homepage-awards{
+        padding: 2rem 1rem;
+        margin: 0 0 2rem 0rem;
+    }
+    .homepage-awards > p:first-of-type{
+        line-height: 3.5rem;
+        text-align: center;
+        align-self: center;
+        margin-bottom: 4rem;
+    }
+    .homepage-awards-columns-side{
+        width: 100%;
+    }
+    .homepage-awards-item{
+        width: fit-content;
+    }
+    .homepage-awards-columns{
+        flex-direction: column;
+        margin: 0;
     }
     .homepage-events-container{
         flex-direction: column;

@@ -384,8 +384,8 @@ p{
 .history-content{
     display: flex;
     flex-direction: column;
-    margin: 0rem 5rem 5rem 5rem;
-    padding: 3rem 5rem 0rem 5rem;
+    margin: 0rem 3rem 4rem 3rem;
+    padding: 3rem 3rem 0rem 3rem;
     background-color: #E4E6E6;
     font-size: 1rem;
     line-height: 2.3rem;
@@ -427,8 +427,8 @@ p{
 .history-awards{
     display: flex;
     flex-direction: column;
-    margin: 2rem 5rem 5rem 5rem;
-    padding: 3rem 5rem 0rem 5rem;
+    margin: 0rem 3rem 4rem 3rem;
+    padding: 3rem 3rem 0rem 3rem;
     background-color: #E4E6E6;
     font-size: 1rem;
     line-height: 2.3rem;
@@ -461,7 +461,7 @@ p{
 .history-awards-item > p{
     font-weight: 600;
 }
-@media screen and (max-width:1350px){
+@media screen and (max-width:900px){
     .history-header > p{
         width: fit-content;
         text-align: center;
@@ -505,15 +505,9 @@ p{
     .history-awards-item{
         width: fit-content;
     }
-}
-@media screen and (max-width:800px){
     .history-awards-columns{
         flex-direction: column;
         margin: 0;
-    }
-    .history-header > p {
-        font-size: 4rem;
-        font-weight: 600;
     }
 }
 /* History */
