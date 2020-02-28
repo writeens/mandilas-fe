@@ -153,7 +153,7 @@ const populateCartItem = (data, itemQuantity, user) => {
     const rightContainer = document.createElement('div');
     rightContainer.classList.add('cart-info-details-2');
     const rightImage = document.createElement('img');
-    rightImage.src = '../Assets/delete.svg';
+    rightImage.src = 'https://res.cloudinary.com/mandilas/image/upload/v1582705378/Assets/delete_uins7x.svg';
     const rightSubContainer = document.createElement('div');
     const quantity = document.createElement('p');
     quantity.innerHTML = 'Quantity';
@@ -266,7 +266,7 @@ const populatePeopleAlsoViewed = (data) => {
     productPrice.innerHTML = price;
     const productRatingContainer = document.createElement('div');
     const ratingImage = document.createElement('img');
-    ratingImage.src = '../Assets/star.svg';
+    ratingImage.src = 'https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg';
     const ratingText = document.createElement('p');
     ratingText.innerHTML = '4.5'
 

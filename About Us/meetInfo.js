@@ -1,6 +1,6 @@
 const TEAM = {
     0:{
-        imageLocation:'../Assets/Debayo-Doherty.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1582705380/Assets/Debayo-Doherty_sb9l9d.png',
         name:'OLA DEBAYO-DOHERTY',
         title:'Group Chief Executive Officer (C.E.O)',
         paragraph:['Ola Debayo-Doherty joined Mandilas in 2018 as the Group Chief Executive Officer charged with leading the company through its restructuring exercise. She is the first African to attain the position since the Group started operations 70 years ago.',
@@ -8,7 +8,7 @@ const TEAM = {
             'She is a strong program and project management professional with a Master of Business Administration (M.B.A) from Canisius College (USA) and Bachelor of Science (B.S.) Accounting degree from D’Youville College (USA).']
     },
     1:{
-        imageLocation:'../Assets/Daisi.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1582705379/Assets/Daisi_zftpca.png',
         name:'OMIDIJI DAISI',
         title:'COMPANY SECRETARY / GROUP FINANCIAL CONTROLLER',
         paragraph:['Daisi is a professional accountant with over 20 years’ experience across the broad spectrum of corporate finance. \
@@ -18,20 +18,20 @@ const TEAM = {
                 A member of many professional bodies both in Nigeria and UK']
     },
     2:{
-        imageLocation:'../Assets/Pal.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1582705407/Assets/Pal_yxrl3p.png',
         name:'PAL SINGH',
         title:'General Manager of the Air-Conditioning Division',
         paragraph:['Pal Singh is the General Manager of the Air-conditioning division. Qualified as HVACR engineer, he is a member of the American Society of Heating, Refrigeration and Air-conditioning Engineers. Pal has 28 years’ experience in large Air-conditioning and ventilation equipment from different Companies across the globe. He is an expert in latest and advanced technology of HVACR engineering which is a unique service that aligns comfort and technology for Corporates.']
     },
     3:{
-        imageLocation:'../Assets/Koyejo.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1582705390/Assets/Koyejo_ed8kbh.png',
         name:'KEMI KOYEJO',
         title:'General Manager of Motors / Leasing Division',
         paragraph:['Kemi holds a Bachelor of Arts degree and an MBA from the University of Ife and Obafemi Awolowo University respectively. She worked briefly at the then University of Ife before proceeding to join the Federal Road Safety Commission where she had a brief stint as Route Commander, Public Enlightenment.',
         'In 1991, she joined Mandilas Enterprises Limited as Public Enlightenment Officer, later became the Business Development Manager and eventually National Marketing Manager. Kemi’s automobile industry experience spans over 25years. She is a member of the Nigerian Institute of Management, as well as the Automobile and Allied Industries Sector of the Lagos Chamber of Commerce and has won several industry awards including Toyota Nigeria. She left Mandilas in 2010 and re-joined the team in 2018 as Operations Manager of Motors/Leasing Division.']
     },
     4:{
-        imageLocation:'../Assets/Ernest.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/Ernest_znpfel.png',
         name:'ERNEST ONYENZE',
         title:'Head, Group Property',
         paragraph:['Ernest Onyenze is the Head, Group Property. He holds a B.Sc degree in Estate Management and a Masters’ degree in Facilities Management from the University of Lagos. He also holds a diploma in Building technology.',

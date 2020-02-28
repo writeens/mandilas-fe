@@ -109,7 +109,7 @@ const createReview = (arr) => {
                 starContainer.classList.add('ac-layer-1-content-stars')
                 for(let i = 0; i<rating; i++){
                     const star = document.createElement('img');
-                    star.src = "../Assets/star.svg"
+                    star.src = "https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg"
                     starContainer.append(star)
                 }
                 
@@ -223,7 +223,7 @@ const populatePeopleAlsoViewed = (item) => {
     itemPrice.innerHTML = formatter.format(discountedPrice);
     const ratingContainer = document.createElement('div');
     const ratingImage = document.createElement('img');
-    ratingImage.src = '../Assets/star.svg';
+    ratingImage.src = 'https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg';
     const ratingNumber = document.createElement('p');
     ratingNumber.innerHTML = '4.5'
 

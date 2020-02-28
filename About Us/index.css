@@ -1,7 +1,7 @@
 /* html { font-size: calc(1em + 1vw) } */
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url(../Assets/main.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
     margin: 0;
@@ -13,7 +13,7 @@ p{
     display: flex;
     flex-direction: column;
     color: white;
-    background-image: url(../Assets/about-us-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705414/Assets/about-us-header_moj8m6.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -369,7 +369,7 @@ p{
     display: flex;
     flex-direction: column;
     color: white;
-    background-image: url(../Assets/about-us-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705414/Assets/about-us-header_moj8m6.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -523,7 +523,7 @@ p{
     height: 500px;
     display: flex;
     color: white;
-    background-image: url(../Assets/about-us-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705414/Assets/about-us-header_moj8m6.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -704,7 +704,7 @@ p{
 /**CSR**/
 .csr-header{
     height: 500px;
-    background-image: url(../Assets/csr-header.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705382/Assets/csr-header_qemmwj.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
