@@ -12,7 +12,7 @@ p{
     flex-direction: column;
     padding: 8rem 0 0 8rem ;
     height: 500px;
-    background-image: url(../Assets/ac-after.jpg);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1583252288/Assets/aftersales_bg_n2egps.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -76,7 +76,10 @@ p{
     padding: 3rem 3rem 3rem 4rem;
     margin-bottom: 2rem;
     color: white;
-    background-color: #2E4087;
+    background-color: #727272;
+}
+.main-ac-as-layer-3.two{
+    background-color: #D6D6D6;
 }
 .main-ac-as-layer-3-left{
     width: 45%;
@@ -94,12 +97,15 @@ p{
     font-weight: 400;
     margin-bottom: 2rem;
 }
-.main-ac-as-layer-3-left > button{
+.main-ac-as-layer-3-left > a{
     border: none;
     background-color: white;
     padding: 1.5rem 5rem;
     border-radius: 0.4rem;
     font-size: 1.3rem;
+    text-decoration: none;
+    width: fit-content;
+    color: black;
 }
 .main-ac-as-layer-3-right{
     width: 45%;
