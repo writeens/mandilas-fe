@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            font-family: 'Poppins', sans-serif;
+            background-color: #129347;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        nav{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            background-color: white;
+            padding: 0.5rem 0rem;
+        }
+        .logo{
+            display: flex;
+        }
+        .logo > a {
+            display: flex;
+        }
+        .logo > a > img{
+            max-width: 150px;
+            height: 80px;
+            object-fit: cover;
+        }
+        .menu{
+            display: flex;
+            align-items: center;
+            padding-top: 1rem;
+            width: 60%;
+            justify-content: space-around;
+            transition: height 0.3s linear;
+        }
+        .menu > .menu-item-one,
+        .menu > .menu-item-two{
+            position: relative;
+            font-weight: 600;
+            text-align: center;
+            display: flex;
+            font-size: 1.1rem;
+        }
+        .menu-item-one > p {
+            position: relative;
+            top: -1rem;
+        }
+        .menu-item-two > p {
+            margin-bottom: 1rem;
+        }
+        .menu-item-two{
+            align-items: center;
+            flex-direction: column;
+        }
+        .menu-item-two > img{
+            width: 15px;
+            height: 15px;
+            position: relative;
+        }
+        .pre-auth{
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            min-width: 20%;
+            position: relative;
+            transition: height 0.3s linear
+        }
+        .post-auth{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            min-width: 20%;
+            position: relative;
+            transition: height 0.3s linear;
+            font-size: 1.1rem;
+        }
+        .navbar-logout{
+            padding: 1rem 1.5rem;
+            background-color: red;
+            color: white;
+            border-radius: 0.3rem;
+            border: none;
+            font-size: inherit;
+        }
+        .cart-container{
+            display: flex;
+            position: relative;
+        }
+        .cart-container > p{
+            position: absolute;
+            right: 0;
+        }
+        .pre-auth-buttons{
+            display: flex;
+            width: 50%;
+            justify-content: space-evenly;
+        }
+        .pre-auth-buttons > button{
+            box-shadow: none;
+            border: none;
+            font-size: 1.1rem;
+        }
+        .navbar-login{
+            background: transparent;
+        }
+        .navbar-register{
+            padding: 1rem 1.5rem;
+            background-color: #129347;
+            color: white;
+            border-radius: 0.3rem;
+        }
+        .no-of-items{
+            position: absolute;
+            font-size: 0.8rem;
+            background-color: #129347;
+            width: fit-content;
+            min-width: 20px;
+            height: fit-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            top: -0.3rem;
+            left: 1.7rem;
+        }
+        .navbar-submenu{
+            font-size: 1rem;
+            display: flex;
+            position: absolute;
+            top: 5rem;
+            flex-direction: column;
+            z-index: 3;
+            background-color: white;
+            min-width: 220px;
+            padding: 1rem;
+            max-height: fit-content;
+            visibility: hidden;
+            transition: height 0.3s linear
+        }
+        .navbar-submenu > a {
+            display: flex;
+            color: #999;
+            text-decoration: none;
+            padding: 0.5rem;
+            font-weight: 400;
+            font-size: 1.1rem;
+        }
+        .navbar-submenu > a:hover{
+            color: #666;
+        }
+        .show-tooltip-desktop{
+            visibility: visible!important;
+        }
+        .navbar-toggler{
+            display: none;
+            width: 60px;
+            height: 60px;
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+        }
+        @media screen and (max-width: 950px) {
+            .navbar-toggler{
+                display: flex;
+            }
+            body{
+                background-color: yellow;
+            }
+            nav{
+                flex-direction: column;
+                overflow-y: hidden;
+            }
+            .menu{
+                width: auto;
+                flex-direction: column;
+                margin-bottom: 0rem;
+                overflow-y: hidden;
+                height: 0px;
+                padding: 0px;
+                max-height: fit-content;
+            }
+            .menu-item-one,
+            .menu-item-two{
+                margin: 0.5rem 0rem 0.5rem 0rem;
+            }
+            .menu-item-two > img{
+                position: absolute;
+                right: 2rem;
+                top: 0.5rem;
+            }
+            .menu-item-one > p{
+                top: 0rem;
+            }
+            .menu-item-two > p{
+                margin-bottom: 0rem;
+            }
+            .navbar-submenu{
+                position: relative;
+                flex-direction: column;
+                top: 0rem;
+                overflow: hidden;
+                height: 1px;
+                padding: 0rem;
+                text-align: center;
+            }
+            .navbar-submenu > a{
+                display: flex;
+                justify-content: center;
+            }
+            .show-tooltip-desktop{
+                height: 200px;
+                padding: 1rem;
+                overflow: hidden;
+            }
+            .pre-auth{
+                flex-direction: column;
+                overflow-y: hidden;
+                height: 0px;
+                padding: 0px;
+                max-height: fit-content;
+            }
+            .post-auth{
+                flex-direction: column;
+                overflow-y: hidden;
+                height: 0px;
+                padding: 0px;
+                max-height: fit-content;
+            }
+            .post-auth > p {
+                margin-bottom: 1rem;
+            }
+            .post-auth-buttons > button{
+                padding: 1rem 3.5rem;
+            }
+            .cart-container{
+                margin-bottom: 1rem;
+            }
+            .logo{
+                padding-bottom: 1rem;
+            }
+            .logo > a > img {
+                max-width: 80px;
+                height: 50px;
+                position: relative;
+                left: 1rem;
+                top: 0.5rem;
+            }
+            .menu-show{
+                height: 550px;
+            }
+            .auth-show{
+                height: 200px;
+                padding-top: 0.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="mandilas_logo">
+            </a>
+        </div>
+        <div id="navbarToggler" class="navbar-toggler">
+            <i class="fa fa-bars fa-3x"></i>
+        </div>
+        <div class="menu">
+            <div class="menu-item-one">
+                <p>Home</p>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>About Us</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="#">Who We Are</a>
+                    <a href="#">The Executive Team</a>
+                    <a href="#">CSR Activities</a>
+                </div>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Cooling</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="#">Residential A/C's</a>
+                    <a href="#">Commercial A/C's</a>
+                    <a href="#">M.E.P</a>
+                    <a href="#">Transicold</a>
+                    <a href="#">After Sales</a>
+                </div>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Mobility</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Motors After Sales/index.html">Owner Registration</a>
+                    <a href="../Motors/index.html">New Cars</a>
+                    <a href="../Motors/index.html">Used Cars</a>
+                    <a href="../Motors After Sales/fleet.html">Fleet Management</a>
+                    <a href="#">Leasing</a>
+                </div>
+            </div>
+            <div class="menu-item-one">
+                <p>After Sales</p>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Contact Us</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Contact Us/index.html">Contact Mandilas</a>
+                    <a href="../Location/index.html">Locations</a>
+                </div>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Career</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="#">Jobs & Careers</a>
+                    <a href="#">Mandilas Organogram</a>
+                    <a href="#">Mandilas E.V.P</a>
+                </div>
+            </div>
+        </div>
+        <div class="pre-auth">
+            <div class="cart-container">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
+                <p class="no-of-items">0</p>
+            </div>
+            <div class="pre-auth-buttons">
+                <button class="navbar-login">Login</button>
+                <button class="navbar-register">Register</button>
+            </div>
+        </div>
+        <div class="post-auth">
+            <p>Hello, User</p>
+            <div class="cart-container">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
+                <p class="no-of-items">0</p>
+            </div>
+            <div class="post-auth-buttons">
+                <button class="navbar-logout">Log Out</button>
+            </div>
+        </div>
+    </nav>
+</body>
+<script>
+    const navbarMenuItems = document.querySelectorAll('[data-nav-key]');
+    const handleNavbarMenuItemClick = (elem, index, arr) => {
+        let hasSubmenu = elem.getAttribute('data-nav-key');
+        if(hasSubmenu === "true"){
+            arr.forEach((item, innerIndex) => {
+                if(index !== innerIndex){
+                    item.children[2].classList.remove('show-tooltip-desktop');
+                }
+            })
+            elem.children[2].classList.toggle("show-tooltip-desktop");
+        }
+    }
+    navbarMenuItems.forEach((item, index, arr) => {
+        item.addEventListener('click', () => handleNavbarMenuItemClick(item, index, arr))
+    })
+
+    const navbarToggler = document.querySelector('#navbarToggler');
+    const preAuth = document.querySelector('.pre-auth');
+    const postAuth = document.querySelector('.post-auth');
+
+    const menu = document.querySelector('.menu');
+    navbarToggler.addEventListener('click', () => {
+        if(navbarToggler.children[0].classList.contains("fa-bars")){
+            navbarToggler.children[0].classList.remove('fa-bars')
+            navbarToggler.children[0].classList.add('fa-close')
+        }else{
+            navbarToggler.children[0].classList.remove('fa-close')
+            navbarToggler.children[0].classList.add('fa-bars')
+        }
+        menu.classList.toggle('menu-show');
+        if(preAuth){
+            preAuth.classList.toggle('auth-show');
+        }
+        if(postAuth){
+            postAuth.classList.toggle('auth-show')
+        }
+    })
+</script>
+</html>

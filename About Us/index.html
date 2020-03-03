@@ -41,7 +41,7 @@
     <script src="index.js" defer></script>
 </head>
 <body>
-    <div class="hometwo">
+    <nav>
         <div id="loader">
             <div class="lds-dual-ring"></div>
         </div>
@@ -50,101 +50,95 @@
                 <p id="infoText">Hello World</p>
             </div>
         </div>
-        <div class="hometwo-logo">
-            <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="logo">
+        <div class="navbar-logo">
+            <a href="#">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="mandilas_logo">
+            </a>
         </div>
-        <div class="hometwo-menu">
-            <div class="hometwo-menu-item">
-                <div class="hometwo-menu-text">
-                    <a href="../Homepage/index.html"><p>Home</p></a>
-                    <img style="visibility:hidden;" src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="">
+        <div id="navbarToggler" class="navbar-toggler">
+            <i class="fa fa-bars fa-3x"></i>
+        </div>
+        <div class="menu">
+            <div class="menu-item-one">
+                <a href="../index.html">Home</a>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>About Us</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../About Us/index.html">Who We Are</a>
+                    <a href="../About Us/meet.html">The Executive Team</a>
+                    <a href="../About Us/csr.html">CSR Activities</a>
                 </div>
             </div>
-            <div class="hometwo-menu-item drop">
-                <div class="hometwo-menu-text">
-                    <p>About Us</p>
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="">
-                </div>
-                <div class="menu-about hometwo-submenu hometwo-submenu-hide">
-                    <a href="index.html">What we do</a>
-                    <a href="meet.html">The Executive Team</a>
-                    <a href="history.html">Company History</a>
-                    <a href="csr.html">CSR Activities</a>
-                </div>
-            </div>
-            <div class="hometwo-menu-item drop">
-                <div class="hometwo-menu-text">
-                    <p>Cooling</p>
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="">
-                </div>
-                <div class="menu-ac hometwo-submenu hometwo-submenu-hide">
-                    <a href="../Airconditioners/main.html">Carrier A/C</a>
-                    <a href="../Airconditioners After Sales/index.html">After Sales Services</a>
-                    <a href="../Motors After Sales/spare-parts.html">Spare Parts</a>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Cooling</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="#">Residential A/C's</a>
+                    <a href="#">Commercial A/C's</a>
+                    <a href="#">M.E.P</a>
+                    <a href="#">Transicold</a>
+                    <a href="../Airconditioners After Sales/cooling.html">After Sales</a>
                 </div>
             </div>
-            <div class="hometwo-menu-item drop">
-                <div class="hometwo-menu-text">
-                    <p>Mobility</p>
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="">
-                </div>
-                <div class="menu-motors hometwo-submenu hometwo-submenu-hide">
-                    <a href="../Motors/index.html">Vehicle Sales</a>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Mobility</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
                     <a href="../Motors After Sales/index.html">Owner Registration</a>
-                    <a href="../Motors After Sales/spare-parts.html">Spare Parts</a>
-                    <a href="../Motors After Sales/accident.html">Accident Recovery</a>
-                    <a href="../Motors After Sales/fleet.html">Lease Fleet Management</a>
+                    <a href="../Motors/index.html">New Cars</a>
+                    <a href="../Motors/index.html?id=usedVehicles">Used Cars</a>
+                    <a href="../Motors After Sales/fleet.html">Fleet Management</a>
+                    <a href="#">Leasing</a>
                 </div>
             </div>
-            <div class="hometwo-menu-item">
-                <div class="hometwo-menu-text">
-                    <a href="../Airconditioners After Sales/index.html"><p>After Sales</p></a>
-                    <img style="visibility:hidden;" src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="">
-                </div>
+            <div class="menu-item-one">
+                <a href="../Airconditioners After Sales/index.html">After Sales</a>
             </div>
-            <div class="hometwo-menu-item drop">
-                <div class="hometwo-menu-text">
-                    <p>Contact Us</p>
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="">
-                </div>
-                <div class="menu-contact hometwo-submenu hometwo-submenu-hide">
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Contact Us</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
                     <a href="../Contact Us/index.html">Contact Mandilas</a>
                     <a href="../Location/index.html">Locations</a>
                 </div>
             </div>
-            <div class="hometwo-menu-item">
-                <div class="hometwo-menu-text">
-                    <a href="../Career/index.html"><p>Careers</p></a>
-                    <img style="visibility:hidden;" src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="">
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Career</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Career/index.html">Jobs & Careers</a>
+                    <a href="#">Mandilas Organogram</a>
+                    <a href="#">Mandilas E.V.P</a>
                 </div>
             </div>
         </div>
-        <div id="hometwo-navbar-buttons">
-            <div class="hometwo-signedin-buttons">
-                <p id="nameContainer"></p>
-                <div class="navbar-cart-container">
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
-                    <p class="no-of-items">0</p>
-                </div>
-                <button id="navLogOut">Log Out</button>
+        <div class="pre-auth">
+            <div class="cart-container">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
+                <p class="no-of-items">0</p>
             </div>
-            <div class="hometwo-buttons">
-                <div class="navbar-cart-container">
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
-                    <p class="no-of-items">0</p>
-                </div>
-                <button id="login">Login</button>
-                <button id="register">Register</button>
+            <div class="pre-auth-buttons">
+                <button id="login" class="navbar-login">Login</button>
+                <button id="register" class="navbar-register">Register</button>
             </div>
         </div>
-        <div class="hometwo-toggle">
-            <i class="fa fa-bars fa-3x"></i>
+        <div class="post-auth">
+            <p id="nameContainer">Hello, User</p>
+            <div class="cart-container">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
+                <p class="no-of-items">0</p>
+            </div>
+            <div class="post-auth-buttons">
+                <button id="logout" class="navbar-logout">Log Out</button>
+            </div>
         </div>
         <div class="modal" id="loginModal">
             <div class="modal-content">
-                <div class="modal-content-left">
+                <div class="bgLogin modal-content-left">
                     <p>Log In To Continue</p>
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="mandilas_logo">
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/logo-white_a4msmz.svg" alt="mandilas_logo">
                 </div>
                 <div class="modal-content-right login">
                     <div class="modal-row">
@@ -166,9 +160,9 @@
         </div>
         <div class="modal" id="registerModal">
             <div class="modal-content">
-                <div class="modal-content-left">
+                <div class="bgSignUp modal-content-left">
                     <p>Register To Continue</p>
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="mandilas_logo">
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/logo-white_a4msmz.svg" alt="mandilas_logo">
                 </div>
                 <div class="modal-content-right register">
                     <div class="modal-row">
@@ -201,25 +195,43 @@
                 <p id="closeRegister" class="closeModal">&times;</p>
             </div>
         </div>
-    </div>
+    </nav>
     <div class="about-us-header">
-        <p>What we do</p>
+        <p>Who we are</p>
         <p>We are a group of companies with a vision to
             be the trusted provider of innovative lifestyle solutions
         </p>
     </div>
     <div class="about-us-who">
         <div class="about-us-who-left">
-            <p>Who we are</p>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Dolor necessitatibus corrupti velit voluptatibus iusto laboriosam 
-                nulla sapiente nam minima ullam est, ad nostrum deleniti nemo ut? 
-                Quisquam nam fuga omnis?
+            <p>Our History</p>
+            <p>Mandilas is a trading and services conglomerate
+                providing a range of internationally recognised
+                products.<br><br>
+                The Motors Division of the company is one of the
+                leading Toyota distributors with a large nationwide
+                branch network, providing unrivalled geographic
+                coverage for the supply and excellent sales service
+                of vehicles. It also retails quality used Toyota vehicles
+                with limited warranty backed by the Mandilas brand<br><br>
+                The Air Conditioning Division also under the umbrella of Mandilas group is an authorised independent distributor of
+                Carrier Air Conditioners in Nigeria; providing a range of internationally recognized products and services
             </p>
         </div>
         <div class="about-us-who-right">
-            <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705374/Assets/career-two_wcupid.png" alt="">
+            <img src="https://res.cloudinary.com/mandilas/image/upload/v1583242032/Assets/mr_mandilas_oan3hs.png" alt="mr_mandilas">
         </div>
+    </div>
+    <div class="about-us-more-text">
+        Our Carrier Air Conditioning expertise spreads across various services like repairs, maintenance, installation and
+        sales with professionally equipped and experienced staff. The entire range of Carrier equipment i.e. rooms units,
+        splits system, packaged equipment, commercial and industrial, central installations and adequate genuine Carrier
+        spare parts for all equipment are in stock and available for supply<br><br>
+        The Air conditioning Division is now NIS ISO 9001:2008 certified. That is, we are committed to providing the highest
+        quality of air conditioning services to our customers in Nigeria. We ensure effective implementation of the
+        requirements of NIS ISO 9001:2008 standard, targeted towards our esteemed customers’ satisfaction <br><br>
+        The factory, under the name Norman industries, has been in operation since the early ’70s and has the capability to
+        assemble a wide range of domestic air conditioners under an agreement with Carrier
     </div>
     <div class="about-us-m-v">
         <div class="about-us-m-v-item">
@@ -270,6 +282,10 @@
                 <p>Excellence</p>
             </div>
         </div>
+    </div>
+    <div class="about-us-content-header">
+        <p>WHAT WE DO</p>
+        <p></p>
     </div>
     <div class="about-us-ac">
         <div class="about-us-ac-top">
@@ -349,7 +365,7 @@
                 </p>
             </div>
             <div class="about-us-motors-right">
-                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/red-car_gv6a8w.png" alt="">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1583243946/Assets/motors_in_who_we_are_kotrsv.png" alt="">
             </div>
         </div>
         <div class="about-us-motors-bottom">
@@ -381,6 +397,17 @@
                 </p>
             </p>
         </div>
+    </div>
+    <div class="about-us-after-sales">
+        <p>After Sales</p>
+        <div class="about-us-after-sales-content">
+            <img src="https://res.cloudinary.com/mandilas/image/upload/v1583244116/Assets/female_engineer_cq3vlw.png" alt="female_engineer">
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                Vel placeat vitae laborum ullam veritatis corporis reprehenderit officiis maxime, recusandae velit magni aliquam eos repudiandae sed cumque alias dolore repellat voluptatem!
+            </p>
+        </div>
+
     </div>
     <div class="footer">
         <div class="footer-logos">

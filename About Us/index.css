@@ -29,7 +29,6 @@ p{
 .about-us-header > p:nth-child(2) {
     font-size: 2rem;
     font-weight: 500;
-    margin-bottom: 2rem;
     max-width: 900px;
     text-align: center;
     line-height: 3rem;
@@ -37,7 +36,13 @@ p{
 .about-us-who{
     display: flex;
     justify-content: space-between;
-    padding: 4rem 12rem;
+    padding: 4rem 5rem 1rem 5rem;
+}
+.about-us-more-text{
+    padding: 0rem 5rem 3rem 5rem;
+    font-size: 1rem;
+    line-height: 2rem;
+    text-align: justify;
 }
 .about-us-who-left{
     width: 45%;
@@ -46,6 +51,7 @@ p{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: justify;
 }
 .about-us-who-left > p:first-of-type{
     font-size: 2rem;
@@ -59,9 +65,9 @@ p{
 .about-us-who-right > img{
     width: 100%;
     object-fit: cover; 
+    min-height: 100%;
 }
 .about-us-m-v{
-    /* height: 400px; */
     background-color: #E4E6E6;
     display: flex;
     flex-direction: row;
@@ -93,7 +99,7 @@ p{
 }
 .about-us-m-v-item > p:nth-child(3){
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 2rem;
 }
 .about-us-core{
@@ -116,7 +122,7 @@ p{
 .about-us-core-row{
     display: flex;
     flex-wrap: wrap;
-    width: 1300px;
+    max-width: 1300px;
     height: fit-content;
     justify-content: center;
 }
@@ -143,6 +149,24 @@ p{
     font-size: 1.2rem;
     font-weight: 600;
     text-align: center;
+}
+.about-us-content-header{
+    padding: 0rem 5rem 2rem 5rem;
+    font-size: 3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.about-us-content-header > p:first-of-type{
+    width: 30%;
+    flex: 1;
+}
+.about-us-content-header > p:last-of-type{
+    max-width: 70%;
+    flex: 2;
+    background-color: black;
+    height: 10px;
 }
 .about-us-ac{
     display: flex;
@@ -265,24 +289,33 @@ p{
     color: #129347;
     font-weight: 600;
 }
-@media screen and (max-width:800px){
-    .about-us-header > p:nth-child(1){
-        font-size: 2.5rem;
-    }
-    .about-us-header > p:nth-child(2){
-        font-size: 1.5rem;
-    }
-    .about-us-properties > p:first-of-type, 
-    .about-us-who-left > p:first-of-type,
-    .about-us-motors-left > p:first-of-type,
-    .about-us-ac-left > p:first-of-type{
-        font-size: 2rem;
-    }
-    .about-us-core-item > p{
-        font-size: 1.1rem;
-    }
+.about-us-after-sales{
+    display: flex;
+    flex-direction: column;
+    margin: 0rem 5rem 2rem 5rem;
+    padding: 2rem 3rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2);
 }
-@media screen and (max-width:1350px){
+.about-us-after-sales > p{
+    font-size: 2rem;
+    color: #129347;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.about-us-after-sales-content{
+    display: flex;
+    justify-content: space-between;
+}
+.about-us-after-sales-content > p{
+    width: 45%;
+}
+.about-us-after-sales-content > img{
+    width: 45%;
+    height: 500px;
+    object-fit: cover;
+}
+@media screen and (max-width:900px){
     .about-us-header > p:nth-child(2){
         padding: 0;
         width: fit-content;
@@ -322,6 +355,20 @@ p{
         height: 300px;
         margin: 1rem;
     }
+    .about-us-content-header{
+        flex-direction: column;
+        padding: 0rem 1rem;
+    }
+    .about-us-content-header > p:first-of-type{
+        flex: 0;
+        width: 100%;
+        padding-bottom: 2rem;
+        text-align: center;
+        border-bottom: 0.5rem solid black;
+    }
+    .about-us-content-header > p:last-of-type{
+        display: none;
+    }
     .about-us-ac{
         padding: 2rem 1rem;
         margin: 0 0 2rem 0;
@@ -341,7 +388,7 @@ p{
         object-fit: contain;
     }
     .about-us-properties{
-        padding: 2rem 2rem;
+        padding: 2rem 1rem;
         margin: 0 0 2rem 0;
     }
     .about-us-properties-top{
@@ -359,6 +406,46 @@ p{
     }
     .about-us-motors-left, .about-us-motors-right{
         width: 100%;
+    }
+    .about-us-header > p:nth-child(1){
+        font-size: 2.5rem;
+    }
+    .about-us-header > p:nth-child(2){
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    .about-us-properties > p:first-of-type, 
+    .about-us-who-left > p:first-of-type,
+    .about-us-motors-left > p:first-of-type,
+    .about-us-ac-left > p:first-of-type{
+        font-size: 2rem;
+    }
+    .about-us-core-item > p{
+        font-size: 1rem;
+    }
+    .about-us-after-sales{
+        margin: 0;
+        padding: 0;
+    }
+    .about-us-after-sales > p{
+        padding-left: 1rem;
+    }
+    .about-us-after-sales-content{
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .about-us-after-sales-content > img{
+        width: auto;
+        height: 500px;
+        object-fit: cover;
+        margin-bottom: 1rem;
+    }
+    .about-us-after-sales-content > p{
+        width: auto;
+        text-align: justify;
+    }
+    .about-us-more-text{
+        padding: 2rem 1rem;
     }
 }
 /* About Us */

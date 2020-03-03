@@ -1,11 +1,12 @@
 /**DOM ELEMENTS & VARIABLES */
 let isUserLoggedIn = false;
 let USER_ID = ''
-const navbarCart = document.querySelectorAll('.navbar-cart-container');
+const navbarCart = document.querySelectorAll('.cart-container');
+const navbarToggler = document.querySelector('#navbarToggler');
+const preAuth = document.querySelector('.pre-auth');
+const postAuth = document.querySelector('.post-auth');
+const menu = document.querySelector('.menu');
 const productList = document.querySelector('.main-ac-right-content');
-const toggle = document.querySelector('.hometwo-toggle');
-const menu = document.querySelector('.hometwo-menu');
-const navbarButtons = document.querySelector('#hometwo-navbar-buttons');
 const navFirstName = document.querySelector('#navbarFirstName')
 const navLastName = document.querySelector('#navbarLastName')
 const navEmail = document.querySelector('#navbarEmail')
@@ -24,11 +25,11 @@ const loginFromRegisterModal = document.querySelector('#loginFromRegisterModal')
 const closeLogin = document.querySelector('#closeLogin');
 const closeRegister = document.querySelector('#closeRegister') 
 // Log Out Buttons
-const navLogOut = document.querySelector('#navLogOut')
+const navLogOut = document.querySelector('#logout')
 //Pre Sign In Buttons
-const preSignedInButtonContainer = document.querySelector('.hometwo-buttons')
+const preSignedInButtonContainer = document.querySelector('.pre-auth')
 //Post Sign In Buttons
-const postSignedInButtonContainer = document.querySelector('.hometwo-signedin-buttons')
+const postSignedInButtonContainer = document.querySelector('.post-auth')
 //Loader
 const loader = document.querySelector('#loader')
 //Message Toast
@@ -37,48 +38,80 @@ const infoText = document.querySelector('#infoText');
 /**DOM ELEMENTS & VARIABLES */
 
 //Client Side Validation
-/**Client Side JS */
-/**Desktop Menu */
-const menuItems = document.querySelectorAll('.hometwo-menu-item.drop')
-menuItems.forEach((menuItem, outerIndex, arr) => {
-    menuItem.addEventListener('click', () => {
-        if(window.innerWidth >= 940){
+const navbarMenuItems = document.querySelectorAll('[data-nav-key]');
+    const handleNavbarMenuItemClick = (elem, index, arr) => {
+        let hasSubmenu = elem.getAttribute('data-nav-key');
+        if(hasSubmenu === "true"){
             arr.forEach((item, innerIndex) => {
-                if(innerIndex !== outerIndex){
-                    item.children[1].classList.add('hometwo-submenu-hide')
+                if(index !== innerIndex){
+                    item.children[2].classList.remove('show-tooltip-desktop');
                 }
             })
-            menuItem.children[1].classList.toggle('hometwo-submenu-hide')
+            elem.children[2].classList.toggle("show-tooltip-desktop");
+        }
+    }
+    navbarMenuItems.forEach((item, index, arr) => {
+        item.addEventListener('click', () => handleNavbarMenuItemClick(item, index, arr))
+    })
+
+    navbarToggler.addEventListener('click', () => {
+        if(navbarToggler.children[0].classList.contains("fa-bars")){
+            navbarToggler.children[0].classList.remove('fa-bars')
+            navbarToggler.children[0].classList.add('fa-close')
         }else{
-            arr.forEach((item, innerIndex) => {
-                if(innerIndex !== outerIndex){
-                    item.children[1].classList.add('hometwo-submenu-hide')
-                }
-            })
-            menuItem.children[1].classList.toggle('hometwo-submenu-hide')
+            navbarToggler.children[0].classList.remove('fa-close')
+            navbarToggler.children[0].classList.add('fa-bars')
+        }
+        menu.classList.toggle('menu-show');
+        if(preAuth){
+            preAuth.classList.toggle('auth-show');
+        }
+        if(postAuth){
+            postAuth.classList.toggle('auth-show')
         }
     })
-})
+/**Client Side JS */
+/**Desktop Menu */
+// const menuItems = document.querySelectorAll('.hometwo-menu-item.drop')
+// menuItems.forEach((menuItem, outerIndex, arr) => {
+//     menuItem.addEventListener('click', () => {
+//         if(window.innerWidth >= 940){
+//             arr.forEach((item, innerIndex) => {
+//                 if(innerIndex !== outerIndex){
+//                     item.children[1].classList.add('hometwo-submenu-hide')
+//                 }
+//             })
+//             menuItem.children[1].classList.toggle('hometwo-submenu-hide')
+//         }else{
+//             arr.forEach((item, innerIndex) => {
+//                 if(innerIndex !== outerIndex){
+//                     item.children[1].classList.add('hometwo-submenu-hide')
+//                 }
+//             })
+//             menuItem.children[1].classList.toggle('hometwo-submenu-hide')
+//         }
+//     })
+// })
 
 //Hamburger Menu
-const hamburgerPresent = toggle.children[0].classList.contains('fa-bars')
-const closeIconPresent = toggle.children[0].classList.contains('fa-close')
-const handleHamburger = () => {
-    if(hamburgerPresent){
-        console.log("showing Menu")
-        toggle.children[0].classList.toggle('fa-bars');
-        toggle.children[0].classList.toggle('fa-close');
+// const hamburgerPresent = toggle.children[0].classList.contains('fa-bars')
+// const closeIconPresent = toggle.children[0].classList.contains('fa-close')
+// const handleHamburger = () => {
+//     if(hamburgerPresent){
+//         console.log("showing Menu")
+//         toggle.children[0].classList.toggle('fa-bars');
+//         toggle.children[0].classList.toggle('fa-close');
         
-    }
-    if(closeIconPresent){
-        console.log("hiding Menu")
-        toggle.children[0].classList.toggle('fa-close');
-        toggle.children[0].classList.toggle('fa-bars');
-    }
-    navbarButtons.classList.toggle('show-item');
-    menu.classList.toggle('show-item');
-}
-toggle.addEventListener('click', handleHamburger)
+//     }
+//     if(closeIconPresent){
+//         console.log("hiding Menu")
+//         toggle.children[0].classList.toggle('fa-close');
+//         toggle.children[0].classList.toggle('fa-bars');
+//     }
+//     navbarButtons.classList.toggle('show-item');
+//     menu.classList.toggle('show-item');
+// }
+// toggle.addEventListener('click', handleHamburger)
 /**Desktop Menu */
 
 /**Modal Management */
@@ -86,14 +119,14 @@ toggle.addEventListener('click', handleHamburger)
 //Show Login Modal upon click
 loginButton.addEventListener('click', () => {
     //Hide Menu
-    handleHamburger()
+    // handleHamburger()
     // Show Modal
     loginModal.style.display = "flex"
 })
 //Show Regsiter Modal upon click
 registerButton.addEventListener('click', () => {
     //Hide Menu
-    handleHamburger()
+    // handleHamburger()
     // Show Modal
     registerModal.style.display = "flex"
 })
@@ -511,7 +544,7 @@ const handleLogOut = () => {
 navLogOut.addEventListener('click', handleLogOut)
 
 // User clicks on homepage logo
-const navbarLogo = document.querySelector('.hometwo-logo > img')
+const navbarLogo = document.querySelector('.navbar-logo')
 navbarLogo.addEventListener('click', () => {
     let newPath = window.location.pathname.split("/");
     if(newPath.includes('Homepage')){

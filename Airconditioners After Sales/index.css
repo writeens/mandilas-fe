@@ -7,7 +7,7 @@ p{
     padding: 0;
 }
 /* Main AC After Sales*/
-/* .main-ac-as{
+.main-ac-as{
     display: flex;
     flex-direction: column;
     padding: 8rem 0 0 8rem ;
@@ -141,8 +141,8 @@ p{
 }
 .main-ac-as-layer-3.two{
     background-color: #9D9D9D;
-} */
-/* @media screen and (max-width:1350px){
+}
+@media screen and (max-width:1350px){
     .main-ac-as-layer-1 {
         flex-direction: column;
         text-align: center;
@@ -222,7 +222,7 @@ p{
     .main-ac-as-layer-4 {
         padding: 0 1rem 2rem 1rem;
     }
-} */
+}
 /*Main AC After Sales */
 
 /*Main AC After Sales */

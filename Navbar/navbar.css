@@ -1,236 +1,268 @@
 body{
     overflow-x: hidden;
 }
-/*Navbar Update*/
-.hometwo{
-    display: flex;
-    background-color: white;
-    height: fit-content;
-    padding-bottom: 1rem;
-    font-size: 1.1rem;
-    color: #313131;
-    position: relative;
-    justify-content: space-around;
-}
-.hometwo-logo {
-    padding: 0rem 0rem 0rem 1rem;
-    width: 150px;
-    height: 70px;
-}
-.hometwo-logo > img {
-    width: 100%;
-    height: 100%;
-    padding-top: 0.5rem;
-}
-.hometwo-menu{
-    display: flex;
-    width: 45%;
-    min-width: 55%;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 1.3rem;
-}
-.hometwo-menu-text{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.hometwo-menu-text > a{
-    color: inherit;
-    text-decoration: none;
-    font-size: 1.1rem;
-}
-.hometwo-menu-text p{
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
-.hometwo-menu-text > img{
-    width: 20px;
-    height: 15px;
-    object-fit: contain;
-}
-.hometwo-buttons {
-    display: flex;
-    position: relative;
-    align-items: center;
-    /* width: 100%; */
-    min-width: 300px;
-    justify-content: space-around;
+p{
+    margin: 0;
+    padding: 0;
 }
 
-.hometwo-buttons > button{
-    /* padding: 0.8rem 0.3rem; */
-    border-radius: 0.4rem;
-    border: none;
-    cursor: pointer;
+/*Navbar Update*/
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: white;
+    padding: 0.5rem 0rem;
 }
-#login{
-    padding: 0.8rem 0.8rem;
+.navbar-logo{
+    display: flex;
 }
-#register{
-    border: 1px solid yellow;
+.navbar-logo > a {
+    display: flex;
+}
+.navbar-logo > a > img{
+    max-width: 150px;
+    height: 80px;
+    object-fit: cover;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+    width: 60%;
+    justify-content: space-around;
+    transition: height 0.3s linear;
+}
+.menu > .menu-item-one,
+.menu > .menu-item-two{
+    position: relative;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    font-size: 1.1rem;
+}
+.menu-item-one > a {
+    text-decoration: none;
+    color: #313131;
+    position: relative;
+    top: -1rem;
+}
+.menu-item-two > p {
+    margin-bottom: 1rem;
+}
+.menu-item-two{
+    align-items: center;
+    flex-direction: column;
+}
+.menu-item-two > img{
+    width: 15px;
+    height: 15px;
+    position: relative;
+}
+.pre-auth{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 20%;
+    position: relative;
+    transition: height 0.3s linear
+}
+.post-auth{
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    min-width: 20%;
+    position: relative;
+    transition: height 0.3s linear;
+    font-size: 1.1rem;
+}
+.navbar-logout{
     padding: 1rem 1.5rem;
+    background-color: red;
+    color: white;
+    border-radius: 0.3rem;
+    border: none;
+    font-size: inherit;
 }
-.hometwo-buttons > button:first-of-type{
+.cart-container{
+    display: flex;
+    position: relative;
+}
+.cart-container > p{
+    position: absolute;
+    right: 0;
+}
+.pre-auth-buttons{
+    display: flex;
+    width: 50%;
+    justify-content: space-evenly;
+}
+.pre-auth-buttons > button{
+    box-shadow: none;
+    border: none;
+    font-size: 1.1rem;
+}
+.navbar-login{
     background: transparent;
 }
-.hometwo-buttons > button:last-of-type{
+.navbar-register{
+    padding: 1rem 1.5rem;
     background-color: #129347;
     color: white;
+    border-radius: 0.3rem;
 }
-.hometwo-submenu{
-    font-size: 1rem;
+.no-of-items{
+    position: absolute;
+    font-size: 0.8rem;
+    background-color: #129347;
     width: fit-content;
+    min-width: 20px;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    top: -0.3rem;
+    left: 1.7rem;
+}
+.navbar-submenu{
+    font-size: 1rem;
     display: flex;
     position: absolute;
     top: 5rem;
-    height: fit-content;
     flex-direction: column;
-    padding: 0.5rem 2rem;
     z-index: 3;
     background-color: white;
-    transition: height 1s ease-in;
+    min-width: 255px;
+    padding: 1rem;
+    max-height: fit-content;
+    visibility: hidden;
+    transition: height 0.3s linear
 }
-.hometwo-submenu:first-of-type{
-    border: 2px solid green;
-}
-.hometwo-submenu > a{
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    color: #999
-}
-.hometwo-submenu > a:hover{
-    color: #666
-}
-.hometwo-submenu-hide{
-   visibility: hidden;
-}
-.hometwo-toggle{
-    display: none;
-}
-#hometwo-navbar-buttons{
+.navbar-submenu > a {
     display: flex;
-    flex-direction: row;
-    /* width: 25%; */
-    justify-content: center;
+    color: #999;
+    text-decoration: none;
+    padding: 0.5rem;
+    font-weight: 400;
+    font-size: 1.1rem;
 }
-button[data-target="#signUp"]{
-    padding: 0.5rem 0.8rem;
+.navbar-submenu > a:hover{
+    color: #666;
 }
-
-@media screen and (max-width: 950px){
-    .hometwo-menu-text > p, 
-    .hometwo-buttons, 
-    .hometwo-menu-text > a  {
-        font-size: 1.3rem;
-    }
-    .hometwo-submenu{
-        font-size: 1.2rem;
-    }
-    .hometwo{
-        flex-direction: column;
-        position: relative;
-    }
-    .hometwo-menu {
-        /* display: flex; */
-        flex-direction: column;
-        width: auto;
-        background-color: #DEF4F3;
-        padding: 1rem;
-        margin-top: 1rem;
-        display: none;
-    }
-    .hometwo-buttons{
-        padding: 0rem 0rem 1rem 0rem;
-        background-color: #DEF4F3;
-        margin: 0;
-        flex-direction: column;
+.show-tooltip-desktop{
+    visibility: visible!important;
+}
+.navbar-toggler{
+    display: none;
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    top: 0rem;
+    right: 2rem;
+}
+@media screen and (max-width: 950px) {
+    .navbar-toggler{
         display: flex;
-    }
-    #hometwo-navbar-buttons{
-        display: none;
-        flex-direction: column;
-        width: auto;
-    }
-    .hometwo-buttons > button{
-        width: 50%;
-        cursor: pointer;
-    }
-    .hometwo-menu-text{
-        flex-direction: row;
-        justify-content: center;
-        width: 250px;
-        margin-bottom: 1rem;
-    }
-    .hometwo-menu-text > p{
-        padding: 0.5rem 1rem;
-    }
-    .hometwo-submenu-hide{
-        visibility: visible;
-        height: 0px !important;
-     }
-    .hometwo-submenu{
-        width: auto;
-        position: relative;
         top: 0rem;
+        right: 1rem;
+    }
+    .fa.fa-3x.fa-bars,
+    .fa.fa-3x.fa-close{
+        font-size: 2.5rem;
+    }
+    .navbar-logo > a > img {
+        max-width: 100px;
+        height: 40px;
+        margin-left: 1rem;
+    }
+    nav{
         flex-direction: column;
-        padding: 0rem;
-        z-index: 3;
-        background-color: inherit;
-        text-align: center;
-        transition: height 0.5s ease-in-out;
-        overflow: hidden;
+        overflow-y: hidden;
     }
-    .hometwo-submenu:nth-of-type(1){
-        border: 5px solid green;
+    .menu{
+        width: auto;
+        flex-direction: column;
+        margin-bottom: 0rem;
+        overflow-y: hidden;
+        height: 0px;
+        padding: 0px;
+        max-height: fit-content;
     }
-    .menu-about{
-        height: 150px;
+    .menu-item-one,
+    .menu-item-two{
+        margin: 0.5rem 0rem 0.5rem 0rem;
     }
-    .menu-ac{
-        height: 150px;
-    }
-    .menu-motors{
-        height: 260px;
-    }
-    .menu-contact{
-        height: 80px;
-    }
-    .hometwo-toggle{
-        display: flex;
-        width: 50px;
-        height: 50px;
+    .menu-item-two > img{
         position: absolute;
         right: 2rem;
-        top: 1rem;
-        cursor: pointer;
+        top: 0.5rem;
     }
-    .hometwo-toggle > img{
-        width: 100%;
-        height: 100%;
+    .menu-item-one > a{
+        top: 0rem;
     }
-    .hometwo-submenu-animate-hide{
+    .menu-item-two > p{
+        margin-bottom: 0rem;
+    }
+    .navbar-submenu{
+        position: relative;
+        flex-direction: column;
+        top: 0rem;
+        overflow: hidden;
+        height: 1px;
+        padding: 0rem;
+        text-align: center;
+    }
+    .navbar-submenu > a{
+        display: flex;
+        justify-content: center;
+    }
+    .show-tooltip-desktop{
+        height: 200px;
+        padding: 1rem;
+        overflow: hidden;
+    }
+    .pre-auth{
+        flex-direction: column;
+        overflow-y: hidden;
         height: 0px;
-        visibility: hidden;
+        padding: 0px;
+        max-height: fit-content;
     }
-    .show-item{
-        display: flex !important;
+    .post-auth{
+        flex-direction: column;
+        overflow-y: hidden;
+        height: 0px;
+        padding: 0px;
+        max-height: fit-content;
     }
-}
-@media screen and (max-width: 800px){
-    .hometwo-buttons > button{
-        width: 90%;
+    .post-auth > p {
+        margin-bottom: 1rem;
     }
-    .hometwo-buttons {
-        padding: 0rem 0rem 1rem 0rem;
-        background-color: #DEF4F3;
-        margin: 0;
+    .post-auth-buttons > button{
+        padding: 1rem 3.5rem;
     }
-    .hometwo-toggle {
-        right: 0.5rem;
+    .cart-container{
+        margin-bottom: 1rem;
     }
-    .hometwo-logo {
-        width: 100px;
+    .logo{
+        padding-bottom: 1rem;
+    }
+    .logo > a > img {
+        max-width: 80px;
+        height: 50px;
+        position: relative;
+        left: 1rem;
+        top: 0.5rem;
+    }
+    .menu-show{
+        height: 550px;
+    }
+    .auth-show{
+        height: 200px;
+        padding-top: 0.3rem;
     }
 }
 /*Navbar Update*/
@@ -239,7 +271,7 @@ button[data-target="#signUp"]{
 /**Login Update**/
 .modal{
     position: fixed;
-    z-index: 1;
+    z-index: 99;
     width: 100%;
     height: 100%;
     top: 0;
@@ -269,20 +301,25 @@ button[data-target="#signUp"]{
     flex-direction: column;
     width: 50%;
     height: 100%;
-    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705401/Assets/login-image_zzu7vi.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     justify-content: center;
     position: relative;
 }
-.modal-content-left::after{
+.bgLogin{
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1583251064/Assets/login_img_2x_fnicwm.png);
+}
+.bgSignUp{
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1583250914/Assets/signup_img_2x_gcymoh.png);
+}
+/* .modal-content-left::after{
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: #1293489a;
-}
+} */
 .modal-content-left > p:nth-child(1){
     font-size: 3.6rem;
     font-weight: 600;
@@ -420,7 +457,7 @@ button[data-target="#signUp"]{
 /**Login Update**
 
 /**Signed In buttons*/
-.hometwo-signedin-buttons {
+/* .hometwo-signedin-buttons {
     align-items: center;
     min-width: 350px;
     justify-content: space-around;
@@ -432,7 +469,6 @@ button[data-target="#signUp"]{
 .navbar-cart-container{
     display: flex;
     align-items: center;
-    /* width: 90px; */
     justify-content: space-between;
     cursor: pointer;
     position: relative;
@@ -460,7 +496,7 @@ button[data-target="#signUp"]{
     background-color: red;
     color: white;
     cursor: pointer;
-}
+} */
 
 #infoToast{
     position: fixed;
@@ -569,7 +605,7 @@ button[data-target="#signUp"]{
     }
   }
 /**Loader**/  
-@media screen and (max-width: 950px){
+/* @media screen and (max-width: 950px){
     .hometwo-signedin-buttons{
         font-size: 1.3rem;
         right: 1rem;
@@ -590,7 +626,7 @@ button[data-target="#signUp"]{
     .hometwo-signedin-buttons > div{
         width: 90px
     }
-}
+} */
 
 /*Complain Text**/
 .complain-text{

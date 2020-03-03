@@ -8,7 +8,6 @@ let vehicleState = 'new'
 const handleMotorsButtons = (item, index, arr) => {
     // When New Vehicles is clicked
     if(index === 0){
-        console.log('New Vehicles Clicked')
         //Check Vehicle State
         if(vehicleState !== 'new'){
             item.classList.toggle('motors-button-active');
@@ -31,3 +30,17 @@ const handleMotorsButtons = (item, index, arr) => {
 motorsButtons.forEach((item, index, arr) => {
     item.addEventListener('click', () => {handleMotorsButtons(item, index, arr)})
 })
+
+const handleMotorsLoad = () => {
+    let params = new URLSearchParams(window.location.search.substring(1));
+    let id = params.get('id');
+    console.log(id)
+    if(id === "usedVehicles"){
+        newVehicles.style.display = "none";
+        oldVehicles.style.display = "flex";
+        vehicleState = "used"
+        motorsButtons[0].classList.toggle('motors-button-active');
+        motorsButtons[1].classList.toggle('motors-button-active');
+    }
+}
+window.addEventListener('load', handleMotorsLoad)
