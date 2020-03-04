@@ -158,25 +158,25 @@ p{
 
 
 /* Job Description Page*/
-.career-content-description{
+.career-content-description {
     color: #313131;
     display: flex;
     flex-direction: column;
     height: fit-content;
     margin: 2rem 4rem 4rem 4rem;
-    padding: 4rem 8rem 2rem 8rem;
+    padding: 2rem 4rem 2rem 4rem;
     border-radius: 0.8rem;
     background-color: rgba(226, 230, 229, 0.7);
 }
 .career-content-description > p:first-of-type{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 800;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 .career-content-desc-sub{
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 .career-content-desc-item{
     display: flex;
@@ -185,13 +185,13 @@ p{
     margin-bottom: 1rem;
 }
 .career-content-desc-item > p{
-    font-size: 1.3rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
     line-height: 2.2rem;
 }
 .career-content-cta{
-    font-size: 1.3rem;
-    margin-bottom: 7rem;
+    font-size: 1rem;
+    margin-bottom: 4rem;
     margin-top: 3rem;
 }
 .career-content-cta > span{
@@ -199,8 +199,8 @@ p{
     font-weight: 600;
 }
 .career-content-deadline{
-    font-size: 2rem;
-    margin-bottom: 6rem;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
 }
 .career-content-deadline > span{
     color: #129347;
