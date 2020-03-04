@@ -334,3 +334,150 @@ p{
 /**Roles Page**/
 
 
+/**Roles Modal**/
+.roles-modal-bg{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+}
+.roles-modal-content{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 75%;
+    height: fit-content;
+    border-radius: 0.3rem;
+    padding: 2rem;
+    position: relative;
+    animation-name: slideInFromTop;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    justify-content: space-between;
+}
+.roles-modal-content > p:first-of-type{
+    font-size: 2rem;
+    font-weight: 600;
+    color: #129347;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.roles-modal-row{
+    display: flex;
+}
+.roles-modal-row.header{
+    margin-bottom: 1.5rem;
+}
+.roles-modal-row > p{
+    width: calc(100%/3);
+    min-width: 30%;
+}
+.roles-modal-row.body{
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #129347;
+}
+.roles-modal-row.body > p:first-of-type,
+.roles-modal-row.body > p:nth-child(2){
+    font-weight: 600;
+}
+.roles-modal-row.body > img{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-90deg);
+    right: 1rem;
+    background-color: #129347;
+}
+.roles-modal-bold{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+.role-available{
+    color: #129347;
+    font-weight: 400;
+}
+.role-expired{
+    color: red;
+    font-weight: 400;
+}
+.roles-modal-content > i {
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+.roles-modal-row-body-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0rem;
+    height: 70vh;
+    overflow-y: scroll;
+}
+@media screen and (max-width:950px){
+    .roles-modal-bg{
+        padding-top: 0.5rem;
+    }
+    .roles-modal-content{
+        width: 95%;
+        padding: 2rem 1rem;
+    }
+    .roles-modal-row.header{
+        display: none;
+    }
+    .roles-modal-row{
+        flex-direction: column;
+    }
+    .roles-modal-row.body{
+        padding-bottom: 2rem;
+    }
+    .roles-modal-row.body > p:first-of-type,
+    .roles-modal-row.body > p:nth-child(2),
+    .roles-modal-row.body >p:nth-child(3){
+        display: flex;
+        width: auto;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        justify-content: space-between;
+    }
+    .roles-modal-row.body > p:first-of-type::before{
+        content: "Job";
+        font-weight: 600;
+        font-size: 1rem;
+        width: 30%;
+    }
+    .roles-modal-row.body > p:nth-child(2)::before{
+        content: "Location";
+        font-weight: 600;
+        font-size: 1rem;
+        width: 30%;
+    }
+    .roles-modal-row.body > p:nth-child(3)::before{
+        content: "Availability";
+        color: black;
+        font-weight: 600;
+        font-size: 1rem;
+        width: 30%;
+    }
+    .roles-modal-row.body > img{
+       left: 0;
+       right: 0;
+       margin: 0 auto;
+       bottom: 0.8rem;
+       transform: rotate(0deg);
+    }
+    .roles-modal-content > i {
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+    }
+}
+/**Roles Modal**/
+
+
