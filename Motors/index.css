@@ -215,10 +215,11 @@ p{
     flex-wrap: wrap;
     justify-content: flex-start;
 }
-.motors-uv-item{
+.motors-uv-item {
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-width: 28%;
     max-width: 27%;
     height: 200px;
     position: relative;

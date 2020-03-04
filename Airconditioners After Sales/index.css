@@ -272,7 +272,8 @@ p{
 .as-option:nth-child(2){
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705369/Assets/as-cooling_rqdsxw.png);
 }
-.as-option > a{
+.as-option > a,
+.as-option > p{
     text-decoration: none;
     display: flex;
     width: 100%;
@@ -282,6 +283,65 @@ p{
     font-weight: 600;
     color: white;
 }
+
+/**After Sales Mobility Modal**/
+.as-mobility-modal{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(25, 39, 65, 0.8);
+    display: none;
+    justify-content: center;
+    padding-top: 3rem;
+}
+.as-mobility-modal-content{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: fit-content;
+    border-radius: 0.3rem;
+    padding: 2rem;
+    position: relative;
+    animation-name: slideInFromTop;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    justify-content: space-between;
+}
+.as-mobility-modal-content > i {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    color: white;
+}
+.as-mobility-modal-content > p:first-of-type{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 5rem;
+    color: white;
+}
+.as-mobility-modal-row{
+    display: flex;
+    margin-bottom: 5rem;
+    justify-content: space-around;
+}
+.as-mobility-modal-row > a,
+.as-mobility-modal-row > p{
+    cursor: pointer;
+    text-decoration: none;
+    flex: 1;
+    margin: 0rem 1rem;
+    padding: 3rem 1rem;
+    text-align: center;
+    color: #129347;
+    background-color: white;
+    font-weight: 600;
+    border-radius: 0.8rem;
+}
+/**After Sales Mobility Modal**/
 @media screen and (max-width:900px){
     .as-header{
         min-height: 300px;
