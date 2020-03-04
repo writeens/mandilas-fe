@@ -68,7 +68,7 @@ p{
     position: relative;
     background-color: #129347;
     width: 150px;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 0.3rem;
 }
 .landing-social-media > img{
