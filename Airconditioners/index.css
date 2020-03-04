@@ -31,7 +31,7 @@ p{
     background-color: #00000047;
 }
 .main-ac-content {
-    padding: 2rem 1rem;
+    padding: 0rem 1rem 2rem 1rem;
     display: flex;
     justify-content: space-around;
 }
@@ -47,6 +47,36 @@ p{
     text-align: center;
     z-index: 9;
 }
+.main-ac-description{
+    padding: 2rem 2rem 0rem 2rem;
+    margin: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.main-ac-description-content{
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+}
+.main-ac-description-content > p:first-of-type{
+    color: #129347;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.main-ac-description-content > p:first-of-type{
+    line-height: 2.2rem;
+}
+.main-ac-videos{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 4rem;
+    margin: 0rem 0rem 4rem 0rem;
+    background-color: #292929;
+}
+.main-ac-videos > iframe{
+    width: 45%;
+    height: 400px;
+}
 .main-ac-left {
     background-color: #f2f2f2;
     min-width: 250px;
@@ -56,7 +86,6 @@ p{
     align-items: center;
     height: fit-content;
     padding: 2rem;
-    /* margin-right: 5rem; */
     border-radius: 0.4rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -123,7 +152,6 @@ p{
     width: 30%;
     height: 400px;
     color: #313131;
-    /* margin: 0.8rem 1rem; */
 }
 .main-ac-right-content-card > img {
     width: 100%;
@@ -254,16 +282,17 @@ p{
     }
     .main-ac-left {
         width: inherit;
-        margin: 0rem 0.5rem 2rem 0.5rem;
+        margin: 0rem 0rem 2rem 0rem;
         box-shadow: none;
     }
     .main-ac-right {
         width: auto;
         padding: 3rem 0rem 7rem 0rem;
-        margin: 0rem 0.5rem 2rem 0.5rem;
+        margin: 0rem 0rem 2rem 0rem;
     }
     .main-ac-right > p:first-of-type {
         text-align: center;
+        padding-left: 0rem;
     }
     .main-ac-right-content{
         flex-direction: column;
@@ -299,7 +328,27 @@ p{
     .main-ac-left > button {
         margin-top: 0rem;
     }
-    
+    .main-ac-description {
+        flex-direction: column;
+        padding: 0rem;
+        margin: 1rem;
+    }
+    .main-ac-description-content{
+        width: auto;
+        margin-bottom: 1rem;
+    }
+    .main-ac-videos{
+        flex-direction: column;
+        padding: 2rem 1rem;
+        margin: 0rem 0rem 2rem 0rem;
+    }
+    .main-ac-videos > iframe{
+        margin-bottom: 2rem;
+        width: auto;
+    }
+    .main-ac-videos > iframe:last-of-type{
+        margin-bottom: 0rem;
+    }
 }
 
 /* Main AC Page */
