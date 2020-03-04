@@ -901,6 +901,83 @@ p{
 }
 /* Air Conditioners Content */
 
+/**Single Page Search**/
+.single-ac{
+    display: flex;
+    margin: 2rem 3rem 2rem 3rem;
+    justify-content: space-between;
+}
+.single-ac-filter{
+    max-width: 30%;
+    width: 25%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #f2f2f2;
+    border-radius: 0.2rem;
+    max-width: fit-content;
+}
+.single-ac-filter > * {
+    margin-bottom: 2rem;
+}
+.single-ac-filter > p:first-of-type{
+    color: #129347;
+    font-weight: 600;
+}
+.single-ac-filter > select,
+.single-ac-filter > input{
+    padding: 1rem;
+    border-radius: 0.2rem;
+    border: none;
+    width: auto;
+    background-color: white;
+}
+.single-ac-filter > button{
+    width: fit-content;
+    background-color: #129347;
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 0.3rem;
+    border: none;
+}
+.single-ac-result{
+    padding: 2rem;
+    width: 72%;
+    background-color: #e2e2e2;
+}
+.single-ac-result > p:first-of-type{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.single-ac-result-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border: 1px solid yellow;
+}
+.single-ac-result-container-item{
+    border: 1px solid red;
+    min-width: 300px;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+.single-ac-result-container-item > img{
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 1px solid red;
+}
+.single-ac-result-container-item > p:first-of-type{
+    
+    margin-bottom: 1rem;
+    border: 1px solid red;
+}
+/**Single Page Search**/
+
 /* *{
     background: #000 !important;
     color: #0f0 !important;

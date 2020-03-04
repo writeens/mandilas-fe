@@ -71,10 +71,13 @@ p{
     justify-content: space-around;
     padding: 0.3rem;
 }
-.landing-social-media > img{
+.landing-social-media > a > img{
     transform: rotate(-90deg);
     width: 30px;
     height: 30px;
+}
+.landing-social-media > a{
+    display: block;
 }
 @media screen and (max-width: 1350px){
     .landing-page{
