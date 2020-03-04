@@ -206,10 +206,7 @@ p{
     color: #129347;
     font-weight: 600;
 }
-@media screen and (max-width:1350px){
-    
-}
-@media screen and (max-width:800px){
+@media screen and (max-width:900px){
     .career-content-description{
         margin: 0 0 2rem 0;
         padding: 3rem 1rem 1rem 1rem;
@@ -229,4 +226,111 @@ p{
     }
 }
 /* Job Description Page*/
+
+/**Roles Page**/
+.roles-content{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 2rem 6rem;
+}
+.roles-content > p:first-of-type{
+    font-weight: 600;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+.roles-content > p:last-of-type{
+    line-height: 2.2rem;
+    margin-bottom: 3rem;
+}
+.roles-container{
+    display: flex;
+    flex-direction: column;
+}
+.roles-category{
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+}
+.roles-category > p:first-of-type{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.roles-category-container{
+    display: flex;
+    justify-content:space-between;
+}
+.roles-category-left,
+.roles-category-right{
+    width: 46%;
+}
+.roles-category-item{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #129347;
+}
+.roles-category-item > img:first-of-type{
+    width: 120px;
+    margin-right: 1rem;
+    height: 120px;
+    object-fit: contain;
+    background-color: #292929;
+}
+.roles-category-item > img:last-of-type{
+    width: 40px;
+    height: 25px;
+    object-fit: contain;
+    color: #129347;
+    position: absolute;
+    right: 0;
+    background-color: #129347;
+}
+.roles-category-text{
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+}
+.roles-category-text >p:first-of-type{
+    color: #129347;
+    font-weight: 600;
+    margin-bottom: 2rem;
+}
+.roles-video{
+    display: flex;
+    padding: 2rem 5rem;
+    background-color: #292929;
+    justify-content: center;
+}
+.roles-video > iframe {
+    max-width: 1200px;
+    height: 500px;
+    width: 1000px;
+}
+@media screen and (max-width:950px){
+    .roles-category-container{
+        flex-direction: column;
+    }
+    .roles-category-left,
+    .roles-category-right{
+        width: auto;
+    }
+    .roles-content{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 2rem 1rem;
+    }
+    .roles-video > iframe {
+        height: 300px;
+    }
+    .roles-video{
+        padding: 1rem;
+    }
+}
+/**Roles Page**/
+
 
