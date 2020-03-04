@@ -358,5 +358,26 @@ p{
         margin: 0 0 1rem 0;
         width: auto;
     }
+    .as-mobility-modal-content{
+        width: auto;
+    }
+    .as-mobility-modal-content > i {
+        top: -1rem;
+        right: 1rem;
+    }
+    .as-mobility-modal-row{
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .as-mobility-modal-row > a, .as-mobility-modal-row > p {
+        margin: 0rem;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+        width: auto;
+        border-radius: 0.4rem;
+    }
+    .as-mobility-modal-content > p:first-of-type {
+        margin-bottom: 1rem;
+    }
 }
 /*Main AC After Sales */
