@@ -24,7 +24,7 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: transform 0.5s ease-in-out;
+    transition: all 0.5s linear;
 }
 .landing-side:hover{
     transform: scale(1.1);
@@ -36,7 +36,7 @@ p{
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705389/Assets/landing-motors_xzhp9z.png);
 }
 .landing-side.aftersales{
-    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705387/Assets/landing-aftersales_peru46.png);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1583312645/Assets/aftersales_mainlanding_2x_lqtsgo.png);
 }
 .landing-side > a{
     text-decoration: none;

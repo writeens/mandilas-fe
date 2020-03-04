@@ -647,7 +647,7 @@ nav{
     text-align: center;
     margin-bottom: 2rem;
 }
-.complain-text > button{
+.complain-text > a{
     font-size: 1rem;
     color: white;
     background-color: #129347;
@@ -655,13 +655,8 @@ nav{
     border-radius: 0.3rem;
     cursor: pointer;
     padding: 0;
-}
-.complain-text > button > a{
-    display: flex;
-    color: inherit;
-    text-decoration: none;
     padding: 1.5rem 4rem;
-    border-radius: inherit;
+    text-decoration: none;
 }
 @media screen and (max-width:900px){
     .complain-text > p:nth-child(2) {

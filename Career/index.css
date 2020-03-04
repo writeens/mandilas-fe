@@ -27,18 +27,17 @@ p{
     font-weight: 600;
     text-align: center;
 }
-.career-body{
+.career-body {
     background-color: white;
-    margin:0rem 3rem;
-    padding: 3rem 5rem 2rem 5rem;
+    margin: 0rem 3rem 5rem 3rem;
+    padding: 1rem 4rem 1rem 4rem;
     display: flex;
     flex-direction: column;
-    margin-bottom: 3rem;
 }
 .career-body-row{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
 }
 .career-body-text{
     width: 47%;
@@ -50,10 +49,10 @@ p{
     width: 47%;
     order: 2;
 }
-.career-body-image > img{
+.career-body-image > img {
     min-width: 100%;
-    max-width: 400px;
-    height: 300px;
+    max-width: 450px;
+    height: 350px;
     object-fit: cover;
 }
 .career-body-text{
@@ -68,20 +67,45 @@ p{
 .career-body-text > p:last-of-type{
     font-size: 1rem;
     margin-bottom: 2rem;
-    line-height: 2rem;
+    line-height: 2.2rem;
     text-align: justify;
 }
-.career-body > a {
+#goToRolesPage {
     text-decoration: none;
     width: fit-content;
     padding: 1rem 3rem;
     border-radius: 0.3rem;
     color: white;
     background-color: #129347;
-    margin-bottom: 8rem;
 }
 .career-body > p:last-of-type{
     text-align: center;
+}
+.career-gallery {
+    display: flex;
+    flex-direction: column;
+    background-color: #292929;
+    padding: 2rem 12rem 2rem 12rem;
+    margin-bottom: 2rem;
+}
+.career-gallery > p:first-of-type{
+    font-size: 2rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2rem;
+}
+#careerCarousel > .carousel-inner > .carousel-item > img{
+    border: 0.5rem solid white;
+    max-height: 400px;
+    object-fit: cover;
+}
+#careerCarousel > .carousel-control-prev{
+    width: 50px;
+    left: -5rem;
+}
+#careerCarousel > .carousel-control-next{
+    width: 50px;
+    right: -5rem;
 }
 @media screen and (max-width:900px){
     .career-body{
@@ -113,6 +137,20 @@ p{
     }
     .career-body > p:last-of-type{
         margin-bottom: 2rem;
+    }
+    .career-gallery{
+        padding: 2.5rem 1rem;
+    }
+    #careerCarousel > .carousel-control-prev{
+        width: 15%;
+        left: 0rem;
+    }
+    #careerCarousel > .carousel-control-next{
+        width: 15%;
+        right: 0rem;
+    }
+    #goToRolesPage {
+        margin-bottom: 1rem;
     }
 }
 /* Career Content Page*/
