@@ -65,19 +65,19 @@
                 <p>About Us</p>
                 <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
                 <div class="navbar-submenu">
-                    <a href="index.html">Who We Are</a>
-                    <a href="meet.html">The Executive Team</a>
-                    <a href="csr.html">CSR Activities</a>
+                    <a href="../About Us/index.html">Who We Are</a>
+                    <a href="../About Us/meet.html">The Executive Team</a>
+                    <a href="../About Us/csr.html">CSR Activities</a>
                 </div>
             </div>
             <div class="menu-item-two" data-nav-key="true">
                 <p>Cooling</p>
                 <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
                 <div class="navbar-submenu">
-                    <a href="#">Residential A/C's</a>
-                    <a href="#">Commercial A/C's</a>
-                    <a href="#">M.E.P</a>
-                    <a href="#">Transicold</a>
+                    <a href="ac.html?id=residential">Residential A/C's</a>
+                    <a href="ac.html?id=commercial">Commercial A/C's</a>
+                    <a href="../Utility/coming-soon.html">M.E.P</a>
+                    <a href="../Utility/coming-soon.html">Transicold</a>
                     <a href="../Airconditioners After Sales/cooling.html">After Sales</a>
                 </div>
             </div>
@@ -198,16 +198,19 @@
     <div class="single-ac">
         <div class="single-ac-filter">
             <p>Filter by</p>
-            <select name="" id="">
+            <select name="selectType" id="singleAcSelect">
                 <option value="Commercial">Commercial</option>
                 <option value="Residential">Residential</option>
             </select>
-            <input type="number" max="999999" maxlength="6" placeholder="Maximum Price">
-            <input type="number" max="999999" maxlength="6" placeholder="Minimum Price">
+            <input id="singleAcMinimumPrice" type="text" max="999999" maxlength="7" placeholder="Minimum Price">
+            <input id="singleAcMaximumPrice" type="text" max="999999" maxlength="7" placeholder="Maximum Price">
             <button id="singleAcSearch">Search</button>
         </div>
         <div class="single-ac-result">
-            <p>Commercial Air Conditioners</p>
+            <div id="singleAcLoader" class="acLoader singleAcLoader showLoader">
+                <div class="lds-dual-ring-green"></div>
+            </div>
+            <p id="singleAcPageTitle"></p>
             <div class="single-ac-result-container">
                 <div class="single-ac-result-container-item">
                     <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705404/Assets/product-ac_tuaett.png" alt="air_conditioners">
@@ -245,44 +248,24 @@
                     <p class="single-ac-result-price">N150,000</p>
                     <p class="single-ac-result-discount">20%</p>
                 </div>
-                <div class="single-ac-result-container-item">
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705404/Assets/product-ac_tuaett.png" alt="air_conditioners">
-                    <p class="single-ac-result-title">AquaSnap 30RBM/30RBP</p>
-                    <p class="single-ac-result-price">N150,000</p>
-                    <p class="single-ac-result-discount">20%</p>
-                </div>
-                <div class="single-ac-result-container-item">
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705404/Assets/product-ac_tuaett.png" alt="air_conditioners">
-                    <p class="single-ac-result-title">AquaSnap 30RBM/30RBP</p>
-                    <p class="single-ac-result-price">N150,000</p>
-                    <p class="single-ac-result-discount">20%</p>
-                </div>
-                <div class="single-ac-result-container-item">
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705404/Assets/product-ac_tuaett.png" alt="air_conditioners">
-                    <p class="single-ac-result-title">AquaSnap 30RBM/30RBP</p>
-                    <p class="single-ac-result-price">N150,000</p>
-                    <p class="single-ac-result-discount">20%</p>
-                </div>
-                <div class="single-ac-result-container-item">
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705404/Assets/product-ac_tuaett.png" alt="air_conditioners">
-                    <p class="single-ac-result-title">AquaSnap 30RBM/30RBP</p>
-                    <p class="single-ac-result-price">N150,000</p>
-                    <p class="single-ac-result-discount">20%</p>
-                </div>
-                <div class="single-ac-result-container-item">
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705404/Assets/product-ac_tuaett.png" alt="air_conditioners">
-                    <p class="single-ac-result-title">AquaSnap 30RBM/30RBP</p>
-                    <p class="single-ac-result-price">N150,000</p>
-                    <p class="single-ac-result-discount">20%</p>
-                </div>
-                <div class="single-ac-result-container-item">
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705404/Assets/product-ac_tuaett.png" alt="air_conditioners">
-                    <p class="single-ac-result-title">AquaSnap 30RBM/30RBP</p>
-                    <p class="single-ac-result-price">N150,000</p>
-                    <p class="single-ac-result-discount">20%</p>
-                </div>
+            </div>
+            <div class="single-ac-pagination">
+                <p class="pagination-active">1</p>
+                <p>2</p>
+                <p>3</p>
+                <p>4</p>
             </div>
         </div>
+    </div>
+    <div class="single-ac-motors">
+        <div class="single-ac-motors-left">
+            <p>Motors</p>
+            <a href="../Motors/index.html">New Vehicle Sales</a>
+            <a href="../Motors/index.html?id=usedVehicles">Approved Used Vehicles</a>
+            <a href="../Airconditioners After Sales/index.html">After Sales Services</a>
+            <a id="fromSingleAcToMotors" href="../Motors/index.html">Explore</a>
+        </div>
+        <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/layer-3_lrsygx.png" class="single-ac-motors-right"/>
     </div>
     <div class="complain-text">
         <p>Have a Complaint</p>

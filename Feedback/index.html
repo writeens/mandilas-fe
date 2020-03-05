@@ -47,7 +47,7 @@
     <script src="index.js" defer></script>
 </head>
 <body>
-    <div class="hometwo">
+    <nav>
         <div id="loader">
             <div class="lds-dual-ring"></div>
         </div>
@@ -56,100 +56,95 @@
                 <p id="infoText">Hello World</p>
             </div>
         </div>
-        <div class="hometwo-logo">
-            <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="logo">
+        <div class="navbar-logo">
+            <a href="../Homepage/index.html">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="mandilas_logo">
+            </a>
         </div>
-        <div class="hometwo-menu">
-            <div class="hometwo-menu-item">
-                <div class="hometwo-menu-text">
-                    <a href="../Homepage/index.html"><p>Home</p></a>
-                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
-                </div>
+        <div id="navbarToggler" class="navbar-toggler">
+            <i class="fa fa-bars fa-3x"></i>
+        </div>
+        <div class="menu">
+            <div class="menu-item-one">
+                <a href="../Homepage/index.html">Home</a>
             </div>
-            <div class="hometwo-menu-item drop">
-                <div class="hometwo-menu-text">
-                    <p>About Us</p>
-                    <img src="../Assets/arrow-down.svg" alt="">
-                </div>
-                <div class="menu-about hometwo-submenu hometwo-submenu-hide">
-                    <a href="../About Us/index.html">What we do</a>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>About Us</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../About Us/index.html">Who We Are</a>
                     <a href="../About Us/meet.html">The Executive Team</a>
-                    <a href="../About Us/history.html">Company History</a>
                     <a href="../About Us/csr.html">CSR Activities</a>
                 </div>
             </div>
-            <div class="hometwo-menu-item drop">
-                <div class="hometwo-menu-text">
-                    <p>Cooling</p>
-                    <img src="../Assets/arrow-down.svg" alt="">
-                </div>
-                <div class="menu-ac hometwo-submenu hometwo-submenu-hide">
-                    <a href="../Airconditioners/main.html">Carrier A/C</a>
-                    <a href="../Airconditioners After Sales/index.html">After Sales Services</a>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Cooling</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Airconditioners/ac.html?id=residential">Residential A/C's</a>
+                    <a href="../Airconditioners/ac.html?id=commercial">Commercial A/C's</a>
+                    <a href="../Utility/coming-soon.html">M.E.P</a>
+                    <a href="../Utility/coming-soon.html">Transicold</a>
+                    <a href="../Airconditioners After Sales/cooling.html">After Sales</a>
                 </div>
             </div>
-            <div class="hometwo-menu-item drop">
-                <div class="hometwo-menu-text">
-                    <p>Mobility</p>
-                    <img src="../Assets/arrow-down.svg" alt="">
-                </div>
-                <div class="menu-motors hometwo-submenu hometwo-submenu-hide">
-                    <a href="../Motors/index.html">Vehicle Sales</a>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Mobility</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
                     <a href="../Motors After Sales/index.html">Owner Registration</a>
-                    <a href="../Motors After Sales/spare-parts.html">Spare Parts</a>
-                    <a href="../Motors After Sales/accident.html">Accident Recovery</a>
-                    <a href="../Motors After Sales/fleet.html">Lease Fleet Management</a>
+                    <a href="../Motors/index.html">New Cars</a>
+                    <a href="../Motors/index.html?id=usedVehicles">Used Cars</a>
+                    <a href="../Motors After Sales/fleet.html">Fleet Management</a>
+                    <a href="#">Leasing</a>
                 </div>
             </div>
-            <div class="hometwo-menu-item">
-                <div class="hometwo-menu-text">
-                    <a href="../Airconditioners After Sales/index.html"><p>After Sales</p></a>
-                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
-                </div>
+            <div class="menu-item-one">
+                <a href="../Airconditioners After Sales/index.html">After Sales</a>
             </div>
-            <div class="hometwo-menu-item drop">
-                <div class="hometwo-menu-text">
-                    <p>Contact Us</p>
-                    <img src="../Assets/arrow-down.svg" alt="">
-                </div>
-                <div class="menu-contact hometwo-submenu hometwo-submenu-hide">
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Contact Us</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
                     <a href="../Contact Us/index.html">Contact Mandilas</a>
                     <a href="../Location/index.html">Locations</a>
                 </div>
             </div>
-            <div class="hometwo-menu-item">
-                <div class="hometwo-menu-text">
-                    <a href="../Career/index.html"><p>Careers</p></a>
-                    <img style="visibility:hidden;" src="../Assets/arrow-down.svg" alt="">
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Career</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Career/index.html">Jobs & Careers</a>
+                    <a href="../Career/roles.html">Mandilas Organogram</a>
+                    <a href="#">Mandilas E.V.P</a>
                 </div>
             </div>
         </div>
-        <div id="hometwo-navbar-buttons">
-            <div class="hometwo-signedin-buttons">
-                <p id="nameContainer"></p>
-                <div class="navbar-cart-container">
-                    <img src="../Assets/cart.svg" alt="">
-                    <p class="no-of-items">0</p>
-                </div>
-                <button id="navLogOut">Log Out</button>
+        <div class="pre-auth">
+            <div class="cart-container">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
+                <p class="no-of-items">0</p>
             </div>
-            <div class="hometwo-buttons">
-                <div class="navbar-cart-container">
-                    <img src="../Assets/cart.svg" alt="">
-                    <p class="no-of-items">0</p>
-                </div>
-                <button id="login">Login</button>
-                <button id="register">Register</button>
+            <div class="pre-auth-buttons">
+                <button id="login" class="navbar-login">Login</button>
+                <button id="register" class="navbar-register">Register</button>
             </div>
         </div>
-        <div class="hometwo-toggle">
-            <i class="fa fa-bars fa-3x"></i>
+        <div class="post-auth">
+            <p id="nameContainer">Hello, User</p>
+            <div class="cart-container">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
+                <p class="no-of-items">0</p>
+            </div>
+            <div class="post-auth-buttons">
+                <button id="logout" class="navbar-logout">Log Out</button>
+            </div>
         </div>
         <div class="modal" id="loginModal">
             <div class="modal-content">
-                <div class="modal-content-left">
+                <div class="bgLogin modal-content-left">
                     <p>Log In To Continue</p>
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="mandilas_logo">
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/logo-white_a4msmz.svg" alt="mandilas_logo">
                 </div>
                 <div class="modal-content-right login">
                     <div class="modal-row">
@@ -171,9 +166,9 @@
         </div>
         <div class="modal" id="registerModal">
             <div class="modal-content">
-                <div class="modal-content-left">
+                <div class="bgSignUp modal-content-left">
                     <p>Register To Continue</p>
-                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="mandilas_logo">
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/logo-white_a4msmz.svg" alt="mandilas_logo">
                 </div>
                 <div class="modal-content-right register">
                     <div class="modal-row">
@@ -206,7 +201,7 @@
                 <p id="closeRegister" class="closeModal">&times;</p>
             </div>
         </div>
-    </div>
+    </nav>
     <div class="feedback-content">
         <div class="feedback-form">
             <div class="feedback-form-topic">

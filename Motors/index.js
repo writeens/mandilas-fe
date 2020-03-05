@@ -34,7 +34,6 @@ motorsButtons.forEach((item, index, arr) => {
 const handleMotorsLoad = () => {
     let params = new URLSearchParams(window.location.search.substring(1));
     let id = params.get('id');
-    console.log(id)
     if(id === "usedVehicles"){
         newVehicles.style.display = "none";
         oldVehicles.style.display = "flex";

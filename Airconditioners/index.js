@@ -93,7 +93,6 @@ const createReview = (arr) => {
         const reviewLoader = document.querySelector('.reviewLoader')
         removeClass(reviewLoader, `showLoader`);
     }else {
-        console.log(arr)
         const {review, userID, productID, rating} = arr
         getData(`${getUserInfoEndpoint}?id=${userID}`)
             .then(data => {
