@@ -151,15 +151,16 @@ p{
     margin-bottom: 2rem;
     text-align: justify;
 }
-.spare-parts-header > button{
+.spare-parts-header > a{
     display: flex;
     color: white;
     background-color: #129347;
     width: fit-content;
     padding: 1rem 4rem;
     border-radius: 0.2rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
     border: none;
+    text-decoration: none;
 }
 .spare-parts-content{
     display: flex;

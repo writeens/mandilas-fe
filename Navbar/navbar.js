@@ -219,7 +219,7 @@ initializeLocalStorage();
 
 //Update Cart Number
 const updateCartIcon = (id) => {
-    const cartNumber = document.querySelectorAll('.navbar-cart-container > .no-of-items')
+    const cartNumber = document.querySelectorAll('.cart-container > .no-of-items')
     if(id !== null){
         fetch(`${getItemsInCartEndpoint}/${id}`, {
             method:'GET',
@@ -557,7 +557,6 @@ navbarLogo.addEventListener('click', () => {
 // User clicks on Cart
 navbarCart.forEach(item => {
     const redirectToCart = () => {
-        console.log(USER_ID)
         window.location.href = `../Cart/index.html`;
     }
     item.addEventListener('click', redirectToCart)

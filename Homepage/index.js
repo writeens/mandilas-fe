@@ -36,11 +36,11 @@ const handleLogoScroll = () =>{
 
 // On Load
 const handleHomePageLoad = () => {
-    loader.classList.add('showLoader')
+    // loader.classList.add('showLoader')
     handleLogoScroll()
     handleNavbarLoad
         .then(user => {
-            loader.classList.remove('showLoader')
+            // loader.classList.remove('showLoader')
         })
 }
 window.addEventListener('load', handleHomePageLoad)
