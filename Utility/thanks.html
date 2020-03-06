@@ -58,7 +58,7 @@
         align-items:center;
     }
     .thanks-container > p:first-of-type{
-        font-size: 3rem;
+        font-size: 3.5rem;
         font-weight: 600;
         color: #129347;
         margin-bottom: 2rem;
@@ -66,6 +66,7 @@
     .thanks-container > p:last-of-type{
         margin-bottom: 2rem;
         font-size: 1.5rem;
+        text-align: center;
     }
     .thanks-container > a{
         width: fit-content;
@@ -74,6 +75,18 @@
         background-color: #129347;
         border-radius: 0.3rem;
         color: white;
+    }
+    @media screen and (max-width: 950px){
+        .thanks-container{
+            min-height: 500px;
+            padding: 2rem 1rem;
+        }
+        .thanks-container > p:first-of-type{
+            font-size: 2rem;
+        }
+        .thanks-container > p:last-of-type{
+            font-size: 1rem;
+        }
     }
 </style>
 <body>
