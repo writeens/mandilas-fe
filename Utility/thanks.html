@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Air Conditioners</title>
+    <title>Thank you</title>
     <!--Font Awesome-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Animate.css -->
@@ -13,6 +12,8 @@
     <link rel="stylesheet" href="../Utility/normalize.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Slick CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="../Navbar/navbar.css">
@@ -26,6 +27,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
+    <!--Slick JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+    
+
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js" defer></script>
 
@@ -36,8 +41,41 @@
     
     <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
-    <script src="./index.js" defer></script>
 </head>
+<style>
+    body{
+        font-family: 'Poppins', sans-serif;
+    }
+    p{
+        margin: 0;
+        padding: 0;
+    }
+    .thanks-container{
+        min-height: 700px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items:center;
+    }
+    .thanks-container > p:first-of-type{
+        font-size: 3rem;
+        font-weight: 600;
+        color: #129347;
+        margin-bottom: 2rem;
+    }
+    .thanks-container > p:last-of-type{
+        margin-bottom: 2rem;
+        font-size: 1.5rem;
+    }
+    .thanks-container > a{
+        width: fit-content;
+        padding: 1rem 4rem;
+        text-decoration: none;
+        background-color: #129347;
+        border-radius: 0.3rem;
+        color: white;
+    }
+</style>
 <body>
     <nav>
         <div id="loader">
@@ -73,10 +111,10 @@
                 <p>Cooling</p>
                 <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
                 <div class="navbar-submenu">
-                    <a href="ac.html?id=residential">Residential A/C's</a>
-                    <a href="ac.html?id=commercial">C
-                    <a href="../Utility/coming-soon.html">M.E.P</a>
-                    <a href="../Utility/coming-soon.html">Transicold</a>
+                    <a href="../Airconditioners/ac.html?id=residential">Residential A/C's</a>
+                    <a href="../Airconditioners/ac.html?id=commercial">Commercial A/C's</a>
+                    <a href="coming-soon.html">M.E.P</a>
+                    <a href="coming-soon.html">Transicold</a>
                     <a href="../Airconditioners After Sales/cooling.html">After Sales</a>
                 </div>
             </div>
@@ -88,7 +126,7 @@
                     <a href="../Motors/index.html">New Cars</a>
                     <a href="../Motors/index.html?id=usedVehicles">Used Cars</a>
                     <a href="../Motors After Sales/fleet.html">Fleet Management</a>
-                    <a href="#">Leasing</a>
+                    <a href="../Utility/coming-soon.html">Leasing</a>
                 </div>
             </div>
             <div class="menu-item-one">
@@ -194,132 +232,11 @@
             </div>
         </div>
     </nav>
-    <div class="main-ac">
-        <p>AIR CONDITIONERS</p>
-        <p>At Mandilas, we are committed to getting you the best air conditioners at the right price</p>
-    </div>
-    <div class="main-ac-description">
-        <div class="main-ac-description-content">
-            <p>Making the World a Better Place To Live, Work and Play</p>
-            <p>From the time our founder invented the basics of modern air conditioning in 1902, Carrier has been the world leader in air conditioning, heating and refrigeration systems. A wholly-owned subsidiary of United Technologies Corporation, Carrier is built upon a legacy of innovation and commitment. Through our market-leading products and solutions, we are constantly striving to help people live more comfortable, healthy and productive lives.</p>
-        </div>
-        <div class="main-ac-description-content">
-            <p>Ensuring Comfort and Peace of Mind, Everywhere Around the World</p>
-            <p>Across the globe and in virtually every facet of daily life, Carrier is there. We create comfortable environments, regardless of the climate. We safeguard the global food supply by preserving the quality and freshness of food and beverages. We ensure health and well-being by enabling the proper transport and delivery of vital medical supplies under exacting conditions.</p>
-        </div>
-    </div>
-    <div class="main-ac-videos">
-        <iframe src="https://www.youtube.com/embed/PBBYQ9qLh-Q" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>
-        <iframe src="https://www.youtube.com/embed/Nyrb_f2ixwU" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"></iframe>
-    </div>
-    <div class="main-ac-content">
-        <div class="main-ac-left">
-            <p>Filter by:</p>
-            <select name="" id="queryType">
-                <option value="Commercial">Commercial</option>
-                <option value="Residential">Residential</option>
-            </select>
-            <input type="text" onkeypress="" name="minimumPrice" id="minimumPrice" placeholder="Minimum Price">
-            <input type="text" name="maximumPrice" id="maximumPrice" placeholder="Maximum Price">
-            <button id="queryPrice">Search</button>
-        </div>
-        <div class="main-ac-right">
-            <p>Carrier Air Conditioners</p>
-            <div class="main-ac-right-content">
-                <!-- <div class="main-ac-right-content-card">
-                    <img src="../Assets/product-ac.jpg" alt="">
-                    <p>AquaSnap 30RBM/30RBP</p>
-                    <div>
-                        <p>N 150,000</p>
-                        <p>-20%</p>
-                    </div>
-                </div>
-                <div class="main-ac-right-content-card">
-                    <img src="../Assets/ac-layer1.jpg" alt="">
-                    <p>AquaSnap 30RBM/30RBP</p>
-                    <div>
-                        <p>N 150,000</p>
-                        <p>-20%</p>
-                    </div>
-                </div>
-                <div class="main-ac-right-content-card">
-                    <img src="../Assets/product-ac.jpg" alt="">
-                    <p>AquaSnap 30RBM/30RBP</p>
-                    <div>
-                        <p>N 150,000</p>
-                        <p>-20%</p>
-                    </div>
-                </div> -->
-            </div>
-            <button id="mainACLoadMoreButton">
-                <span>Load More &nbsp;</span>
-                <i class="fa fa-2x fa-spinner fa-spin"></i>
-            </button>
-            <button id="mainACLoadMoreButtonForQuery">
-                <span>Load More &nbsp;</span>
-                <i class="fa fa-2x fa-spinner fa-spin"></i>
-            </button>
-            <div class="allACLoader showLoader">
-                <div class="lds-dual-ring-green"></div>
-            </div>
-        </div>
-    </div>
-    <div class="ac-content-bottom-layer-2">
-        <div class="ac-content-bottom-2-left">
-            <p>After Sales Services</p>
-            <img class="ac-content-bottom-mobile-image" src="https://res.cloudinary.com/mandilas/image/upload/v1582705422/Assets/ac-layer2_dgrtyc.png" alt="">
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-               Sed voluptates consectetur corporis? Vitae, tenetur necessitatibus consectetur cum odit praesentium nam vero, 
-               totam voluptates at, ea porro consequatur exercitationem perferendis provident.
-               Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-               Sed voluptates consectetur corporis? Vitae, tenetur necessitatibus consectetur cum odit praesentium nam vero, 
-               totam voluptates at, ea porro consequatur exercitationem perferendis provident.
-            </p>
-            <button>
-                <a href="#">Read More</a>
-            </button>
-        </div>
-        <div class="ac-content-bottom-2-right">
-            <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705422/Assets/ac-layer2_dgrtyc.png" alt="">
-        </div>
-    </div>
-    <div style="background-color: white;" class="ac-content-bottom-layer-2">
-        <div class="ac-content-bottom-2-left">
-            <p style="color: #129347;">M.E.P</p>
-            <img class="ac-content-bottom-mobile-image" src="https://res.cloudinary.com/mandilas/image/upload/v1582705422/Assets/ac-layer2_dgrtyc.png" alt="">
-            <p style="font-weight: 600; font-size:2rem; margin-bottom: 1.5rem;">Mechanical, Electrical & Plumbing</p>
-            <p style="font-size:1.5rem; margin-bottom: 2.5rem;">Coming Soon</p>
-            <button style="background-color: #129347; color: white;">
-                <a href="../Contact Us/index.html">Contact Us</a>
-            </button>
-        </div>
-        <div class="ac-content-bottom-2-right">
-            <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705422/Assets/ac-layer2_dgrtyc.png" alt="">
-        </div>
-    </div>
-    <div style="background-color: #D2EFDE;" class="ac-content-bottom-layer-2">
-        <div class="ac-content-bottom-2-left">
-            <p style="color: #129347;">Transicold</p>
-            <img class="ac-content-bottom-mobile-image" src="https://res.cloudinary.com/mandilas/image/upload/v1582705422/Assets/ac-layer2_dgrtyc.png" alt="">
-            <p style="font-size:1.5rem; margin-bottom: 2.5rem;">Coming Soon</p>
-            <button style="background-color: #129347; color: white;">
-                <a href="../Contact Us/index.html">Contact Us</a>
-            </button>
-        </div>
-        <div class="ac-content-bottom-2-right">
-            <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705422/Assets/ac-layer2_dgrtyc.png" alt="">
-        </div>
-    </div>
-    <div class="complain-text">
-        <p>Have a Complaint</p>
-        <p>Do you have any issue? Or complains about our after Sales
-            services? Just send us a message
-        </p>
-        <a class="complainContactButton" href="../Contact Us/index.html">Contact Us</a>
-    </div>
-    <div class="celebration-modal-ac">
-        <img class="celebration-modal-img" src="https://res.cloudinary.com/mandilas/image/upload/v1583486321/70th_Air-Con_pskfle.png" alt="mandilas-celebration-banner">
-        <i id="closeCelebrationAc" class="fa fa-2x fa-close"></i>
+    <div class="thanks-container">
+        <img src="" alt="">
+        <p>Thank you !</p>
+        <p>Your payment was successful. Check your email for confirmation</p>
+        <a href="../Airconditioners/main.html">Continue Shopping</a>
     </div>
     <div class="footer">
         <div class="footer-logos">
@@ -339,10 +256,10 @@
         <div class="footer-item">
             <div class="footer-topic">
                 <p>OUR SERVICES</p>
-                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/chevron-down_lstgci.svg" alt="">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
             </div>
             <div class="footer-links hide-footer-links">
-                <a href="main.html">COOLING</a>
+                <a href="../Airconditioners/main.html">COOLING</a>
                 <a href="../Motors/index.html">MOBILITY</a>
                 <a href="../Properties/index.html">PROPERTIES</a>
                 <a href="../Motors After Sales/index.html">VEHICLE REGISTRATION</a>
@@ -353,19 +270,19 @@
         <div class="footer-item">
             <div class="footer-topic">
                 <p>COMPANY</p>
-                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/chevron-down_lstgci.svg" alt="">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
             </div>
             <div class="footer-links hide-footer-links">
                 <a href="../About Us/index.html">WHAT WE DO</a>
                 <a href="../About Us/meet.html">THE EXECUTIVE TEAM</a>
                 <a href="../About Us/history.html">COMPANY HISTORY</a>
-                <a href="../About Us/csr.html">CSR ACTIVITIES</a>
+                <a href="csr.html">CSR ACTIVITIES</a>
             </div>
         </div>
         <div class="footer-item">
             <div class="footer-topic">
                 <p>PROPERTIES</p>
-                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/chevron-down_lstgci.svg" alt="">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
             </div>
             <div class="footer-links hide-footer-links">
                 <a href="">LEASE ADMINISTRATION</a>
@@ -378,7 +295,7 @@
         <div class="footer-item">
             <div class="footer-topic">
                 <p>CUSTOMERS</p>
-                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/chevron-down_lstgci.svg" alt="">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
             </div>
             <div class="footer-links hide-footer-links">
                 <a href="../Contact Us/index.html">CONTACT US</a>

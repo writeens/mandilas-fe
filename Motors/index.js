@@ -43,3 +43,22 @@ const handleMotorsLoad = () => {
     }
 }
 window.addEventListener('load', handleMotorsLoad)
+
+
+/**Celebration Modal Control */
+const closeCelebrationMotors = document.querySelector('#closeCelebrationMotors');
+const celebrationModalMotors = document.querySelector('.celebration-modal-motors')
+closeCelebrationMotors.addEventListener('click', () => {
+    celebrationModalMotors.style.display = "none";
+})
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        let data = sessionStorage.getItem('shownCelebrationMotors')
+        console.log(data)
+        if(data === null){
+            celebrationModalMotors.style.display = "flex"
+            sessionStorage.setItem('shownCelebrationMotors', 'true');
+        }
+    }, 5000);
+})
+/**Celebration Modal Control */

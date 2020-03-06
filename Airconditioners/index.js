@@ -540,3 +540,21 @@ if(mainACLoadMoreButtonForQuery){
         mainACLoadMoreButtonForQuery.children[1].style.display = "none";
     })
 }
+
+/**Celebration Modal Control */
+const closeCelebrationAc = document.querySelector('#closeCelebrationAc');
+const celebrationModalAc = document.querySelector('.celebration-modal-ac')
+closeCelebrationAc.addEventListener('click', () => {
+    celebrationModalAc.style.display = "none";
+})
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        let data = sessionStorage.getItem('shownCelebrationAc')
+        console.log(data)
+        if(data === null){
+            celebrationModalAc.style.display = "flex"
+            sessionStorage.setItem('shownCelebrationAc', 'true');
+        }
+    }, 5000);
+})
+/**Celebration Modal Control */
