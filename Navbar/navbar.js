@@ -239,10 +239,11 @@ const updateCartIcon = (id) => {
             //There are no items in cart
             if(status === 'error'){
                 cartNumber.forEach(item => item.innerHTML = 0)
-                console.log(message)
             }
         }).catch(error => {
-            console.log(error)
+            if(status === 'error'){
+                cartNumber.forEach(item => item.innerHTML = 0)
+            }
         })
     }else{
         cartNumber.forEach(item => item.innerHTML = 0)
