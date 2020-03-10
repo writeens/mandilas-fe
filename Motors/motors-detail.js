@@ -10,19 +10,29 @@ const vehiclePaletteContainer = document.querySelector('#vehiclePaletteContainer
 const vehicleDescription = document.querySelector('#vehicleDescription');
 const vehicleLargeImage = document.querySelector('#vehicleLargeImage');
 const specSheetBody = document.querySelector('#specSheetBody');
+const motorsDetailModal = document.querySelector('#motorsDetailModal');
+const motorsExteriorGallery = document.querySelector('#motorsExteriorGallery')
+const motorsInteriorGallery = document.querySelector('#motorsInteriorGallery')
+const imageCarouselContainer = document.querySelector('#mdImageContainer');
+
 // Create Spec Sheet
+specSheetBody.innerHTML = "";
 const createSpecSheet = (data) => {
     let newData = Object.values(data);
-    console.log(newData);
     newData.map(item => {
-        const tr 
+        const tr = document.createElement('tr');
+        item.map(innerItem => {
+            const td = document.createElement('td');
+            td.innerHTML = innerItem;
+            tr.append(td)
+        })
+        specSheetBody.append(tr);
     })
 }
 
 // Create Basic Information
 const displayVehicleInformation = (data) => {
-    let {name, overview, image, summary, colors, description, specSheet} = data;
-    console.log(data)
+    let {name, overview, images, summary, colors, description, specSheet} = data;
     vehicleName.innerHTML = name;
     vehicleStructure.innerHTML = overview.motorStructure;
     vehicleFuel.innerHTML = overview.engineFuelType;
@@ -38,7 +48,7 @@ const displayVehicleInformation = (data) => {
         p.style.backgroundColor = item;
         vehiclePaletteContainer.append(p);
     })
-    vehicleLargeImage.src = image.main;
+    vehicleLargeImage.src = images.main;
     vehicleDescription.innerHTML = description;
     createSpecSheet(specSheet);
 }
@@ -52,3 +62,28 @@ const handleMotorsDetailPageLoad = () => {
     displayVehicleInformation(ITEM);
 }
 window.addEventListener('load', handleMotorsDetailPageLoad)
+
+const closeGallery = document.querySelector('#closeGallery')
+closeGallery.addEventListener('click', () => {
+    motorsDetailModal.style.display = "none";
+})
+
+const updateGallery = (type) => {
+    motorsDetailModal.style.display = "flex";
+    const { images } = ITEM
+    let photos = Object.values(images[type]);
+    imageCarouselContainer.innerHTML = ""
+    photos.map((item, index) => {
+        const div = document.createElement('div');
+        div.classList.add('carousel-item')
+        if(index === 0){
+            div.classList.add('active')
+        }
+        const img = document.createElement('img');
+        img.src = item;
+        div.append(img);
+        imageCarouselContainer.append(div);
+    })
+}
+motorsInteriorGallery.addEventListener('click', () => updateGallery("interior"))
+motorsExteriorGallery.addEventListener('click', () => updateGallery("exterior"))

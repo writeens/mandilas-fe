@@ -839,6 +839,74 @@ p{
 
 /* Motors Detail */
 
+/**Motors Detail Modal**/
+.motors-detail-modal{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(25, 39, 65, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.motors-detail-modal-content{
+    position: relative;
+    animation-name: slideInFromTop;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    justify-content: space-between;
+}
+#motorsDetailModalCarousel > .carousel-inner > .carousel-item > img{
+    object-fit: cover;
+    width: 800px;
+    height: 500px;
+}
+#motorsDetailModalCarousel > .carousel-control-prev{
+    left: -5rem;
+    width: 10%;
+}
+#motorsDetailModalCarousel > .carousel-control-next{
+    right: -5rem;
+    width: 10%;
+}
+#motorsDetailModalCarousel > .carousel-control-next > span:first-of-type,
+#motorsDetailModalCarousel > .carousel-control-prev > span:first-of-type{
+    width: 60px;
+    height: 60px;
+}
+.motors-detail-modal-content > i{
+    font-size: 3rem;
+    position: absolute;
+    color: white;
+    right: -8rem;
+    top: -6rem;
+}
+@media screen and (max-width:950px){
+    #motorsDetailModalCarousel > .carousel-control-prev{
+        left: 0rem;
+        width: 10%;
+    }
+    #motorsDetailModalCarousel > .carousel-control-next{
+        right: 0rem;
+        width: 10%;
+    }
+    #motorsDetailModalCarousel > .carousel-inner > .carousel-item > img{
+        width: 100%;
+        height: 350px;
+    }
+    .motors-detail-modal-content{
+        margin: 1rem;
+    }
+    .motors-detail-modal-content > i{
+        right: 0rem;
+        top: -9rem;
+    }
+}
+/**Motors Detail Modal**/
+
 /**Celebration Modal**/
 .celebration-modal-motors{
     position: fixed;
