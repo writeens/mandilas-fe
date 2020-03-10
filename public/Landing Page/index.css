@@ -1,0 +1,134 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    /* background-image: url(../Assets/main.jpg); */
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+/* Landing Page */
+.landing-page{
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    color: white;
+}
+.landing-side{
+    width: calc(100%/3);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s linear;
+}
+.landing-side:hover{
+    transform: scale(1.1);
+}
+.landing-side.cooling{
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705392/Assets/landing-ac_ficpko.png);
+}
+.landing-side.mobility{
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705389/Assets/landing-motors_xzhp9z.png);
+}
+.landing-side.aftersales{
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1583312645/Assets/aftersales_mainlanding_2x_lqtsgo.png);
+}
+.landing-side > a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 600;
+    width: 100%;
+    height: 100%;
+}
+.landing-page > img{
+    position: absolute;
+    width: 150px;
+    height: 100px;
+    top: 2rem;
+    left: 3rem;
+}
+.landing-sm-row{
+    position: absolute;
+    bottom: 0rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.landing-social-media{
+    display: flex;
+    position: relative;
+    background-color: #129347;
+    width: 150px;
+    justify-content: space-around;
+    padding: 0.3rem;
+}
+.landing-social-media > a > img{
+    transform: rotate(-90deg);
+    width: 30px;
+    height: 30px;
+}
+.landing-social-media > a{
+    display: block;
+}
+@media screen and (max-width: 900px){
+    .landing-page{
+        flex-direction: column;
+    }
+    .landing-side{
+        width: 100%;
+        height:calc(100%/3);
+        justify-content: center;
+        align-items: center;
+    }
+    .landing-side > p{
+        font-size: 3rem;
+        font-weight: 600;
+        position: relative;
+        bottom: 0rem;
+        text-align: center;
+    }
+    .landing-page > img {
+        position: absolute;
+        width: 90px;
+        height: 90px;
+        top: 1rem;
+        left: 2rem;
+    }
+    .landing-social-media{
+        height: 40px;
+    }
+    .landing-sm-row{
+        top: 50%;
+        margin-top: -20px;
+        left: -4rem;
+        bottom: unset;
+        width: fit-content;
+        transform: rotate(90deg);
+    }
+    .landing-social-media > img{
+        transform: rotate(180deg);
+    }
+}
+@media screen and (max-width: 1350px){
+    .landing-page > img {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        top: 0rem;
+        left: 1rem;
+    }
+    .landing-side > p{
+        font-size: 2rem;
+    }
+}
+
+/* Landing Page */
