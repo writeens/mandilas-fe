@@ -17,7 +17,6 @@ const handleMotorsButtons = (item, index, arr) => {
             vehicleState = 'new'
         }
     }else if(index === 1){
-        console.log('Used Vehicles Clicked')
         if(vehicleState !== 'used'){
             item.classList.toggle('motors-button-active')
             arr[0].classList.toggle('motors-button-active')
@@ -43,6 +42,16 @@ const handleMotorsLoad = () => {
     }
 }
 window.addEventListener('load', handleMotorsLoad)
+
+//Handle Clicking on New Vehicle Item
+const newVehicleItems = document.querySelectorAll('.motors-nv-item');
+const handleNewVehicleItemClick = (index) => {
+    console.log(index)
+    location.href = `motors-detail.html?id=${index}`;
+}
+newVehicleItems.forEach((item, index) => {
+    item.addEventListener('click', () => handleNewVehicleItemClick(index))
+})
 
 
 /**Celebration Modal Control */

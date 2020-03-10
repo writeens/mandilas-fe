@@ -42,7 +42,8 @@
     
     <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
-    <script src="index.js" defer></script>
+    <script src="./motorInfo.js" defer></script>
+    <script src="./motors-detail.js" defer></script>
 </head>
 <body>
     <nav>
@@ -202,45 +203,37 @@
     </nav>
     <div class="motors-detail-header"></div>
     <div class="motors-detail-content">
-        <p>Toyota Camry <span>2020</span></p>
+        <p id="vehicleName">Toyota Camry</p>
         <p class="motors-content-bold-text">Overview</p>
         <div class="m-d-logos">
             <div class="m-d-logo">
                 <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705370/Assets/car_jxtp5h.svg" alt="">
-                <p>Sedan</p>
+                <p id="vehicleStructure">Sedan</p>
             </div>
             <div class="m-d-logo">
                 <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705384/Assets/fuel-station_hk0a7c.svg" alt="">
-                <p>Petrol</p>
+                <p id="vehicleFuel">Petrol</p>
             </div>
             <div class="m-d-logo">
                 <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/steering-wheel_jdnosx.svg" alt="">
-                <p>Automatic</p>
+                <p id="vehicleType">Automatic</p>
             </div>
         </div>
         <div class="m-d-summary">
-            <div class="m-d-summary-left">
+            <div id="vehicleSummary" class="m-d-summary-left">
                 <p class="motors-content-bold-text">Summary</p>
-                <p>&bull; Muscle car</p>
-                <p>&bull; 4-door sedan</p>
-                <p>&bull; Manual/Automatic Transmission</p>
-                <p>&bull; 4-cylinder/turbocharged 4-cylinder/V6 engine</p>
             </div>
             <div class="m-d-summary-image">
-                <img src="../Assets/red-car.jpg" alt="">
-                <div class="m-d-summary-palette">
-                    <p style="background-color:#a33638;" class="palette"></p>
-                    <p style="background-color:#9dbfcb;" class="palette"></p>
-                    <p style="background-color:#4dae74;" class="palette"></p>
-                    <p style="background-color: #242424;" class="palette"></p>
-                    <p style="background-color: #c9a267;" class="palette"></p>
+                <img id="vehicleLargeImage" src="../Assets/red-car.jpg" alt="">
+                <div id="vehiclePaletteContainer" class="m-d-summary-palette">
+                    
                 </div>
             </div>
         </div>
         <div class="m-d-description">
             <div class="m-d-description-left">
                 <p class="motors-content-bold-text">Description</p>
-                <p>Lorem ipsum dolor sit amet consectetur, 
+                <p id="vehicleDescription">Lorem ipsum dolor sit amet consectetur, 
                     adipisicing elit. Earum eos, similique adipisci veritatis eum tempora tenetur porro pariatur odio, 
                     quisquam possimus iusto quae. Libero quod necessitatibus magni fuga nostrum sit.
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos perspiciatis beatae 
@@ -258,8 +251,8 @@
             </div>
         </div>
         <div class="m-d-desc-buttons">
-            <a href="">Request Price</a>
-            <a href="">Contact Us</a>
+            <a href="../Contact Us/index.html">Request Price</a>
+            <a href="../Contact Us/index.html">Contact Us</a>
         </div>
     </div>
     <div class="motors-detail-layer-1">
@@ -281,7 +274,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody class="m-d-tbody">
+            <tbody id="specSheetBody" class="m-d-tbody">
                 <tr>
                     <td></td>
                     <td>Model</td>
