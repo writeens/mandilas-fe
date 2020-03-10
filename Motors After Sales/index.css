@@ -469,7 +469,174 @@ p{
 /*Fleet Management**/
 
 /*Body Refurbishment*/
-
+.ref-header{
+    min-height: 400px;
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705403/Assets/motors-as-header_xdiwoa.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 3rem 2rem 3rem 5rem;
+    margin-bottom: 2rem;
+}
+.ref-header > p:first-of-type{
+    font-size: 3rem;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 2rem;
+}
+.ref-header > p:last-of-type{
+    font-size: 1.3rem;
+    text-align: center;
+    color: white;
+    text-align: justify;
+    max-width: 900px;
+}
+.ref-layer-one{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 6rem;
+    margin-bottom: 2rem;
+}
+.ref-layer-one > p{
+    line-height: 2.3rem;
+    width: 40%;
+    text-align: justify;
+}
+.ref-layer-two{
+    background-color: #405047;
+    margin: 0rem 3rem 2rem 3rem;
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    min-height: 300px;
+}
+.ref-layer-two > p,
+.ref-layer-two > div{
+    width: 45%;
+    color: white;
+}
+.ref-layer-two > p{
+    font-size: 2.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.ref-layer-two > div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+.ref-layer-form-container{
+    display: flex;
+    justify-content: center;
+    margin: 0rem 1rem 3rem 1rem;
+}
+.ref-layer-form{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 2rem;
+    width: 900px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.ref-layer-form > section{
+    display: flex;
+    flex-direction: column;
+}
+.ref-layer-form > section:first-of-type{
+    margin-bottom: 3rem;
+}
+.ref-layer-form > section > p:first-of-type{
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.ref-layer-form-row{
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 2rem;
+}
+.ref-layer-form-row > input,
+.ref-layer-form > section input{
+    width: 45%;
+    padding: 0.8rem;
+    border: 1px solid gray;
+}
+.ref-layer-form > section > textarea{
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid gray;
+}
+.ref-layer-form > button{
+    width: fit-content;
+    padding: 1rem 3rem;
+    background-color: #129347;
+    border-radius: 0.3rem;
+    border: none;
+    color: white;
+}
+@media screen and (max-width: 950px){
+    .ref-header{
+        padding: 1rem;
+        font-size: 2rem;
+    }
+    .ref-header > p:first-of-type {
+        font-size: 2rem;
+    }
+    .ref-header > p:last-of-type {
+        font-size: 1rem;
+        text-align: justify;
+        max-width: auto;
+    }
+    .ref-layer-one {
+        flex-direction: column;
+        padding: 1rem;
+    }
+    .ref-layer-one > p {
+        width: auto;
+    }
+    .ref-layer-two {
+        margin: 0rem 0rem 3rem 0rem;
+        padding: 1rem;
+        flex-direction: column;
+        min-height: auto;
+    }
+    .ref-layer-two > p, .ref-layer-two > div {
+        width: auto;
+        text-align: center;
+    }
+    .ref-layer-two > p{
+        margin-bottom: 1rem;
+        font-size: 2rem;
+    }
+    ..ref-layer-two > div{
+        font-size: 2rem;
+    }
+    .ref-layer-form-container{
+        margin: 0rem 0rem 2rem 0rem;
+    }
+    .ref-layer-form {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 1rem;
+        width: 100%;
+        box-shadow: none;
+    }
+    .ref-layer-form-row {
+        flex-direction: column;
+        margin-bottom: 0rem;
+    }
+    .ref-layer-form-row > input, .ref-layer-form > section input {
+        width: auto;
+        margin-bottom: 1rem;
+    }
+}
 /*Body Refurbishment*/
 
 
