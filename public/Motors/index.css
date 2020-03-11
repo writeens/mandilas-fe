@@ -444,7 +444,7 @@ p{
     .motors-content-uv-b-right-layer-2 {
         width: 100%;
     }
-    .motors-content-uv-b-card-left,
+    .motors-content-uv-b-card-left, 
     .motors-content-uv-b-card-right {
         width: 100%;
         margin-bottom: 1rem;
@@ -502,7 +502,7 @@ p{
         align-items: center;
         text-align: center;
     }
-
+    
 }
 /* Motors Page */
 
@@ -749,12 +749,6 @@ p{
 .motors-warranty > p:last-of-type{
     text-align: justify;
 }
-
-.select-class {
-  height: 50px;
-}
-
-
 @media screen and (max-width:900px){
     .motors-detail-layer-1 {
         display: flex;
@@ -800,7 +794,7 @@ p{
     .m-d-description{
         flex-direction: column;
     }
-    .m-d-description-left,
+    .m-d-description-left, 
     .m-d-description-right{
         width: 100%;
     }
@@ -845,8 +839,125 @@ p{
 
 /* Motors Detail */
 
+/**Motors Detail Modal**/
+.motors-detail-modal{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(25, 39, 65, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.motors-detail-modal-content{
+    position: relative;
+    animation-name: slideInFromTop;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    justify-content: space-between;
+}
+#motorsDetailModalCarousel > .carousel-inner > .carousel-item > img{
+    object-fit: cover;
+    width: 800px;
+    height: 500px;
+}
+#motorsDetailModalCarousel > .carousel-control-prev{
+    left: -5rem;
+    width: 10%;
+}
+#motorsDetailModalCarousel > .carousel-control-next{
+    right: -5rem;
+    width: 10%;
+}
+#motorsDetailModalCarousel > .carousel-control-next > span:first-of-type,
+#motorsDetailModalCarousel > .carousel-control-prev > span:first-of-type{
+    width: 60px;
+    height: 60px;
+}
+.motors-detail-modal-content > i{
+    font-size: 3rem;
+    position: absolute;
+    color: white;
+    right: -8rem;
+    top: -6rem;
+}
+@media screen and (max-width:950px){
+    #motorsDetailModalCarousel > .carousel-control-prev{
+        left: 0rem;
+        width: 10%;
+    }
+    #motorsDetailModalCarousel > .carousel-control-next{
+        right: 0rem;
+        width: 10%;
+    }
+    #motorsDetailModalCarousel > .carousel-inner > .carousel-item > img{
+        width: 100%;
+        height: 350px;
+    }
+    .motors-detail-modal-content{
+        margin: 1rem;
+    }
+    .motors-detail-modal-content > i{
+        right: 0rem;
+        top: -9rem;
+    }
+}
+/**Motors Detail Modal**/
+
+/**Celebration Modal**/
+.celebration-modal-motors{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.celebration-modal-img{
+    display: flex;
+    position: relative;
+    animation-name: slideInFromTop;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    justify-content: space-between;
+    width: 80%;
+    height: 90%;
+    object-fit: cover;
+}
+.celebration-modal-motors > i{
+    position: absolute;
+    right: 3rem;
+    top: 2rem;
+    font-size: 3rem;
+    color: white;
+}
+@media screen and (max-width:950px){
+    .celebration-modal-img{
+        display: flex;
+        position: relative;
+        width: 95%;
+        height: 250px;
+        object-fit: cover;
+        border: 1px solid red;
+    }
+    .celebration-modal > i{
+        right: 1rem;
+        top: 1rem;
+    }
+}
+/**Celebration Modal**/
+
 /* *{
     background: #000 !important;
     color: #0f0 !important;
     outline: solid#f00 1px !important;
 } */
+

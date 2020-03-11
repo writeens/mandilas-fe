@@ -17,7 +17,6 @@ const handleMotorsButtons = (item, index, arr) => {
             vehicleState = 'new'
         }
     }else if(index === 1){
-        console.log('Used Vehicles Clicked')
         if(vehicleState !== 'used'){
             item.classList.toggle('motors-button-active')
             arr[0].classList.toggle('motors-button-active')
@@ -43,3 +42,32 @@ const handleMotorsLoad = () => {
     }
 }
 window.addEventListener('load', handleMotorsLoad)
+
+//Handle Clicking on New Vehicle Item
+const newVehicleItems = document.querySelectorAll('.motors-nv-item');
+const handleNewVehicleItemClick = (index) => {
+    console.log(index)
+    location.href = `motors-detail.html?id=${index}`;
+}
+newVehicleItems.forEach((item, index) => {
+    item.addEventListener('click', () => handleNewVehicleItemClick(index))
+})
+
+
+/**Celebration Modal Control */
+const closeCelebrationMotors = document.querySelector('#closeCelebrationMotors');
+const celebrationModalMotors = document.querySelector('.celebration-modal-motors')
+closeCelebrationMotors.addEventListener('click', () => {
+    celebrationModalMotors.style.display = "none";
+})
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        let data = sessionStorage.getItem('shownCelebrationMotors')
+        console.log(data)
+        if(data === null){
+            celebrationModalMotors.style.display = "flex"
+            sessionStorage.setItem('shownCelebrationMotors', 'true');
+        }
+    }, 5000);
+})
+/**Celebration Modal Control */

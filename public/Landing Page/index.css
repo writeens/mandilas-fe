@@ -79,7 +79,7 @@ p{
 .landing-social-media > a{
     display: block;
 }
-@media screen and (max-width: 900px){
+@media screen and (max-width: 950px){
     .landing-page{
         flex-direction: column;
     }
@@ -89,7 +89,7 @@ p{
         justify-content: center;
         align-items: center;
     }
-    .landing-side > p{
+    /* .landing-side > p{
         font-size: 3rem;
         font-weight: 600;
         position: relative;
@@ -102,7 +102,7 @@ p{
         height: 90px;
         top: 1rem;
         left: 2rem;
-    }
+    } */
     .landing-social-media{
         height: 40px;
     }
@@ -117,8 +117,6 @@ p{
     .landing-social-media > img{
         transform: rotate(180deg);
     }
-}
-@media screen and (max-width: 1350px){
     .landing-page > img {
         position: absolute;
         width: 70px;

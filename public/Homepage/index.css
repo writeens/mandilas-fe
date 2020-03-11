@@ -1,10 +1,7 @@
 body{
     font-family: 'Poppins', sans-serif;
-    background-image: url("../Assets/background.png");
-    background-position: center;
-    position: relative;
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
-
 p{
     margin: 0;
     padding: 0;
@@ -424,9 +421,6 @@ p{
         max-width: 100%;
         margin: 0 0 2rem 0;
         border-radius: 0.5rem;
-    }
-    .homepage-content-logos{
-        /* width: auto; */
     }
     .homepage-content-logos::before,
     .homepage-content-logos::after{

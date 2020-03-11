@@ -1,5 +1,3 @@
-console.log("working");
-
 //Handle Logo Scroll
 const handleLogoScroll = () =>{
     let viewWidth = window.innerWidth
