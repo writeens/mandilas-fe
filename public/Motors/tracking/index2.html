@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Motors</title>
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Normalize.css -->
+    <link rel="stylesheet" href="/Utility/normalize.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet">
+    <!--Slick CSS-->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/Navbar/navbar.css">
+    <link rel="stylesheet" href="/Footer/footer.css">
+    <link rel="stylesheet" href="/motors/tracking/index.css">
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="/assets/chatbot.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!--Slick JS-->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js" defer></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js" defer></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js" defer></script>
+    <script src="/Utility/init-firebase.js" defer></script>
+
+    <script src="/Navbar/navbar.js" defer></script>
+    <script src="/Footer/footer.js" defer></script>
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <nav>
+        <div id="loader">
+            <div class="lds-dual-ring"></div>
+        </div>
+        <div id="infoToast">
+            <div>
+                <p id="infoText">Hello World</p>
+            </div>
+        </div>
+        <div class="navbar-logo">
+            <a href="../Homepage/index.html">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705391/Assets/logo_iw3fbf.svg" alt="mandilas_logo">
+            </a>
+        </div>
+        <div id="navbarToggler" class="navbar-toggler">
+            <i class="fa fa-bars fa-3x"></i>
+        </div>
+        <div class="menu">
+            <div class="menu-item-one">
+                <a href="../Homepage/index.html">Home</a>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>About Us</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../About Us/index.html">Who We Are</a>
+                    <a href="../About Us/meet.html">The Executive Team</a>
+                    <a href="../About Us/csr.html">CSR Activities</a>
+                </div>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Cooling</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Airconditioners/ac.html?id=residential">Residential A/C's</a>
+                    <a href="../Airconditioners/ac.html?id=commercial">Commercial A/C's</a>
+                    <a href="../Utility/coming-soon.html">M.E.P</a>
+                    <a href="../Utility/coming-soon.html">Transicold</a>
+                    <a href="../Airconditioners After Sales/cooling.html">After Sales</a>
+                </div>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Mobility</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Motors After Sales/index.html">Owner Registration</a>
+                    <a href="index.html">New Cars</a>
+                    <a href="index.html?id=usedVehicles">Used Cars</a>
+                    <a href="../Motors After Sales/fleet.html">Fleet Management</a>
+                    <a href="#">Leasing</a>
+                </div>
+            </div>
+            <div class="menu-item-one">
+                <a href="../Airconditioners After Sales/index.html">After Sales</a>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Contact Us</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Contact Us/index.html">Contact Mandilas</a>
+                    <a href="../Location/index.html">Locations</a>
+                </div>
+            </div>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>Career</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="../Career/index.html">Jobs & Careers</a>
+                    <a href="../Career/roles.html">Mandilas Organogram</a>
+                    <a href="#">Mandilas E.V.P</a>
+                </div>
+            </div>
+        </div>
+        <div class="pre-auth">
+            <div class="cart-container">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
+                <p class="no-of-items">0</p>
+            </div>
+            <div class="pre-auth-buttons">
+                <button id="login" class="navbar-login">Login</button>
+                <button id="register" class="navbar-register">Register</button>
+            </div>
+        </div>
+        <div class="post-auth">
+            <p id="nameContainer">Hello, User</p>
+            <div class="cart-container">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705376/Assets/cart_hlhrff.svg" alt="">
+                <p class="no-of-items">0</p>
+            </div>
+            <div class="post-auth-buttons">
+                <button id="logout" class="navbar-logout">Log Out</button>
+            </div>
+        </div>
+        <div class="modal" id="loginModal">
+            <div class="modal-content">
+                <div class="bgLogin modal-content-left">
+                    <p>Log In To Continue</p>
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/logo-white_a4msmz.svg" alt="mandilas_logo">
+                </div>
+                <div class="modal-content-right login">
+                    <div class="modal-row">
+                        <label for="email">Email</label>
+                        <input type="email" class="animated" id="navLogInEmail" placeholder="Enter email address">
+                    </div>
+                    <div class="modal-row">
+                        <label for="password">Password</label>
+                        <input type="password" class="animated" id="navLogInPassword" placeholder="Enter password (at least 6 characters)">
+                    </div>
+                    <div class="action-buttons">
+                        <button id="loginFromLoginModal">Login</button>
+                        <p>or</p>
+                        <button id="registerFromLoginModal">Register</button>
+                    </div>
+                </div>
+                <p id="closeLogin" class="closeModal">&times;</p>
+            </div>
+        </div>
+        <div class="modal" id="registerModal">
+            <div class="modal-content">
+                <div class="bgSignUp modal-content-left">
+                    <p>Register To Continue</p>
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/logo-white_a4msmz.svg" alt="mandilas_logo">
+                </div>
+                <div class="modal-content-right register">
+                    <div class="modal-row">
+                        <label for="firstName">First Name</label>
+                        <input type="text" class="animated" id="navbarFirstName" placeholder="John">
+                    </div>
+                    <div class="modal-row">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" class="animated" id="navbarLastName" placeholder="John">
+                    </div>
+                    <div class="modal-row">
+                        <label for="phoneNumber">Phone Number</label>
+                        <input type="text" class="animated" id="navbarPhoneNumber" placeholder="+23481752456">
+                    </div>
+                    <div class="modal-row">
+                        <label for="email">Email</label>
+                        <input type="email" class="animated" id="navbarEmail" placeholder="Enter your email address">
+                    </div>
+                    <div class="modal-row">
+                        <label for="password">Password</label>
+                        <input type="password" class="animated" id="navbarPassword" placeholder="Enter password (at least 6 characters long)" minlength="6" value="">
+                    </div>
+                    <p class="register-agreement">By signing up, I agree and accept the terms of use</p>
+                    <div class="action-buttons">
+                        <button id="registerFromRegisterModal">Register</button>
+                        <p>or</p>
+                        <button id="loginFromRegisterModal">Login</button>
+                    </div>
+                </div>
+                <p id="closeRegister" class="closeModal">&times;</p>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="">
+      <div class="" style="width:100%;margin-bottom:100px">
+
+        <div class="account-profile-main-st-card" style="margin-left:Auto;margin-right:Auto;margin-top:50px;">
+          <p class="account-profile-main-header" style="margin-bottom:30px;">Service Tracking</p>
+          <div class="st-track">
+            <input id="trackingIdInput" type="text" placeholder="Enter tracking number">
+            <button id="trackServiceButton">Track</button>
+          </div>
+          <div class="" id="trackingResultsDiv" style="margin-bottom:50px;display:none">
+
+
+            <h1 style="margin-bottom:30px">Tracking Details</h1>
+
+            <table>
+              <tr>
+                <td class="padding10">
+                  <p style="font-weight:bold">Name</p>
+                </td>
+                <td class="padding10">
+                  <p id="ownerName"></p>
+                </td>
+              </tr>
+              <tr>
+                <td class="padding10">
+                  <p style="font-weight:bold">Drop-off Date and Time</p>
+                </td>
+                <td class="padding10">
+                  <p id="dropOffDate"></p>
+                </td>
+              </tr>
+              <tr>
+                <td class="padding10">
+                  <p style="font-weight:bold">Pick-up Date and Time</p>
+                </td>
+                <td class="padding10">
+                  <p id="pickUpDate"></p>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="padding10">
+                  <p style="font-weight:bold">Vehicle ID</p>
+                </td>
+                <td class="padding10">
+                  <p id="vehicleReg"></p>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="padding10">
+                  <p style="font-weight:bold">Vehicle Brand</p>
+                </td>
+                <td class="padding10">
+                  <p id="vehicleBrand"></p>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="padding10">
+                  <p style="font-weight:bold">Vehicle Model</p>
+                </td>
+                <td class="padding10">
+                  <p id="vehicleModel"></p>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="padding10">
+                  <p style="font-weight:bold">Vehicle Color</p>
+                </td>
+                <td class="padding10">
+                  <p id="vehicleColor"></p>
+                </td>
+              </tr>
+            </table>
+
+
+            <div class="st-progress" style="margin:50px">
+              <progress class="uk-progress" value='75' max='100' id="progressBar"></progress>
+              <p id="progressText">75%</p>
+              <p>Completed</p>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                <p style="padding-top:15px;font-size:30px;font-weight:bold">Service Details</p>
+              </div>
+              <div class="col-2" id="detailsList1">
+
+              </div>
+              <div class="col-2" id="detailsList2">
+
+              </div>
+
+            </div>
+
+            <div class="st-contact-us">
+              <p style="margin-top:50px">Contact Us</p>
+              <div style="margin-top:50px">
+                <p>Engr Laisi Niger</p>
+                <p>08123456789, 08173456789</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <div class="footer">
+        <div class="footer-logos">
+            <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/logo-white_a4msmz.svg" alt="">
+            <div class="footer-logo">
+                <a href="https://www.facebook.com/MandilasGroup" target="_blank">
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705380/Assets/facebook_gbcqyw.svg" alt="facebook_logo">
+                </a>
+                <a href="https://www.twitter.com/mandilasgroup" target="_blank">
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705412/Assets/twitter_mtbdzy.svg" alt="twitter_logo">
+                </a>
+                <a href="https://www.instagram.com/MandilasGroup" target="_blank">
+                    <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705384/Assets/instagram_tzad0s.svg" alt="instagram_logo">
+                </a>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-topic">
+                <p>OUR SERVICES</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/chevron-down_lstgci.svg" alt="">
+            </div>
+            <div class="footer-links hide-footer-links">
+                <a href="../Airconditioners/main.html">COOLING</a>
+                <a href="index.html">MOBILITY</a>
+                <a href="../Properties/index.html">PROPERTIES</a>
+                <a href="../Motors After Sales/index.html">VEHICLE REGISTRATION</a>
+                <a href="../Motors After Sales/spare-parts.html">SPARE PARTS</a>
+                <a href="../Motors After Sales/fleet.html">FLEET MANAGEMENT</a>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-topic">
+                <p>COMPANY</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/chevron-down_lstgci.svg" alt="">
+            </div>
+            <div class="footer-links hide-footer-links">
+                <a href="../About Us/index.html">WHAT WE DO</a>
+                <a href="../About Us/meet.html">THE EXECUTIVE TEAM</a>
+                <a href="../About Us/history.html">COMPANY HISTORY</a>
+                <a href="../About Us/csr.html">CSR ACTIVITIES</a>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-topic">
+                <p>PROPERTIES</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/chevron-down_lstgci.svg" alt="">
+            </div>
+            <div class="footer-links hide-footer-links">
+                <a href="">LEASE ADMINISTRATION</a>
+                <a href="">LETTING & SALES</a>
+                <a href="">MANAGEMENT</a>
+                <a href="">VALUATION</a>
+                <a href="">LIASING</a>
+            </div>
+        </div>
+        <div class="footer-item">
+            <div class="footer-topic">
+                <p>CUSTOMERS</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/chevron-down_lstgci.svg" alt="">
+            </div>
+            <div class="footer-links hide-footer-links">
+                <a href="../Contact Us/index.html">CONTACT US</a>
+                <a href="../Location/index.html">LOCATIONS</a>
+                <a href="">TRACK SERVICE</a>
+                <a href="">AFTER SALES SERVICE</a>
+                <a href="../Airconditioners After Sales/index.html">AIR CONDITIONING SALES</a>
+            </div>
+        </div>
+        <div class="footer-logo mobile">
+            <a href="https://www.facebook.com/MandilasGroup" target="_blank">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705380/Assets/facebook_gbcqyw.svg" alt="facebook_logo">
+            </a>
+            <a href="https://www.twitter.com/mandilasgroup" target="_blank">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705412/Assets/twitter_mtbdzy.svg" alt="twitter_logo">
+            </a>
+            <a href="https://www.instagram.com/MandilasGroup" target="_blank">
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705384/Assets/instagram_tzad0s.svg" alt="instagram_logo">
+            </a>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>2019 Mandilas. All Rights Reserved</p>
+    </div>
+
+
+
+    <div class="" style="position:fixed;bottom:2vh;right:2vw;z-index:7001">
+      <div id="messageBox" class="" style="display: none;width:400px;height:0vh;background-color:white;-webkit-box-shadow: 0px 0px 5px 1px rgba(156,156,156,1);
+        -moz-box-shadow: 0px 0px 5px 1px rgba(156,156,156,1);
+        box-shadow: 0px 0px 5px 1px rgba(156,156,156,1);">
+        <div class="" style="height:15%;background-color:#def4f3;display:flex">
+          <img src="/assets/chaticon.svg" alt="" style="width:70px;margin-top:Auto;margin-bottom:auto;">
+          <p style="font-size:30px;color:#129347;margin-top:Auto;margin-bottom:auto">Norman</p>
+          <p id="closeChatbotIcon" style="margin-left:auto;margin-right:20px;margin-top:20px;color:#757575;cursor:pointer">X</p>
+
+        </div>
+        <div class="" id="preMessageForm" style="padding:20px;">
+          <div class="alert alert-danger" role="alert" id="preMessageError" style="text-align:center;display:none">
+
+          </div>
+          <input id="messageNameEntry" type="text" name="" value="" style="width:100%;padding:20px;" placeholder="Name">
+          <input id="messageEmailEntry" type="text" name="" value="" style="width:100%;padding:20px;margin-top:20px;margin-bottom:20px" placeholder="Email Address">
+          <button id="messageSubmitDetailsButton" type="button" name="button" style="width:100%;height:50px;color:white;background-color:#43b7a1">Start Conversation</button>
+
+        </div>
+        <div class="" id="messageAreaAndEntry" style="display:none;height:85%">
+          <div id="messageArea" class="" style="height:80%;display:flex;flex-direction:column;align-items:flex-start;overflow:scroll;">
+
+
+          </div>
+
+
+
+          <form class="" id="messageEntryForm" action="/" method="post" style="height:20%;display:flex;background-color:#def4f3">
+            <input id="messageInput" placeholder="Write a message" type="text" name="" value="" style="width:72.5%;margin-left:2.5%;height:50px;padding:20px;border-style:solid;border-radius:8px;border-width:1px;margin-top:auto;margin-bottom:auto">
+            <button id="sendMessageButton" type="submit" name="button"
+              style="width:20%;margin-left:2.5%;margin-right:2.5%;height:50px;border-style:none;border-radius:8px;background-color:black;color:white;margin-top:auto;margin-bottom:auto">Send</button>
+          </form>
+        </div>
+
+      </div>
+      <div class="" style="text-align:right">
+        <img id="openCloseChatbotIcon" src="/assets/chaticon.svg" alt="" style="cursor:pointer">
+      </div>
+    </div>
+
+
+    <div id="my-id" uk-modal>
+      <div class="uk-modal-dialog uk-modal-body">
+        <div class="" style="padding:50px;">
+          <p style="font-size:30px;text-align:center;font-weight:400;margin-bottom:30px">COMPLAINT</p>
+          <div id="complaintSuccess" class="alert alert-success" role="alert" style="display:none">
+
+          </div>
+          <div id="complaintFailure" class="alert alert-danger" role="alert" style="display:none">
+
+          </div>
+          <input id="complaintModalName" placeholder="Full Name" class="complaintInput" type="text" name="" value=""
+            style="width:100%; height:50px;padding:20px;background-color:#eaeaea;border-style:none;border-style:solid;border-color:#eaeaea;border-width:1px">
+          <input id="complaintModalEmail" placeholder="Email Address" class="complaintInput" type="email" name="" value=""
+            style="width:100%; height:50px;padding:20px;background-color:#eaeaea;border-style:none;border-style:solid;border-color:#eaeaea;border-width:1px;margin-top:20px">
+          <input id="complaintModalPhoneNumber" placeholder="Phone Number" class="complaintInput" type="number" name="" value=""
+            style="width:100%; height:50px;padding:20px;background-color:#eaeaea;border-style:none;border-style:solid;border-color:#eaeaea;border-width:1px;margin-top:20px">
+          <textarea id="complaintModalComplaint" placeholder="Please enter your complaint" class="complaintInput" name="name" rows="8"
+            style="width:100%; padding:20px;background-color:#eaeaea;border-style:none;border-style:solid;border-color:#eaeaea;border-width:1px;margin-top:20px"></textarea>
+          <div class="" style="text-align:right">
+            <button id="modalComplaintSubmitButton" type="button" name="button" style="padding-left:20px;padding-right:20px;padding-top:10px;padding-bottom:10px;color:white;background-color:#43b7a1;border-style:none;border-radius:8px">Submit
+              Complaint</button>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
