@@ -70,11 +70,11 @@ p{
     bottom: 20px;
     text-align: center;
 }
-.main-ac-as-layer-3{
+.main-ac-as-layer-3 {
     display: flex;
     height: fit-content;
     justify-content: space-between;
-    padding: 3rem 3rem 3rem 4rem;
+    padding: 1rem 3rem 1rem 4rem;
     margin-bottom: 2rem;
     color: white;
     background-color: #727272;
