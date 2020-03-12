@@ -47,6 +47,10 @@ nav{
     position: relative;
     top: -1rem;
 }
+.menu-item-one > a:hover {
+    text-decoration: none;
+    color: inherit;
+}
 .menu-item-two > p {
     margin-bottom: 1rem;
 }
