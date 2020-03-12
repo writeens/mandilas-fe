@@ -10,6 +10,7 @@ const vehiclePaletteContainer = document.querySelector('#vehiclePaletteContainer
 const vehicleDescription = document.querySelector('#vehicleDescription');
 const vehicleLargeImage = document.querySelector('#vehicleLargeImage');
 const specSheetBody = document.querySelector('#specSheetBody');
+const specSheetHead = document.querySelector('#specSheetHead');
 const motorsDetailModal = document.querySelector('#motorsDetailModal');
 const motorsExteriorGallery = document.querySelector('#motorsExteriorGallery')
 const motorsInteriorGallery = document.querySelector('#motorsInteriorGallery')
@@ -17,6 +18,7 @@ const imageCarouselContainer = document.querySelector('#mdImageContainer');
 
 // Create Spec Sheet
 specSheetBody.innerHTML = "";
+specSheetHead.innerHTML = "";
 const createSpecSheet = (data) => {
     let newData = Object.values(data);
     newData.map(item => {
@@ -28,6 +30,15 @@ const createSpecSheet = (data) => {
         })
         specSheetBody.append(tr);
     })
+    const thtr = document.createElement("tr");
+    newData[0].map((item, index) => {
+        let th = document.createElement('th')
+        if(index === 0){
+            th.innerHTML = "Specifications"
+        }
+        thtr.append(th);
+    })
+    specSheetHead.append(thtr);
 }
 
 // Create Basic Information

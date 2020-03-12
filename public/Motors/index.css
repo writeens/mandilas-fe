@@ -98,6 +98,11 @@ p{
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transform: scale(0.8);
+    transition: transform 0.3s linear;
+}
+.motors-nv-item > img:hover{
+    transform: scale(1.1);
 }
 .motors-content-sales{
     display: flex;
