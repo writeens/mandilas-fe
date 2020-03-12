@@ -21,9 +21,9 @@ const registerButton = document.querySelector('#register')
 const loginModal = document.querySelector('#loginModal')
 const registerModal = document.querySelector('#registerModal')
 const registerFromLoginModal = document.querySelector('#registerFromLoginModal');
-const loginFromRegisterModal = document.querySelector('#loginFromRegisterModal'); 
+const loginFromRegisterModal = document.querySelector('#loginFromRegisterModal');
 const closeLogin = document.querySelector('#closeLogin');
-const closeRegister = document.querySelector('#closeRegister') 
+const closeRegister = document.querySelector('#closeRegister')
 // Log Out Buttons
 const navLogOut = document.querySelector('#logout')
 //Pre Sign In Buttons
@@ -101,7 +101,7 @@ const navbarMenuItems = document.querySelectorAll('[data-nav-key]');
 //         console.log("showing Menu")
 //         toggle.children[0].classList.toggle('fa-bars');
 //         toggle.children[0].classList.toggle('fa-close');
-        
+
 //     }
 //     if(closeIconPresent){
 //         console.log("hiding Menu")
@@ -135,7 +135,7 @@ registerFromLoginModal.addEventListener('click', () => {
     clearLogin()
     loginModal.style.display = "none";
     registerModal.style.display = "flex"
-    
+
 })
 //Handle Login button click in Register Modal
 loginFromRegisterModal.addEventListener('click', () => {
@@ -234,7 +234,7 @@ const updateCartIcon = (id) => {
             if(status === 'success'){
                 // console.log(data)
                 // CART_ITEMS = data.map(item => item.id)
-                cartNumber.forEach(item => item.innerHTML = data.length)   
+                cartNumber.forEach(item => item.innerHTML = data.length)
             }
             //There are no items in cart
             if(status === 'error'){
@@ -374,6 +374,18 @@ const handleRegister = () => {
                     USER_ID = userId
                     //Update Cart Icon
                     updateCartIcon(USER_ID)
+
+                    $.ajax({
+                      url : '/sendWelcomeMail',
+                      type : "POST",
+                      data : {
+                        email : email,
+                        name : name
+                      },
+                      success : function () {
+                        console.log("Email sent");
+                      }
+                    })
                 }
                 if(data.status === "error" && data.code === "MAIL_EXISTS"){
                     infoText.innerHTML = `Hi ${body["firstName"]}, this email already exists`;
@@ -387,6 +399,13 @@ const handleRegister = () => {
             })
     }
 }
+
+
+
+
+
+
+
 navRegister.addEventListener('click', handleRegister)
 
 // Handle the Login Modal
@@ -502,7 +521,7 @@ const handleNavbarLoad = new Promise((resolve, reject) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             if(errorCode === "auth/invalid-custom-token"){
-                
+
                 loader.classList.remove('showLoader')
             }
             if(errorCode === "auth/network-request-failed"){
@@ -578,5 +597,5 @@ nameContainer.addEventListener('click', () => {
                 setTimeout(() => {
                     infoToast.classList.remove('showInfoToast')
                 }, 2000);
-        }) 
+        })
 })
