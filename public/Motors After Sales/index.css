@@ -8,13 +8,14 @@ p{
 }
 /* Motors After Sale/ Owner Registration*/
 .motors-as-header{
-    height: 500px;
+    height: fit-content;
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705403/Assets/motors-as-header_xdiwoa.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     margin-bottom: 3rem;
     display: flex;
+    padding: 6rem 0rem;
     justify-content: center;
     align-items: center;
 }
@@ -27,7 +28,7 @@ p{
 .motors-as-form{
     display: flex;
     flex-direction: column;
-    margin: 0rem 15rem 4rem 15rem;
+    margin: 0rem 15rem 2rem 15rem;
     background-color: white;
     padding: 2rem;
     border-radius: 0.3rem;
@@ -38,16 +39,16 @@ p{
     font-weight: 600;
     display: flex;
     align-self: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 .motors-as-row{
     display:flex;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     justify-content: space-between;
 }
 .motors-as-row > input{
     width: 40%;
-    padding: 1rem;
+    padding: 0.7rem;
 }
 .motors-as-form input{
     border: 1px solid #818181;
@@ -82,20 +83,18 @@ p{
     background-color: #129347;
     cursor: pointer;
 }
-@media screen and (max-width:1350px){
-    .motors-as-header{
+@media screen and (max-width:950px){
+    /* .motors-as-header{
         height: 500px;
-    }
-    .motors-as-header > p {
+    } */
+    /* .motors-as-header > p {
         font-size: 3.5rem;
         padding: 2rem 3rem;
-    }
-    .motors-as-form{
+    } */
+    /* .motors-as-form{
         margin: 0 2rem 4rem 2rem;
         padding: 2rem;
-    }
-}
-@media screen and (max-width:800px){
+    } */
     .motors-as-header > p {
         font-size: 2.5rem;
         padding: 2rem 0;
@@ -128,7 +127,8 @@ p{
 
 /* Spare Parts */
 .spare-parts-header{
-    height: 500px;
+    height: fit-content;
+    padding: 3rem 1rem 3rem 6rem;
     display: flex;
     flex-direction: column;
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705410/Assets/spare-parts_wvegcp.png);
@@ -138,7 +138,6 @@ p{
     color: white;
     justify-content: center;
     align-items: flex-start;
-    padding: 0rem 0rem 0rem 6rem;
 }
 .spare-parts-header > p:first-of-type{
     font-size: 3rem;
@@ -406,7 +405,8 @@ p{
 
 /*Fleet Management**/
 .fleet-header{
-    height: 500px;
+    height: fit-content;
+    padding: 4rem 1rem;
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705387/Assets/fleet-header_igb1ks.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -435,7 +435,7 @@ p{
 }
 .fleet-body-small{
     line-height: 2rem;
-    margin-bottom: 1.5rem;
+    margin: 0rem 0rem 0.6rem 0rem;
     display: flex;
 }
 .fleet-body-five{
@@ -445,7 +445,7 @@ p{
     margin-left: 3rem;
 }
 .fleet-body-five > div > p{
-    margin-bottom: 0.8rem;
+    margin: 0rem 0rem 0.8rem 0rem;
     line-height: 2rem;
 }
 .fleet-number{
@@ -497,7 +497,7 @@ p{
 .ref-layer-one{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 6rem;
+    padding: 1rem 5rem;
     margin-bottom: 2rem;
 }
 .ref-layer-one > p{
@@ -508,14 +508,17 @@ p{
 .ref-layer-two{
     background-color: #405047;
     margin: 0rem 3rem 2rem 3rem;
-    padding: 2rem 4rem;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     min-height: 300px;
 }
-.ref-layer-two > p,
+.ref-layer-two > p{
+    width: 40%;
+    color: white;
+}
 .ref-layer-two > div{
-    width: 45%;
+    width: 40%;
     color: white;
 }
 .ref-layer-two > p{
@@ -541,7 +544,7 @@ p{
     flex-direction: column;
     background-color: white;
     padding: 2rem;
-    width: 900px;
+    width: 935px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .ref-layer-form > section{

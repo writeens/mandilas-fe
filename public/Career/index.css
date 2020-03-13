@@ -9,7 +9,7 @@ p{
 }
 /* Career Content Page*/
 .career-header{
-    height: 500px;
+    height: fit-content;
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/career-header_hzumz5.png);
     background-repeat: no-repeat;
     background-position: center;
@@ -21,6 +21,7 @@ p{
     align-items: center;
     color: white;
     margin-bottom: 1rem;
+    padding: 7rem 1rem;
 }
 .career-header > p {
     font-size: 3rem;
@@ -58,16 +59,16 @@ p{
 .career-body-text{
     display: flex;
     flex-direction: column;
+    padding-top: 3rem;
 }
 .career-body-text > p:first-of-type{
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin: 0rem 0rem 1rem 0rem;
     font-weight: 600;
 }
 .career-body-text > p:last-of-type{
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    line-height: 2.2rem;
+    margin: 0rem 0rem 1rem 0rem;
+    line-height: 1.9rem;
     text-align: justify;
 }
 #goToRolesPage {

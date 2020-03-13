@@ -10,8 +10,8 @@ p{
 .main-ac-as{
     display: flex;
     flex-direction: column;
-    padding: 8rem 0 0 8rem ;
-    height: 500px;
+    padding: 4rem 0 2rem 3rem ;
+    height: fit-content;
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1583252288/Assets/aftersales_bg_n2egps.png);
     background-position: center;
     background-size: cover;
@@ -22,10 +22,9 @@ p{
 .main-ac-as > p:first-of-type{
     font-size: 3rem;
     font-weight: 600;
-    margin-bottom: 2rem;
 }
 .main-ac-as > p:last-of-type{
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 500;
 }
 .main-ac-as-layer-1 {

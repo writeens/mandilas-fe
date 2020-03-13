@@ -1,6 +1,6 @@
 /* Homepage Footer */
-.footer{
-    padding: 5rem 0rem 3rem 4rem;
+.footer {
+    padding: 2rem 0rem 1rem 2rem;
     display: flex;
     height: fit-content;
     background-color: #002F14;
@@ -15,7 +15,7 @@
 .footer-logos{
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 290px;
     position: relative;
 }
 .footer-logos > img{
@@ -80,7 +80,7 @@
     left: 30%;
     align-self: center;
 }
-@media screen and (max-width:1350px){
+@media screen and (max-width:950px){
     .footer{
         flex-direction: column;
         padding: 2rem 2rem;

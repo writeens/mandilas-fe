@@ -18,7 +18,8 @@ p{
 }
 .motors-header{
     display: flex;
-    height: 500px;
+    height: fit-content;
+    padding: 5rem 0rem;
     background-color: #129347;
     flex-direction: column;
     justify-content: center;
@@ -36,7 +37,6 @@ p{
     color: white;
     margin-bottom: 1rem;
     position: relative;
-    top: -3rem;
 }
 .motors-header > p:last-of-type{
     font-size: 2rem;
@@ -242,12 +242,13 @@ p{
     text-align: center;
     font-weight: 600;
 }
-.motors-uv-item > p:last-of-type{
+.motors-uv-item > p:last-of-type {
     position: absolute;
-    width: 150px;
-    height: 30px;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.2rem 0.3rem;
     display: flex;
-    font-size: 1.1rem;
+    font-size: 0.8rem;
     background-color: #129347;
     color: white;
     align-self: flex-start;
@@ -395,7 +396,6 @@ p{
     }
     .motors-header {
         align-items: center;
-        padding: 0rem;
         text-align: center;
     }
     .motors-header > p:first-of-type {
@@ -534,10 +534,13 @@ p{
     font-size: 2rem;
     font-weight: 300;
 }
+.m-d-summary-left > p {
+    margin: 0rem 0rem 0.8rem 0rem;
+}
 .motors-content-bold-text{
     font-size: 1.5rem;
     font-weight: 600;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1rem !important;
 }
 .m-d-logos{
     display: flex;
@@ -593,8 +596,7 @@ p{
     height: 100px;
     max-width: 100px;
     width: calc(100%/5);
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin: 0rem 0.5rem;
 }
 .m-d-description{
     display: flex;

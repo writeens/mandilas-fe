@@ -9,7 +9,8 @@ p{
 }
 /* About Us */
 .about-us-header{
-    height: 500px;
+    height: fit-content;
+    padding: 1rem 0rem;
     display: flex;
     flex-direction: column;
     color: white;
@@ -191,7 +192,7 @@ p{
     font-size: 2rem;
     font-weight: 600;
     color: #129347;
-    margin-bottom: 3.5rem;
+    margin-bottom: 3rem;
 }
 .about-us-ac-right{
     width: 45%;
@@ -206,7 +207,7 @@ p{
     flex-direction: column;
 }
 .about-us-ac-bottom > p{
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 .about-us-ac-bottom > p > span{
     color: #129347;
@@ -262,12 +263,13 @@ p{
     display: flex;
     flex-direction: column;
     width: 50%;
+    line-height: 2rem;
 }
 .about-us-motors-left > p:first-of-type{
     font-size: 2rem;
     font-weight: 600;
     color: #129347;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 .about-us-motors-right{
     width: 45%;
@@ -281,11 +283,12 @@ p{
 .about-us-motors-bottom{
     display: flex;
     flex-direction: column;
+    line-height: 2rem;
 }
-.about-us-motors-bottom > p{
-    margin-bottom: 2rem;
+.about-us-motors-bottom > div{
+    margin-bottom: 1rem;
 }
-.about-us-motors-bottom > .motors-text-bold{
+.about-us-motors-bottom > div > .motors-text-bold{
     color: #129347;
     font-weight: 600;
 }
@@ -309,6 +312,7 @@ p{
 }
 .about-us-after-sales-content > p{
     width: 45%;
+    line-height: 2rem;
 }
 .about-us-after-sales-content > img{
     width: 45%;

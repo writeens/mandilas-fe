@@ -71,7 +71,7 @@ p{
 .contact-us-general{
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin: 0rem 0rem 1rem 0rem;
 }
 .contact-us-big-text{
     font-size: 1.5rem;
@@ -84,18 +84,18 @@ p{
     font-weight: 700;
     color: #129347;
     margin-bottom: 1rem;
+    margin: 0rem 0rem 1rem 0rem;
 }
 .contact-us-medium-text{
     font-size: 1rem;
     font-weight: 600;
     color: #666;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    margin: 0rem 0rem 0.5rem 0rem;
 }
 .contact-us-small-text{
     font-size: 1rem;
     color: #666;
-    margin-bottom: 1rem;
+    margin: 0rem 0rem 1rem 0rem;
 }
 .contact-us-role-text{
     font-size: 1rem;
@@ -107,11 +107,11 @@ p{
     width: 50%;
     height: fit-content;
 }
-.contact-us-form{
+.contact-us-form {
     display: flex;
     flex-direction: column;
     padding: 2rem 1rem;
-    /* width: 70%; */
+    margin-bottom: 2rem;
     height: 100%;
     background-color: white;
     border-radius: 0.3rem;

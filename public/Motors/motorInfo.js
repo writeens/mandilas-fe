@@ -62,7 +62,7 @@ const MOTORS = {
             27:["STEERING SWITCH", "Tel+2Way Audio+BT", "", "&#10004;", "&#10004;"],
             28:["DAYTIME RUNNING LIGHT", "LED", "", "&#10004;", "&#10004;"],
             29:["WIRELESS DOOR LOCK", "Smart Entry", "", "&#10004;", "&#10004;"],
-            30:["OTHER SPECS", "There are other specs NOT listed", "", "&#10004;", "&#10004;", "&#10004;", "&#10004;"]
+            30:["OTHER SPECS", "There are other specs NOT listed", "", "&#10004;", "&#10004;"]
         }
     },
     1:{
