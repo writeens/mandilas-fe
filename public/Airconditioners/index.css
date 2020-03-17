@@ -1154,7 +1154,6 @@ p{
         width: 95%;
         height: 250px;
         object-fit: cover;
-        border: 1px solid red;
     }
     .celebration-modal > i{
         right: 1rem;
