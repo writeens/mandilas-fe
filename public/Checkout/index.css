@@ -15,7 +15,7 @@ p{
     display: flex;
     flex-direction: column;
     position: relative;
-    max-width: 30%;
+    max-width: 35%;
     min-width: 25%;
     min-height: fit-content;
     height: fit-content;
@@ -35,6 +35,9 @@ p{
     font-size: 1.3rem;
     justify-content: space-between;
     margin-bottom: 2rem;
+}
+.checkout-main-text > p{
+    margin: 1rem 0rem;
 }
 .checkout-order-line{
     margin: 3rem 0rem;
@@ -289,7 +292,7 @@ p{
 .pickup-opening > p:nth-child(2){
     font-size: 1rem;
 }
-.checkout-main-left > button{
+.pay{
     align-self: center;
     background-color: green;
     width: 100%;
@@ -299,4 +302,70 @@ p{
     font-size: 1.2rem;
     cursor: pointer;
     border-radius: 0.5rem;
+}
+#payNowMobile{
+    display: none;
+}
+
+@media screen and (max-width:950px){
+    #payNow{
+        display: none;
+    }
+    .checkout-delivery{
+        margin-bottom: 0rem;
+    }
+    .checkout-main{
+        flex-direction: column;
+        padding: 1rem 0.5rem;
+    }
+    .checkout-main-right,
+    .checkout-main-left{
+        width: auto;
+    }
+    .checkout-main-left > p{
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    .checkout-billing{
+        padding: 1rem;
+    }
+    .billing-row{
+        flex-direction: column;
+        margin-bottom: 1rem;
+    }
+    .billing-input{
+        margin-bottom: 1rem;
+        width: auto;
+    }
+    .billing-input > label{
+        margin-bottom: 0.8rem;
+    }
+    .checkout-delivery{
+        padding: 1rem 0.8rem;
+    }
+    .checkout-delivery-radio{
+        margin-bottom: 1rem;
+    }
+    .door-delivery {
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: none;
+    }
+    .door-delivery > p:nth-child(2) {
+        margin-left: 0rem;
+        margin-bottom: 1rem;
+    }
+    .dd-delivery-item-list {
+        margin-left: 0rem;
+        border-radius: 0.3rem;
+        padding: 1rem 1rem;
+        box-shadow: none;
+    }
+    .checkout-main-right{
+        min-width: 100%;
+        margin-bottom: 2rem;
+    }
+    #payNowMobile{
+        display: block;
+    }
 }

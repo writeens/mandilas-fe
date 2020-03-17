@@ -19,6 +19,7 @@ const pickUpBox = document.querySelector('.dd-delivery-item-list.pickup')
 const deliveryRadio = document.querySelector('#deliveryRadio');
 const pickUpRadio = document.querySelector('#pickUpRadio');
 const payNow = document.querySelector('#payNow');
+const payNowMobile = document.querySelector('#payNowMobile')
 let CART_TOTAL = 0
 let SUB_TOTAL = 0
 let CART_DETAILS = [];
@@ -345,3 +346,5 @@ const handlePayment = () => {
     }
 }
 payNow.addEventListener('click', handlePayment)
+
+payNowMobile.addEventListener('click', handlePayment)
