@@ -32,7 +32,7 @@ p{
 }
 .checkout-main-text{
     display: flex;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     justify-content: space-between;
     margin-bottom: 2rem;
 }
@@ -224,7 +224,7 @@ p{
 .dd-delivery-item-list.pickup{
     display: flex;
     flex-direction: column;
-    max-height: 0px;
+    /* max-height: 0px; */
     transition: all 0.5s ease-in;
     overflow: hidden;
     padding: 0;
@@ -361,11 +361,41 @@ p{
         padding: 1rem 1rem;
         box-shadow: none;
     }
+    .dd-delivery-item-list.pickup > p:nth-child(1) {
+        margin-bottom: 1rem;
+    }
+    .pickup > p:nth-child(2) {
+        margin-left: 0.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+        font-size: 1rem;
+        width: fit-content;
+    }
+    .pickup-info{
+        flex-direction: column;
+    }
+    .pickup-info-left,
+    .pickup-info-right{
+        width: auto;
+    }
+    .pickup-opening{
+        max-width: 100%;
+        justify-content: space-around;
+    }
+    .pickup-opening > p {
+        margin: 0rem;
+    }
+    .pickup-container{
+        text-align: center;
+    }
     .checkout-main-right{
         min-width: 100%;
         margin-bottom: 2rem;
     }
     #payNowMobile{
         display: block;
+    }
+    .checkout-order-total > p{
+        margin: 0.5rem 0rem;
     }
 }
