@@ -28,7 +28,7 @@ p{
     font-weight: 500;
 }
 .main-ac-as-layer-1 {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     display: flex;
     justify-content: space-between;
@@ -92,7 +92,7 @@ p{
     margin-bottom: 1rem;
 }
 .main-ac-as-layer-3-left > p:last-of-type {
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 2rem;
     font-weight: 400;
     margin-bottom: 2rem;
@@ -129,7 +129,7 @@ p{
     display: flex;
     flex-direction: column;
     width: 45%;
-    font-size: 1rem;
+    font-size: 1.2rem;
     line-height: 2rem;
 }
 .main-ac-as-layer-4-right{
