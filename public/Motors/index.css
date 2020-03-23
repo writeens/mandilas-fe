@@ -914,6 +914,86 @@ p{
 }
 /**Motors Detail Modal**/
 
+/**Used Cars Modal**/
+.used-cars-modal{
+    position: fixed;
+    z-index: 99;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(25, 39, 65, 0.8);
+    display: none;
+    justify-content: center;
+    padding-top: 3rem;
+}
+.used-cars-modal-content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 90%;
+    border-radius: 0.3rem;
+    padding: 2rem;
+    position: relative;
+    animation-name: slideInFromTop;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-out;
+    justify-content: space-between;
+    background-color: white;
+    overflow-y: scroll;
+}
+.used-cars-modal-content > i {
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    color: green
+}
+/* .used-cars-modal-content > p {
+    margin: 0;
+    font-size: 1.5rem;
+} */
+.used-cars-modal-content > p:first-of-type{
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+.used-cars-modal-content > img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+.used-cars-summary,
+.used-cars-contact{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 1rem;
+}
+.used-cars-summary-text,
+.used-cars-contact-name{
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.used-cars-information{
+    color: red;
+}
+.used-cars-contact-name{
+    margin-bottom: 2rem;
+}
+#usedModalPrice{
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    margin-bottom: 2rem;
+    color: #129347;
+}
+/**Used Cars Modal**/
+
 /**Celebration Modal**/
 .celebration-modal-motors{
     position: fixed;

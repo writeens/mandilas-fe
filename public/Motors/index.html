@@ -46,6 +46,7 @@
 
     <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
+    <script src="used.js" defer></script>
     <script src="index.js" defer></script>
 </head>
 <body>
@@ -318,7 +319,7 @@
                     </div>
                 </div>
                 <div class="motors-content-uv-right">
-                    <div class="motors-content-uv-cars">
+                    <div id="usedCarsContainer" class="motors-content-uv-cars">
                         <div class="motors-uv-item">
                             <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705371/Assets/car-1_q4k6yh.png" alt="">
                             <p>Honda Civic 2015 Imported</p>
@@ -528,6 +529,24 @@
     </div>
     <div class="copyright">
         <p>2019 Mandilas. All Rights Reserved</p>
+    </div>
+
+    <div id="usedCarsModal" class="used-cars-modal">
+        <div class="used-cars-modal-content">
+            <p id="usedModalName">Honda CRV 2018</p>
+            <img id="usedModalImage" src="https://res.cloudinary.com/mandilas/image/upload/v1583918567/Vehicles/Hilux/14bb0a_4a545b0502fd4c17bc9b6854d601a8fb_mv2-1024x683_cy820p.jpg" alt="car_image">
+            <p id="usedModalPrice">NGN 12507464</p>
+            <p class="used-cars-summary">Summary</p>
+            <p id="usedModalSummary" style="text-align: center;" class="used-cars-summary-text">Imported, A/C, F/S, Manual, Airbag, Very Neat</p>
+            <p class="used-cars-summary">Color</p>
+            <p id="usedModalColor" class="used-cars-summary-text">Blue</p>
+            <p class="used-cars-summary">Mileage</p>
+            <p id="usedModalMileage" class="used-cars-summary-text">04049</p>
+            <p class="used-cars-contact">Contact</p>
+            <p class="used-cars-contact-name">Benson - 08055633026</p>
+            <p class="used-cars-information">Our prices are negotiable upon inspection.</p>
+            <i id="closeUsedCarsModal" class="fa fa-close fa-2x"></i>
+        </div>
     </div>
 
     <div class="" style="position:fixed;bottom:2vh;right:2vw;z-index:7001">
