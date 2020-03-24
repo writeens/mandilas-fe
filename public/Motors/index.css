@@ -6,6 +6,9 @@ p{
     margin: 0;
     padding: 0;
 }
+*+p{
+    margin-top: 0 !important;
+}
 
 /* Motors Page */
 .old-vehicles{
@@ -195,10 +198,14 @@ p{
     color: #129347;
     margin-bottom: 2rem;
 }
-.filter-by > select{
+.filter-by > select,
+.filter-by > input{
     padding: 1rem;
     font-size: 0.9rem;
     margin-bottom: 2rem;
+}
+.filter-by > input::placeholder{
+    color: #313131;
 }
 .filter-by > button{
     width: fit-content;

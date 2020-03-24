@@ -15,11 +15,20 @@ const usedModalColor = document.querySelector('#usedModalColor');
 
 
 //Generate Used Vehicle
+const usedCarsContainer = document.querySelector('#usedCarsContainer');
+usedCarsContainer.innerHTML = "";
 const generateUsedVehicle = (data) => {
     let newData = Object.values(data)
-    newData.map(item => {
-        createVehicleItem(item)
-    })
+    if(newData.length > 0){
+        newData.map(item => {
+            createVehicleItem(item)
+        })
+    }else{
+        let p = document.createElement('p');
+        p.innerText = 'There are no used cars matching this criteria.';
+        p.style.fontSize = '1.5rem';
+        usedCarsContainer.appendChild(p);
+    }
 }
 
 /**Used Car Modal Control */
@@ -41,8 +50,6 @@ closeUsedCarsModal.addEventListener('click', () => {
 })
 /**Close Modal */
 
-const usedCarsContainer = document.querySelector('#usedCarsContainer');
-usedCarsContainer.innerHTML = "";
 const createVehicleItem = (vehicle) => {
     const {year, make, model, summary, image, color, mileage, price} = vehicle
     let itemContainer = document.createElement('div');
@@ -81,6 +88,7 @@ const handleMotorsButtons = (item, index, arr) => {
             oldVehicles.style.display = "flex"
             newVehicles.style.display = "none"
             generateUsedVehicle(USED_CARS);
+            generateVehicleYears(USED_CARS);
         }
     }
 }
@@ -88,6 +96,31 @@ motorsButtons.forEach((item, index, arr) => {
     item.addEventListener('click', () => {handleMotorsButtons(item, index, arr)})
 })
 
+//Generate Vehicle Years
+const selectYear = document.querySelector('#selectYear');
+const generateVehicleYears = (data) => {
+    let years = []
+    years = Object.values(data).map(item => item.year);
+    years.sort((a, b) => a - b);
+    let finalYears = new Set(years);
+    years = [];
+    for(let item of finalYears){
+        years.push(item)
+    }
+    selectYear.innerHTML = "";
+    let defaultOption = document.createElement('option');
+    defaultOption.value = 0;
+    defaultOption.innerText = "Year";
+    selectYear.appendChild(defaultOption)
+    //Display Years
+    years.map(item => {
+        let option = document.createElement('option');
+        option.innerText = item;
+        option.value = item;
+
+        selectYear.appendChild(option);
+    })
+}
 
 
 const handleMotorsLoad = () => {
@@ -98,6 +131,7 @@ const handleMotorsLoad = () => {
         oldVehicles.style.display = "flex";
         vehicleState = "used"
         generateUsedVehicle(USED_CARS);
+        generateVehicleYears(USED_CARS);
         motorsButtons[0].classList.toggle('motors-button-active');
         motorsButtons[1].classList.toggle('motors-button-active');
     }
@@ -107,7 +141,6 @@ window.addEventListener('load', handleMotorsLoad)
 //Handle Clicking on New Vehicle Item
 const newVehicleItems = document.querySelectorAll('.motors-nv-item');
 const handleNewVehicleItemClick = (index) => {
-    console.log(index)
     location.href = `motors-detail.html?id=${index}`;
 }
 newVehicleItems.forEach((item, index) => {
@@ -124,7 +157,6 @@ closeCelebrationMotors.addEventListener('click', () => {
 window.addEventListener('load', () => {
     setTimeout(() => {
         let data = sessionStorage.getItem('shownCelebrationMotors')
-        console.log(data)
         if(data === null){
             celebrationModalMotors.style.display = "flex"
             sessionStorage.setItem('shownCelebrationMotors', 'true');
@@ -132,4 +164,50 @@ window.addEventListener('load', () => {
     }, 5000);
 })
 /**Celebration Modal Control */
+
+//Populate Select Model
+const selectModel = document.querySelector('#selectModel');
+const populateSelectModel = (make, data) => {
+    selectModel.innerHTML = "";
+    data[make].map(item => {
+        let option = document.createElement('option');
+        option.innerText = item;
+        option.value = item.toLowerCase();
+        selectModel.appendChild(option);
+    })
+}
+
+//Handling Select Make Change
+const selectMake = document.querySelector('#selectMake');
+const handleSelectMakeChange = (e) => {
+    let make = e.target.options[e.target.selectedIndex];
+    populateSelectModel(make.value, CAR_MODELS);
+}
+selectMake.addEventListener('change', handleSelectMakeChange);
+
+
+/**Handling Search Button */
+const handleFilterUsedCars = () => {
+    let make = selectMake.value;
+    let model = selectModel.value;
+    let year = parseInt(selectYear.value);
+    let data = Object.values(USED_CARS);
+    if(make === "" && model === "" && year !== ""){
+        data = data.filter(item => item.year === year);
+    }else if(make !== "" && model !== "" && year !== 0){
+        data = data.filter(item => {
+            return item.make.toLowerCase() === make && item.model.toLowerCase() === model && item.year === year
+        })
+    }else if(make !== "" && model !== "" && year === 0){
+        data = data.filter(item => {
+            return item.make.toLowerCase() === make && item.model.toLowerCase() === model
+        })
+    }
+    usedCarsContainer.innerHTML = "";
+    generateUsedVehicle(data)
+}
+const filterUsedCars = document.querySelector('#filterUsedCars');
+filterUsedCars.addEventListener('click', handleFilterUsedCars)
+
+/**Handling Search Button */
 

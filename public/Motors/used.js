@@ -71,8 +71,8 @@ const USED_CARS = {
     },
     7:{
         year: 2010,
-        make:"4Runner",
-        model:"Hilux",
+        make:"Toyota",
+        model:"4Runner",
         summary:["Auto", "CD", "AC", "F/S", "Imported", "Airbag", "Registered"],
         color:"Grey",
         mileage:144665,
@@ -100,3 +100,11 @@ const USED_CARS = {
         image:"https://res.cloudinary.com/mandilas/image/upload/v1583918567/Vehicles/Hilux/14bb0a_4a545b0502fd4c17bc9b6854d601a8fb_mv2-1024x683_cy820p.jpg"
     }
 }
+
+const CAR_MODELS = {
+    toyota:["Corolla", "Hilux", "Yaris", "4Runner"],
+    honda:["CR-V"],
+    ford:["Focus"],
+    hyundai:["Santa-Fe"]
+}
+
