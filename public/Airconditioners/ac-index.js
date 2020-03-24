@@ -2,9 +2,13 @@
 let ALL_PRODUCTS = [];
 let SUBSET_PRODUCTS = []
 let START = 0;
-let STOP = 5;
+let PER_PAGE = 4;
 let PAGE = 0;
 let NEWPAGE = 0;
+let START_INDEX_OF_CURRENT_PAGE = -1;
+let START_INDEX_OF_NEXT_PAGE = -1;
+let PRODUCTS_FOR_PAGINATION = [];
+let INITIAL_PRODUCT_VIEW = []
 
 //Handle On Load Event
 const singleAcPageTitle = document.querySelector('#singleAcPageTitle')
@@ -59,36 +63,41 @@ const createACElement = (data) => {
     }
 }
 
-const goToNextSingleAcPage = (page) => {
+const goToNextSingleAcPage = (page, data) => {
+    //Get the number of pages created
     let pages = singleAcPagination.childNodes;
+
+    //Find the current page
     pages.forEach((item) => {
         if(item.classList.contains('pagination-active')){
             PAGE = parseInt(item.innerHTML);
         }
     })
+    START_INDEX_OF_CURRENT_PAGE = (PAGE * PER_PAGE) - PER_PAGE
+
+    //Get the new page to visit
     NEWPAGE = parseInt(page.innerHTML);
-    if(PAGE < NEWPAGE){
-        START = START + (6 * (NEWPAGE - 1))
-        STOP = STOP + (6 * (NEWPAGE - 1))
-    }else if(PAGE > NEWPAGE){
-        START = START - (6 * (PAGE - 1))
-        STOP = STOP - (6 * (PAGE - 1))
-    }
+    START_INDEX_OF_NEXT_PAGE = (NEWPAGE * PER_PAGE) - PER_PAGE;
+
+    //Pagination
+    let newData = data.filter((item, index) => {
+        if(index >= START_INDEX_OF_NEXT_PAGE && index < (START_INDEX_OF_NEXT_PAGE + PER_PAGE)){
+            return true;
+        }
+    })
+    createACElement(newData)
 
     //Handle Pagination Color
     pages.forEach((item, index, arr) => {
         item.classList.remove("pagination-active");
     })
     page.classList.add("pagination-active");
-    SUBSET_PRODUCTS = ALL_PRODUCTS.filter((item, index) => index >= START && index <= STOP)
-    createACElement(SUBSET_PRODUCTS)   
 }
-
 
 const handlePagination = (data) => {
     singleAcPagination.innerHTML = "";
     let num = data.length;
-    pages = Math.ceil(num/6);
+    pages = (num > PER_PAGE ) ? Math.ceil(num/PER_PAGE) : 1;
     for(let i = 1; i <=pages; i++){
         let para = document.createElement('p');
         if(i === 1){
@@ -96,10 +105,11 @@ const handlePagination = (data) => {
         }
         para.innerHTML = i
         singleAcPagination.append(para);
-        para.addEventListener('click', () => goToNextSingleAcPage(para))
+        para.addEventListener('click', () => goToNextSingleAcPage(para, PRODUCTS_FOR_PAGINATION))
     }
     singleAcPagination.style.display = "flex"
 }
+
 const handleSingleACSearchLoad = () => {
     getProductData.then(result => {
         if(result.status === 'success'){
@@ -109,29 +119,37 @@ const handleSingleACSearchLoad = () => {
             let id = params.get('id');
             if(id === 'commercial'){
                 SUBSET_PRODUCTS = ALL_PRODUCTS.filter((item, index) => {
-                    if(index >= START && index <= STOP && item.usage === 'Commercial'){
+                    if(item.usage === 'Commercial'){
                         return item;
                     }
                 })
+                INITIAL_PRODUCT_VIEW = SUBSET_PRODUCTS.filter((item, index) => index >= START && index < PER_PAGE)
                 singleAcPageTitle.innerHTML = "Commercial Air Conditioners"
+                handlePagination(SUBSET_PRODUCTS)
+                PRODUCTS_FOR_PAGINATION = SUBSET_PRODUCTS;
             }else if(id === 'residential'){
                 singleAcPageTitle.innerHTML = "Residential Air Conditioners"
                 SUBSET_PRODUCTS = ALL_PRODUCTS.filter((item, index) => {
-                    if(index >= START && index <= STOP && item.usage === 'Residential'){
+                    if(item.usage === 'Residential'){
                         return item;
                     }
                 })
+                INITIAL_PRODUCT_VIEW = SUBSET_PRODUCTS.filter((item, index) => index >= START && index < PER_PAGE)
+                handlePagination(SUBSET_PRODUCTS)
+                PRODUCTS_FOR_PAGINATION = SUBSET_PRODUCTS;
             }else {
                 singleAcPageTitle.innerHTML = "Air Conditioners"
                 SUBSET_PRODUCTS = ALL_PRODUCTS.filter((item, index) => {
-                    if(index >= START && index <= STOP){
+                    if(index >= START && index < PER_PAGE){
                         return item;
                     }
                 })
+                PRODUCTS_FOR_PAGINATION = ALL_PRODUCTS;
+                INITIAL_PRODUCT_VIEW = SUBSET_PRODUCTS;
+                handlePagination(ALL_PRODUCTS);
             }
-            createACElement(SUBSET_PRODUCTS)
-            handlePagination(ALL_PRODUCTS)
             removeClass(singleAcLoader, 'showLoader')
+            createACElement(INITIAL_PRODUCT_VIEW)
         }else{
             console.log("Error retrieving data")
             console.log(result.status)
@@ -176,14 +194,15 @@ const handleSingleAcSearch = () => {
     }
     let min = singleAcMinimumPrice.value || 0;
     let max = singleAcMaximumPrice.value || 9999999;
-    console.log(min, max)
     SUBSET_PRODUCTS = ALL_PRODUCTS.filter(item => {
         if(item.usage === acType && item.discountedPrice >= min && item.discountedPrice <= max){
             return item
         }
     })
     PAGE = 1;
-    createACElement(SUBSET_PRODUCTS)
+    PRODUCTS_FOR_PAGINATION = SUBSET_PRODUCTS;
+    INITIAL_PRODUCT_VIEW = SUBSET_PRODUCTS.filter((item, index) => index >= START && index <PER_PAGE)
+    createACElement(INITIAL_PRODUCT_VIEW);
     handlePagination(SUBSET_PRODUCTS);
 }
 singleAcSearch.addEventListener('click', handleSingleAcSearch)

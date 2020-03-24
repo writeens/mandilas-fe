@@ -22,7 +22,6 @@ const generateUsedVehicle = (data) => {
     })
 }
 
-
 /**Used Car Modal Control */
 const populateModal = (data) => {
     const {year, make, model, summary, image, color, mileage, price} = data;
@@ -42,7 +41,6 @@ closeUsedCarsModal.addEventListener('click', () => {
 })
 /**Close Modal */
 
-
 const usedCarsContainer = document.querySelector('#usedCarsContainer');
 usedCarsContainer.innerHTML = "";
 const createVehicleItem = (vehicle) => {
@@ -61,7 +59,6 @@ const createVehicleItem = (vehicle) => {
     itemContainer.append(itemImage, title, itemPrice);
     usedCarsContainer.append(itemContainer)
 }
-
 
 //Handle Motors Buttons Click
 let vehicleState = 'new'
@@ -100,7 +97,7 @@ const handleMotorsLoad = () => {
         newVehicles.style.display = "none";
         oldVehicles.style.display = "flex";
         vehicleState = "used"
-        // generateUsedVehicle();
+        generateUsedVehicle(USED_CARS);
         motorsButtons[0].classList.toggle('motors-button-active');
         motorsButtons[1].classList.toggle('motors-button-active');
     }

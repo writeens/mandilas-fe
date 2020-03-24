@@ -67,7 +67,7 @@ const USED_CARS = {
         color:"Red",
         mileage:43785,
         price:2700000,
-        image:"https://res.cloudinary.com/mandilas/image/upload/v1583918567/Vehicles/Hilux/14bb0a_4a545b0502fd4c17bc9b6854d601a8fb_mv2-1024x683_cy820p.jpg"
+        image:"https://res.cloudinary.com/mandilas/image/upload/v1583849891/Vehicles/Yaris/grey-metalic_fbegec.jpg"
     },
     7:{
         year: 2010,
@@ -87,7 +87,7 @@ const USED_CARS = {
         color:"Black",
         mileage:83568,
         price:3800000,
-        image:"https://res.cloudinary.com/mandilas/image/upload/v1583918567/Vehicles/Hilux/14bb0a_4a545b0502fd4c17bc9b6854d601a8fb_mv2-1024x683_cy820p.jpg"
+        image:"https://res.cloudinary.com/mandilas/image/upload/v1583850661/Vehicles/Corolla/cc_2011toy003a_01_640_1f7_xa2hyp.jpg"
     },
     4:{
         year: 2014,
