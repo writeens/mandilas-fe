@@ -7,6 +7,9 @@ p{
     margin: 0;
     padding: 0;
 }
+*+p{
+    margin-top: 0 !important;
+}
 /* About Us */
 .about-us-header{
     height: fit-content;
@@ -642,6 +645,7 @@ p{
     font-weight: 600;
     font-size: 1.5rem;
     margin-bottom: 0.6rem;
+    text-align: center;
 }
 .meet-team-normal-text{
     font-weight: 600;
@@ -651,7 +655,7 @@ p{
 }
 .meet-team-item > img{
     width: 100%;
-    height: 100%;
+    height: 400px;
     object-fit: cover;
     margin-bottom: 0.6rem;
 }
