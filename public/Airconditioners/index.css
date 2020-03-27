@@ -177,11 +177,6 @@ p{
     font-size: 1.2rem;
     font-weight: 700;
 }
-.main-ac-right-content-card > div:last-of-type > p:last-of-type{
-    padding: 0.4rem 0.4rem;
-    background-color: #129347;
-    color: white;
-}
 .main-ac-right > button{
     width: fit-content;
     padding: 0.8rem 2rem;
@@ -607,22 +602,13 @@ p{
     height: 320px;
     object-fit: contain;
 }
-.ac-content-right-product > p:nth-child(2){
-    position: absolute;
-    right: 30px;
-    top: 20px;
-    padding: 0.4rem;
-    background-color: #129347;
-    color: white;
-    font-size: 1.1rem;
-}
-.ac-content-right-product > p:nth-child(3){
+.ac-content-right-product > .rec-name{
     font-weight: 600;
     font-size: 1.2rem;
     text-align: center;
     margin: 0.5rem 0rem;
 }
-.ac-content-right-product > p:nth-child(4){
+.ac-content-right-product > .rec-price{
     font-weight: 600;
     font-size: 1.1rem;
     color: #129347;
@@ -668,13 +654,15 @@ p{
 }
 .ac-content-bottom-card > p:nth-child(2){
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     padding-left: 1rem;
     margin-bottom: 0.6rem;
 }
 .ac-content-bottom-card > p:nth-child(3){
-    padding-left: 1rem;
+    padding-left: 1.1rem;
+    font-weight: 600;
     margin-bottom: 0.6rem;
+    color: #129347;
 }
 .ac-content-bottom-card > div{
     display: flex;
@@ -750,6 +738,34 @@ p{
 }
 .ac-content-bottom-right-mobile{
     display: none;
+}
+.ac-features > p:first-of-type{
+    font-weight: 600;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+}
+.ac-feature-item {
+    display: flex;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.ac-features > p:last-of-type{
+    display: flex;
+    align-items: center;
+}
+.ac-features > p:last-of-type > span{
+    display: block;
+}
+.ac-features-bold{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-right: 1rem;
+    width: 30%;
+}
+.ac-features-normal{
+    font-size: 1rem;
+    font-weight: 400;
+    width: 60%;
 }
 /*Loader*/
 .mainACProductLoader{

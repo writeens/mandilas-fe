@@ -36,7 +36,6 @@ const handleProductClick = (elem) => {
 }
 // Create Product
 const createAC = (obj) => {
-    let discountNum = Math.round((parseInt(obj.discountedPrice) / parseInt(obj.actualPrice)) * 100)
     
     // Product Container
     let contentCard = document.createElement('div');
@@ -51,14 +50,10 @@ const createAC = (obj) => {
     let priceContainer = document.createElement('div')
     // Price
     let price = document.createElement('p');
-    price.innerHTML = formatter.format(parseInt(obj.discountedPrice))
-    // Discount
-    let discount = document.createElement('p')
-    discount.innerHTML = `${discountNum}%`
+    price.innerHTML = formatter.format(parseInt(obj.price))
 
     // Append
     priceContainer.append(price);
-    priceContainer.append(discount);
     contentCard.append(image);
     contentCard.append(title);
     contentCard.setAttribute('data-id', obj.productID)
@@ -83,6 +78,7 @@ const handleMainAirConPageLoad = async() => {
             removeClass(allACLoader, `showLoader`);
         })
     } catch(e) {
+        console.log(e)
         infoText.innerHTML = `Check your network or try refreshing the page.`
         infoToast.classList.add('showInfoToast');
         setTimeout(() => {
@@ -180,6 +176,7 @@ const handleSearch = () => {
             removeClass(allACLoader, `showLoader`);
         }
     }).catch(error => {
+        console.log(error)
         infoText.innerHTML = `Check your network or try refreshing the page.`
         infoToast.classList.add('showInfoToast');
         setTimeout(() => {

@@ -105,32 +105,53 @@ const getReviews = (id) => {
                     createReview(item)
                 })
             }
+        }).catch(e => {
+            console.log(e)
         })
 }
 
 // Create Single Product Page
+const featureContainer = document.querySelector('.ac-features');
 const createProductPage = async (id) => {
-    let data = await getSingleProduct(id)
-    const { name, usage, imageUrl, actualPrice, discountedPrice, deliveryMaximum, deliveryMinimum } = data
-    const { capacity, wattage, text, size} = data.description
-    const title = document.querySelector('.ac-layer-1-content > p:first-child');
-    const price = document.querySelector('.ac-layer-1-content > div:last-of-type > span')
-    const discount = `${Math.round((discountedPrice / actualPrice) * 100)}%`;
-    const discountContainer = document.querySelector('.ac-layer-1-content > div:last-of-type > p')
-    const description = document.querySelector('.ac-content-left-layer-2 > p:last-of-type')
-    const image = document.querySelector('.ac-layer-1-image > img')
-    title.innerHTML = name;
-    price.innerHTML = formatter.format(discountedPrice);
-    discountContainer.innerHTML = discount;
-    description.innerHTML = text;
-    image.src = imageUrl;
-    const mainProductLoaders = document.querySelectorAll('.mainProductLoader')
-    mainProductLoaders.forEach(item => removeClass(item, `showLoader`))
+    try {
+        let data = await getSingleProduct(id);
+        const { name, usage, imageUrl, price } = data;
+        const {power, text, size, feature, featureText} = data.description;
+        const title = document.querySelector('.ac-layer-1-content > p:first-child');
+        const itemPrice = document.querySelector('.ac-layer-1-content > div:last-of-type > span')
+        const description = document.querySelector('.ac-content-left-layer-2 > p:last-of-type')
+        const image = document.querySelector('.ac-layer-1-image > img')
+        title.innerHTML = name;
+        itemPrice.innerHTML = formatter.format(price);
+        description.innerHTML = text;
+        image.src = imageUrl;
+
+        //Create Feature
+        feature.map((item, index) => {
+            let featureElement = document.createElement('p');
+            featureElement.classList.add('ac-feature-item');
+            let featureHeading = document.createElement('span');
+            featureHeading.classList.add('ac-features-bold')
+            let featureBody = document.createElement('span');
+            featureBody.classList.add('ac-features-normal');
+            featureHeading.innerText = item;
+            featureBody.innerText = featureText[index];
+            featureElement.append(featureHeading, featureBody);
+            featureContainer.appendChild(featureElement);
+        })
+
+
+        featureContainer.append();
+        const mainProductLoaders = document.querySelectorAll('.mainProductLoader')
+        mainProductLoaders.forEach(item => removeClass(item, `showLoader`))
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 // Create Product
 const createAC = (obj) => {
-    let discountNum = Math.round((parseInt(obj.discountedPrice) / parseInt(obj.actualPrice)) * 100)
+    // let discountNum = Math.round((parseInt(obj.discountedPrice) / parseInt(obj.actualPrice)) * 100)
     
     // Product Container
     let contentCard = document.createElement('div');
@@ -145,10 +166,7 @@ const createAC = (obj) => {
     let priceContainer = document.createElement('div')
     // Price
     let price = document.createElement('p');
-    price.innerHTML = formatter.format(parseInt(obj.discountedPrice))
-    // Discount
-    let discount = document.createElement('p')
-    discount.innerHTML = `${discountNum}%`
+    price.innerHTML = formatter.format(parseInt(obj.price))
 
     // Append
     priceContainer.append(price);
@@ -180,7 +198,7 @@ const pickRandomItems = (itemArr, numOfItemsToPick) => {
 // Populate People Also Viewed
 const peopleAlsoViewedContainer = document.querySelector('.ac-content-bottom-row');
 const populatePeopleAlsoViewed = (item) => {
-    const { discountedPrice, imageUrl, name, productID } = item
+    const { price, imageUrl, name, productID } = item
     const itemCard = document.createElement('div');
     itemCard.classList.add('ac-content-bottom-card');
     const itemImage = document.createElement('img');
@@ -188,16 +206,16 @@ const populatePeopleAlsoViewed = (item) => {
     const itemName = document.createElement('p');
     itemName.innerHTML = name;
     const itemPrice = document.createElement('p');
-    itemPrice.innerHTML = formatter.format(discountedPrice);
-    const ratingContainer = document.createElement('div');
-    const ratingImage = document.createElement('img');
-    ratingImage.src = 'https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg';
-    const ratingNumber = document.createElement('p');
-    ratingNumber.innerHTML = '4.5'
+    itemPrice.innerHTML = formatter.format(price);
+    // const ratingContainer = document.createElement('div');
+    // const ratingImage = document.createElement('img');
+    // ratingImage.src = 'https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg';
+    // const ratingNumber = document.createElement('p');
+    // ratingNumber.innerHTML = '4.5'
 
     //Append Items
-    ratingContainer.append(ratingImage, ratingNumber);
-    itemCard.append(itemImage, itemName, itemPrice, ratingContainer);
+    // ratingContainer.append(ratingImage, ratingNumber);
+    itemCard.append(itemImage, itemName, itemPrice);
     itemCard.setAttribute('data-id', productID);
 
     itemCard.addEventListener('click', () => handleProductClick(itemCard))
@@ -212,7 +230,8 @@ const getPeopleAlsoViewedItems = () => {
     peopleAlsoViewedContainer.innerHTML = ""
     getData(productsEndpoint)
         .then(data => {
-            let randomData = pickRandomItems(data, 3)
+            console.log(data)
+            let randomData = pickRandomItems(data, data.length)
             randomData.map(item => populatePeopleAlsoViewed(item))
             removeClass(peopleAlsoViewedLoader, 'showLoader')
         })
@@ -221,24 +240,23 @@ const getPeopleAlsoViewedItems = () => {
 //Populate Recommended Items
 const recommendedItemsContainer = document.querySelector('.ac-content-right-product-row')
 const populateRecommendedItems = (item) => {
-    const {discountedPrice, actualPrice, name, imageUrl, productID} = item;
+    const {price, name, imageUrl, productID} = item;
     const productCard = document.createElement('div')
     productCard.classList.add('ac-content-right-product');
     const productImage = document.createElement('img');
     productImage.src = imageUrl;
-    const productDiscount = document.createElement('p');
-    let discount = `${Math.round((discountedPrice / actualPrice) * 100)}%`;
-    productDiscount.innerHTML = discount;
     let productName = document.createElement('p');
     productName.innerHTML = name;
+    productName.classList.add('rec-name')
     let productPrice = document.createElement('p');
-    productPrice.innerHTML = formatter.format(discountedPrice);
+    productPrice.innerHTML = formatter.format(price);
+    productPrice.classList.add('rec-price');
 
     productCard.setAttribute('data-id', productID)
 
     productCard.addEventListener('click', () => handleProductClick(productCard))
     // Append
-    productCard.append(productImage, productDiscount, productName, productPrice);
+    productCard.append(productImage, productName, productPrice);
     recommendedItemsContainer.append(productCard);
 }
 
@@ -248,11 +266,16 @@ const getRecommendedItems = () => {
     const recommendedItemsLoader = document.querySelector('.recommendedItemsLoader')
     addClass(recommendedItemsLoader, 'showLoader')
     recommendedItemsContainer.innerHTML = ""
+    console.log("here")
     getData(productsEndpoint)
         .then(data => {
-            let randomData = pickRandomItems(data, 3)
+            console.log(data)
+            let randomData = pickRandomItems(data, data.length)
             randomData.map(item => populateRecommendedItems(item))
             removeClass(recommendedItemsLoader, 'showLoader')
+        }).catch(e => {
+            console.log(e)
+            console.log("Recommendations are currently unavailable")
         })
 }
 
