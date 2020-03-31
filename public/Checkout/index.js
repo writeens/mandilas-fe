@@ -46,7 +46,7 @@ const getShipping = (quantity) => {
 billingContainer.innerHTML = ""
 const createItem = (info, quantity) => {
     const {status, data} = info;
-    const {name, description, discountedPrice} = data
+    const {name, description} = data
     const itemHolder = document.createElement('div');
     itemHolder.classList.add('billing-shipment-row');
     const itemQuantity = document.createElement('p');
@@ -54,9 +54,9 @@ const createItem = (info, quantity) => {
     const itemName = document.createElement('p');
     itemName.innerHTML = name
     const itemCapacity = document.createElement('p');
-    itemCapacity.innerHTML = `Capacity: ${description.capacity}HP`
+    itemCapacity.innerHTML = `Power: ${description.power}HP`
     const itemWattage = document.createElement('p');
-    itemWattage.innerHTML = `Wattage: ${description.wattage} watts`;
+    itemWattage.innerHTML = `Size: ${description.size}`;
 
 
     itemHolder.append(itemQuantity, itemName, itemCapacity, itemWattage)
@@ -66,8 +66,8 @@ const createItem = (info, quantity) => {
 //Calculate Pricing
 const calculateTotalPrice = (itemDetails, itemCart) => {
     itemDetails.map((item, index) => {
-        CART_TOTAL += (item.data.discountedPrice * itemCart[index].quantity)
-        SUB_TOTAL += (item.data.discountedPrice * itemCart[index].quantity)
+        CART_TOTAL += (item.data.price * itemCart[index].quantity)
+        SUB_TOTAL += (item.data.price * itemCart[index].quantity)
     })
     orderSummaryTotal.innerHTML = formatter.format(CART_TOTAL);
     orderSummarySubTotal.innerHTML = formatter.format(SUB_TOTAL);
@@ -93,10 +93,6 @@ const getDataOnItems = (data) => new Promise((resolve, reject) => {
             resolve(responses)
         })
 })
-
-// .door-delivery:hover{
-//     max-height: 10px;
-// }
 
 //Handle Checkout Page Load
 const handleCheckOutPageLoad = () => {

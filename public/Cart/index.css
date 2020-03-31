@@ -3,7 +3,7 @@ body{
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
 }
 
@@ -66,6 +66,7 @@ p{
 .cart-info-details > div:first-of-type {
     display: flex;
     width: 70%;
+    justify-content: space-around;
 }
 .cart-info-details > div:first-of-type > img:first-of-type{
     width: 300px;
@@ -93,11 +94,11 @@ p{
     font-size: 1.3rem;
     font-weight: 600;
 }
-.cart-info-details-1 > div > p:last-of-type{
+/* .cart-info-details-1 > div > p:last-of-type{
     padding: 0.1rem 0.5rem;
     background-color: #129347;
     color: white;
-}
+} */
 .cart-info-details-1 > p:nth-child(5){
     font-weight: 400;
 }

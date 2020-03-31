@@ -125,6 +125,7 @@ p{
     border-radius: 0.3rem;
     color: white;
     margin-top: 5rem;
+    cursor: pointer;
 }
 .main-ac-right {
     width: 70%;
@@ -147,6 +148,7 @@ p{
     flex-wrap: wrap;
     justify-content: space-around;
     margin-bottom: 2rem;
+    cursor: pointer;
 }
 .main-ac-right-content-card {
     position: relative;
@@ -247,6 +249,7 @@ p{
 }
 #mainACLoadMoreButton{
     display: flex;
+    cursor: pointer;
 }
 #mainACLoadMoreButton > i{
     display: none;
@@ -451,6 +454,7 @@ p{
     border-radius: 0.3rem;
     border: none;
     font-weight: 500;
+    cursor: pointer;
 }
 .ac-layer-1-content-buttons > button:first-of-type{
     color: white;
@@ -596,6 +600,7 @@ p{
     position: relative;
     align-items: center;
     margin-bottom: 1rem;
+    cursor: pointer;
 }
 .ac-content-right-product >img {
     width: 350px;
@@ -616,7 +621,7 @@ p{
 }
 
 .ac-content-bottom{
-    width: 70%;
+    width: 85%;
     position: relative;
     display:flex;
     flex-direction: column;
@@ -639,7 +644,9 @@ p{
 }
 .ac-content-bottom-card {
     padding: 1rem;
-    width: fit-content;
+    cursor: pointer;
+    width: 350px;
+    height: 400px;
     display: flex;
     border-radius: 0.2rem;
     flex-direction: column;

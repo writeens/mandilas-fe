@@ -127,8 +127,8 @@ const handleQuantityChange = (amount, quantity, change, user, productID) => {
 //Populate Cart Item
 const cartItemsContainer = document.querySelector('.cart-info-column');
 const populateCartItem = (data, itemQuantity, user) => {
-    const {name, description, usage, imageUrl, actualPrice, discountedPrice, deliveryMaximum, deliveryMinimum, productID} = data;
-    const {capacity, wattage, text, size} = data.description;
+    const {name, description, usage, imageUrl, price, productID} = data;
+    const {power, size} = description;
     const itemCard = document.createElement('div');
     itemCard.classList.add('cart-info-details')
     const leftContainer = document.createElement('div');
@@ -138,18 +138,18 @@ const populateCartItem = (data, itemQuantity, user) => {
     leftSubContainer.classList.add('cart-info-details-1');
     const itemName = document.createElement('p');
     itemName.innerHTML = name;
-    const itemCapacity = document.createElement('p');
-    itemCapacity.innerHTML = `Capacity: ${capacity} HP`;
-    const itemWattage = document.createElement('p');
-    itemWattage.innerHTML = `Wattage: ${wattage}`;
+    const itemPower = document.createElement('p');
+    itemPower.innerHTML = `Power: ${power} HP`;
+    const itemSize = document.createElement('p');
+    itemSize.innerHTML = `Size: ${size}`;
     const priceContainer = document.createElement('div');
     const itemPrice = document.createElement('p');
-    itemPrice.innerHTML = formatter.format(discountedPrice);
-    const discount = `${Math.round((discountedPrice / actualPrice) * 100)}%`;
-    const itemDiscount = document.createElement('p');
-    itemDiscount.innerHTML = `-${discount}`;
-    const itemDelivery = document.createElement('p');
-    itemDelivery.innerHTML = `Estimated Delivery Time: ${deliveryMinimum} - ${deliveryMaximum} Days`;
+    itemPrice.innerHTML = formatter.format(price);
+    // const discount = `${Math.round((discountedPrice / actualPrice) * 100)}%`;
+    // const itemDiscount = document.createElement('p');
+    // itemDiscount.innerHTML = `-${discount}`;
+    // const itemDelivery = document.createElement('p');
+    // itemDelivery.innerHTML = `Estimated Delivery Time: ${deliveryMinimum} - ${deliveryMaximum} Days`;
     const rightContainer = document.createElement('div');
     rightContainer.classList.add('cart-info-details-2');
     const rightImage = document.createElement('img');
@@ -170,13 +170,13 @@ const populateCartItem = (data, itemQuantity, user) => {
 
 
     //Add Delete Listener to Trash Icon
-    rightImage.addEventListener('click', () => handleDeleteItemFromCart(user, productID, discountedPrice, quantityInput))
+    rightImage.addEventListener('click', () => handleDeleteItemFromCart(user, productID, price, quantityInput))
 
     //Handle Plus Icon
-    plus.addEventListener('click', () => handleQuantityChange(discountedPrice, quantityInput, '+', user, productID));
+    plus.addEventListener('click', () => handleQuantityChange(price, quantityInput, '+', user, productID));
 
     //Handle Minus Icon
-    minus.addEventListener('click', () => handleQuantityChange(discountedPrice, quantityInput, '-', user, productID));
+    minus.addEventListener('click', () => handleQuantityChange(price, quantityInput, '-', user, productID));
 
     itemCard.setAttribute('data-id', productID)
     // Append Items on the right
@@ -185,8 +185,8 @@ const populateCartItem = (data, itemQuantity, user) => {
     rightContainer.append(rightImage, rightSubContainer);
 
     // Append Items on the left
-    priceContainer.append(itemPrice, itemDiscount);
-    leftSubContainer.append(itemName, itemCapacity, itemWattage, priceContainer, itemDelivery);
+    priceContainer.append(itemPrice);
+    leftSubContainer.append(itemName, itemPower, itemSize, priceContainer);
     leftContainer.append(leftImage, leftSubContainer);
 
     itemCard.append(leftContainer, rightContainer);
@@ -201,7 +201,7 @@ const createCartItem = (arr, user) => {
         .then(data => {
             populateCartItem(data, item.quantity, user)
             removeClass(cartContentLoader, 'showLoader')
-            let amount = data.discountedPrice * item.quantity;
+            let amount = data.price * item.quantity;
             getPricingTotal(amount, '+')
         })
     })

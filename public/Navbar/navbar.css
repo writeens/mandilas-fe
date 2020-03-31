@@ -663,6 +663,10 @@ nav{
     padding: 1.5rem 4rem;
     text-decoration: none;
 }
+.complain-text > a:hover{
+    color: white;
+    text-decoration: none;
+}
 @media screen and (max-width:900px){
     .complain-text > p:nth-child(2) {
         width: 90%;
