@@ -231,7 +231,7 @@ const getPeopleAlsoViewedItems = () => {
     getData(productsEndpoint)
         .then(data => {
             console.log(data)
-            let randomData = pickRandomItems(data, data.length)
+            let randomData = pickRandomItems(data, 5)
             randomData.map(item => populatePeopleAlsoViewed(item))
             removeClass(peopleAlsoViewedLoader, 'showLoader')
         })
@@ -270,7 +270,7 @@ const getRecommendedItems = () => {
     getData(productsEndpoint)
         .then(data => {
             console.log(data)
-            let randomData = pickRandomItems(data, data.length)
+            let randomData = pickRandomItems(data, 3)
             randomData.map(item => populateRecommendedItems(item))
             removeClass(recommendedItemsLoader, 'showLoader')
         }).catch(e => {
