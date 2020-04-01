@@ -38,10 +38,10 @@ const handleLogoScroll = () =>{
 const handleHomePageLoad = () => {
     // loader.classList.add('showLoader')
     handleLogoScroll()
-    handleNavbarLoad
-        .then(user => {
-            // loader.classList.remove('showLoader')
-        })
+    // handleNavbarLoad
+    //     .then(user => {
+    //         // loader.classList.remove('showLoader')
+    //     })
 }
 window.addEventListener('load', handleHomePageLoad)
 
