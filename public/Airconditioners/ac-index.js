@@ -33,7 +33,7 @@ const createACElement = (data) => {
     singleAcResultContainer.innerHTML = ""
     if(data.length > 0){
         data.map((item, index) => {
-            const {imageUrl, actualPrice, name, discountedPrice, productID} = item
+            const {imageUrl, name, price, productID} = item
             const itemContainer = document.createElement('div');
             itemContainer.classList.add('single-ac-result-container-item');
             itemContainer.setAttribute('data-id', productID)
@@ -43,16 +43,12 @@ const createACElement = (data) => {
             itemTitle.innerHTML = name;
             itemTitle.classList.add('single-ac-result-title')
             const itemPrice = document.createElement('p');
-            itemPrice.innerHTML = formatter.format(discountedPrice);
+            itemPrice.innerHTML = formatter.format(price);
             itemPrice.classList.add('single-ac-result-price')
-            const itemDiscount = document.createElement('p');
-            let discount = `${Math.round((discountedPrice / actualPrice) * 100)}%`;
-            itemDiscount.innerHTML = discount;
-            itemDiscount.classList.add('single-ac-result-discount')
 
             itemContainer.addEventListener('click', () => handleProductClick(itemContainer))
             
-            itemContainer.append(itemImage, itemTitle, itemPrice, itemDiscount)
+            itemContainer.append(itemImage, itemTitle, itemPrice)
             singleAcResultContainer.append(itemContainer);
         })
     }else{

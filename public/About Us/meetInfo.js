@@ -11,7 +11,7 @@ const TEAM = {
             'She is a strong program and project management professional with a Master of Business Administration (M.B.A) from Canisius College (USA) and Bachelor of Science (B.S.) Accounting degree from D’Youville College (USA).']
     },
     1:{
-        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585329828/Assets/FINANCIAL_CONTROLER_wcwksh.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854086/Assets/FINANCIAL_CONTROLER-min_b4brbr.jpg',
         name:'OMIDIJI DAISI',
         title:'Group Financial Controller',
         paragraph:['Daisi is a professional accountant with over 20 years’ experience across the broad spectrum of corporate finance. \
@@ -21,32 +21,32 @@ const TEAM = {
                 A member of many professional bodies both in Nigeria and UK']
     },
     2:{
-        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585330341/Assets/Mr._Gbenga_Somuyiwa_HEAD_OF_INTERNAL_AUDIT_wrpc86.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854467/Assets/Mr._Gbenga_Somuyiwa_HEAD_OF_INTERNAL_AUDIT-min_vwyqne.jpg',
         name:'MR GBENGA SOMUYIWA',
         title:'Head of Internal Audit, Risk and Control',
         paragraph:['']
     },
     3:{
-        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585329939/Assets/GM_AIRCON_sibzul.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854160/Assets/GM_AIRCON-min_dmaeim.jpg',
         name:'PAL SINGH',
         title:'General Manager, Air-Conditioning Division',
         paragraph:['Pal Singh is the General Manager of the Air-conditioning division. Qualified as HVACR engineer, he is a member of the American Society of Heating, Refrigeration and Air-conditioning Engineers. Pal has 28 years’ experience in large Air-conditioning and ventilation equipment from different Companies across the globe. He is an expert in latest and advanced technology of HVACR engineering which is a unique service that aligns comfort and technology for Corporates.']
     },
     4:{
-        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585330122/Assets/GROUP_HR_Fatosin_Anna_Omoghose_h64o18.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854361/Assets/GROUP_HR_Fatosin_Anna_Omoghose-min_jev96n.jpg',
         name:'FATOSIN ANNA OMOGHOSE',
-        title:'Group HR',
+        title:'Group Human Resources Manager',
         paragraph:['']
     },
     5:{
-        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585156036/Assets/GM_Motors_vdxbe1.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854259/Assets/GM_Motors-min_ynrfh3.jpg',
         name:'KEMI KOYEJO',
         title:'General Manager, Motors Division',
         paragraph:['Kemi holds a Bachelor of Arts degree and an MBA from the University of Ife and Obafemi Awolowo University respectively. She worked briefly at the then University of Ife before proceeding to join the Federal Road Safety Commission where she had a brief stint as Route Commander, Public Enlightenment.',
         'In 1991, she joined Mandilas Enterprises Limited as Public Enlightenment Officer, later became the Business Development Manager and eventually National Marketing Manager. Kemi’s automobile industry experience spans over 25years. She is a member of the Nigerian Institute of Management, as well as the Automobile and Allied Industries Sector of the Lagos Chamber of Commerce and has won several industry awards including Toyota Nigeria. She left Mandilas in 2010 and re-joined the team in 2018 as Operations Manager of Motors/Leasing Division.']
     },
     6:{
-        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585330536/Assets/OJEABULU_AUSTINE_OBIGHO_k35f4x.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585853912/Assets/OJEABULU_AUSTINE_OBIGHO-min_i3w6sd.jpg',
         name:'OJEABULU AUSTINE OBIGHO',
         title:'Head of Treasury',
         paragraph:['']

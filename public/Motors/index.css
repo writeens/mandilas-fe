@@ -333,13 +333,15 @@ p{
     font-weight: 400;
     margin-bottom: 1.5rem;
 }
-.motors-content-uv-b-right-layer-2{
-    width: 45%;
-}
-.motors-content-uv-b-right-layer-2 > p:first-of-type{
+.motors-content-uv-b-left-layer-2 > p:first-of-type{
     font-size: 2rem;
     color: #129347;
     font-weight: 600;
+}
+.motors-content-uv-b-right-layer-2 {
+    width: 45%;
+    position: relative;
+    top: 4.5rem;
 }
 .motors-content-uv-b-right-layer-2 > p{
     margin-bottom: 1.5rem;
@@ -455,6 +457,7 @@ p{
     }
     .motors-content-uv-b-right-layer-2 {
         width: 100%;
+        top: 0rem;
     }
     .motors-content-uv-b-card-left, 
     .motors-content-uv-b-card-right {

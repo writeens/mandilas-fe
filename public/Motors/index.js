@@ -1,3 +1,4 @@
+
 /**Handle New Vehicle and 
  * Used Vehicle Buttons on Motors Page */
 const motorsButtons = document.querySelectorAll('.motors-buttons > button');
@@ -51,6 +52,12 @@ closeUsedCarsModal.addEventListener('click', () => {
 /**Close Modal */
 
 const createVehicleItem = (vehicle) => {
+    const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'NGN',
+        maximumFractionDigits : 6,
+        minimumFractionDigits : 0
+    })
     const {year, make, model, summary, image, color, mileage, price} = vehicle
     let itemContainer = document.createElement('div');
     itemContainer.classList.add('motors-uv-item');
