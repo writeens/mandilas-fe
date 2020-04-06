@@ -9,7 +9,7 @@ p{
 /* Location Content */
 .location-header{
     height: 500px;
-    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705400/Assets/location-header_ncm7ge.png);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163521/Assets/Locations_Page-min_slqrxo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -69,7 +69,7 @@ p{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705390/Assets/location-1_igpkdc.png);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163518/Assets/Locations_Page_scroll-min_ugygdr.jpg);
     color: white;
     margin: 0rem 3rem 0rem 3rem;
 }

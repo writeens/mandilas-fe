@@ -26,7 +26,7 @@ p{
     background-color: #129347;
     flex-direction: column;
     justify-content: center;
-    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1583245510/Assets/motors_main_header_fdllzo.png);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163539/Assets/Motors_Page_Banner-min_puth9h.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -1041,9 +1041,8 @@ p{
         display: flex;
         position: relative;
         width: 95%;
-        height: 250px;
+        height: 400px;
         object-fit: cover;
-        border: 1px solid red;
     }
     .celebration-modal > i{
         right: 1rem;

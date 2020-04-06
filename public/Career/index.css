@@ -10,7 +10,7 @@ p{
 /* Career Content Page*/
 .career-header{
     height: fit-content;
-    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705375/Assets/career-header_hzumz5.png);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163547/Assets/Jobs_Career_Page_Banner_2_-min_dei19e.jpg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -21,12 +21,22 @@ p{
     align-items: center;
     color: white;
     margin-bottom: 1rem;
-    padding: 7rem 1rem;
+    padding: 9rem 1rem;
+}
+.career-header::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #29292949;
 }
 .career-header > p {
     font-size: 3rem;
     font-weight: 600;
     text-align: center;
+    z-index: 5;
 }
 .career-body {
     background-color: white;
