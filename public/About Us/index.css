@@ -13,7 +13,7 @@ p{
 /* About Us */
 .about-us-header{
     height: fit-content;
-    padding: 1rem 0rem;
+    padding: 4rem 0rem;
     display: flex;
     flex-direction: column;
     color: white;
@@ -608,21 +608,33 @@ p{
 
 /* Meet The Team */
 .meet-team-header{
-    height: 500px;
+    height: 400px;
     display: flex;
     color: white;
-    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705414/Assets/about-us-header_moj8m6.png);
+    background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163547/Assets/Home_Page_Scroll_bar-min_bwjdkg.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     justify-content: center;
     align-items: center;
-    margin-bottom: 4rem ;
+    margin-bottom: 4rem;
+    background-position: center;
+    position: relative;
+}
+.meet-team-header::after{
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #29292957;
 }
 .meet-team-header > p{
     font-weight: 600;
     font-size: 3rem;
     text-align: center;
+    z-index: 5;
 }
 .meet-team-row{
     min-width: 700px;

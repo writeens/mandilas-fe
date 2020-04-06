@@ -967,7 +967,7 @@ p{
     border: none;
 }
 .single-ac-result {
-    padding: 2rem;
+    padding: 2rem 0rem;
     width: 72%;
     background-color: #e2e2e2;
     position: relative;
@@ -990,7 +990,7 @@ p{
     justify-content: flex-start;
     padding: 0rem 1rem 2rem 3rem;
     position: relative;
-    min-height: 700px;
+    min-height: 400px;
 }
 .single-ac-result-container-item {
     min-width: 30%;
