@@ -303,6 +303,7 @@ p{
     font-size: 2rem;
     font-weight: 600;
     color: white;
+    cursor: pointer;
 }
 
 /**After Sales Mobility Modal**/

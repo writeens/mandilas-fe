@@ -80,10 +80,13 @@ const handleSingleACSearchLoad = async () => {
         let value = ''
         if(id === 'residential'){
             value = 'Residential'
+            singleAcPageTitle.innerHTML = 'Residential Cooling'
         }else if(id === 'commercial'){
             value = 'Commercial'
+            singleAcPageTitle.innerHTML = 'Commercial Cooling'
         } else if(id === null){
             window.location.href = './ac.html?id=commercial'
+            
         }
         const data = await retrieveData(value)
         ALL_PRODUCTS = [...data];
@@ -150,6 +153,7 @@ const handleSingleAcSearch = async () => {
             return;
         }
         let data = await response.json();
+        singleAcPageTitle.innerHTML = `Search Results for ${usage} Cooling`
         
         //Search Returns Zero
         if(data.length === 0){
