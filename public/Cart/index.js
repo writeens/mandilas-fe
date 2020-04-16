@@ -44,23 +44,27 @@ const getData = async (url) => {
     return data.data
 }
 
-const handleDeleteItemFromCart = (user, productID, price, quantityInput) => {
-    fetch(`${deleteCartItemEndpoint}/${user}/${productID}`, {
+const handleDeleteItemFromCart = async (productID, price, quantityInput) => {
+    let token = localStorage.getItem('mandilasToken')
+    let response = await fetch(`${deleteCartItemEndpoint}/${productID}`, {
         method:'DELETE',
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'Authorization':`Bearer ${token}`
         }
     })
-    .then(response => response.json())
-    .then(result => {
-        const itemToRemove = document.querySelector(`.cart-info-column > [data-id="${productID}"]`);
-        itemToRemove.remove();
-        let valueToDeduct = price * parseInt(quantityInput.value);
-        INITIAL_PRICE -= valueToDeduct;
-        subTotal.innerHTML = formatter.format(INITIAL_PRICE);
-        // Update Total
-        cartTotal.innerHTML = formatter.format(INITIAL_PRICE);
-    })
+    if(response.status !== 200){
+        return;
+    }
+    await response.json();
+    const itemToRemove = document.querySelector(`.cart-info-column > [data-id="${productID}"]`);
+    itemToRemove.remove();
+    let valueToDeduct = price * parseInt(quantityInput.value);
+    INITIAL_PRICE -= valueToDeduct;
+    subTotal.innerHTML = formatter.format(INITIAL_PRICE);
+    // Update Total
+    cartTotal.innerHTML = formatter.format(INITIAL_PRICE);
+    await updateCartIcon()
 }
 
 //Handle Pricing Card
@@ -77,28 +81,30 @@ const getPricingTotal = (amount, change) => {
 }
 
 //Handle Quantity Change
-const handleQuantityChange = (amount, quantity, change, user, productID) => {
+const handleQuantityChange = async (amount, quantity, change, productID) => {
+    let token = localStorage.getItem('mandilasToken')
     if(change === '+'){
         //Update Quantity Input
         let value = parseInt(quantity.value);
         value++;
         const body = {
-            'item':productID,
             'quantity':value
         }
-        fetch(`${updateCartEndpoint}/${user}`, {
+        let response = await fetch(`${updateCartEndpoint}/${productID}`, {
             method:'PUT',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization':`Bearer ${token}`
             },
             body:JSON.stringify(body)
         })
-        .then(response => response.json())
-        .then(result => {
-            quantity.value = value;
-            // Update Total
-            getPricingTotal(amount, '+');
-        })
+        if(response.status !== 200){
+            return;
+        }
+        let result = await response.json();
+        quantity.value = value;
+        // Update Total
+        getPricingTotal(amount, '+');
     }
 
     // //Update Quantity Input
@@ -109,24 +115,26 @@ const handleQuantityChange = (amount, quantity, change, user, productID) => {
             'item':productID,
             'quantity':value
         }
-        fetch(`${updateCartEndpoint}/${user}`, {
+        let response = await fetch(`${updateCartEndpoint}/${productID}`, {
             method:'PUT',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization':`Bearer ${token}`
             },
             body:JSON.stringify(body)
         })
-        .then(response => response.json())
-        .then(result => {
-            quantity.value = value;
-            // Update Total
-            getPricingTotal(amount, '-');
-        })
+        if(response.status !== 200){
+            return;
+        }
+        let result = await response.json();
+        quantity.value = value;
+        // Update Total
+        getPricingTotal(amount, '-');
     }
 }
 //Populate Cart Item
 const cartItemsContainer = document.querySelector('.cart-info-column');
-const populateCartItem = (data, itemQuantity, user) => {
+const populateCartItem = (data, itemQuantity) => {
     const {name, description, usage, imageUrl, price, productID} = data;
     const {power, size} = description;
     const itemCard = document.createElement('div');
@@ -145,11 +153,6 @@ const populateCartItem = (data, itemQuantity, user) => {
     const priceContainer = document.createElement('div');
     const itemPrice = document.createElement('p');
     itemPrice.innerHTML = formatter.format(price);
-    // const discount = `${Math.round((discountedPrice / actualPrice) * 100)}%`;
-    // const itemDiscount = document.createElement('p');
-    // itemDiscount.innerHTML = `-${discount}`;
-    // const itemDelivery = document.createElement('p');
-    // itemDelivery.innerHTML = `Estimated Delivery Time: ${deliveryMinimum} - ${deliveryMaximum} Days`;
     const rightContainer = document.createElement('div');
     rightContainer.classList.add('cart-info-details-2');
     const rightImage = document.createElement('img');
@@ -170,13 +173,13 @@ const populateCartItem = (data, itemQuantity, user) => {
 
 
     //Add Delete Listener to Trash Icon
-    rightImage.addEventListener('click', () => handleDeleteItemFromCart(user, productID, price, quantityInput))
+    rightImage.addEventListener('click', () => handleDeleteItemFromCart(productID, price, quantityInput))
 
     //Handle Plus Icon
-    plus.addEventListener('click', () => handleQuantityChange(price, quantityInput, '+', user, productID));
+    plus.addEventListener('click', () => handleQuantityChange(price, quantityInput, '+', productID));
 
     //Handle Minus Icon
-    minus.addEventListener('click', () => handleQuantityChange(price, quantityInput, '-', user, productID));
+    minus.addEventListener('click', () => handleQuantityChange(price, quantityInput, '-', productID));
 
     itemCard.setAttribute('data-id', productID)
     // Append Items on the right
@@ -194,147 +197,139 @@ const populateCartItem = (data, itemQuantity, user) => {
 }
 
 //Create Cart Item
-const createCartItem = (arr, user) => {
-    arr.map(item => {
+const createCartItem = (arr) => {
+    arr.map(async (item) => {
         cartItemsContainer.innerHTML = ""
-        getData(`${singleProductEndpoint}/${item.item}`)
-        .then(data => {
-            populateCartItem(data, item.quantity, user)
-            removeClass(cartContentLoader, 'showLoader')
-            let amount = data.price * item.quantity;
-            getPricingTotal(amount, '+')
+        let response = await fetch(`${singleProductEndpoint}/${item.item}`, {
+            method:"GET",
+            headers:{
+                'Content-Type':'application/json'
+            }
         })
+        if(response.status !== 200){
+            return
+        }
+        let data = await response.json();
+        console.log(data)
+        populateCartItem(data, item.quantity)
+        removeClass(cartContentLoader, 'showLoader')
+        let amount = data.price * item.quantity;
+        getPricingTotal(amount, '+')
     })
 }
 
 //Show Items In Cart
 const cartContentLoader = document.querySelector('.cartContentLoader')
-const showItemsInCart = (id) => {
+const showItemsInCart = async () => {
+    let token = localStorage.getItem('mandilasToken')
     addClass(cartContentLoader, 'showLoader')
-    fetch(`${getItemsInCartEndpoint}/${id}`, {
+    const response = await fetch (getItemsInCartEndpoint, {
         method:"GET",
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'Authorization': `Bearer ${token}`
         }
     })
-        .then(response => response.json())
-        .then(result => {
-            const {status, data} = result
-            console.log(status)
-            if(status === 'success'){
-                createCartItem(data, id)
-                loader.classList.remove('showLoader')
-            }else if(status === 'error'){
-                //Handle No Item In Cart
-                const orderSummary = document.querySelector('.cart-content-right');
-                const itemsList = document.querySelector('.cart-info-column');
-                const noItemInCart = document.createElement('p');
-                noItemInCart.innerHTML = 'There are no items in your cart'
-                noItemInCart.setAttribute('id', 'noItemInCart')
-                itemsList.innerHTML = ""
-                itemsList.append(noItemInCart)
-                orderSummary.style.display = 'none';
-                loader.classList.remove('showLoader')
-                removeClass(cartContentLoader, 'showLoader')
-            }
-        }).catch(error => {
-            //Handle Error Here
-            console.log(error)
-            const orderSummary = document.querySelector('.cart-content-right');
-            const itemsList = document.querySelector('.cart-info-column');
-            const noItemInCart = document.createElement('p');
-            noItemInCart.innerHTML = 'There are no items in your cart'
-            noItemInCart.setAttribute('id', 'noItemInCart')
-            itemsList.innerHTML = ""
-            itemsList.append(noItemInCart)
-            orderSummary.style.display = 'none';
-            loader.classList.remove('showLoader')
-        })
+    if(response.status !== 200){
+        return
+    }
+    let data = await response.json();
+    //No item in cart
+    if(data.length <= 0){
+        const orderSummary = document.querySelector('.cart-content-right');
+        const itemsList = document.querySelector('.cart-info-column');
+        const noItemInCart = document.createElement('p');
+        noItemInCart.innerHTML = 'There are no items in your cart'
+        noItemInCart.setAttribute('id', 'noItemInCart')
+        itemsList.innerHTML = ""
+        itemsList.append(noItemInCart)
+        orderSummary.style.display = 'none';
+        loader.classList.remove('showLoader')
+        removeClass(cartContentLoader, 'showLoader')
+    }
+    createCartItem(data)
+    console.log(data)
 }
 // Populate People Also Viewed
 const peopleAlsoViewedCart = document.querySelector('.cart-content-bottom-more')
 const populatePeopleAlsoViewed = (data) => {
-    const {discountedPrice, imageUrl, name, productID} = data
+    const {price, imageUrl, name, productID} = data
     const productCard = document.createElement('div');
     productCard.classList.add('cart-content-bottom-item');
     const productImage = document.createElement('img');
     productImage.src = imageUrl;
     const productName = document.createElement('p');
     productName.innerHTML = name;
-    const price = formatter.format(discountedPrice);
+    const newPrice = formatter.format(price);
     productPrice = document.createElement('p');
-    productPrice.innerHTML = price;
-    const productRatingContainer = document.createElement('div');
-    const ratingImage = document.createElement('img');
-    ratingImage.src = 'https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg';
-    const ratingText = document.createElement('p');
-    ratingText.innerHTML = '4.5'
+    productPrice.classList.add('cart-text-bold-green')
+    productPrice.innerHTML = newPrice;
 
     productCard.setAttribute('data-id', productID)
 
     productCard.addEventListener('click', () => handleProductClick(productCard))
     // Append
-    productRatingContainer.append(ratingImage, ratingText);
-    productCard.append(productImage, productName, productPrice, productRatingContainer);
+    productCard.append(productImage, productName, productPrice);
 
     peopleAlsoViewedCart.append(productCard)
 }
 
-const getPeopleAlsoViewedItems = () => {
+const getPeopleAlsoViewedItems = async () => {
     peopleAlsoViewedCart.innerHTML = ""
-    getData(productsEndpoint)
-        .then(data => {
-            let randomData = pickRandomItems(data, 4)
-            randomData.map(item => populatePeopleAlsoViewed(item))
-        })
+    let options = {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
+    let response = await fetch(productsEndpoint, options)
+    if(response.status !== 200){
+        return
+    }
+    let data = await response.json();
+    let randomData = pickRandomItems(data, 4)
+    randomData.map(item => populatePeopleAlsoViewed(item))
 }
 
 // On Page Load
-const handleCartPageLoad = () => {
+const handleCartPageLoad = async () => {
     loader.classList.add('showLoader')
-    handleNavbarLoad
-        .then(user => {
-            if(user){
-                showItemsInCart(user);
-                //People Also Viewed
-                getPeopleAlsoViewedItems();
-            }else{
-                console.log("object")
-                //People Also Viewed
-                getPeopleAlsoViewedItems()
-                loader.classList.remove('showLoader')
-            }
-        }).catch(error => {
-            console.log(error)
-            const orderSummary = document.querySelector('.cart-content-right');
-            const itemsList = document.querySelector('.cart-info-column');
-            const noItemInCart = document.createElement('p');
-            noItemInCart.innerHTML = 'There are no items in your cart'
-            noItemInCart.setAttribute('id', 'noItemInCart')
-            itemsList.innerHTML = ""
-            itemsList.append(noItemInCart)
-            orderSummary.style.display = 'none';
-            loader.classList.remove('showLoader')
-        })
+    const user = await autheticateUser();
+    console.log(user)
+    if(!user){
+        const orderSummary = document.querySelector('.cart-content-right');
+        const itemsList = document.querySelector('.cart-info-column');
+        const noItemInCart = document.createElement('p');
+        noItemInCart.innerHTML = 'There are no items in your cart'
+        noItemInCart.setAttribute('id', 'noItemInCart')
+        itemsList.innerHTML = ""
+        itemsList.append(noItemInCart)
+        orderSummary.style.display = 'none';
+        loader.classList.remove('showLoader')
+        //People Also Viewed
+        getPeopleAlsoViewedItems();
+        return;
+    }
+    showItemsInCart();
+    getPeopleAlsoViewedItems();
+    loader.classList.remove('showLoader')
+    
 }
 window.addEventListener('DOMContentLoaded', handleCartPageLoad)
 
 //Handle Checkout
 const cartCheckout = document.querySelector('#cartCheckout');
-const handleCartCheckOut = () => {
-    handleNavbarLoad
-        .then(user => {
-            // Check for presence of user 
-            if(user){
-                window.location.href = '../Checkout/checkout.html'
-            }
-        }).catch(error => {
-            infoToast.innerHTML = `Kindly make sure you are logged in`;
-            infoToast.classList.add('showInfoToast');
-                setTimeout(() => {
-                    infoToast.classList.remove('showInfoToast')
-                }, 2000);
-        })
+const handleCartCheckOut = async () => {
+    let user = await autheticateUser();
+    if(!user){
+        infoToast.innerHTML = `Kindly make sure you are logged in`;
+        infoToast.classList.add('showInfoToast');
+        setTimeout(() => {
+            infoToast.classList.remove('showInfoToast')
+        }, 2000);
+        return;
+    }
+    window.location.href = '../Checkout/checkout.html'
 }
 if(cartCheckout){
     cartCheckout.addEventListener('click', handleCartCheckOut)

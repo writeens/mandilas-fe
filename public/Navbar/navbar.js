@@ -70,64 +70,15 @@ const navbarMenuItems = document.querySelectorAll('[data-nav-key]');
             postAuth.classList.toggle('auth-show')
         }
     })
-/**Client Side JS */
-/**Desktop Menu */
-// const menuItems = document.querySelectorAll('.hometwo-menu-item.drop')
-// menuItems.forEach((menuItem, outerIndex, arr) => {
-//     menuItem.addEventListener('click', () => {
-//         if(window.innerWidth >= 940){
-//             arr.forEach((item, innerIndex) => {
-//                 if(innerIndex !== outerIndex){
-//                     item.children[1].classList.add('hometwo-submenu-hide')
-//                 }
-//             })
-//             menuItem.children[1].classList.toggle('hometwo-submenu-hide')
-//         }else{
-//             arr.forEach((item, innerIndex) => {
-//                 if(innerIndex !== outerIndex){
-//                     item.children[1].classList.add('hometwo-submenu-hide')
-//                 }
-//             })
-//             menuItem.children[1].classList.toggle('hometwo-submenu-hide')
-//         }
-//     })
-// })
-
-//Hamburger Menu
-// const hamburgerPresent = toggle.children[0].classList.contains('fa-bars')
-// const closeIconPresent = toggle.children[0].classList.contains('fa-close')
-// const handleHamburger = () => {
-//     if(hamburgerPresent){
-//         console.log("showing Menu")
-//         toggle.children[0].classList.toggle('fa-bars');
-//         toggle.children[0].classList.toggle('fa-close');
-
-//     }
-//     if(closeIconPresent){
-//         console.log("hiding Menu")
-//         toggle.children[0].classList.toggle('fa-close');
-//         toggle.children[0].classList.toggle('fa-bars');
-//     }
-//     navbarButtons.classList.toggle('show-item');
-//     menu.classList.toggle('show-item');
-// }
-// toggle.addEventListener('click', handleHamburger)
-/**Desktop Menu */
 
 /**Modal Management */
 
 //Show Login Modal upon click
 loginButton.addEventListener('click', () => {
-    //Hide Menu
-    // handleHamburger()
-    // Show Modal
     loginModal.style.display = "flex"
 })
 //Show Regsiter Modal upon click
 registerButton.addEventListener('click', () => {
-    //Hide Menu
-    // handleHamburger()
-    // Show Modal
     registerModal.style.display = "flex"
 })
 //Handle Register button click in Login Modal
@@ -173,9 +124,10 @@ const updateCartEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/ma
 const deleteCartItemEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/cart'
 const signUpEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-up'
 const logInEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/sign-in'
-const getProductReviewEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/review/'
+const getProductReviewEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/review'
 const getUserInfoEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/user';
-
+const getAnyUserInfoEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/auth/anyuser';
+const searchProductsEndpoint = 'https://peaceful-river-39598.herokuapp.com/api/v1/mandilas/products/search'
 //Check Environment
 let ENV = ''
 const checkEnvironment = () => {
@@ -208,48 +160,6 @@ const removeClass = (elem, customClass) => {
     elem.classList.remove(customClass)
 }
 
-//Initialize Local Storage
-const initializeLocalStorage = () => {
-    const token = localStorage.getItem('mandilasToken');
-    if(token === null){
-        localStorage.setItem("mandilasToken", JSON.stringify(""))
-    }
-}
-initializeLocalStorage();
-
-//Update Cart Number
-const updateCartIcon = (id) => {
-    const cartNumber = document.querySelectorAll('.cart-container > .no-of-items')
-    if(id !== null){
-        fetch(`${getItemsInCartEndpoint}/${id}`, {
-            method:'GET',
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
-        .then(response => response.json())
-        .then(result => {
-            let {status, data, message, code} = result
-            //Successful Request
-            if(status === 'success'){
-                // console.log(data)
-                // CART_ITEMS = data.map(item => item.id)
-                cartNumber.forEach(item => item.innerHTML = data.length)
-            }
-            //There are no items in cart
-            if(status === 'error'){
-                cartNumber.forEach(item => item.innerHTML = 0)
-            }
-        }).catch(error => {
-            if(status === 'error'){
-                cartNumber.forEach(item => item.innerHTML = 0)
-            }
-        })
-    }else{
-        cartNumber.forEach(item => item.innerHTML = 0)
-    }
-}
-
 //Clear Login
 const clearLogin = () => {
     navLogInEmail.value = "",
@@ -262,14 +172,6 @@ const clearRegister = () => {
     navPhoneNumber.value = "",
     navPassword.value = ""
 }
-
-
-
-
-
-
-/**GLOBAL VARIABLES */
-/**Communication With Server */
 const shakeInput = (elem) => {
     elem.classList.add('shake')
     elem.classList.add('invalid-input')
@@ -299,6 +201,32 @@ const isValidPhoneNumber = (str) => {
     return (phoneRegex.test(trimStr) && trimStr !== "") ? true : false
 }
 
+//Update Cart Number
+const updateCartIcon = async () => {
+    const cartNumber = document.querySelectorAll('.cart-container > .no-of-items')
+    let token = localStorage.getItem('mandilasToken')
+
+    try{
+        if(token === null){
+            return cartNumber.forEach(item => item.innerHTML = 0)
+        }
+        let response = await fetch(`${getItemsInCartEndpoint}`, {
+            method:'GET',
+            headers:{
+                'Authorization': `Bearer ${token}`
+            }
+        })
+        if(response.status !== 200){
+            return cartNumber.forEach(item => item.innerHTML = 0)
+        }
+        let data = await response.json();
+        cartNumber.forEach(item => item.innerHTML = data.length)
+        
+    } catch (error){
+        cartNumber.forEach(item => item.innerHTML = 0)
+    }
+}
+
 //Validate Input from Sign Up Form
 const validateData = (elem) => {
     if(elem.id === 'navbarFirstName' || elem.id === 'navbarLastName'){
@@ -316,7 +244,7 @@ const validateData = (elem) => {
 }
 
 // Handle the Register Modal
-const handleRegister = () => {
+const handleRegister = async () => {
     validateData(navFirstName)
     validateData(navLastName)
     validateData(navEmail)
@@ -348,194 +276,309 @@ const handleRegister = () => {
         }
 
         //Post Data to Custom Mandilas Endpoint using browser-based FETCH
-        fetch(signUpEndpoint, options)
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                loader.classList.remove('showLoader')
-                if(data.status === "success"){
-                    const {name, email, token, userId} = data.data
-                    //Store variables on client side
-                    localStorage.setItem('mandilasToken', `${token}`)
-                    infoText.innerHTML = `Hi ${body["firstName"]}, You have successfully registered`
-                    postSignedInButtonContainer.children[0].innerHTML = `Hello, ${body["firstName"]}`;
-                    //Remove Modal
-                    registerModal.style.display = "none"
-                    loginModal.style.display = "none"
-                    // Show Post Register View
-                    postSignedInButtonContainer.style.display = 'flex';
-                    preSignedInButtonContainer.style.display = 'none';
-                    //Clear Defaults
-                    clearRegister();
-                    // Set User State to logged in
-                    isUserLoggedIn = true;
-                    // Set User ID
-                    USER_ID = userId
-                    //Update Cart Icon
-                    updateCartIcon(USER_ID)
-
-                    $.ajax({
-                      url : '/sendWelcomeMail',
-                      type : "POST",
-                      data : {
-                        email : email,
-                        name : name
-                      },
-                      success : function () {
-                        console.log("Email sent");
-                      }
-                    })
-                }
-                if(data.status === "error" && data.code === "MAIL_EXISTS"){
-                    infoText.innerHTML = `Hi ${body["firstName"]}, this email already exists`;
-                }
+        try{
+            let response = await fetch(signUpEndpoint, options)
+            let data = await response.json();
+            
+            //Invalid Phone Number
+            if(data.code === 'auth/phone-number-already-exists'){
+                infoText.innerHTML = "Phone number belongs to another user"
                 infoToast.classList.add('showInfoToast');
-                    setTimeout(() => {
-                        infoToast.classList.remove('showInfoToast')
-                    }, 2000);
-            }).catch(error => {
-                console.log(error)
-            })
+                loader.classList.remove('showLoader')   
+                return setTimeout(() => {
+                    infoToast.classList.remove('showInfoToast')
+                }, 2000);
+            }
+            if(data.code === 'auth/email-already-exists'){
+                infoText.innerHTML = "Email already in use, try logging in"
+                infoToast.classList.add('showInfoToast'); 
+                loader.classList.remove('showLoader')  
+                return setTimeout(() => {
+                    infoToast.classList.remove('showInfoToast')
+                }, 2000);
+            }
+            const {uid, email, firstName, lastName, token} = data
+            //Store variables on client side
+            localStorage.setItem('mandilasToken', `${token}`)
+            postSignedInButtonContainer.children[0].innerHTML = `Hello, ${body["firstName"]}`;
+            // Remove Modal
+            registerModal.style.display = "none"
+            loginModal.style.display = "none"
+            // Show Post Register View
+            postSignedInButtonContainer.style.display = 'flex';
+            preSignedInButtonContainer.style.display = 'none';
+            //Clear Defaults
+            clearRegister();
+            isUserLoggedIn = true;
+            // Set User ID
+            USER_ID = uid
+
+            loader.classList.remove('showLoader')
+            await updateCartIcon();
+            infoText.innerHTML = `Hi ${firstName}, You have successfully registered`
+            infoToast.classList.add('showInfoToast');
+            setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 2000);
+            
+
+            //Send Welcome Email
+            // $.ajax({
+            //     url : '/sendWelcomeMail',
+            //     type : "POST",
+            //     data : {
+            //         email : email,
+            //         name : `${firstName}, ${lastName}`
+            //     },
+            //     success : function () {
+            //         console.log("Email sent");
+            //     }
+            // })
+        } catch (error){
+            console.log(error)
+        }
     }
 }
-
-
-
-
-
-
-
 navRegister.addEventListener('click', handleRegister)
 
 // Handle the Login Modal
-const handleLogIn = () => {
-    validateData(navLogInEmail);
-    validateData(navLogInPassword);
-    if(validateData(navLogInEmail) && validateData(navLogInPassword)){
-        // Add Loader
-        loader.classList.add('showLoader')
-        //Create Request Body
-        const body = {
-            "email":navLogInEmail.value,
-            "password":navLogInPassword.value
-        }
-        // Fetch options for posting JSON
-        const options = {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(body)
-        }
+const handleLogIn = async () => {
+        if(validateData(navLogInEmail) && validateData(navLogInPassword)){
+            try{
+            // Add Loader
+            loader.classList.add('showLoader')
+            //Create Request Body
+            const body = {
+                "email":`${navLogInEmail.value}`,
+                "password":`${navLogInPassword.value}`
+            }
 
-        fetch(logInEndpoint, options)
-            .then(response => {
-                return response.json()
-            })
-            .then(data => {
-                console.log(data.status)
-                loader.classList.remove('showLoader')
-                if(data.status === 'success'){
-                    const {displayName, email, customToken, userId} = data.data;
-                    let firstName = `${displayName}`.split(' ')[1]
-                    infoText.innerHTML = `Hi ${firstName}, You have successfully signed in.`
-                    postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
-                    localStorage.setItem('mandilasToken', `${customToken}`);
-                    //Remove Modal
-                    loginModal.style.display = "none"
-                    //Clear Defaults
-                    navLogInEmail.value = "",
-                    navLogInPassword.value = "",
-                    // Set User State to logged in
-                    isUserLoggedIn = true;
-                    //Set User ID
-                    USER_ID = userId
-                    postSignedInButtonContainer.style.display = 'flex';
-                    preSignedInButtonContainer.style.display = 'none';
-
-                    //Update Cart Icon
-                    updateCartIcon(USER_ID)
-                    // window.location.reload()
-                }
-                if(data.status === 'error' && data.code === 'INVALID PASSWORD'){
-                    infoText.innerHTML = `The password you entered is incorrect.`
-                }
-                if(data.status === 'error' && data.code === 'INVALID EMAIL'){
-                    infoText.innerHTML = `The email you entered does not exist. Try signing up.`
-                    registerModal.style.display = "flex"
-                }
-                // Show the Toast
-                infoToast.classList.add('showInfoToast');
-                setTimeout(() => {
-                    infoToast.classList.remove('showInfoToast')
-                }, 3000);
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-}
-navLogIn.addEventListener('click', handleLogIn)
-
-/**Communication With Server */
-const handleNavbarLoad = new Promise((resolve, reject) => {
-    //Initialize UI
-    postSignedInButtonContainer.style.display = 'none';
-    preSignedInButtonContainer.style.display = 'flex';
-
-    let clientToken = localStorage.getItem('mandilasToken');
-    // If theres a token stored on the client side
-    if((clientToken !== 'undefined') && (clientToken !== "")){
-        // Sign In with that token
-        firebase.auth().signInWithCustomToken(clientToken)
-        .then((record) => {
-            //Login Successful
-
-            USER_ID = record.user.uid
-            let firstName = `${record.user.displayName}`.split(' ')[0];
-            postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
-            isUserLoggedIn = true;
-            // Show Post Login View
-            postSignedInButtonContainer.style.display = 'flex';
-            preSignedInButtonContainer.style.display = 'none';
-
-            // Notify user of logged in status
-            if(window.location.pathname === '/Homepage/index.html'){
-                infoText.innerHTML = `Hi, ${firstName}, you are logged in`
+            // Fetch options for posting JSON
+            const options = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(body)
+            }
+            
+            const response = await fetch(logInEndpoint, options);
+            if(response.status === 500){
+                infoText.innerHTML = `Login unsuccessful, Check Details`
                 infoToast.classList.add('showInfoToast');
                 setTimeout(() => {
                     infoToast.classList.remove('showInfoToast')
                 }, 2000);
+                return loader.classList.remove('showLoader')
             }
 
-            // Update Cart Icon
-            updateCartIcon(USER_ID);
-            resolve(USER_ID)
+            //Valid Data Provided
+            const data = await response.json();
+            const {uid, token, firstName, lastName} = data
+            //Store variables on client side
+            localStorage.setItem('mandilasToken', `${token}`)
 
-        }).catch(error => {
-            // Handle Errors here.
-            updateCartIcon(null);
-            //Login Not Successful
+            postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
+            infoText.innerHTML = `Hi ${firstName}, You have successfully signed in.`
+            //Remove Modal
+            loginModal.style.display = "none"
+            //Clear Defaults
+            navLogInEmail.value = "",
+            navLogInPassword.value = "",
+            // Set User State to logged in
+            isUserLoggedIn = true;
+            //Set User ID
+            USER_ID = uid
+            postSignedInButtonContainer.style.display = 'flex';
+            preSignedInButtonContainer.style.display = 'none';
 
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            if(errorCode === "auth/invalid-custom-token"){
+            loader.classList.remove('showLoader')
+            console.log(window.location)
+            await updateCartIcon();
+            window.location.reload()
+            // Show the Toast
+            infoToast.classList.add('showInfoToast');
+            setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 3000);
+            
+        }catch(error){
+            console.log(error)
+            infoText.innerHTML = `Login unsuccessful`
+            infoToast.classList.add('showInfoToast');
+            setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 2000);
+        }
+    } 
+    // validateData(navLogInEmail);
+    // validateData(navLogInPassword);
+    // if(validateData(navLogInEmail) && validateData(navLogInPassword)){
+    //     // Add Loader
+    //     loader.classList.add('showLoader')
+    //     //Create Request Body
+    //     const body = {
+    //         "email":navLogInEmail.value,
+    //         "password":navLogInPassword.value
+    //     }
+    //     // Fetch options for posting JSON
+    //     const options = {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(body)
+    //     }
 
-                loader.classList.remove('showLoader')
-            }
-            if(errorCode === "auth/network-request-failed"){
-                loader.classList.remove('showLoader')
-                infoText.innerHTML = `Check your network`
-                infoToast.classList.add('showInfoToast');
-                setTimeout(() => {
-                    infoToast.classList.remove('showInfoToast')
-                }, 3000);
-            }
-            resolve(null)
-        });
-    }
+    //     fetch(logInEndpoint, options)
+    //         .then(response => {
+    //             return response.json()
+    //         })
+    //         .then(data => {
+    //             console.log(data.status)
+    //             loader.classList.remove('showLoader')
+    //             if(data.status === 'success'){
+    //                 const {displayName, email, customToken, userId} = data.data;
+    //                 let firstName = `${displayName}`.split(' ')[1]
+    //                 infoText.innerHTML = `Hi ${firstName}, You have successfully signed in.`
+    //                 postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
+    //                 localStorage.setItem('mandilasToken', `${customToken}`);
+    //                 //Remove Modal
+    //                 loginModal.style.display = "none"
+    //                 //Clear Defaults
+    //                 navLogInEmail.value = "",
+    //                 navLogInPassword.value = "",
+    //                 // Set User State to logged in
+    //                 isUserLoggedIn = true;
+    //                 //Set User ID
+    //                 USER_ID = userId
+    //                 postSignedInButtonContainer.style.display = 'flex';
+    //                 preSignedInButtonContainer.style.display = 'none';
+
+    //                 //Update Cart Icon
+    //                 updateCartIcon(USER_ID)
+    //                 // window.location.reload()
+    //             }
+    //             if(data.status === 'error' && data.code === 'INVALID PASSWORD'){
+    //                 infoText.innerHTML = `The password you entered is incorrect.`
+    //             }
+    //             if(data.status === 'error' && data.code === 'INVALID EMAIL'){
+    //                 infoText.innerHTML = `The email you entered does not exist. Try signing up.`
+    //                 registerModal.style.display = "flex"
+    //             }
+    //             // Show the Toast
+    //             infoToast.classList.add('showInfoToast');
+    //             setTimeout(() => {
+    //                 infoToast.classList.remove('showInfoToast')
+    //             }, 3000);
+    //         })
+    //         .catch(error => {
+    //             console.log(error)
+    //         })
+    // }
+}
+navLogIn.addEventListener('click', handleLogIn)
+
+/**Communication With Server */
+const handleNavLoad = new Promise((resolve, reject) => {
+    //Initialize UI
+    postSignedInButtonContainer.style.display = 'none';
+    preSignedInButtonContainer.style.display = 'flex';
+
+    // let clientToken = localStorage.getItem('mandilasToken');
+    // // If theres a token stored on the client side
+    // if((clientToken !== 'undefined') && (clientToken !== "")){
+    //     // Sign In with that token
+    //     firebase.auth().signInWithCustomToken(clientToken)
+    //     .then((record) => {
+    //         //Login Successful
+
+    //         USER_ID = record.user.uid
+    //         let firstName = `${record.user.displayName}`.split(' ')[0];
+    //         postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
+    //         isUserLoggedIn = true;
+    //         // Show Post Login View
+    //         postSignedInButtonContainer.style.display = 'flex';
+    //         preSignedInButtonContainer.style.display = 'none';
+
+    //         // Notify user of logged in status
+    //         if(window.location.pathname === '/Homepage/index.html'){
+    //             infoText.innerHTML = `Hi, ${firstName}, you are logged in`
+    //             infoToast.classList.add('showInfoToast');
+    //             setTimeout(() => {
+    //                 infoToast.classList.remove('showInfoToast')
+    //             }, 2000);
+    //         }
+
+    //         // Update Cart Icon
+    //         updateCartIcon(USER_ID);
+    //         resolve(USER_ID)
+
+    //     }).catch(error => {
+    //         // Handle Errors here.
+    //         updateCartIcon(null);
+    //         //Login Not Successful
+
+    //         var errorCode = error.code;
+    //         var errorMessage = error.message;
+    //         if(errorCode === "auth/invalid-custom-token"){
+
+    //             loader.classList.remove('showLoader')
+    //         }
+    //         if(errorCode === "auth/network-request-failed"){
+    //             loader.classList.remove('showLoader')
+    //             infoText.innerHTML = `Check your network`
+    //             infoToast.classList.add('showInfoToast');
+    //             setTimeout(() => {
+    //                 infoToast.classList.remove('showInfoToast')
+    //             }, 3000);
+    //         }
+    //         resolve(null)
+    //     });
+    // }
 })
+
+const autheticateUser = async () => {
+    let clientToken = localStorage.getItem('mandilasToken');
+    // If theres a token stored on the client side
+    try{
+        if(clientToken){
+            const options = {
+                method: 'GET',
+                headers: {
+                    Authorization:`Bearer ${clientToken}`
+                },
+            }
+            let response = await fetch(getUserInfoEndpoint, options)
+            if(response.status !== 200){
+                return null
+            }
+            let record = await response.json();
+            isUserLoggedIn = true
+            return record;
+        }else{
+            isUserLoggedIn = false
+            return null
+        }
+    } catch (error){
+        console.log(error);
+    }
+}
+const handleNavbarLoad = async () => {
+    //Initialize UI
+    postSignedInButtonContainer.style.display = 'none';
+    preSignedInButtonContainer.style.display = 'flex';
+    let user = await autheticateUser();
+    if(user){
+        postSignedInButtonContainer.style.display = 'flex';
+        preSignedInButtonContainer.style.display = 'none';
+        postSignedInButtonContainer.children[0].innerHTML = `Hello, ${user.firstName}`;
+        await updateCartIcon();
+    }else{
+        postSignedInButtonContainer.style.display = 'none';
+        preSignedInButtonContainer.style.display = 'flex';
+    }
+}
 window.addEventListener('load', handleNavbarLoad)
 
 // On User LogOut
@@ -584,18 +627,20 @@ navbarCart.forEach(item => {
 
 //User clicks on his/her name
 const nameContainer = document.querySelector('#nameContainer');
-nameContainer.addEventListener('click', () => {
+nameContainer.addEventListener('click', async () => {
     // Show Items
-    handleNavbarLoad
-        .then(user => {
-            if(user !== '' && user !== null && user !== undefined){
-                window.location.href = "../Account Profile/index.html"
-            }
-        }).catch(error => {
+    try{
+        let user = await autheticateUser();
+        if(user === null){
             infoText.innerHTML = `Kindly make sure you are logged in and try again`
-                infoToast.classList.add('showInfoToast');
-                setTimeout(() => {
-                    infoToast.classList.remove('showInfoToast')
-                }, 2000);
-        })
+            infoToast.classList.add('showInfoToast');
+            return setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 2000);
+        }
+        window.location.href = "../Account Profile/index.html"
+
+    } catch (error){
+        console.log(error)
+    }
 })

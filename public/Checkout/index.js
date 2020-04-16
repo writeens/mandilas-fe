@@ -45,8 +45,7 @@ const getShipping = (quantity) => {
 //Create Item
 billingContainer.innerHTML = ""
 const createItem = (info, quantity) => {
-    const {status, data} = info;
-    const {name, description} = data
+    const {name, description} = info
     const itemHolder = document.createElement('div');
     itemHolder.classList.add('billing-shipment-row');
     const itemQuantity = document.createElement('p');
@@ -65,15 +64,33 @@ const createItem = (info, quantity) => {
 
 //Calculate Pricing
 const calculateTotalPrice = (itemDetails, itemCart) => {
+    console.log(itemCart)
     itemDetails.map((item, index) => {
-        CART_TOTAL += (item.data.price * itemCart[index].quantity)
-        SUB_TOTAL += (item.data.price * itemCart[index].quantity)
+        CART_TOTAL += (item.price * itemCart[index].quantity)
+        SUB_TOTAL += (item.price * itemCart[index].quantity)
     })
+    console.log(CART_TOTAL)
     orderSummaryTotal.innerHTML = formatter.format(CART_TOTAL);
     orderSummarySubTotal.innerHTML = formatter.format(SUB_TOTAL);
 }
 
 //Retrieve Information on Items in Cart
+// const getInfoOnItems = async (data) => {
+//     let infoOnProducts = [];
+//     data.forEach(async (item, index) => {
+//         console.log(item.item)
+//         let response = await fetch (`${singleProductEndpoint}/${item.item}`, {
+//             method:'GET',
+//             headers:{
+//                 'Content-Type':'application/json'
+//             }
+//         })
+//         let me = await response.json();
+//         console.log(me)
+//         infoOnProducts.push(me)
+//     })
+//     return infoOnProducts
+// }
 const getDataOnItems = (data) => new Promise((resolve, reject) => {
     let infoOnProducts = []
     // Get Data on all items 
@@ -95,76 +112,60 @@ const getDataOnItems = (data) => new Promise((resolve, reject) => {
 })
 
 //Handle Checkout Page Load
-const handleCheckOutPageLoad = () => {
+const handleCheckOutPageLoad = async () => {
+    let token = localStorage.getItem('mandilasToken')
     loader.classList.add('showLoader')
-    handleNavbarLoad
-        .then(user => {
-            if(user){
-                CART_USER.user = user
-                const userInfo = firebase.database().ref(`users/${user}`)
-                userInfo.once('value')
-                    .then(snapshot => {
-                        const {email, lastName, firstName, phoneNumber, billingAddress} = snapshot.val()
-                        const {address, city, state} = billingAddress
-                        // Update UI
-                        CART_USER.email = email
-                        billingFirstName.value = firstName,
-                        billingLastName.value = lastName,
-                        billingPhoneNumber.value = phoneNumber,
-                        billingEmail.value = email,
-                        billingAddressInput.innerHTML = address,
-                        billingCity.value = city,
-                        billingState.value = state
-                    })
-                    .then(() => {
-                        // Get Items in Cart
-                        fetch(`${getItemsInCartEndpoint}/${user}`, {
-                            method:'GET',
-                            headers:{
-                                'Content-Type':'application/json'
-                            }
-                        })
-                        .then(response => response.json())
-                        .then(result => {
-                            const {status, data} = result
-                            // If Status
-                            if(status === 'success'){
-                                let shippingCost = getShipping(data.length)
-                                SHIPPING_COST = shippingCost;
-                                shippingFee.innerHTML = formatter.format(shippingCost)
-                                orderSummaryShipping.innerHTML = formatter.format(shippingCost);
-                                CART_TOTAL += shippingCost
+    let user = await autheticateUser();
+    if(!user){
+        //
+        window.location.href = '../Cart/index.html';
+        return
+    }
+    CART_USER.user = user.uid
+    const {firstName, lastName, phoneNumber, email, billingAddress} = user
+    billingFirstName.value = firstName,
+    billingLastName.value = lastName,
+    billingPhoneNumber.value = phoneNumber,
+    billingEmail.value = email,
+    billingAddressInput.innerHTML = billingAddress.address || "",
+    billingCity.value = billingAddress.city || "",
+    billingState.value = billingAddress.state || ""
 
-                                getDataOnItems(data)
-                                    .then(result => {
-                                        data.map((item, index) => {
-                                            CART_DETAILS.push(item.item)
-                                            CART_QUANTITY.push(item.quantity)
-                                        })
-                                    loader.classList.remove('showLoader')
-                                        // Configure Pricing
-                                        calculateTotalPrice(result, data)
-                                        result.map((item, index) => {
-                                            if(item.status === 'success'){
-                                                createItem(item, data[index].quantity)
-                                            }
-                                        })
-                                    })
-                            }
-                        })
-                    })
-                    .catch(error => {
-                        console.log(error)
-                    })
-            } else{
-                // console.log("Logged Out")
-                window.location.href = "../Homepage/index.html"
-            }
-        })
-        .catch(error => {
-            console.log(error)
-            // window.location.href = '../Airconditioners/main.html'
-        })
+    // Get Items in Cart
+    let response = await fetch(`${getItemsInCartEndpoint}`, {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json',
+            'Authorization':`Bearer ${token}`
+        }
+    })
+    if(response.status !== 200){
+        return;
+    }
+    CART_USER.email = email
+    let data = await response.json();
+
+
+    let shippingCost = getShipping(data.length)
+    SHIPPING_COST = shippingCost;
+    shippingFee.innerHTML = formatter.format(shippingCost)
+    orderSummaryShipping.innerHTML = formatter.format(shippingCost);
+    CART_TOTAL += shippingCost
+
+    data.map((item, index) => {
+        CART_DETAILS.push(item.item)
+        CART_QUANTITY.push(item.quantity)
+    })
+
+    let info = await getDataOnItems(data)
+    console.log(info)
+    info.forEach((item, index) => {
+        console.log(index)
+        createItem(item, data[index].quantity)
+    })
+    // Configure Pricing
+    calculateTotalPrice(info, data)
+    loader.classList.remove('showLoader')
 }
 window.addEventListener('DOMContentLoaded', handleCheckOutPageLoad)
 
@@ -181,7 +182,9 @@ const validateBilling = (elem) => {
 }
 
 // Handle Billing Save and Continue Button
-const handleBillingSubmitButton = () => {
+const handleBillingSubmitButton = async () => {
+    try{
+        let token = localStorage.getItem('mandilasToken');
     validateBilling(billingFirstName)
     validateBilling(billingLastName)
     validateBilling(billingAddress)
@@ -195,44 +198,39 @@ const handleBillingSubmitButton = () => {
     validateBilling(billingState) &&
     validateBilling(billingPhoneNumber)){
         const body = {
-            firstName:billingFirstName.value,
-            lastName:billingLastName.value,
-            email: billingEmail.value,
-            phoneNumber:billingPhoneNumber.value,
-            billingAddress:{
-                address:billingAddress.value,
-                city:billingCity.value,
-                state:billingState.value
-            },
-            user:USER_ID
+            "firstName":billingFirstName.value,
+            "lastName":billingLastName.value,
+            "billingAddress":{
+                "address":billingAddress.value,
+                "city":billingCity.value,
+                "state":billingState.value
+            }
         }
-
-        fetch(updateBillingEndpoint, {
-            method:'POST',
+        let response = await fetch(`${updateBillingEndpoint}/`, {
+            method:'PUT',
             headers:{
-                'Content-Type':'application/json'
+                'Content-Type':'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Accept':'application/json'
             },
             body:JSON.stringify(body)
         })
-        .then(response => response.json())
-        .then(result => {
-            const {data, message, code, status} = result
-            if(status === 'success'){
-                infoText.innerHTML = 'Your billing information has successfully been saved'
-                infoToast.classList.add('showInfoToast');
-                setTimeout(() => {
-                    infoToast.classList.remove('showInfoToast')
-                }, 2000);
-            }else{
-                infoText.innerHTML = 'Your billing information could not be saved'
-                infoToast.classList.add('showInfoToast');
-                setTimeout(() => {
-                    infoToast.classList.remove('showInfoToast')
-                }, 2000);
-            }
-        }).catch(error => {
-            console.log(error)
-        })
+        if(response.status !== 200){
+            infoText.innerHTML = 'Your billing information could not be saved'
+            infoToast.classList.add('showInfoToast');
+            setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 2000);
+            return
+        }
+        infoText.innerHTML = 'Your billing information has successfully been saved'
+        infoToast.classList.add('showInfoToast');
+        setTimeout(() => {
+            infoToast.classList.remove('showInfoToast')
+        }, 2000);
+    }
+    } catch (e) {
+        console.log(e)
     }
 }
 billingSubmit.addEventListener('click', handleBillingSubmitButton)
@@ -289,8 +287,10 @@ const createCustomField = () => {
 }
 
 //Handle Pay Now
-const handlePayment = () => {
-    validateBilling(billingFirstName)
+const handlePayment = async () => {
+    let token = localStorage.getItem('mandilasToken')
+    try{
+        validateBilling(billingFirstName)
     validateBilling(billingLastName)
     validateBilling(billingAddress)
     validateBilling(billingCity)
@@ -310,29 +310,26 @@ const handlePayment = () => {
             "amount":AMOUNT_IN_KOBO,
             "metadata": customField
         }
-        fetch(initiatePaymentEndpoint, {
-            method:'POST',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body:JSON.stringify(body)
-        })
-        .then(response => response.json())
-        .then(result => {
-            console.log(result)
-            const {status, data} = result
-            if(status === 'success'){
-                window.location.href = data.redirect_url
-            }
-            if(status === 'error'){
-                payNow.innerHTML = 'Pay Now';
-                infoText.innerHTML = 'An error occurred. Please try again'
-                infoToast.classList.add('showInfoToast');
-                setTimeout(() => {
-                    infoToast.classList.remove('showInfoToast')
-                }, 2000);
-            }
-        })
+        let response = await fetch(initiatePaymentEndpoint, {
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body:JSON.stringify(body)
+                })
+        if(response.status !== 200){
+            payNow.innerHTML = 'Pay Now';
+            infoText.innerHTML = 'An error occurred. Please try again'
+            infoToast.classList.add('showInfoToast');
+            setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 2000);
+            return;
+        }
+        let data = await response.json();
+        console.log(data);
+        window.location.href = data.redirect_url
     }else{
         infoText.innerHTML = 'Kindly check your billing information'
         infoToast.classList.add('showInfoToast');
@@ -340,6 +337,60 @@ const handlePayment = () => {
             infoToast.classList.remove('showInfoToast')
         }, 2000);
     }
+    } catch (error){
+        console.log(error)
+    }
+    // validateBilling(billingFirstName)
+    // validateBilling(billingLastName)
+    // validateBilling(billingAddress)
+    // validateBilling(billingCity)
+    // validateBilling(billingState)
+    // validateBilling(billingPhoneNumber)
+    // if(validateBilling(billingFirstName) &&
+    // validateBilling(billingLastName) &&
+    // validateBilling(billingAddress) &&
+    // validateBilling(billingCity) &&
+    // validateBilling(billingState) &&
+    // validateBilling(billingPhoneNumber)){
+    //     payNow.innerHTML = '<i class="fa fa-spinner fa-spin"></i>';
+    //     let customField = createCustomField();
+    //     let AMOUNT_IN_KOBO = CART_TOTAL * 100; 
+    //     const body = {
+    //         "email":CART_USER.email,
+    //         "amount":AMOUNT_IN_KOBO,
+    //         "metadata": customField
+    //     }
+    //     fetch(initiatePaymentEndpoint, {
+    //         method:'POST',
+    //         headers:{
+    //             'Content-Type':'application/json',
+    //             'Authorization': `Bearer ${token}`
+    //         },
+    //         body:JSON.stringify(body)
+    //     })
+    //     .then(response => response.json())
+    //     .then(result => {
+    //         console.log(result)
+    //         const {status, data} = result
+    //         if(status === 'success'){
+    //             window.location.href = data.redirect_url
+    //         }
+    //         if(status === 'error'){
+    //             payNow.innerHTML = 'Pay Now';
+    //             infoText.innerHTML = 'An error occurred. Please try again'
+    //             infoToast.classList.add('showInfoToast');
+    //             setTimeout(() => {
+    //                 infoToast.classList.remove('showInfoToast')
+    //             }, 2000);
+    //         }
+    //     })
+    // }else{
+    //     infoText.innerHTML = 'Kindly check your billing information'
+    //     infoToast.classList.add('showInfoToast');
+    //     setTimeout(() => {
+    //         infoToast.classList.remove('showInfoToast')
+    //     }, 2000);
+    // }
 }
 payNow.addEventListener('click', handlePayment)
 

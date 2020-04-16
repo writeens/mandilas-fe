@@ -22,7 +22,7 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../assets/chatbot.js" defer></script>
+    <!-- <script src="../assets/chatbot.js" defer></script> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/css/uikit.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.3/dist/js/uikit-icons.min.js"></script>
@@ -42,6 +42,7 @@
     <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
     <script src="ac-index.js" defer></script>
+    
 </head>
 <body>
     <nav>
@@ -254,12 +255,14 @@
                     <p class="single-ac-result-discount">20%</p>
                 </div>
             </div>
-            <div class="single-ac-pagination">
-                <p class="pagination-active">1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
-            </div>
+            <button id="singleACLoadMoreButton">
+                <span>Load More &nbsp;</span>
+                <i class="fa fa-2x fa-spinner fa-spin"></i>
+            </button>
+            <button id="singleACLoadMoreButtonForQuery">
+                <span>Load More &nbsp;</span>
+                <i class="fa fa-2x fa-spinner fa-spin"></i>
+            </button>
         </div>
     </div>
     <div class="single-ac-motors">

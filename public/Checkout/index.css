@@ -107,7 +107,7 @@ p{
     padding: 1rem;
     border: 1px solid gray;
 }
-.billing-input > input[type=email]{
+.billing-input > input[type=email], #billingPhoneNumber{
     background-color: transparent;
     border: none;
 }
@@ -231,7 +231,7 @@ p{
     box-shadow: none;
 }
 .hide-delivery{
-    max-height: 0;
+    max-height: 100px;
 }
 .show-pick-up{
     max-height: 500px !important;

@@ -1097,6 +1097,38 @@ p{
     background-color: #129347;
     color: white !important;
 }
+#singleACLoadMoreButton{
+    display: flex;
+    cursor: pointer;
+    width: fit-content;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #129347;
+    color: white;
+    align-self: center;
+    margin-top: 1rem;
+    margin: 0 auto;
+}
+#singleACLoadMoreButtonForQuery{
+    display: none;
+    cursor: pointer;
+    width: fit-content;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #129347;
+    color: white;
+    align-self: center;
+    margin-top: 1rem;
+    margin: 0 auto;
+}
+#singleACLoadMoreButton > i{
+    display: none;
+}
+#singleACLoadMoreButtonForQuery > i{
+    display: none;
+}
 @media screen and (max-width:950px){
     .single-ac{
         flex-direction: column;

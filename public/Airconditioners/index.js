@@ -1,5 +1,6 @@
 // Document
 const singleLoaders = document.querySelectorAll('.singleACLoader');
+const commentList = document.querySelector('.ac-content-customer-comment-list')
 //GLOBAL VARIABLES
 
 // Fetch Data from Realtime Database
@@ -11,12 +12,11 @@ const getData = async (url) => {
         }
     }
     let response = await fetch(url, options)
-    let data = await response.json()
-    if(data.status === 'success'){
-        return data.data
-    }else if(data.status === 'error'){
-        return data
+    if(response.status !== 200){
+        throw new Error()
     }
+    let data = await response.json()
+    return data;
 }
 
 // Handle Clicking Of Products
@@ -45,14 +45,12 @@ const getSingleProduct = async (id) => {
     let data = await response.json();
     //Remove Loader once data arrives
     // singleLoaders.forEach(item => removeClass(item, 'showLoader'))
-    return data.data
+    return data;
 }
 
 //Handle Review Creation
-const createReview = (arr) => {
-    const commentList = document.querySelector('.ac-content-customer-comment-list')
-
-    if(arr === null){
+const createReview = async (item) => {
+    if(item === null){
         const text = document.createElement('p');
         commentList.style.justifyContent = 'center'
         text.style.alignSelf = 'center'
@@ -62,52 +60,42 @@ const createReview = (arr) => {
         const reviewLoader = document.querySelector('.reviewLoader')
         removeClass(reviewLoader, `showLoader`);
     }else {
-        const {review, userID, productID, rating} = arr
-        getData(`${getUserInfoEndpoint}?id=${userID}`)
-            .then(data => {
-                const reviewContainer = document.createElement('div');
-                reviewContainer.classList.add('ac-content-customer-comment');
-                const emptyDiv = document.createElement('div');
-                const customerName = document.createElement('p');
-                customerName.innerHTML = `${data.firstName} ${data.lastName}`
-                const reviewText = document.createElement('p')
-                reviewText.innerHTML = review
-                
-                const starContainer = document.createElement('p');
-                starContainer.classList.add('ac-layer-1-content-stars')
-                for(let i = 0; i<rating; i++){
-                    const star = document.createElement('img');
-                    star.src = "https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg"
-                    starContainer.append(star)
-                }
-                
+        const {review, userID, productID, rating} = item
+        let data = await getData(`${getAnyUserInfoEndpoint}/${userID}`)
+        const reviewContainer = document.createElement('div');
+        reviewContainer.classList.add('ac-content-customer-comment');
+        const emptyDiv = document.createElement('div');
+        const customerName = document.createElement('p');
+        customerName.innerHTML = `${data.firstName} ${data.lastName}`
+        const reviewText = document.createElement('p')
+        reviewText.innerHTML = review
 
-                //Append Items
-                emptyDiv.append(customerName, starContainer)
-                reviewContainer.append(emptyDiv, reviewText)
-                commentList.append(reviewContainer)
+        const starContainer = document.createElement('p');
+        starContainer.classList.add('ac-layer-1-content-stars')
+        for(let i = 0; i<rating; i++){
+            const star = document.createElement('img');
+            star.src = "https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg"
+            starContainer.append(star)
+        }
 
-                const reviewLoader = document.querySelector('.reviewLoader')
-                removeClass(reviewLoader, `showLoader`);
-            }) 
+        //Append Items
+        emptyDiv.append(customerName, starContainer)
+        reviewContainer.append(emptyDiv, reviewText)
+        commentList.append(reviewContainer)
+        const reviewLoader = document.querySelector('.reviewLoader')
+        removeClass(reviewLoader, `showLoader`);
     }
 }
 
 //Handle Reviews 
-const getReviews = (id) => {
-    getData(`${getProductReviewEndpoint}?id=${id}`)
-        .then(data => {
-            if(data.status === 'error'){
-                createReview(null)
-            }else{
-                let dataArray = Object.values(data)
-                dataArray.map(item => {
-                    createReview(item)
-                })
-            }
-        }).catch(e => {
-            console.log(e)
-        })
+const getReviews = async (id) => {
+    try{
+        let data = await getData(`${getProductReviewEndpoint}/${id}`)
+        let dataArray = Object.values(data)
+        dataArray.map(item => {createReview(item)})
+    } catch (e){
+        createReview(null)
+    }
 }
 
 // Create Single Product Page
@@ -207,11 +195,6 @@ const populatePeopleAlsoViewed = (item) => {
     itemName.innerHTML = name;
     const itemPrice = document.createElement('p');
     itemPrice.innerHTML = formatter.format(price);
-    // const ratingContainer = document.createElement('div');
-    // const ratingImage = document.createElement('img');
-    // ratingImage.src = 'https://res.cloudinary.com/mandilas/image/upload/v1582705409/Assets/star_uk5thw.svg';
-    // const ratingNumber = document.createElement('p');
-    // ratingNumber.innerHTML = '4.5'
 
     //Append Items
     // ratingContainer.append(ratingImage, ratingNumber);
@@ -230,7 +213,6 @@ const getPeopleAlsoViewedItems = () => {
     peopleAlsoViewedContainer.innerHTML = ""
     getData(productsEndpoint)
         .then(data => {
-            console.log(data)
             let randomData = pickRandomItems(data, 5)
             randomData.map(item => populatePeopleAlsoViewed(item))
             removeClass(peopleAlsoViewedLoader, 'showLoader')
@@ -266,15 +248,12 @@ const getRecommendedItems = () => {
     const recommendedItemsLoader = document.querySelector('.recommendedItemsLoader')
     addClass(recommendedItemsLoader, 'showLoader')
     recommendedItemsContainer.innerHTML = ""
-    console.log("here")
     getData(productsEndpoint)
         .then(data => {
-            console.log(data)
             let randomData = pickRandomItems(data, 3)
             randomData.map(item => populateRecommendedItems(item))
             removeClass(recommendedItemsLoader, 'showLoader')
         }).catch(e => {
-            console.log(e)
             console.log("Recommendations are currently unavailable")
         })
 }
@@ -282,100 +261,120 @@ const getRecommendedItems = () => {
 // Handle On Page Load
 
 const handleSingleAirConPageLoad = async() => {
-    // Handle Page Load for Single Product Page
-    loader.classList.add('showLoader')
+    try{
+        loader.classList.add('showLoader')
         //Add Loader before data arrives
         singleLoaders.forEach(item => addClass(item, 'showLoader'))
         let params = new URLSearchParams(window.location.search.substring(1))
         let id = params.get('id');
-        handleNavbarLoad
-            .then((user) => {
-                //Add Loader before data arrives
-                loader.classList.remove('showLoader')
-                
-                // No query provided
-                if(id === null){
-                    if(ENV === 'development'){
-                        window.location.href = '../Airconditioners/main.html'
-                    }else{
-                        //Github
-                        window.location.href = 'main.html'
-                    }
+        let user = await autheticateUser();
+        await createProductPage(id);
+        await getReviews(id);
+        loader.classList.remove('showLoader')
+        getPeopleAlsoViewedItems()
+        getRecommendedItems()
+        
+    } catch (error){
+        console.log(error)
 
-                }else{
-                    createProductPage(id);
-                    getPeopleAlsoViewedItems()
-                    getRecommendedItems()
-                    getReviews(id);
-                }
-            }).catch(error => {
-                console.log(error)
-            })
+    }
 }
 window.addEventListener('load', handleSingleAirConPageLoad)
 
-const addToCartWithSignIn = (productID, userID) => {
-    const body = {
-        uid:userID,
-        cart:{
-            [productID]:{
-                item:productID,
-                quantity:1
+const addToCartWithSignIn = async (productID) => {
+    const token = localStorage.getItem('mandilasToken')
+    try{
+        const body = {
+            cart:{
+                [productID]:{
+                    item:productID,
+                    quantity:1
+                }
             }
         }
-    }
-    const options = {
-        method: 'POST',
-        headers: {
-            'Content-Type':'application/json'
-        },
-        body: JSON.stringify(body)
-    }
-    fetch(addToCartEndpoint, options)
-        .then(response => {
-            return response.json()
-        })
-        .then(data => {
-            const {status, code} = data
-            console.log(status)
-            //Successfully added to cart
-            if(status === 'success'){
-                updateCartIcon(USER_ID)
-                infoText.innerHTML = `Item added to cart successfully`;
-                infoToast.classList.add('showInfoToast');
-                setTimeout(() => {
-                    infoToast.classList.remove('showInfoToast')
-                }, 2000);
-            }
-            // If item exists
-            if(status === 'error' && code === 'ITEM_ALREADY_EXISTS'){
-                infoText.innerHTML = `Item has already been added to cart.`;
-                infoToast.classList.add('showInfoToast');
-                    setTimeout(() => {
-                        infoToast.classList.remove('showInfoToast')
-                    }, 2000);
-            }
-        }).catch(error => {
-            console.log(error)
-            infoText.innerHTML = `Check your network and try again`;
+        const options = {
+            method: 'POST',
+            headers: {
+                'Content-Type':'application/json',
+                'Authorization':`Bearer ${token}`
+            },
+            body: JSON.stringify(body)
+        }
+
+        let response = await fetch(addToCartEndpoint, options)
+        //Item already added to cart
+        if(response.status === 404){
+            infoText.innerHTML = `Item has already been added to cart.`;
             infoToast.classList.add('showInfoToast');
-                    setTimeout(() => {
-                        infoToast.classList.remove('showInfoToast')
-                    }, 2000);
-        })
+            setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 2000);
+            return;
+        }
+
+        if(response.status !== 200){
+            return;
+        }
+        
+        infoText.innerHTML = `Item added to cart successfully`;
+        await updateCartIcon();
+        infoToast.classList.add('showInfoToast');
+        setTimeout(() => {
+            infoToast.classList.remove('showInfoToast')
+        }, 2000);
+
+
+    } catch (error){
+        console.log(error)
+        infoText.innerHTML = `Check your network and try again`;
+        infoToast.classList.add('showInfoToast');
+        setTimeout(() => {
+            infoToast.classList.remove('showInfoToast')
+        }, 2000);
+    }
+    
+    
+        // .then(response => {
+        //     return response.json()
+        // })
+        // .then(data => {
+        //     const {status, code} = data
+        //     //Successfully added to cart
+        //     if(status === 'success'){
+        //         updateCartIcon(USER_ID)
+        //         infoText.innerHTML = `Item added to cart successfully`;
+        //         infoToast.classList.add('showInfoToast');
+        //         setTimeout(() => {
+        //             infoToast.classList.remove('showInfoToast')
+        //         }, 2000);
+        //     }
+        //     // If item exists
+        //     if(status === 'error' && code === 'ITEM_ALREADY_EXISTS'){
+        //         infoText.innerHTML = `Item has already been added to cart.`;
+        //         infoToast.classList.add('showInfoToast');
+        //             setTimeout(() => {
+        //                 infoToast.classList.remove('showInfoToast')
+        //             }, 2000);
+        //     }
+        // }).catch(error => {
+        //     infoText.innerHTML = `Check your network and try again`;
+        //     infoToast.classList.add('showInfoToast');
+        //             setTimeout(() => {
+        //                 infoToast.classList.remove('showInfoToast')
+        //             }, 2000);
+        // })
 }
 
 // Add to Cart Feature on the single product page
 const singleProductAddToCart = document.querySelector('#singleProductAddToCart');
-const handleAddToCart = () => {
+const handleAddToCart = async () => {
+    let user = await autheticateUser();
+    if(!user){
+        return loginModal.style.display = "flex"
+    }
     let params = new URLSearchParams(window.location.search.substring(1))
     let id = params.get('id');
-    if(isUserLoggedIn === false){
-        // Show Modal
-        loginModal.style.display = "flex"
-    }else{
-        addToCartWithSignIn(id, USER_ID)
-    }
+    addToCartWithSignIn(id)
 }
 singleProductAddToCart.addEventListener('click', handleAddToCart)
 

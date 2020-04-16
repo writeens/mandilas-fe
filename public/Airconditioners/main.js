@@ -1,12 +1,12 @@
 // DOM ELEMENTS
 
 // GLOBAL VARIABLES
-let START = 1;
-let END = 3;
-let QUERY_START = 0;
-let QUERY_END = 2;
 let PRODUCTS = [];
 let SEARCH_PRODUCTS = [];
+let VISIBLE_PRODUCTS = [];
+let ALL_PRODUCTS = [];
+let CURSOR = '';
+let SEARCH_CURSOR = 0
 
 // Fetch Data from Realtime Database
 const getData = async (url) => {
@@ -65,20 +65,36 @@ const createAC = (obj) => {
 }
 // Handle Page Load
 const allACLoader = document.querySelector('.allACLoader');
-const handleMainAirConPageLoad = async() => {
+const handleMainAirConPageLoad = async () => {
+
     // Empty List Before Load
     productList.innerHTML = "";
-    addClass(allACLoader, `showLoader`);
-    const newURL = `${productsEndpoint}?startAt=${START}&endAt=${END}`
+    let options = {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
+        }
+    }
     try{
-        let data = await getData(newURL);
+        const response = await fetch(`${productsEndpoint}`, options)
+        if(response.status !== 200){
+            //Error codes here
+            return;
+        }
+        //Get Data
+        const data = await response.json();
+
+        
+        CURSOR = data[data.length - 1].productID;
         data.map((item, index, arr) => {
-            // PRODUCTS.push(item)
-            createAC(item)
-            removeClass(allACLoader, `showLoader`);
+            if (index < 6){
+                createAC(item)
+                ALL_PRODUCTS.push(item);
+            }
         })
-    } catch(e) {
-        console.log(e)
+        //Remove Loader
+        removeClass(allACLoader, `showLoader`);
+    } catch (error) {
         infoText.innerHTML = `Check your network or try refreshing the page.`
         infoToast.classList.add('showInfoToast');
         setTimeout(() => {
@@ -93,27 +109,36 @@ const mainACLoadMoreButton = document.querySelector('#mainACLoadMoreButton')
 const mainACLoadMoreButtonLoader = document.querySelector('#mainACLoadMoreButton > i')
 const productImage = document.querySelectorAll('.main-ac-right-content-card > img')
 const handleMainACLoadMore = async() => {
-    // Add Button Loader
-    mainACLoadMoreButtonLoader.style.display = "block"
-    // Update Global State
-    START += 3;
-    END += 3;
-    // Update UI
-    const newURL = `${productsEndpoint}?startAt=${START}&endAt=${END}`
-    getData(newURL).then(data => {
-        if(data !== undefined){
-            data.map(item => {
-                //Remove Button Loader
-                mainACLoadMoreButtonLoader.style.display = "none"
-                createAC(item)
-                PRODUCTS.push(item)
-            })
+    let options = {
+        method:'GET',
+        headers:{
+            'Content-Type':'application/json'
         }
-    }).catch(error => {
-        mainACLoadMoreButton.style.display = "none";
+    }
+    try{
+        mainACLoadMoreButtonLoader.style.display = "block"
+        console.log(CURSOR)
+        let response = await fetch(`${productsEndpoint}?last=${CURSOR}`, options);
+        if(response.status !== 200){
+            return;
+        }
+
+        let data = await response.json();
+        if(CURSOR === data[data.length - 1].productID){
+            return mainACLoadMoreButtonLoader.style.display = "none";
+        }
+        CURSOR = data[data.length - 1].productID;
+        data.map((item, index, arr) => {
+            if (index < 6){
+                createAC(item)
+                ALL_PRODUCTS.push(item);
+            }
+        })
+        mainACLoadMoreButtonLoader.style.display = "none";
+
+    } catch (error) {
         console.log(error)
-    })
-    
+    }
 }
 mainACLoadMoreButton.addEventListener('click', handleMainACLoadMore)
 
@@ -125,7 +150,7 @@ function isNumber(evt) {
     }
     return true;
 }
-const queryPrice = document.querySelector('#queryPrice');
+const searchProducts = document.querySelector('#queryPrice');
 const queryType = document.querySelector('#queryType');
 const minimumPrice = document.querySelector('#minimumPrice');
 const maximumPrice = document.querySelector('#maximumPrice');
@@ -134,57 +159,57 @@ if(minimumPrice && maximumPrice){
     minimumPrice.addEventListener('keypress', () => isNumber(event))
     maximumPrice.addEventListener('keypress', () => isNumber(event))
 }
-const handleSearch = () => {
+const handleSearch = async () => {
     addClass(allACLoader, `showLoader`);
-    mainACLoadMoreButton.style.display = "none";
-    productList.innerHTML = "";
-    let acType = queryType.value;
-    let acMinimumPrice = minimumPrice.value || 0
-    let acMaximumPrice = maximumPrice.value || 9999999
-    fetch(productsEndpoint, {
-        method:'GET',
-        headers:{
-            'Content-Type':'application/json'
-        }
-    }).then(response => response.json())
-    .then(result => {
-        SEARCH_PRODUCTS = result.data.filter(item => {
-            if(item.usage === acType 
-                && item.discountedPrice >= acMinimumPrice
-                && item.discountedPrice <= acMaximumPrice){
-                    return true;
-                }
+    try{
+        mainACLoadMoreButton.style.display = "none";
+        productList.innerHTML = "";
+        let acType = queryType.value;
+        let acMinimumPrice = minimumPrice.value || 0
+        let acMaximumPrice = maximumPrice.value || 9999999
+        let response = await fetch(`${searchProductsEndpoint}?minprice=${acMinimumPrice}&maxprice=${acMaximumPrice}&usage=${acType}`, {
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json'
+            }
         })
-        //Check length of search array
-        if(SEARCH_PRODUCTS.length <= 0){
+
+        if(response.status !== 200){
+            removeClass(allACLoader, `showLoader`);
+            return;
+        }
+        let data = await response.json();
+
+        if(data.length === 0){
+            mainACLoadMoreButton.style.display = "none";
             mainACLoadMoreButtonForQuery.style.display = "none";
             const newParagraph = document.createElement('p');
             newParagraph.innerHTML = "There are no products fitting your criteria. Please try searching again."
             productList.append(newParagraph);
             removeClass(allACLoader, `showLoader`);
-        }else{
-            if(SEARCH_PRODUCTS.length > 3){
-                mainACLoadMoreButtonForQuery.style.display = "flex";
-            }else{
-                mainACLoadMoreButtonForQuery.style.display = "none";
-            }
-            for(let i = QUERY_START; i<=QUERY_END; i++){
-                if(i < SEARCH_PRODUCTS.length){
-                    createAC(SEARCH_PRODUCTS[i])
-                }
-            }
-            removeClass(allACLoader, `showLoader`);
+            return;
         }
-    }).catch(error => {
+        SEARCH_PRODUCTS = data
+        data.map((item, index, arr) => {
+            if (index < 6){
+                VISIBLE_PRODUCTS.push(item)
+                createAC(item)
+            }
+        })
+        SEARCH_CURSOR = 6;
+        if(SEARCH_CURSOR >= SEARCH_PRODUCTS.length){
+            mainACLoadMoreButtonForQuery.style.display = "none";
+            removeClass(allACLoader, `showLoader`);
+            return;
+        }
+        mainACLoadMoreButtonForQuery.style.display = "flex";
+        removeClass(allACLoader, `showLoader`);
+    } catch (error){
         console.log(error)
-        infoText.innerHTML = `Check your network or try refreshing the page.`
-        infoToast.classList.add('showInfoToast');
-        setTimeout(() => {
-            infoToast.classList.remove('showInfoToast')
-        }, 3000);
-    })
+    }
+    
 }
-queryPrice.addEventListener('click', handleSearch);
+searchProducts.addEventListener('click', handleSearch);
 
 //Handle Load More Button for Query
 const mainACLoadMoreButtonForQuery = document.querySelector('#mainACLoadMoreButtonForQuery')
@@ -192,12 +217,18 @@ if(mainACLoadMoreButtonForQuery){
     mainACLoadMoreButtonForQuery.addEventListener('click', () => {
         mainACLoadMoreButtonForQuery.children[1].style.display = "flex";
         productList.innerHTML = "";
-        QUERY_END += 3
-        for(let i = QUERY_START; i<=QUERY_END; i++){
-            if(i < SEARCH_PRODUCTS.length){
-                createAC(SEARCH_PRODUCTS[i])
+        let temp = SEARCH_PRODUCTS.filter((item, index) => {
+            if(index >= SEARCH_CURSOR && index < (SEARCH_CURSOR + SEARCH_CURSOR)){
+                return item
             }
+        })
+        SEARCH_CURSOR += SEARCH_CURSOR;
+        //Hide Load More once you've displayed all ACs
+        if(SEARCH_CURSOR >= SEARCH_PRODUCTS.length){
+            mainACLoadMoreButtonForQuery.style.display = "none";
         }
+        temp.forEach((item) => VISIBLE_PRODUCTS.push(item));
+        VISIBLE_PRODUCTS.forEach((item) => createAC(item));
         mainACLoadMoreButtonForQuery.children[1].style.display = "none";
     })
 }
