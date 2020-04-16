@@ -16,15 +16,15 @@ closeAsMobilityModal.addEventListener('click', handleCloseAsMobilityModal)
 // Handle Service Booking
 const goToServiceBooking = document.querySelector('#goToServiceBooking');
 
-const handleServiceBooking = () => {
-    let token = localStorage.getItem('mandilasToken');
-    console.log(token)
-    token = JSON.parse(token)
-    if((token === 'undefined') || (token === "")){
+const handleServiceBooking = async (e) => {
+    e.preventDefault()
+    let user = await authenticateUser();
+    console.log(user)
+    if(!user){
         asMobilityModal.style.display = "none";
         loginModal.style.display = "flex"
-    }else{
-        location.href = '../Account Profile/index.html';
+        return
     }
+    location.href = '../Account Profile/index.html';
 }
 goToServiceBooking.addEventListener('click', handleServiceBooking)

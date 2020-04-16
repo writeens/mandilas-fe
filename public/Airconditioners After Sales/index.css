@@ -18,14 +18,26 @@ p{
     background-repeat: no-repeat;
     color: white;
     margin-bottom: 2rem;
+    position: relative;
+}
+.main-ac-as::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4)
 }
 .main-ac-as > p:first-of-type{
     font-size: 3rem;
     font-weight: 600;
+    z-index: 3;
 }
 .main-ac-as > p:last-of-type{
     font-size: 2rem;
     font-weight: 500;
+    z-index: 3;
 }
 .main-ac-as-layer-1 {
     font-size: 1.2rem;
@@ -240,11 +252,22 @@ p{
     justify-content: center;
     align-items: center;
     margin-bottom: 3rem;
+    position: relative;
+}
+.as-header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4)
 }
 .as-header > p{
     font-size: 3rem;
     font-weight: 600;
     color: white;
+    z-index: 3;
 }
 .as-options-container{
     padding: 0rem 4rem;
@@ -379,3 +402,76 @@ p{
     }
 }
 /*Main AC After Sales */
+
+/*Refurbishment Form*/
+.ref-layer-form-container{
+    display: flex;
+    justify-content: center;
+    margin: 0rem 1rem 3rem 1rem;
+}
+.ref-layer-form{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 2rem;
+    width: 935px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.ref-layer-form > section{
+    display: flex;
+    flex-direction: column;
+}
+.ref-layer-form > section:first-of-type{
+    margin-bottom: 3rem;
+}
+.ref-layer-form > section > p:first-of-type{
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.ref-layer-form-row{
+    justify-content: space-between;
+    display: flex;
+    margin-bottom: 2rem;
+}
+.ref-layer-form-row > input,
+.ref-layer-form > section input{
+    width: 45%;
+    padding: 0.8rem;
+    border: 1px solid gray;
+}
+.ref-layer-form > section > textarea{
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid gray;
+}
+.ref-layer-form > button{
+    width: fit-content;
+    padding: 1rem 3rem;
+    background-color: #129347;
+    border-radius: 0.3rem;
+    border: none;
+    color: white;
+}
+@media screen and (max-width:950px){
+    .ref-layer-form-container{
+        margin: 0rem 0rem 2rem 0rem;
+    }
+    .ref-layer-form {
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        padding: 1rem;
+        width: 100%;
+        box-shadow: none;
+    }
+    .ref-layer-form-row {
+        flex-direction: column;
+        margin-bottom: 0rem;
+    }
+    .ref-layer-form-row > input, .ref-layer-form > section input {
+        width: auto;
+        margin-bottom: 1rem;
+    }
+}
+/*Refurbishment Form*/

@@ -29,10 +29,21 @@ p{
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163539/Assets/Motors_Page_Banner-min_puth9h.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
     background-position: center;
+}
+.motors-header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4)
 }
 .motors-header > *{
     margin-left: 8rem;
+    z-index: 3;
 }
 .motors-header > p:first-of-type{
     font-size: 3rem;

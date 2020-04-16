@@ -12,17 +12,28 @@ p{
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163521/Assets/Locations_Page-min_slqrxo.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 2rem;
+    position: relative;
+}
+.location-header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5)
 }
 .location-header > p{
     font-size: 3rem;
     color: white;
     font-weight: 600;
     text-align: center;
+    z-index: 3;
 }
 .location-layer-1{
     display: flex;
@@ -72,17 +83,29 @@ p{
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163518/Assets/Locations_Page_scroll-min_ugygdr.jpg);
     color: white;
     margin: 0rem 3rem 0rem 3rem;
+    position: relative;
+}
+.location-layer-2::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5)
 }
 .location-layer-2 > p:first-of-type{
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 1rem;
     text-align: center;
+    z-index: 3;
 }
 .location-layer-2 > p:last-of-type{
     font-size: 2rem;
     font-weight: 400;
     text-align: center;
+    z-index: 3;
 }
 .location-bottom{
     padding: 3rem 3rem;

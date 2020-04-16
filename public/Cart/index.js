@@ -294,7 +294,7 @@ const getPeopleAlsoViewedItems = async () => {
 // On Page Load
 const handleCartPageLoad = async () => {
     loader.classList.add('showLoader')
-    const user = await autheticateUser();
+    const user = await authenticateUser();
     console.log(user)
     if(!user){
         const orderSummary = document.querySelector('.cart-content-right');
@@ -320,7 +320,7 @@ window.addEventListener('DOMContentLoaded', handleCartPageLoad)
 //Handle Checkout
 const cartCheckout = document.querySelector('#cartCheckout');
 const handleCartCheckOut = async () => {
-    let user = await autheticateUser();
+    let user = await authenticateUser();
     if(!user){
         infoToast.innerHTML = `Kindly make sure you are logged in`;
         infoToast.classList.add('showInfoToast');

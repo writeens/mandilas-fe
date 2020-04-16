@@ -115,7 +115,7 @@ const getDataOnItems = (data) => new Promise((resolve, reject) => {
 const handleCheckOutPageLoad = async () => {
     let token = localStorage.getItem('mandilasToken')
     loader.classList.add('showLoader')
-    let user = await autheticateUser();
+    let user = await authenticateUser();
     if(!user){
         //
         window.location.href = '../Cart/index.html';

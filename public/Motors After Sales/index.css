@@ -18,12 +18,23 @@ p{
     padding: 6rem 0rem;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+.motors-as-header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4)
 }
 .motors-as-header > p {
     font-size: 3rem;
     font-weight: 600;
     color: white;
     text-align: center;
+    z-index: 3;
 }
 .motors-as-form{
     display: flex;
@@ -237,26 +248,41 @@ p{
 /* Accident Recovery */
 .ar-header{
     height: 500px;
-    height: fit-content;
     color: white;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     justify-content: center;
     align-items: flex-start;
+    position: relative;
     padding:2rem 7rem 2rem 7rem;
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163612/Assets/Accident_Recovery_Page-min_knfzty.jpg);
+}
+.ar-header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4)
 }
 .ar-header > p:first-of-type{
     font-size: 3rem;
     font-weight: 600;
     margin-bottom: 2rem;
+    z-index: 10;
+    position: relative;
 }
 .ar-header > p:last-of-type{
     font-size: 1.5rem;
     font-weight: 400;
     max-width: 700px;
     text-align: justify;
+    position: relative;
+
+    z-index: 10;
+
 }
 .ar-layer-1 {
     padding: 4rem 6rem;
@@ -265,7 +291,7 @@ p{
 }
 .ar-layer-1 > p{
     text-align: justify;
-    width: 60%;
+    width: auto;
     margin-bottom: 1.5rem;
 }
 .ar-layer-2{
@@ -273,7 +299,7 @@ p{
     height: fit-content;
     margin: 0rem 6rem 2rem 6rem;
     padding: 2rem 4rem;
-    background-color: #405047;
+    background-color: #002F14;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: white;
     justify-content: space-between;
@@ -304,7 +330,7 @@ p{
 }
 .ar-layer-3{
     display: flex;flex-direction: column;
-    margin: 0rem 6rem 2rem 6rem;
+    margin: 0rem 6rem 4rem 6rem;
     justify-content: space-between;
 }
 .ar-layer-3-container{
@@ -414,6 +440,16 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+.fleet-header::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4)
 }
 .fleet-header > p{
     font-size: 3rem;
@@ -421,6 +457,7 @@ p{
     color: white;
     text-align: center;
     max-width: 900px;
+    z-index: 3;
 }
 .fleet-body{
     display: flex;
@@ -467,7 +504,9 @@ p{
     }
 }
 /*Fleet Management**/
-
+*+p, p{
+    margin-top: 0 !important;
+}
 /*Body Refurbishment*/
 .ref-header{
     min-height: 400px;
@@ -478,21 +517,19 @@ p{
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 3rem 2rem 3rem 5rem;
+    align-items: center;
     margin-bottom: 2rem;
+}
+#ref-first{
+    margin-bottom: 0rem;
+    padding: 1rem 5rem 0rem 5rem;
+    line-height: 2.3rem;
 }
 .ref-header > p:first-of-type{
     font-size: 3rem;
     font-weight: 600;
     color: white;
     margin-bottom: 2rem;
-}
-.ref-header > p:last-of-type{
-    font-size: 1.3rem;
-    text-align: center;
-    color: white;
-    text-align: justify;
-    max-width: 900px;
 }
 .ref-layer-one{
     display: flex;
@@ -502,11 +539,11 @@ p{
 }
 .ref-layer-one > p{
     line-height: 2.3rem;
-    width: 40%;
+    width: 45%;
     text-align: justify;
 }
 .ref-layer-two{
-    background-color: #405047;
+    background-color: #002F14;
     margin: 0rem 3rem 2rem 3rem;
     padding: 2rem;
     display: flex;
@@ -638,6 +675,10 @@ p{
     .ref-layer-form-row > input, .ref-layer-form > section input {
         width: auto;
         margin-bottom: 1rem;
+    }
+    #ref-first{
+        padding: 1rem;
+        line-height: 2.3rem;
     }
 }
 /*Body Refurbishment*/

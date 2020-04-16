@@ -773,6 +773,7 @@ p{
     font-size: 1rem;
     font-weight: 400;
     width: 60%;
+    text-align: justify;
 }
 /*Loader*/
 .mainACProductLoader{
@@ -925,6 +926,19 @@ p{
         width: 100%;
     }
 }
+@media screen and (max-width: 600px){
+    .ac-feature-item {
+        flex-direction: column;
+    }
+    .ac-features-bold {
+        margin-right: 0rem;
+        width: auto;
+        margin-bottom: 1rem;
+    }
+    .ac-features-normal {
+        width: auto;
+    }
+}
 /* Air Conditioners Content */
 
 /**Single Page Search**/
@@ -971,6 +985,7 @@ p{
     width: 72%;
     background-color: #e2e2e2;
     position: relative;
+    min-height: 500px;
 }
 .no-results-found{
     position: absolute;

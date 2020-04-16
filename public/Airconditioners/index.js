@@ -267,7 +267,7 @@ const handleSingleAirConPageLoad = async() => {
         singleLoaders.forEach(item => addClass(item, 'showLoader'))
         let params = new URLSearchParams(window.location.search.substring(1))
         let id = params.get('id');
-        let user = await autheticateUser();
+        let user = await authenticateUser();
         await createProductPage(id);
         await getReviews(id);
         loader.classList.remove('showLoader')
@@ -368,7 +368,7 @@ const addToCartWithSignIn = async (productID) => {
 // Add to Cart Feature on the single product page
 const singleProductAddToCart = document.querySelector('#singleProductAddToCart');
 const handleAddToCart = async () => {
-    let user = await autheticateUser();
+    let user = await authenticateUser();
     if(!user){
         return loginModal.style.display = "flex"
     }

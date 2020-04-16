@@ -411,134 +411,10 @@ const handleLogIn = async () => {
             }, 2000);
         }
     } 
-    // validateData(navLogInEmail);
-    // validateData(navLogInPassword);
-    // if(validateData(navLogInEmail) && validateData(navLogInPassword)){
-    //     // Add Loader
-    //     loader.classList.add('showLoader')
-    //     //Create Request Body
-    //     const body = {
-    //         "email":navLogInEmail.value,
-    //         "password":navLogInPassword.value
-    //     }
-    //     // Fetch options for posting JSON
-    //     const options = {
-    //         method: 'POST',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(body)
-    //     }
-
-    //     fetch(logInEndpoint, options)
-    //         .then(response => {
-    //             return response.json()
-    //         })
-    //         .then(data => {
-    //             console.log(data.status)
-    //             loader.classList.remove('showLoader')
-    //             if(data.status === 'success'){
-    //                 const {displayName, email, customToken, userId} = data.data;
-    //                 let firstName = `${displayName}`.split(' ')[1]
-    //                 infoText.innerHTML = `Hi ${firstName}, You have successfully signed in.`
-    //                 postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
-    //                 localStorage.setItem('mandilasToken', `${customToken}`);
-    //                 //Remove Modal
-    //                 loginModal.style.display = "none"
-    //                 //Clear Defaults
-    //                 navLogInEmail.value = "",
-    //                 navLogInPassword.value = "",
-    //                 // Set User State to logged in
-    //                 isUserLoggedIn = true;
-    //                 //Set User ID
-    //                 USER_ID = userId
-    //                 postSignedInButtonContainer.style.display = 'flex';
-    //                 preSignedInButtonContainer.style.display = 'none';
-
-    //                 //Update Cart Icon
-    //                 updateCartIcon(USER_ID)
-    //                 // window.location.reload()
-    //             }
-    //             if(data.status === 'error' && data.code === 'INVALID PASSWORD'){
-    //                 infoText.innerHTML = `The password you entered is incorrect.`
-    //             }
-    //             if(data.status === 'error' && data.code === 'INVALID EMAIL'){
-    //                 infoText.innerHTML = `The email you entered does not exist. Try signing up.`
-    //                 registerModal.style.display = "flex"
-    //             }
-    //             // Show the Toast
-    //             infoToast.classList.add('showInfoToast');
-    //             setTimeout(() => {
-    //                 infoToast.classList.remove('showInfoToast')
-    //             }, 3000);
-    //         })
-    //         .catch(error => {
-    //             console.log(error)
-    //         })
-    // }
 }
 navLogIn.addEventListener('click', handleLogIn)
 
-/**Communication With Server */
-const handleNavLoad = new Promise((resolve, reject) => {
-    //Initialize UI
-    postSignedInButtonContainer.style.display = 'none';
-    preSignedInButtonContainer.style.display = 'flex';
-
-    // let clientToken = localStorage.getItem('mandilasToken');
-    // // If theres a token stored on the client side
-    // if((clientToken !== 'undefined') && (clientToken !== "")){
-    //     // Sign In with that token
-    //     firebase.auth().signInWithCustomToken(clientToken)
-    //     .then((record) => {
-    //         //Login Successful
-
-    //         USER_ID = record.user.uid
-    //         let firstName = `${record.user.displayName}`.split(' ')[0];
-    //         postSignedInButtonContainer.children[0].innerHTML = `Hello, ${firstName}`;
-    //         isUserLoggedIn = true;
-    //         // Show Post Login View
-    //         postSignedInButtonContainer.style.display = 'flex';
-    //         preSignedInButtonContainer.style.display = 'none';
-
-    //         // Notify user of logged in status
-    //         if(window.location.pathname === '/Homepage/index.html'){
-    //             infoText.innerHTML = `Hi, ${firstName}, you are logged in`
-    //             infoToast.classList.add('showInfoToast');
-    //             setTimeout(() => {
-    //                 infoToast.classList.remove('showInfoToast')
-    //             }, 2000);
-    //         }
-
-    //         // Update Cart Icon
-    //         updateCartIcon(USER_ID);
-    //         resolve(USER_ID)
-
-    //     }).catch(error => {
-    //         // Handle Errors here.
-    //         updateCartIcon(null);
-    //         //Login Not Successful
-
-    //         var errorCode = error.code;
-    //         var errorMessage = error.message;
-    //         if(errorCode === "auth/invalid-custom-token"){
-
-    //             loader.classList.remove('showLoader')
-    //         }
-    //         if(errorCode === "auth/network-request-failed"){
-    //             loader.classList.remove('showLoader')
-    //             infoText.innerHTML = `Check your network`
-    //             infoToast.classList.add('showInfoToast');
-    //             setTimeout(() => {
-    //                 infoToast.classList.remove('showInfoToast')
-    //             }, 3000);
-    //         }
-    //         resolve(null)
-    //     });
-    // }
-})
-
-const autheticateUser = async () => {
+const authenticateUser = async () => {
     let clientToken = localStorage.getItem('mandilasToken');
     // If theres a token stored on the client side
     try{
@@ -568,7 +444,7 @@ const handleNavbarLoad = async () => {
     //Initialize UI
     postSignedInButtonContainer.style.display = 'none';
     preSignedInButtonContainer.style.display = 'flex';
-    let user = await autheticateUser();
+    let user = await authenticateUser();
     if(user){
         postSignedInButtonContainer.style.display = 'flex';
         preSignedInButtonContainer.style.display = 'none';
@@ -608,13 +484,9 @@ navLogOut.addEventListener('click', handleLogOut)
 
 // User clicks on homepage logo
 const navbarLogo = document.querySelector('.navbar-logo')
-navbarLogo.addEventListener('click', () => {
-    let newPath = window.location.pathname.split("/");
-    if(newPath.includes('Homepage')){
-        window.location.href = "index.html"
-    }else{
-        window.location.href = "../Homepage/index.html"
-    }
+navbarLogo.addEventListener('click', (e) => {
+    e.preventDefault()
+    window.location.href = "../Landing Page/index.html"
 })
 
 // User clicks on Cart
@@ -630,7 +502,7 @@ const nameContainer = document.querySelector('#nameContainer');
 nameContainer.addEventListener('click', async () => {
     // Show Items
     try{
-        let user = await autheticateUser();
+        let user = await authenticateUser();
         if(user === null){
             infoText.innerHTML = `Kindly make sure you are logged in and try again`
             infoToast.classList.add('showInfoToast');

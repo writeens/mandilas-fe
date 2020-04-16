@@ -19,6 +19,7 @@ const usedModalColor = document.querySelector('#usedModalColor');
 const usedCarsContainer = document.querySelector('#usedCarsContainer');
 usedCarsContainer.innerHTML = "";
 const generateUsedVehicle = (data) => {
+    usedCarsContainer.innerHTML = "";
     let newData = Object.values(data)
     if(newData.length > 0){
         newData.map(item => {
@@ -217,4 +218,9 @@ const filterUsedCars = document.querySelector('#filterUsedCars');
 filterUsedCars.addEventListener('click', handleFilterUsedCars)
 
 /**Handling Search Button */
+
+const usedToContact = document.querySelector('#usedToContact');
+usedToContact.addEventListener('click', () => {
+    window.location.href = '../Contact Us/index.html';
+})
 

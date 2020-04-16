@@ -39,9 +39,9 @@
     <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js" defer></script>
     <script src="../Utility/init-firebase.js" defer></script>
 
-    <script src="../Navbar/navbar.js" defer></script>
     <script src="../Footer/footer.js" defer></script>
-    <script src="index.js" defer></script>
+    <script src="../Navbar/navbar.js" defer></script>
+    <script src="./index.js" defer></script>
 </head>
 <body>
     <nav>
@@ -97,8 +97,13 @@
                     <a href="../Motors/tracking">Service Tracking</a>
                 </div>
             </div>
-            <div class="menu-item-one">
-                <a href="../Airconditioners After Sales/index.html">After Sales</a>
+            <div class="menu-item-two" data-nav-key="true">
+                <p>After Sales</p>
+                <img src="https://res.cloudinary.com/mandilas/image/upload/v1582705368/Assets/arrow-down_skdznu.svg" alt="arrow-down">
+                <div class="navbar-submenu">
+                    <a href="cooling.html">Cooling After Sales</a>
+                    <a href="index.html">Mobility After Sales</a>
+                </div>
             </div>
             <div class="menu-item-two" data-nav-key="true">
                 <p>Contact Us</p>
@@ -224,6 +229,27 @@
                 <p id='goToServiceBooking'>Service Booking</p>
             </div>
             <i id="closeAsMobilityModal" class="fa fa-close fa-2x"></i>
+        </div>
+    </div>
+    <div class="ref-layer-form-container">
+        <div class="ref-layer-form">
+            <section class="ref-layer-form-enquiry">
+                <p>Enquiry Form</p>
+                <div class="ref-layer-form-row">
+                    <input type="text" placeholder="Customer's Name">
+                    <input type="text" placeholder="Customer's Phone Number">
+                </div>
+                <input type="text" placeholder="Customer's Email">
+            </section>
+            <section class="ref-layer-vehicle-details">
+                <p>Vehicle Details</p>
+                <div class="ref-layer-form-row">
+                    <input type="text" placeholder="Customer's Name">
+                    <input type="text" placeholder="Customer's Phone Number">
+                </div>
+                <textarea name="" id="" cols="30" rows="10" placeholder="YOUR MESSAGE"></textarea>
+            </section>
+            <button id="sendDetails">Send Details</button>
         </div>
     </div>
     <div class="complain-text">
