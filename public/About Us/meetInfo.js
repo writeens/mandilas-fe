@@ -22,7 +22,7 @@ const TEAM = {
     },
     2:{
         imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854467/Assets/Mr._Gbenga_Somuyiwa_HEAD_OF_INTERNAL_AUDIT-min_vwyqne.jpg',
-        name:'MR GBENGA SOMUYIWA',
+        name:'GBENGA SOMUYIWA',
         title:'Head of Internal Audit, Risk and Control',
         paragraph:['']
     },
@@ -34,9 +34,11 @@ const TEAM = {
     },
     4:{
         imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854361/Assets/GROUP_HR_Fatosin_Anna_Omoghose-min_jev96n.jpg',
-        name:'FATOSIN ANNA OMOGHOSE',
+        name:'FATOSIN ANNA',
         title:'Group Human Resources Manager',
-        paragraph:['']
+        paragraph:['Fatosin Anna is a seasoned Human Resources and Administration Manager with over twenty years’ experience. She holds a Bachelor’s degree in Sociology and a Post Graduate degree in Industrial Relations and Personnel Management from the University of Lagos. She is a Member of the Chartered Institute of Personnel Management of Nigeria (CIPMN) and a professional member of the Society of Human Resources Management amongst many other certifications. \
+        <br>With proficiency in all key aspects of Human Resources Management, she has worked with top talents of several industrial sectors hence a versatile professional in the field.<br> \
+        She has served in ValuCard Nigeria Plc, Bell Oil and Gas Limited, Cakasa (Nigeria) Company Limited,  RadissonBlu Anchorage Hotel, Swift Networks Limited, Shorelink Oil and Gas Limited as the Human Resources and Administration Manager, before joining the Mandilas Group in 2019 where she holds the position of the Head of Human Resources.']
     },
     5:{
         imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854259/Assets/GM_Motors-min_ynrfh3.jpg',
@@ -47,9 +49,11 @@ const TEAM = {
     },
     6:{
         imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585853912/Assets/OJEABULU_AUSTINE_OBIGHO-min_i3w6sd.jpg',
-        name:'OJEABULU AUSTINE OBIGHO',
+        name:'OBI CHILO-OFFIAH',
         title:'Head of Treasury',
-        paragraph:['']
+        paragraph:['Obi Chilo-Offiah is a vastly skilled Finance professional with expertise in Budgeting and Forecasting, Auditing and Financial reporting, Risk Management, Investment Analysis, Portfolio Management and Operations Management amongst others. \
+        Obi joined the Mandilas Group as the Head of Treasury in 2020 and preceding this, he served as a Wealth manager and Private Banker with the First Bank of Nigeria in Private Banking, as the Audit Senior in the Asset Management Group in McGladrey, LLP Stamford, as an Associate who then progressed to be Manager at The Siegfried Group, LLP in New York; and in Deloitte & Touché LLP, Stamford as an Accountant who progressed to Associate and then Audit Senior. \
+        He is the founder and the principal Partner of the Equinox Group Limited with a Bachelor’s degree in Business from the University of Hartford, USA.']
     },
     7:{
         imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1583491057/dummy_images_xxdjjk.png',
