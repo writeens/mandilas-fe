@@ -12,7 +12,7 @@ const TEAM = {
     },
     1:{
         imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854086/Assets/FINANCIAL_CONTROLER-min_b4brbr.jpg',
-        name:'OMIDIJI DAISI',
+        name:'DAISI OMIDIJI',
         title:'Group Financial Controller',
         paragraph:['Daisi is a professional accountant with over 20 years’ experience across the broad spectrum of corporate finance. \
                 He was Company Treasurer and rose to Head of Corporate Planning and Strategy at Promasidor Nigeria and later joined Timeless Holdings Ltd as the Chief Operating Officer. \
@@ -34,7 +34,7 @@ const TEAM = {
     },
     4:{
         imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585854361/Assets/GROUP_HR_Fatosin_Anna_Omoghose-min_jev96n.jpg',
-        name:'FATOSIN ANNA',
+        name:'ANNA FATOSIN',
         title:'Group Human Resources Manager',
         paragraph:['Fatosin Anna is a seasoned Human Resources and Administration Manager with over twenty years’ experience. She holds a Bachelor’s degree in Sociology and a Post Graduate degree in Industrial Relations and Personnel Management from the University of Lagos. She is a Member of the Chartered Institute of Personnel Management of Nigeria (CIPMN) and a professional member of the Society of Human Resources Management amongst many other certifications. \
         <br>With proficiency in all key aspects of Human Resources Management, she has worked with top talents of several industrial sectors hence a versatile professional in the field.<br> \

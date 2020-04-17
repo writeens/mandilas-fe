@@ -10,6 +10,69 @@ p{
     margin-top: 0 !important;
 }
 
+/*Carousel Header For Cooling**/
+#mainAcCarousel .carousel-item {
+    height: 500px;
+    margin-bottom: 2rem;
+}
+.main-ac-header{
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+.main-ac-header-content.one{
+    background: url(https://res.cloudinary.com/mandilas/image/upload/v1586163614/Assets/Air_conditioning_page_banner-min_ne3zzf.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.main-ac-header-content.one::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4)
+}
+.main-ac-header-content.one > *{
+    margin: 0rem 3rem 3rem 7rem;
+    z-index: 3;
+}
+.main-ac-header-content.one > p:first-of-type{
+    font-size: 3rem;
+    font-weight: 600;
+}
+.main-ac-header-content.one > p:last-of-type{
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    max-width: 900px;
+}
+
+#mainAcCarousel .carousel-indicators {
+    bottom: 30px;
+}
+.carousel-indicators li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+#mainAcCarousel .carousel-indicators .active{
+    background-color: #129347 !important;
+}
+/*Carousel Header For Cooling**/
+
 /* Main AC Page */
 .main-ac {
     background: url(https://res.cloudinary.com/mandilas/image/upload/v1586163614/Assets/Air_conditioning_page_banner-min_ne3zzf.jpg);
