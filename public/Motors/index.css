@@ -282,7 +282,7 @@ p{
     justify-content: space-between;
     height: fit-content;
     background-color: #E2E2E2;
-    margin: 0rem 3rem 1rem 3rem;
+    margin: 0rem 3rem 3rem 3rem;
 }
 .motors-content-uv-b-left{
     width: 45%;
@@ -381,17 +381,17 @@ p{
 .motors-content-uv-b-card > p:first-of-type{
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
     text-align: center;
 }
 .motors-content-uv-b-card-row{
     display: flex;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
     justify-content: center;
 }
 .motors-content-uv-b-card-item {
     display: flex;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 .motors-content-uv-b-card-item > img{
     width: 30px;

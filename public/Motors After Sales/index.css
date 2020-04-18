@@ -247,7 +247,7 @@ p{
 
 /* Accident Recovery */
 .ar-header{
-    height: 500px;
+    height: 400px;
     color: white;
     background-repeat: no-repeat;
     background-position: center;
@@ -255,7 +255,10 @@ p{
     justify-content: center;
     align-items: flex-start;
     position: relative;
-    padding:2rem 7rem 2rem 7rem;
+    /* padding:2rem 7rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1586163612/Assets/Accident_Recovery_Page-min_knfzty.jpg);
 }
 .ar-header::before{
@@ -268,24 +271,14 @@ p{
     background-color: rgba(0, 0, 0, 0.4)
 }
 .ar-header > p:first-of-type{
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 600;
     margin-bottom: 2rem;
     z-index: 10;
     position: relative;
 }
-.ar-header > p:last-of-type{
-    font-size: 1.5rem;
-    font-weight: 400;
-    max-width: 700px;
-    text-align: justify;
-    position: relative;
-
-    z-index: 10;
-
-}
 .ar-layer-1 {
-    padding: 4rem 6rem;
+    padding: 2rem 6rem;
     height: fit-content;
     font-size: 1rem;
 }
@@ -372,15 +365,13 @@ p{
 }
 @media screen and (max-width:900px){
     .ar-header {
-        height: fit-content;
+        height: 250px;
         padding: 2rem 1rem;
         text-align: justify;
     }
     .ar-header > p:first-of-type {
         text-align: center;
-    }
-    .ar-header > p:last-of-type {
-        font-size: 1.2rem;
+        font-size: 1.5rem;
     }
     .ar-layer-1{
         padding: 1rem 0.5rem;
