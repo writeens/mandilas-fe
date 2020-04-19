@@ -213,7 +213,7 @@ p{
 }
 .about-us-ac-right > img{
     width: 100%;
-    height: 400px;
+    height: 300px;
     object-fit: cover;
 }
 .about-us-ac-bottom{
@@ -248,11 +248,10 @@ p{
 }
 .about-us-props-left{
     width: 45%;
-    height: 500px;
 }
 .about-us-props-left > img{
     width: 100%;
-    height: 100%;
+    height: 300px;
     object-fit: cover;
 }
 .about-us-props-right{
@@ -330,7 +329,7 @@ p{
 }
 .about-us-after-sales-content > img{
     width: 45%;
-    height: 500px;
+    height: 350px;
     object-fit: cover;
 }
 @media screen and (max-width:900px){
