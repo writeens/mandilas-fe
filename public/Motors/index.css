@@ -21,7 +21,7 @@ p{
 }
 .motors-header{
     display: flex;
-    height: fit-content;
+    height: 500px;
     padding: 5rem 0rem;
     background-color: #129347;
     flex-direction: column;
@@ -39,7 +39,7 @@ p{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4)
+    background-color: rgba(0, 0, 0, 0.3)
 }
 .motors-header > *{
     margin-left: 8rem;
