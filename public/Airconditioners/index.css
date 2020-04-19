@@ -3,7 +3,7 @@ body{
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
-    margin: 0;
+    margin: 0 !important;
     padding: 0;
 }
 *+p{
@@ -241,6 +241,7 @@ p{
 .main-ac-right-content-card > div:first-of-type > p:first-of-type{
     font-size: 1.2rem;
     font-weight: 700;
+    color: #129347;
 }
 .main-ac-right > button{
     width: fit-content;
@@ -1070,10 +1071,11 @@ p{
     position: relative;
     min-height: 400px;
 }
+
 .single-ac-result-container-item {
     min-width: 30%;
     max-width: 250px;
-    height: 320px;
+    /* height: 320px; */
     margin: 0.5rem 0.5rem 1rem 0.5rem;
     display: flex;
     flex-direction: column;
