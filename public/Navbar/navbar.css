@@ -52,6 +52,7 @@ nav{
     color: inherit;
 }
 .menu-item-two > p {
+    margin: 0;
     margin-bottom: 1rem;
 }
 .menu-item-two{
