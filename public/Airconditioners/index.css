@@ -3,12 +3,12 @@ body{
     background-image: url(https://res.cloudinary.com/mandilas/image/upload/v1582705393/Assets/main_jjgwws.png);
 }
 p{
-    margin: 0 !important;
+    margin: 0;
     padding: 0;
 }
-*+p{
+/* *+p{
     margin-top: 0 !important;
-}
+} */
 
 /*Carousel Header For Cooling**/
 #mainAcCarousel .carousel-item {
@@ -229,7 +229,8 @@ p{
 }
 .main-ac-right-content-card > p:first-of-type{
     font-size: 1.2rem;
-    margin-bottom: 1rem;
+    margin: 0;
+    margin-bottom: em;
     padding: 0rem 1.5rem;
 }
 .main-ac-right-content-card > div:first-of-type{
@@ -242,6 +243,7 @@ p{
     font-size: 1.2rem;
     font-weight: 700;
     color: #129347;
+    margin: 0;
 }
 .main-ac-right > button{
     width: fit-content;
@@ -271,10 +273,11 @@ p{
 .ac-content-bottom-2-left > p:first-of-type{
     font-weight: 600;
     font-size: 2rem;
-    margin-bottom: 2rem;   
+    margin-bottom: 1rem;   
 }
 .ac-content-bottom-2-left > p:last-of-type{
-    margin-bottom: 2rem;
+    margin: 0;
+    margin-bottom: 1rem;
     line-height: 1.5rem;
 }
 .ac-content-bottom-2-left > button{
@@ -1004,6 +1007,69 @@ p{
     }
 }
 /* Air Conditioners Content */
+
+/*Carousel Header For Single AC page**/
+#singleAcCarousel .carousel-item {
+    height: 500px;
+    margin-bottom: 2rem;
+}
+.single-ac-header{
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+}
+.single-ac-header-content.one{
+    background: url(https://res.cloudinary.com/mandilas/image/upload/v1586163614/Assets/Air_conditioning_page_banner-min_ne3zzf.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.single-ac-header-content.one::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4)
+}
+.single-ac-header-content.one > *{
+    margin: 0rem 3rem 3rem 7rem;
+    z-index: 3;
+}
+.single-ac-header-content.one > p:first-of-type{
+    font-size: 3rem;
+    font-weight: 600;
+}
+.single-ac-header-content.one > p:last-of-type{
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+    max-width: 900px;
+}
+
+#singleAcCarousel .carousel-indicators {
+    bottom: 30px;
+}
+.carousel-indicators li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+#singleAcCarousel .carousel-indicators .active{
+    background-color: #129347 !important;
+}
+/*Carousel Header For Single AC page**/
 
 /**Single Page Search**/
 .single-ac{
