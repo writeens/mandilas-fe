@@ -48,7 +48,7 @@ const TEAM = {
         'In 1991, she joined Mandilas Enterprises Limited as Public Enlightenment Officer, later became the Business Development Manager and eventually National Marketing Manager. Kemi’s automobile industry experience spans over 25years. She is a member of the Nigerian Institute of Management, as well as the Automobile and Allied Industries Sector of the Lagos Chamber of Commerce and has won several industry awards including Toyota Nigeria. She left Mandilas in 2010 and re-joined the team in 2018 as Operations Manager of Motors/Leasing Division.']
     },
     6:{
-        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1585853912/Assets/OJEABULU_AUSTINE_OBIGHO-min_i3w6sd.jpg',
+        imageLocation:'https://res.cloudinary.com/mandilas/image/upload/v1588384547/Assets/yellow_1-min_sr9qal.jpg',
         name:'OBI CHILO-OFFIAH',
         title:'Head of Treasury',
         paragraph:['Obi Chilo-Offiah is a vastly skilled Finance professional with expertise in Budgeting and Forecasting, Auditing and Financial reporting, Risk Management, Investment Analysis, Portfolio Management and Operations Management amongst others. \
