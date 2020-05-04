@@ -323,19 +323,24 @@ const handleRegister = async () => {
             
 
             //Send Welcome Email
-            // $.ajax({
-            //     url : '/sendWelcomeMail',
-            //     type : "POST",
-            //     data : {
-            //         email : email,
-            //         name : `${firstName}, ${lastName}`
-            //     },
-            //     success : function () {
-            //         console.log("Email sent");
-            //     }
-            // })
+            $.ajax({
+                url : '/sendWelcomeMail',
+                type : "POST",
+                data : {
+                    email : email,
+                    name : `${firstName}, ${lastName}`
+                },
+                success : function () {
+                    console.log("Email sent");
+                }
+            })
         } catch (error){
             console.log(error)
+            infoText.innerHTML = `Unable to register, try again`
+            infoToast.classList.add('showInfoToast');
+            setTimeout(() => {
+                infoToast.classList.remove('showInfoToast')
+            }, 2000);
         }
     }
 }
