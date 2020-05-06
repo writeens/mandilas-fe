@@ -39,13 +39,13 @@ const createACElement = (data) => {
             const itemTitle = document.createElement('p');
             itemTitle.innerHTML = name;
             itemTitle.classList.add('single-ac-result-title')
-            const itemPrice = document.createElement('p');
-            itemPrice.innerHTML = formatter.format(price);
-            itemPrice.classList.add('single-ac-result-price')
+            // const itemPrice = document.createElement('p');
+            // itemPrice.innerHTML = formatter.format(price);
+            // itemPrice.classList.add('single-ac-result-price')
 
             itemContainer.addEventListener('click', () => handleProductClick(itemContainer))
             
-            itemContainer.append(itemImage, itemTitle, itemPrice)
+            itemContainer.append(itemImage, itemTitle)
             singleAcResultContainer.append(itemContainer);
         })
     }else{
@@ -129,17 +129,19 @@ const allowOnlyNumbers = (e) => {
         e.preventDefault()
     }
 }
-singleAcMinimumPrice.addEventListener('keypress', (e) => allowOnlyNumbers(e))
-singleAcMaximumPrice.addEventListener('keypress', (e) => allowOnlyNumbers(e))
+// singleAcMinimumPrice.addEventListener('keypress', (e) => allowOnlyNumbers(e))
+// singleAcMaximumPrice.addEventListener('keypress', (e) => allowOnlyNumbers(e))
 
 const handleSingleAcSearch = async () => {
+    console.log("object")
     singleAcLoader.classList.add('showLoader')
     try{
         singleACLoadMoreButton.style.display = "none";
         singleAcResultContainer.innerHTML = ""
-        let min = singleAcMinimumPrice.value || 0;
-        let max = singleAcMaximumPrice.value || 9999999;
+        let min =  0;
+        let max = 9999999;
         let usage = singleAcSelect.value
+        
 
         let response = await fetch(`${searchProductsEndpoint}?minprice=${min}&maxprice=${max}&usage=${usage}`, {
             method:'GET',

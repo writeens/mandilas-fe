@@ -49,15 +49,15 @@ const createAC = (obj) => {
     // Container for Price and Discount
     let priceContainer = document.createElement('div')
     // Price
-    let price = document.createElement('p');
-    price.innerHTML = formatter.format(parseInt(obj.price))
+    // let price = document.createElement('p');
+    // price.innerHTML = formatter.format(parseInt(obj.price))
 
     // Append
-    priceContainer.append(price);
+    // priceContainer.append(price);
     contentCard.append(image);
     contentCard.append(title);
     contentCard.setAttribute('data-id', obj.productID)
-    contentCard.append(priceContainer);
+    // contentCard.append(priceContainer);
     contentCard.addEventListener('click', () => handleProductClick(contentCard) )
 
     // Add to full list
@@ -165,8 +165,8 @@ const handleSearch = async () => {
         mainACLoadMoreButton.style.display = "none";
         productList.innerHTML = "";
         let acType = queryType.value;
-        let acMinimumPrice = minimumPrice.value || 0
-        let acMaximumPrice = maximumPrice.value || 9999999
+        let acMinimumPrice = 0
+        let acMaximumPrice = 9999999
         let response = await fetch(`${searchProductsEndpoint}?minprice=${acMinimumPrice}&maxprice=${acMaximumPrice}&usage=${acType}`, {
             method:'GET',
             headers:{

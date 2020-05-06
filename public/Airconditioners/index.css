@@ -454,6 +454,7 @@ p{
     flex-direction: column;
     width: 40%;
     padding: 5rem 3rem 3rem 3rem;
+    justify-content: center;
 }
 .ac-layer-1-content > p:first-child{
     font-weight: 600;
@@ -501,6 +502,7 @@ p{
 .ac-layer-1-image{
     display: flex;
     width: 60%;
+    height: 300px;
     align-items: center;
 }
 .ac-layer-1-image > img {
@@ -666,12 +668,12 @@ p{
     height: auto;
     position: relative;
     align-items: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
     cursor: pointer;
 }
 .ac-content-right-product >img {
     width: 350px;
-    height: 320px;
+    height: 250px;
     object-fit: contain;
 }
 .ac-content-right-product > .rec-name{
@@ -713,7 +715,8 @@ p{
     padding: 1rem;
     cursor: pointer;
     width: 350px;
-    height: 400px;
+    /* height: 400px; */
+    height: fit-content;
     display: flex;
     border-radius: 0.2rem;
     flex-direction: column;
@@ -723,7 +726,7 @@ p{
 }
 .ac-content-bottom-card > img {
     width: 300px;
-    height: 300px;
+    height: 250px;
     object-fit: contain;
 }
 .ac-content-bottom-card > p:nth-child(2){
@@ -731,6 +734,7 @@ p{
     font-size: 1.3rem;
     padding-left: 1rem;
     margin-bottom: 0.6rem;
+    margin-top: 0;
 }
 .ac-content-bottom-card > p:nth-child(3){
     padding-left: 1.1rem;
@@ -1141,7 +1145,8 @@ p{
 .single-ac-result-container-item {
     min-width: 30%;
     max-width: 250px;
-    height: 350px;
+    height: fit-content;
+    /* height: 350px; */
     margin: 0.5rem 0.5rem 1rem 0.5rem;
     display: flex;
     flex-direction: column;

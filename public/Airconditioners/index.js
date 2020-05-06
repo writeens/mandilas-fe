@@ -110,7 +110,7 @@ const createProductPage = async (id) => {
         const description = document.querySelector('.ac-content-left-layer-2 > p:last-of-type')
         const image = document.querySelector('.ac-layer-1-image > img')
         title.innerHTML = name;
-        itemPrice.innerHTML = formatter.format(price);
+        // itemPrice.innerHTML = formatter.format(price);
         description.innerHTML = text;
         image.src = imageUrl;
 
@@ -153,16 +153,16 @@ const createAC = (obj) => {
     // Container for Price and Discount
     let priceContainer = document.createElement('div')
     // Price
-    let price = document.createElement('p');
-    price.innerHTML = formatter.format(parseInt(obj.price))
+    // let price = document.createElement('p');
+    // price.innerHTML = formatter.format(parseInt(obj.price))
 
     // Append
-    priceContainer.append(price);
+    // priceContainer.append(price);
     priceContainer.append(discount);
     contentCard.append(image);
     contentCard.append(title);
     contentCard.setAttribute('data-id', obj.productID)
-    contentCard.append(priceContainer);
+    // contentCard.append(priceContainer);
     contentCard.addEventListener('click', () => handleProductClick(contentCard) )
 
     // Add to full list
@@ -193,12 +193,12 @@ const populatePeopleAlsoViewed = (item) => {
     itemImage.src = imageUrl;
     const itemName = document.createElement('p');
     itemName.innerHTML = name;
-    const itemPrice = document.createElement('p');
-    itemPrice.innerHTML = formatter.format(price);
+    // const itemPrice = document.createElement('p');
+    // itemPrice.innerHTML = formatter.format(price);
 
     //Append Items
     // ratingContainer.append(ratingImage, ratingNumber);
-    itemCard.append(itemImage, itemName, itemPrice);
+    itemCard.append(itemImage, itemName);
     itemCard.setAttribute('data-id', productID);
 
     itemCard.addEventListener('click', () => handleProductClick(itemCard))
@@ -230,15 +230,15 @@ const populateRecommendedItems = (item) => {
     let productName = document.createElement('p');
     productName.innerHTML = name;
     productName.classList.add('rec-name')
-    let productPrice = document.createElement('p');
-    productPrice.innerHTML = formatter.format(price);
-    productPrice.classList.add('rec-price');
+    // let productPrice = document.createElement('p');
+    // productPrice.innerHTML = formatter.format(price);
+    // productPrice.classList.add('rec-price');
 
     productCard.setAttribute('data-id', productID)
 
     productCard.addEventListener('click', () => handleProductClick(productCard))
     // Append
-    productCard.append(productImage, productName, productPrice);
+    productCard.append(productImage, productName);
     recommendedItemsContainer.append(productCard);
 }
 
@@ -374,9 +374,9 @@ const handleAddToCart = async () => {
     }
     let params = new URLSearchParams(window.location.search.substring(1))
     let id = params.get('id');
-    addToCartWithSignIn(id)
+    // addToCartWithSignIn(id)
 }
-singleProductAddToCart.addEventListener('click', handleAddToCart)
+// singleProductAddToCart.addEventListener('click', handleAddToCart)
 
 // Contact Us Feature on the single product page
 const singleProductContactUs = document.querySelector('#singleProductContactUs');

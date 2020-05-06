@@ -1,7 +1,7 @@
 /**DOM ELEMENTS & VARIABLES */
 let isUserLoggedIn = false;
 let USER_ID = ''
-const navbarCart = document.querySelectorAll('.cart-container');
+// const navbarCart = document.querySelectorAll('.cart-container');
 const navbarToggler = document.querySelector('#navbarToggler');
 const preAuth = document.querySelector('.pre-auth');
 const postAuth = document.querySelector('.post-auth');
@@ -314,7 +314,7 @@ const handleRegister = async () => {
             USER_ID = uid
 
             loader.classList.remove('showLoader')
-            await updateCartIcon();
+            // await updateCartIcon();
             infoText.innerHTML = `Hi ${firstName}, You have successfully registered`
             infoToast.classList.add('showInfoToast');
             setTimeout(() => {
@@ -399,7 +399,7 @@ const handleLogIn = async () => {
 
             loader.classList.remove('showLoader')
             console.log(window.location)
-            await updateCartIcon();
+            // await updateCartIcon();
             window.location.reload()
             // Show the Toast
             infoToast.classList.add('showInfoToast');
@@ -454,7 +454,7 @@ const handleNavbarLoad = async () => {
         postSignedInButtonContainer.style.display = 'flex';
         preSignedInButtonContainer.style.display = 'none';
         postSignedInButtonContainer.children[0].innerHTML = `Hello, ${user.firstName}`;
-        await updateCartIcon();
+        // await updateCartIcon();
     }else{
         postSignedInButtonContainer.style.display = 'none';
         preSignedInButtonContainer.style.display = 'flex';
@@ -495,12 +495,12 @@ navbarLogo.addEventListener('click', (e) => {
 })
 
 // User clicks on Cart
-navbarCart.forEach(item => {
-    const redirectToCart = () => {
-        window.location.href = `../Cart/index.html`;
-    }
-    item.addEventListener('click', redirectToCart)
-})
+// navbarCart.forEach(item => {
+//     const redirectToCart = () => {
+//         window.location.href = `../Cart/index.html`;
+//     }
+//     item.addEventListener('click', redirectToCart)
+// })
 
 //User clicks on his/her name
 const nameContainer = document.querySelector('#nameContainer');
