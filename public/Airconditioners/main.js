@@ -233,19 +233,19 @@ if(mainACLoadMoreButtonForQuery){
     })
 }
 
-/**Celebration Modal Control */
-const closeCelebrationAc = document.querySelector('#closeCelebrationAc');
-const celebrationModalAc = document.querySelector('.celebration-modal-ac')
-closeCelebrationAc.addEventListener('click', () => {
-    celebrationModalAc.style.display = "none";
-})
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        let data = sessionStorage.getItem('shownCelebrationAc')
-        if(data === null){
-            celebrationModalAc.style.display = "flex"
-            sessionStorage.setItem('shownCelebrationAc', 'true');
-        }
-    }, 5000);
-})
-/**Celebration Modal Control */
+// /**Celebration Modal Control */
+// const closeCelebrationAc = document.querySelector('#closeCelebrationAc');
+// const celebrationModalAc = document.querySelector('.celebration-modal-ac')
+// closeCelebrationAc.addEventListener('click', () => {
+//     celebrationModalAc.style.display = "none";
+// })
+// window.addEventListener('load', () => {
+//     setTimeout(() => {
+//         let data = sessionStorage.getItem('shownCelebrationAc')
+//         if(data === null){
+//             celebrationModalAc.style.display = "flex"
+//             sessionStorage.setItem('shownCelebrationAc', 'true');
+//         }
+//     }, 5000);
+// })
+// /**Celebration Modal Control */
