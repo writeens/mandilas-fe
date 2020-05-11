@@ -71,6 +71,13 @@ p{
 #mainAcCarousel .carousel-indicators .active{
     background-color: #129347 !important;
 }
+@media screen and (max-width: 950px){
+    .main-ac-header-content.one > *{
+        margin: 0rem 1rem 1rem 1rem;
+        z-index: 3;
+        text-align: justify;
+    }
+}
 /*Carousel Header For Cooling**/
 
 /* Main AC Page */
